@@ -1,0 +1,29 @@
+Usos comunes:
+
+para crear las tablas de la base de datos se utiliza el comando :
+php artisan migrate
+
+php artisan migrate:refresh
+
+
+para importar los datos :
+php artisan db:seed
+
+Pero antes recordar que hay que recargar las clases con : composer dump-autoload
+
+crear nuevas tablas:
+php artisan make:migration usuarios --create="users"
+
+Crear nuevo seeder:
+php artisan make:seeder UsersTableSeeder
+
+Crear controller:
+
+// Sin metodos
+php artisan make:controller ExampleController 
+// Con metodos
+php artisan make:controller ExampleController --resource
+
+
+Crear model:
+php artisan make:model User
