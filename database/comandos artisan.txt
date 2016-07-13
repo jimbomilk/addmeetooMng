@@ -1,5 +1,11 @@
 Usos comunes:
 
+para actualizar el composer
+composer self-update
+
+para actualizar las dependencias
+composer update
+
 para crear las tablas de la base de datos se utiliza el comando :
 php artisan migrate
 
