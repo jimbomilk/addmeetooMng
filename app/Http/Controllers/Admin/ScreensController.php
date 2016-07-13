@@ -18,14 +18,6 @@ class ScreensController extends Controller {
         //$this->beforeFilter('@init',['only'=>['show','edit','create','destroy']]);
     }
 
-    public function init(Route $route)
-    {
-        $parameter = $route->getParameter('screens');
-        if (isset ($parameter))
-        {
-            $this->screen = Screen::findOrFail($parameter);
-        }
-    }
 
 	/**
 	 * Display a listing of the resource.
