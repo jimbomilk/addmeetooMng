@@ -35,8 +35,9 @@ class User extends Authenticatable
 
 	public function profile()
 	{
-		return $this->hasOne('App\UserProfile');
+		return  $this->hasOne('App\UserProfile','user_id','id');
 	}
+
 
     public function activities()
     {
@@ -55,5 +56,11 @@ class User extends Authenticatable
     {
 
         return ($this->type == $type);
+    }
+
+    // SOCIAL MEDIA AUTH
+    public function social()
+    {
+        return $this->hasMany('App\Social');
     }
 }

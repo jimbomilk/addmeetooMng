@@ -18,7 +18,7 @@ class UsersController extends Controller {
     {
         parent::__construct();
         $this->middleware('auth');
-        $this->beforeFilter('@init',['only'=>['show','edit','destroy']]);
+        //$this->beforeFilter('@init',['only'=>['show','edit','destroy']]);
     }
 
     public function init(Route $route)

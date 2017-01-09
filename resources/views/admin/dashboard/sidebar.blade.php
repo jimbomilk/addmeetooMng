@@ -39,7 +39,7 @@
                     <li><a href="/admin/languages"><i class="fa fa-circle-o"></i> Languages</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="treeview active">
                 <a href="#">
                     <i class="fa fa-clock-o"></i>
                     <span>Auctions</span>
@@ -53,14 +53,14 @@
 
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview active">
                 <a href="#">
                     <i class="fa fa-line-chart"></i>
                     <span>Rankings</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview active">
                 <a href="#">
                     <i class="fa fa-video-camera"></i>
                     <span>TV SET</span><i class="fa fa-angle-left pull-right"></i>

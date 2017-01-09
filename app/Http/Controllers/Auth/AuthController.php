@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Social;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -37,7 +39,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**
@@ -68,5 +70,85 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+
+
+    public function getSocialRedirect( $provider )
+    {
+        $providerKey = \Config::get('services.' . $provider);
+        if(empty($providerKey))
+            return view('pages.status')
+                ->with('error','No such provider');
+        return Socialite::driver( $provider )->redirect();
+    }
+
+
+    public function getSocialHandle( $provider ) {
+        $user = Socialite::driver( $provider )->user();
+
+        $socialUser = null;
+
+        //Check is this email present
+        $userCheck = User::where('email', '=', $user->email)->first();
+        if(!empty($userCheck))
+        {
+            $socialUser = $userCheck;
+        }
+        else
+        {
+            $sameSocialId = Social::where('social_id', '=', $user->id)->where('provider', '=', $provider )->first();
+
+            if(empty($sameSocialId))
+            {
+                //There is no combination of this social id and provider, so create new one
+                $newSocialUser = new User;
+                $newSocialUser->email = $user->email;
+                $newSocialUser->name  = $user->name;
+                $newSocialUser->type  = 'user';
+                $newSocialUser->save();
+
+                $socialData = new Social;
+                $socialData->social_id = $user->id;
+                $socialData->provider= $provider;
+                $newSocialUser->social()->save($socialData);
+
+                // Add role
+                $role = Role::whereName('user')->first();
+                $newSocialUser->type = $role;
+
+                $socialUser = $newSocialUser;
+            }
+            else
+            {
+                //Load this existing social user
+                $socialUser = $sameSocialId->user;
+            }
+
+        }
+
+        auth()->login($socialUser, true);
+
+        if( auth()->user()->is('user'))
+        {
+            return redirect()->route('home');
+        }
+
+        if( auth()->user()->is('admin'))
+        {
+            return redirect()->route('admin..index');
+        }
+
+        return \App::abort(500);
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function getLogout()
+    {
+        auth()->logout();
+        \Session::flush();
+        return redirect('/admin');
     }
 }

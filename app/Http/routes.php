@@ -12,13 +12,24 @@
 */
 
 Route::controllers([
-	'auth' => '\App\Http\Controllers\Auth\AuthController',
-	'password' => '\App\Http\Controllers\Auth\PasswordController',
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
 ]);
 
-Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace' => '\Admin'],function(){
+
+
+$s = 'social.';
+Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\AuthController@getSocialRedirect']);
+Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\AuthController@getSocialHandle']);
+
+Route::get('logout', function () {return redirect('auth/logout');});
+
+Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=>'admin'],function(){
 
     Route::resource('/', 'AdminController');
+
+
+
 
     // ** ADMIN  **
     Route::resource('users', 'UsersController');
@@ -41,22 +52,22 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace' 
 });
 
 
-Route::get('/', function()
+Route::get ('home', function()
 {
     return "Welcome to ADDMEETOO";
-});
+})->name('home');
 
-
+/*
 Route::group(['prefix'=>'api','namespace' => '\Api'],function(){
 
-    /*Route::get('login', 'LoginController@loginWithTwitter');
+    //Route::get('login', 'LoginController@loginWithTwitter');
 
-    Route::get('activities', 'ApiController@indexActivities');
-    Route::get('auctions', 'ApiController@indexAuctions');
-    Route::get('auction/{id}', 'ApiController@indexAuction');
-    Route::get('auctionbid/{id}', 'ApiController@updateAuction');
-*/
-    Route::get('persons', 'ApiController@persons');
+    //Route::get('activities', 'ApiController@indexActivities');
+    //Route::get('auctions', 'ApiController@indexAuctions');
+    //Route::get('auction/{id}', 'ApiController@indexAuction');
+    //Route::get('auctionbid/{id}', 'ApiController@updateAuction');
+    //  Route::get('persons', 'ApiController@persons');
 
 
-});
+});*/
+

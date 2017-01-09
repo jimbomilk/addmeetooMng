@@ -12,4 +12,9 @@ class UserProfile extends Model {
 		return \Carbon\Carbon::parse($this->birth_date)->age;
 	}
 
+    public function user()
+    {
+        return $this->belongsTO('App\User', 'user_id', 'id');
+    }
+
 }

@@ -3,6 +3,7 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
+
 abstract class IsType {
 
     public function __construct(Guard $auth)

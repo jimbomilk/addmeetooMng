@@ -15,7 +15,7 @@ class BidsController extends Controller {
 
         parent::__construct();
         $this->middleware('auth');
-        $this->beforeFilter('@init',['only'=>['show','edit','create','destroy']]);
+        //$this->beforeFilter('@init',['only'=>['show','edit','create','destroy']]);
     }
 
     public function init(Route $route)

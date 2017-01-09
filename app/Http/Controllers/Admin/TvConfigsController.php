@@ -52,7 +52,8 @@ class TvConfigsController extends Controller {
 	 */
 	public function create()
 	{
-        return view('admin.common.create',['name'=>'tvconfigs']);
+        $locations = Location::lists('name','id')->all();
+        return view('admin.common.create',['name'=>'tvconfigs', 'locations' => $locations]);
 	}
 
 	/**
