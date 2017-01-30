@@ -17,12 +17,24 @@ class Location extends Migration {
 			$table->increments('id');
             $table->string('name');
 
-            $table->integer('owner')->unsigned();
-            $table->foreign('owner')
+            $table->integer('owner_id')->unsigned();
+            $table->foreign('owner_id')
                 ->references('id')
                 ->on('users');
+
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('logo');
+            $table->string('slogan');
+
+            $table->string('street',    60);
+            $table->string('city',      60);
+            $table->string('state',     60);
+            $table->string('post_code', 10);
+            $table->integer('country_id')->unsigned()->index();
+            $table->string('phone',    16);
+            $table->string('email',    60);
+            $table->string('website', 100);
 
 			$table->timestamps();
 		});

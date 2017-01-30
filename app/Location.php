@@ -9,14 +9,24 @@ class location extends Model {
     protected $fillable = ['name'];
 
 
-    public function positions()
+    public function screens()
     {
-        return $this->hasMany('App\LocationPosition');
+        return $this->hasMany('App\Screen');
     }
-    
+
     public function getGeolocationAttribute()
     {
         return $this->latitude . ','. $this->longitude;
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\User','owner_id','id');
+    }
+
+    public function gameboards()
+    {
+        return $this->hasmany('App\Gameboard');
     }
 
 }

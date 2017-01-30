@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Gameboard;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Activity;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -23,7 +25,10 @@ class AdminController extends Controller
 
     public function index()
     {
-        $activityNumber = Activity::all()->count();
+        if (Auth::user()->is('admin'))
+            $activityNumber = Activity::all()->count();
+        else
+            $activityNumber = Auth::user()->gameboards()->count();
 
 
 		return view('admin.dashboard.main',['activityNumber'=>$activityNumber]);

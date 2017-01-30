@@ -32,42 +32,65 @@
                 </a>
 
                 <ul class="treeview-menu">
-                    <li><a href="/admin/activities"><i class="fa fa-circle-o"></i> Activities</a></li>
-                    <li><a href="/admin/categories"><i class="fa fa-circle-o"></i> Categories</a></li>
-                    <li><a href="/admin/locations"><i class="fa fa-circle-o"></i> Locations</a></li>
-                    <li><a href="/admin/positions"><i class="fa fa-circle-o"></i> Positions</a></li>
-                    <li><a href="/admin/languages"><i class="fa fa-circle-o"></i> Languages</a></li>
+                    @if ($login_user->is('admin'))
+                    <li><a href="/admin/users"><i class="fa fa-users"></i> Users</a></li>
+                    @endif
+
+                    <li><a href="/{{$login_user->type}}/locations"><i class="fa fa-building-o"></i> Locations</a></li>
+                    <li><a href="/{{$login_user->type}}/advertisements"><i class="fa fa-bullhorn"></i> Advertisements</a></li>
+                </ul>
+            </li>
+
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-delicious"></i> <span>Games</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+
+                <ul class="treeview-menu">
+                    @if ($login_user->is('admin'))
+                        <li><a href="/admin/activities"><i class="fa fa-universal-access"></i>Activities</a></li>
+                    @endif
+                    <li><a href="/{{$login_user->type}}/gameboards"><i class="fa fa-delicious"></i>Game Boards</a></li>
+                    <li><a href="/{{$login_user->type}}/usergameboards"><i class="fa fa-gamepad"></i>Game Users</a></li>
+                </ul>
+            </li>
+
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-line-chart"></i> <span>Rankings</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+
+                <ul class="treeview-menu">
+                    <li><a href="/{{$login_user->type}}/rankinglocal"><i class="fa fa-line-chart"></i> Global Ranking</a></li>
+                    <li><a href="/{{$login_user->type}}/rankingsport"><i class="fa fa-futbol-o"></i> Sports Ranking</a></li>
+                    <li><a href="/{{$login_user->type}}/rankinggame"><i class="fa fa-delicious"></i> Gamming Ranking</a></li>
+                    <li><a href="/{{$login_user->type}}/rankingparty"><i class="fa fa-smile-o"></i> Party Ranking</a></li>
+                    <li><a href="/{{$login_user->type}}/rankingshopping"><i class="fa fa-shopping-cart"></i> Shopping Ranking</a></li>
                 </ul>
             </li>
             <li class="treeview active">
                 <a href="#">
-                    <i class="fa fa-clock-o"></i>
+                    <i class="fa fa-gavel"></i>
                     <span>Auctions</span>
                     <small class="label pull-right bg-green">new</small>
 
 
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/admin/items"><i class="fa fa-circle-o"></i> Items</a></li>
-                    <li><a href="/admin/auctions"><i class="fa fa-circle-o"></i> Active Auctions</a></li>
+                    <li><a href="/{{$login_user->type}}/items"><i class="fa fa-diamond"></i> Items</a></li>
+                    <li><a href="/{{$login_user->type}}/auctions"><i class="fa fa-clock-o"></i> Active Auctions</a></li>
 
                 </ul>
             </li>
-            <li class="treeview active">
-                <a href="#">
-                    <i class="fa fa-line-chart"></i>
-                    <span>Rankings</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-            </li>
+
             <li class="treeview active">
                 <a href="#">
                     <i class="fa fa-video-camera"></i>
-                    <span>TV SET</span><i class="fa fa-angle-left pull-right"></i>
+                    <span>Screens</span><i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/admin/tvconfigs"><i class="fa fa-circle-o"></i> Config</a></li>
-                    <li><a href="/admin/screens"><i class="fa fa-circle-o"></i> Screens</a></li>
+                    <li><a href="/{{$login_user->type}}/tvconfigs"><i class="fa fa-circle-o"></i> Config</a></li>
+                    <li><a href="/{{$login_user->type}}/tvlive"><i class="fa fa-circle-o"></i> Status</a></li>
 
                 </ul>
             </li>

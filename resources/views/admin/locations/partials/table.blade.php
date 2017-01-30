@@ -1,18 +1,23 @@
 <table class="table table-striped">
     <tr>
-        <th>#</th>
+        <th>Logo</th>
         <th>Name</th>
-        <th>Map</th>
-        <th>Actions</th>
+        <th>Country</th>
+        <th>City</th>
+        <th></th>
+        <th></th>
     </tr>
     @foreach($set as $location)
         <tr data-id="{{$location->id}}">
-            <td>{{$location->id}}</td>
+            <td>{{$location->logo}}</td>
             <td>{{$location->name}}</td>
-            <td><a href="http://www.google.com/maps/place/{{$location->geolocation}}">map</a> </td>
+            <td>{{$location->country}}</td>
+            <td>{{$location->city}}</td>
             <td>
-                <a href="{{ route('admin.locations.edit', $location) }}" class="btn-edit">Edit</a>
-                <a href="#!" class="btn-delete">Delete</a>
+                <a href="{{ route("$login_user->type.locations.edit", $location) }}" class="btn-edit"><i class="fa fa-pencil"></i></a>
+            </td>
+            <td>
+                <a href="#!" class="btn-delete"><i class="fa fa-trash-o"></i></a>
             </td>
         </tr>
     @endforeach

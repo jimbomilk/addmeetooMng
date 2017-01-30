@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 class Activity extends Migration {
 
 	/**
-	 * Run the migrations.
+	 * Activity : generic activity defining the basic information required to make new activities
 	 *
 	 * @return void
 	 */
@@ -16,39 +16,15 @@ class Activity extends Migration {
 		{
 			$table->increments('id');
             $table->string('name',100);
-
             $table->longText('description');
-            $table->enum('state',['ready','running','cancelled','finished'])->default('ready');
-            $table->datetime('start')->nullable(); //fecha y hora de comienzo (dd/mm/yyyy hh:mm)
-
-            $table->datetime('ending')->nullable(); //finish time en minutes
-
-            $table->enum('grouping',['one','pairs','trios']); // one, pairs, trios...
-            $table->enum('selection',['random','best']); // randon , best
-            $table->enum('point_system',['bypoints','bytime']); // by points or by time
-            $table->enum('how',['byposition','bypairing']); // position control or NFC pairing
-            $table->integer('category_id')->unsigned(); // where
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
-
-            $table->integer('location_id')->unsigned(); // where
-            $table->foreign('location_id')
-                ->references('id')
-                ->on('locations')
-                ->onDelete('cascade');
-
-
-            $table->integer('location_position_id')->unsigned(); // where
-            $table->foreign('location_position_id')
-                ->references('id')
-                ->on('location_positions')
-                ->onDelete('cascade');
-
-
-            $table->integer('duration')->unsigned(); // in minutes
-			$table->timestamps();
+            $table->datetime('starttime')->nullable(); //fecha y hora de comienzo (dd/mm/yyyy hh:mm)
+            $table->datetime('endtime')->nullable(); //fecha y hora del fin
+            $table->datetime('deadline')->nullable(); // subscription deadline
+            $table->enum('type',['vote','bet','game']); // tipo de actividad
+            $table->enum('category',['sports','shopping','motor','party']); // where
+            $table->boolean('head2head')->default(false);
+            $table->integer('selection')->default(3);
+            $table->timestamps();
 		});
 	}
 

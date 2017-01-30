@@ -139,6 +139,7 @@ class AuthController extends Controller
             return redirect()->route('admin..index');
         }
 
+
         return \App::abort(500);
     }
 

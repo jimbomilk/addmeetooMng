@@ -6,22 +6,16 @@ class Activity extends Model {
 
     protected $table = 'activities';
 
-    protected $fillable = ['name', 'grouping', 'selection', 'point_system','how','category_id','location_id','location_position_id','duration'];
+    protected $fillable = ['selection'];
 
-
-    public function category()
+    public function activityOptions()
     {
-        return $this->belongsTo('App\Category');
+        return $this->hasMany('App\ActivityOption');
     }
 
-
-    public function location()
+    public function gameboards()
     {
-        return $this->belongsTo('App\Location');
+        return $this->hasMany('App\Gameboard');
     }
 
-    public function locationPosition()
-    {
-        return $this->belongsTo('App\LocationPosition');
-    }
 }

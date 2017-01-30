@@ -15,27 +15,16 @@ class Screen extends Migration {
         Schema::create('screens', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('order')->unsigned();
-            
-            $table->enum('type',['top_rank','activity_rank','messages','advertisement']);
+            $table->string('description');
 
-            $table->enum('state',['on','off'])->default('on');
+            $table->string('latitude');
+            $table->string('longitude');
 
-            $table->string('ad_text')->nullable();
-            $table->string('ad_img')->nullable();
-
-            $table->integer('activity_id')->unsigned()->nullable();
-            $table->foreign('activity_id')
+            $table->integer('location_id')->unsigned()->nullable();
+            $table->foreign('location_id')
                 ->references('id')
-                ->on('activities');
+                ->on('locations');
 
-
-            $table->integer('tvconfig_id')->unsigned();
-            $table->foreign('tvconfig_id')
-                ->references('id')
-                ->on('tvconfigs');
-			
 			$table->timestamps();
         });
 	}

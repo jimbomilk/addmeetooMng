@@ -6,16 +6,12 @@ class Screen extends Model {
 
     protected $table = 'screens';
 
-    protected $fillable = ['name','order','type','state','ad_text','ad_image','activity_id','tvconfig_id'];
+    protected $guarded = ['location_id'];
 
 
-    public function activity()
+    public function location()
     {
-        return $this->belongsTo('App\Activity');
+        return $this->belongsTo('App\Location','location_id','id');
     }
 
-    public function tvconfig()
-    {
-        return $this->belongsTo('App\TvConfig');
-    }
 }

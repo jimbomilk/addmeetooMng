@@ -4,11 +4,11 @@
 @section ('dashboard_header')
     <section class="content-header">
         <h1>
-            Management
+            <i class="fa {{trans('design.'.$name)}}"></i>
             <small>{{ ucfirst($name) }}</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/{{$login_user->type}}"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">{{ $name }}</li>
         </ol>
     </section>
@@ -37,7 +37,7 @@
                         {!! Form::close() !!}
 
                         <p>
-                            <a class="btn btn-info" href="{{ route("admin.$name.create") }}" role="button">
+                            <a class="btn btn-info" href="{{ route("$login_user->type.$name.create") }}" role="button">
                                 New
                             </a>
                         </p>
@@ -45,7 +45,7 @@
                         @include("admin.$name.partials.table")
 
 
-                        {!!$set->render()!!}
+
 
                     </div>
                 </div>

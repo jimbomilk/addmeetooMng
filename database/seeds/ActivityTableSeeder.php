@@ -18,6 +18,93 @@ class ActivityTableSeeder extends Seeder {
 
     
 
+    public function newActivity($location,$name,$description,$type,$category,$head2head,$selection,$progression_type,$options)
+    {
+
+        $faker = Faker::create();
+
+        $start = $faker->dateTimeBetween('+10 hour','+20 hour');
+        $ending = Carbon::createFromTimeStamp($start->getTimestamp());
+        $duration = $faker->numberBetween(10,40);
+        $ending->addMinutes($duration);
+        $deadline = $faker->dateTimeBetween('+1 hour','+10 hour');
+
+        //***********************************************************************************
+        //Activity
+        $activity_id = \DB::table('activities')->insertGetId( array(
+
+            'name'                  => $name,
+            'description'           => $description,
+            'starttime'             => $start,
+            'endtime'               => $ending,
+            'deadline'              => $deadline,
+            'type'                  => $type,
+            'category'              => $category,
+            'head2head'             => $head2head,
+            'selection'             => $selection
+
+        ) );
+
+        //Gameboard
+        $gameboard_id =  \DB::table('gameboards')->insertGetId( array(
+
+            'name'                  => $name,
+            'description'           => $description,
+            'starttime'             => $start,
+            'endtime'               => $ending,
+            'deadline'              => $deadline,
+            'selection'             => $selection,
+            'progression_type'      => $progression_type,
+            'activity_id'           => $activity_id,
+            'location_id'           => $location,
+            'selection'             => $selection
+
+        ) );
+
+
+        //Cogemos un usuario aleatorio
+        $users = \DB::table('users')->where('type', '=', 'user' );
+        $iduser = $faker->randomElement($users->lists('id'));
+
+        // Creamos GameboardUser
+
+        $gameboard_user = \DB::table('user_gameboards')->insertGetId( array(
+            'gameboard_id'          => $gameboard_id,
+            'user_id'               => $iduser,
+        ) );
+
+        $i=0;
+        foreach ($options as $aux)
+        {
+            $i++;
+            $activity_option = \DB::table('activity_options')->insertGetId( array(
+
+                'order'                 => $i,
+                'description'           => $aux,
+                'image'                 => $faker->imageUrl($width = 640, $height = 480),
+                'activity_id'           => $activity_id
+            ) );
+
+            $gameboard_option = \DB::table('gameboard_options')->insertGetId( array(
+
+                'order'                 => $i,
+                'description'           => $aux,
+                'image'                 => $faker->imageUrl($width = 640, $height = 480),
+                'gameboard_id'          => $gameboard_id,
+                'activity_option_id'    => $activity_option
+            ) );
+
+            $gameboard_user_option  = \DB::table('user_gameboard_options')->insertGetId( array(
+                'user_gameboard_id'     => $gameboard_user,
+                'value'                 => $faker->numberBetween(0,12)
+
+            ) );
+
+
+        }
+    }
+
+
     public function run()
     {
 
@@ -26,77 +113,134 @@ class ActivityTableSeeder extends Seeder {
         $idlocation = null;
         $idposition= null;
 
-        for ($i = 0; $i < 3; $i ++)
+
+        $owners = \DB::table('users')->where('type', '=', 'owner' );
+        $idowner = $faker->randomElement($owners->lists('id'));
+
+        $idlocation1 = \DB::table('locations')->insertGetId( array(
+            'name'          => 'Disco Madrid80',
+            'owner_id'         => $idowner,
+            'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
+            'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+        ));
+
+        for($i=0;$i<4;$i++)
         {
+            $idscreen = \DB::table('screens')->insertGetId( array(
 
-            $idcategory = \DB::table('categories')->insertGetId( array(
-                'code'          => $faker->word(),
-                'description'   => $faker->sentence(),
-                'gender'        => $faker->randomElement(['male','female','mixed']),
-                'minAge'        => $faker->numberBetween(15,25),
-                'maxAge'        => $faker->numberBetween(26,65)
-            ));
-
-            $owners = \DB::table('users')->where('type', '=', 'owner' );
-            $idowner = $faker->randomElement($owners->lists('id'));
-
-            $idlocation = \DB::table('locations')->insertGetId( array(
-                'name'          => $faker->word(),
-                'owner'         => $idowner,
+                'description'   => 'TV_' + $faker->text(20),
                 'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
                 'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+                'location_id'   => $idlocation1
             ));
+        }
 
-            $start = $faker->dateTimeBetween('-1 hour','+1 hour');
-            $ending = Carbon::createFromTimeStamp($start->getTimestamp());
-            $now = Carbon::now(new DateTimeZone(Config::get('app.timezone')));
-            $duration = $faker->numberBetween(10,40);
-            $ending->addMinutes($duration);
+        $idlocation2 = \DB::table('locations')->insertGetId( array(
+            'name'          => 'Bar Pepe',
+            'owner_id'         => $idowner,
+            'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
+            'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+        ));
 
-            if ($now>$ending)
-                $status = 'finished';
-            elseif ($now>$start && $now<$ending)
-                $status = 'running';
-            else $status = 'ready';
+        for($i=0;$i<2;$i++)
+        {
+            $idscreen = \DB::table('screens')->insertGetId( array(
 
-            for ($j = 0; $j < 3; $j ++)
+                'description'   => 'TV_' + $faker->text(20),
+                'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
+                'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+                'location_id'   => $idlocation2
+            ));
+        }
+
+        $idlocation3 = \DB::table('locations')->insertGetId( array(
+            'name'          => 'Xanadu Shopping Mall',
+            'owner_id'      => $idowner,
+            'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
+            'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+        ));
+
+        for($i=0;$i<10;$i++)
+        {
+            $idscreen = \DB::table('screens')->insertGetId( array(
+
+                'description'   => 'TV_' + $faker->text(20),
+                'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
+                'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+                'location_id'   => $idlocation3
+            ));
+        }
+
+        $start = $faker->dateTimeBetween('+10 hour','+20 hour');
+        $ending = Carbon::createFromTimeStamp($start->getTimestamp());
+        $now = Carbon::now(new DateTimeZone(Config::get('app.timezone')));
+        $duration = $faker->numberBetween(10,40);
+        $ending->addMinutes($duration);
+        $deadline = $faker->dateTimeBetween('+1 hour','+10 hour');
+
+
+        if ($now>$ending)
+            $status = 'finished';
+        elseif ($now>$start && $now<$ending)
+            $status = 'running';
+        else $status = 'ready';
+
+
+        //Voting activity
+        //***********************************************************************************
+        //Activity
+
+        $options = array('spain','france','russia','netherland','italy','swiss','portugal','great britain',
+            'germany','belgium','israel','turkey','greece','lituania','slovenia','chipre','andorra');
+
+        $this->newActivity($idlocation1,'Eurovision','Elige tu canción favorita','vote','party',false,12,'ordered',$options);
+
+
+        //Betting Activity
+        //***********************************************************************************
+        $options = array('Real Madrid','Barcelona');
+        $this->newActivity($idlocation2,'El Partidazo','Introduce el resultado','bet','sports',true,0,'ordered',$options);
+
+        //Game Activity
+        //***********************************************************************************
+        $options = array('que rio pasa por madrid?','done esta la mpntaña más alta de españa?','quien inventó la bombilla?','Como se llama el rey de españa?','donde esta la sagrada familia?','quien es cristiano ronaldo?', 'que pais gano eurovision el año pasado?', 'quien es maradona?', 'donde se celebro el mundial del 82?');
+        $this->newActivity($idlocation3,'Gymkana','Busqueda del tesoro','game','party',false,0,'random',$options);
+
+
+
+        /*for ($j = 0; $j < 3; $j ++)
+        {
+
+            for ($k = 0; $k < 5; $k ++)
             {
 
-                $idposition = \DB::table('location_positions')->insertGetId( array(
-                    'description'       => $faker->word(),
-                    'barcode'           => $faker->ean13(),
-                    'location_id'       => $idlocation
+                $id = \DB::table('activities')->insertGetId( array(
 
-                ));
+                    'name'                  => $faker->word(),
 
-                for ($k = 0; $k < 5; $k ++)
-                {
+                    'description'           => $faker->text(200),
+                    'start'                 => $start,
+                    'state'                 => $status,
+                    'duration'              => $duration,
+                    'ending'                => $ending,
 
-                    $id = \DB::table('activities')->insertGetId( array(
-
-                        'name'                  => $faker->word(),
-
-                        'description'           => $faker->text(200),
-                        'start'                 => $start,
-                        'state'                 => $status,
-                        'duration'              => $duration,
-                        'ending'                => $ending,
-
-                        'selection'             => $faker->randomElement(['random','best']),
-                        'point_system'          => $faker->randomElement(['bypoint','bytime']),
-                        'how'                   => $faker->randomElement(['byposition','bypairing']),
-                        'category_id'           => $idcategory,
-                        'location_id'           => $idlocation,
-                        'location_position_id'  => $idposition,
-                        'duration'              => $faker->numberBetween(5,720)
-                    ) );
+                    'selection'             => $faker->randomElement(['random','best']),
+                    'point_system'          => $faker->randomElement(['bypoint','bytime']),
+                    'how'                   => $faker->randomElement(['byposition','bypairing']),
+                    'category_id'           => $idcategory,
+                    'location_id'           => $idlocation,
+                    'location_position_id'  => $idposition,
+                    'duration'              => $faker->numberBetween(5,720)
+                ) );
 
 
-
-                }
 
             }
+
         }
+
+        */
+
 
 
 

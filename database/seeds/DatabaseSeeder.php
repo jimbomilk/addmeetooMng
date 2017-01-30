@@ -20,33 +20,28 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
         $this->call('ActivityTableSeeder');
         $this->call('AuctionTableSeeder');
-        $this->call('TvTableSeeder');
-        $this->call('PersonTableSeeder');
-        
+
 	}
 
     public function truncateTables()
     {
         $tables = array(
+                'user_gameboard_options',
+                'user_gameboards',
+                'gameboard_options',
+                'gameboards',
+                'activity_options',
                 'activities',
                 'auctions',
                 'bidders',
                 'bids',
-                'categories',
-                'category_features',
-                'descriptions',
                 'items',
                 'languages',
                 'locations',
-                'location_positions' ,
                 'password_resets',
                 'screens',
-                'tvconfigs',
                 'users',
-                'user_activities',
-                'user_activity_results',
                 'user_profiles',
-                'persons',
         );
 
         $this->dbForeign(false);

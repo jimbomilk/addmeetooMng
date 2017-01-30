@@ -7,6 +7,9 @@ use App\Http\Requests\LocationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use GeneaLabs\Phpgmaps\Facades\Phpgmaps;
+use Illuminate\Support\Facades\Auth;
+
+
 
 
 class LocationsController extends Controller {
@@ -21,7 +24,7 @@ class LocationsController extends Controller {
     {
         parent::__construct();
         $this->middleware('auth');
-        
+
     }
 
  
@@ -29,7 +32,11 @@ class LocationsController extends Controller {
 
     public function index()
 	{
-        $locations = Location::paginate();
+        if (Auth::user()->is('admin'))
+            $locations = Location::paginate();
+        else
+            $locations = Location::where('owner_id','=',Auth::user()->id) ->paginate();
+
         return view ('admin.common.index',['name'=>'locations','set'=>$locations]);
 	}
 
@@ -48,9 +55,12 @@ class LocationsController extends Controller {
     {
 
         $location = new Location($request->all());
+
+        $location->owner_id = Auth::user()->id;
+
         $location->save();
 
-        return redirect()->route('admin.locations.index');
+        return redirect()->route(Auth::user()->type.".locations.index");
     }
 
 

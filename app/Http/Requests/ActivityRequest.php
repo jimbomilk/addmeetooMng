@@ -24,13 +24,6 @@ class ActivityRequest extends Request {
 	{
 		return [
             'name'                      => 'required',
-            'grouping'                  => 'required',
-            'selection'                 => 'required',
-            'point_system'              => 'required',
-            'how'                       => 'required',
-            'category_id'               => 'required',
-            'location_id'               => 'required',
-            'location_position_id'      => 'required'
 		];
 	}
 

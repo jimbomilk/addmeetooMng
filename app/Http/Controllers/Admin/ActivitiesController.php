@@ -18,7 +18,6 @@ class ActivitiesController extends Controller {
 
         parent::__construct();
         $this->middleware('auth');
-        //$this->beforeFilter('@init',['only'=>['show','edit','create','destroy']]);
     }
 
     
@@ -31,10 +30,7 @@ class ActivitiesController extends Controller {
 	public function index()
 	{
         $activities = Activity::paginate();
-
         return view ('admin.common.index',['name'=>'activities','set'=>$activities]);
-
-
 	}
 
 	/**
@@ -44,11 +40,7 @@ class ActivitiesController extends Controller {
 	 */
 	public function create()
 	{
-        $categories = $this->categories;
-        $locations = $this->locations;
-        $positions = $this->positions;
-
-        return view('admin.common.create',['name'=>'activities','categories' => $categories, 'locations' => $locations,'positions' => $positions ]);
+        return view('admin.common.create',['name'=>'activities']);
 	}
 
 	/**
@@ -72,7 +64,13 @@ class ActivitiesController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        $activity = Activity::findOrFail($id);
+
+        if (isset ($activity))
+        {
+            $options = $activity->activityOptions()->paginate();
+            return view('admin.common.index',['name'=>'activity_options','set' => $options]);
+        }
 	}
 
 	/**
@@ -87,12 +85,7 @@ class ActivitiesController extends Controller {
           
         if (isset ($activity))
         {
-            $categories = Category::lists('code','id')->all();
-            $locations = Location::lists('name','id')->all();
-            $positions = LocationPosition::lists('description','id')->all();
-
-
-            return view('admin.common.edit',['name'=>'activities','element' => $activity, 'categories' => $categories, 'locations' => $locations,'positions' => $positions ]);
+            return view('admin.common.edit',['name'=>'activities','element' => $activity]);
         }
 
 	}

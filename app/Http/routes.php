@@ -24,20 +24,22 @@ Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' =
 
 Route::get('logout', function () {return redirect('auth/logout');});
 
+// PARA ADMIN
 Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=>'admin'],function(){
 
     Route::resource('/', 'AdminController');
 
 
-
-
     // ** ADMIN  **
     Route::resource('users', 'UsersController');
-    Route::resource('categories', 'CategoriesController');
     Route::resource('locations', 'LocationsController');
-    Route::resource('positions', 'PositionsController');
+    Route::resource('advertisements', 'AdvertisementController');
+
+    // ** GAMES  **
     Route::resource('activities', 'ActivitiesController');
-    Route::resource('languages', 'LanguagesController');
+    Route::resource('activity_options', 'ActivityOptionsController');
+    Route::post('activity_options/fastUpdate/{id}', ['as' => 'activity_options/fastUpdate', 'uses' => 'ActivityOptionsController@fastUpdate']);
+    Route::resource('gameboards', 'GameboardsController');
 
 
     // ** AUCTIONS **
@@ -48,6 +50,27 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     // ** TV SET **
     Route::resource('tvconfigs', 'TvConfigsController');
     Route::resource('screens', 'ScreensController');
+
+});
+
+
+Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=>'admin'],function(){
+
+    Route::resource('/', 'AdminController');
+
+    // ** LOCATIONS**
+    Route::resource('locations', 'LocationsController');
+    Route::resource('advertisements', 'AdvertisementController');
+
+    // ** GAMES  **
+    Route::resource('gameboards', 'GameboardsController');
+
+
+    // ** AUCTIONS **
+
+
+    // ** SCREENS **
+
 
 });
 
