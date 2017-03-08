@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,6 +12,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+
+
+// CORS
+//header('Access-Control-Allow-Origin: http://localhost:4200');
+//header('Access-Control-Allow-Credentials: true');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -33,13 +42,17 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     // ** ADMIN  **
     Route::resource('users', 'UsersController');
     Route::resource('locations', 'LocationsController');
-    Route::resource('advertisements', 'AdvertisementController');
+    //Route::resource('advertisements', 'AdvertisementController');
 
     // ** GAMES  **
     Route::resource('activities', 'ActivitiesController');
     Route::resource('activity_options', 'ActivityOptionsController');
-    Route::post('activity_options/fastUpdate/{id}', ['as' => 'activity_options/fastUpdate', 'uses' => 'ActivityOptionsController@fastUpdate']);
+    Route::post('activity_options/fastUpdate/{id}', ['as' => 'activity_option_fast', 'uses' => 'ActivityOptionsController@fastUpdate']);
+
+
     Route::resource('gameboards', 'GameboardsController');
+    Route::resource('gameboard_options', 'GameboardOptionsController');
+    Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
 
 
     // ** AUCTIONS **
@@ -60,7 +73,7 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 
     // ** LOCATIONS**
     Route::resource('locations', 'LocationsController');
-    Route::resource('advertisements', 'AdvertisementController');
+    //Route::resource('advertisements', 'AdvertisementController');
 
     // ** GAMES  **
     Route::resource('gameboards', 'GameboardsController');
@@ -75,22 +88,41 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 });
 
 
+
 Route::get ('home', function()
 {
     return "Welcome to ADDMEETOO";
 })->name('home');
 
-/*
-Route::group(['prefix'=>'api','namespace' => '\Api'],function(){
+
+
+Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api'],function(){
 
     //Route::get('login', 'LoginController@loginWithTwitter');
+    Route::post('authenticate','ApiController@authenticate');
+    Route::post('screens/{location_id}/{screen_id}','ApiController@screens');
 
-    //Route::get('activities', 'ApiController@indexActivities');
+
     //Route::get('auctions', 'ApiController@indexAuctions');
     //Route::get('auction/{id}', 'ApiController@indexAuction');
     //Route::get('auctionbid/{id}', 'ApiController@updateAuction');
     //  Route::get('persons', 'ApiController@persons');
 
+    Route::get('images/{filename}', function ($filename)
+    {
+        $path = storage_path() . '/' . $filename;
 
-});*/
+        if(!File::exists($path)) abort(404);
+
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    });
+
+
+});
 

@@ -3,6 +3,7 @@
         <th>Name</th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
     @foreach($set as $activity)
         <tr data-id="{{$activity->id}}">
@@ -15,7 +16,9 @@
                 <a href="{{ route('admin.activities.show', $activity) }}" class="btn-edit"><i class="fa fa-list-ul"></i></a>
             </td>
             <td>
-                <a href="#!" class="btn-delete"><i class="fa fa-trash-o"></i></a>
+                {!! Form::open(['method' => 'DELETE','route' => ['admin.activities.destroy', $activity],'style'=>'display:inline']) !!}
+                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                {!! Form::close() !!}
             </td>
         </tr>
     @endforeach

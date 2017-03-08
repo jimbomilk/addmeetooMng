@@ -44,6 +44,9 @@ class User extends Authenticatable
 
     public function locations()
     {
+        if ($this->type == 'admin')
+            return Location::all();
+
         return $this->hasMany('App\Location','owner_id','id');
     }
 

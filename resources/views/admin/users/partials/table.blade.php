@@ -2,18 +2,14 @@
     <tr>
         <th>#</th>
         <th>Name</th>
-        <th>Description</th>
-        <th>Barcode</th>
         <th>Actions</th>
     </tr>
-    @foreach($set as $position)
-        <tr data-id="{{$position->id}}">
-            <td>{{$position->id}}</td>
-            <td>{{$position->name}}</td>
-            <td>{{$position->description}}</td>
-            <td>{{$position->barcode}}</td>
+    @foreach($set as $user)
+        <tr data-id="{{$user->id}}">
+            <td>{{$user->id}}</td>
+            <td>{{$user->name}}</td>
             <td>
-                <a href="{{ route('admin.positions.edit', $position) }}" class="btn-edit">Edit</a> |
+                <a href="{{ route('admin.users.edit', $user) }}" class="btn-edit">Edit</a> |
                 <a href="#!" class="btn-delete">Delete</a>
             </td>
         </tr>

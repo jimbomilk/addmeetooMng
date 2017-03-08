@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Gameboard;
 use Illuminate\Http\Request;
-
+use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\GameView;
 
 class ApiController extends Controller
 {
@@ -88,5 +90,73 @@ class ApiController extends Controller
     public function persons()
     {
         
+    }
+
+    // Devuelve el game activo en este instante , y si no hay ninguno retorna el game_board siguiente
+    public function active_game($location_id)
+    {
+
+        return Gameboard::where('status', '=', 'running', 'and' ,'location_id', '=', $location_id )->firstOrFail();
+
+    }
+
+    public function screens($location_id,$screen_id, Request $request)
+    {
+        $gameboard = active_game($location_id);
+
+        if (isset($gameboard))
+        {
+            return $gameboard->gameboardGameViews();
+        }
+
+/*
+        try {
+            $gameviews = DB::table('game_views')
+                ->join('gameboards', 'game_views.gameboard_id', '=' , 'gameboards.id' )
+
+                where('gameboards.location_id', '=', $location_id)->get();
+
+        } catch (Exception $e) {
+            return response()->json(['error' => "Screen NOT FOUND: $id"],HttpResponse::HTTP_NOT_FOUND );
+        }
+
+        $input = $request->all();
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+        return json_encode($gameviews);
+*/
+    }
+
+    public function screen($id, Request $request)
+    {
+
+        try {
+            $screen = Screen::findOrFail($id);
+        } catch (Exception $e) {
+            return response()->json(['error' => "Screen NOT FOUND: $id"],HttpResponse::HTTP_NOT_FOUND );
+        }
+
+        $input = $request->all();
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+        return json_encode($screen);
+    }
+
+
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json(['result' => 'wrong email or password.']);
+        }
+        return response()->json(['token' => $token]);
+
     }
 }

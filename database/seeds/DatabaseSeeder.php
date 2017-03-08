@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder {
                 'screens',
                 'users',
                 'user_profiles',
+                'game_views'
         );
 
         $this->dbForeign(false);

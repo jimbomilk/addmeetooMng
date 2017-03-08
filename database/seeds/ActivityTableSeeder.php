@@ -57,7 +57,8 @@ class ActivityTableSeeder extends Seeder {
             'progression_type'      => $progression_type,
             'activity_id'           => $activity_id,
             'location_id'           => $location,
-            'selection'             => $selection
+            'selection'             => $selection,
+            'status'                => 'running'
 
         ) );
 
@@ -102,6 +103,36 @@ class ActivityTableSeeder extends Seeder {
 
 
         }
+
+        // Creamos las game_views
+
+
+        for ($i=0; $i < 10; $i++) {
+
+            $messages = array();
+            for ($j = 0; $j < 10; $j++) {
+                // get a random digit, but always a new one, to avoid duplicates
+                $messages [] = $faker->text(20);
+            }
+
+            $max = \DB::table('game_views')->max('id');
+
+            $game_view = \DB::table('game_views')->insertGetId(array(
+                'gameboard_id' => $gameboard_id,
+                'logo1' => "/images/logo_modern_big_white.png",
+
+                'headerMain' => $faker->text(20),
+                'headerSub' => $faker->text(20),
+                'logo2' => $faker->imageUrl($width = 640, $height = 480),
+                'body' => $faker->text(200),
+                'next' =>  $max+2,
+                'messages' => json_encode($messages)
+
+            ));
+
+
+        }
+
     }
 
 
@@ -122,6 +153,7 @@ class ActivityTableSeeder extends Seeder {
             'owner_id'         => $idowner,
             'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
             'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+            'logo'          => $faker->image()
         ));
 
         for($i=0;$i<4;$i++)
@@ -140,6 +172,7 @@ class ActivityTableSeeder extends Seeder {
             'owner_id'         => $idowner,
             'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
             'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+            'logo'          => $faker->image()
         ));
 
         for($i=0;$i<2;$i++)
@@ -158,6 +191,7 @@ class ActivityTableSeeder extends Seeder {
             'owner_id'      => $idowner,
             'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
             'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
+            'logo'          => $faker->image()
         ));
 
         for($i=0;$i<10;$i++)
