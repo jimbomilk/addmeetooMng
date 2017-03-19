@@ -55,6 +55,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
 
 
+    Route::resource('messages', 'MessagesController');
+
     // ** AUCTIONS **
     Route::resource('items', 'ItemsController');
     Route::resource('auctions', 'AuctionsController');

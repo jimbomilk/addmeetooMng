@@ -29,4 +29,9 @@ class location extends Model {
         return $this->hasmany('App\Gameboard');
     }
 
+    public function messages()
+    {
+        return $this->hasmany('App\Messages');
+    }
+
 }

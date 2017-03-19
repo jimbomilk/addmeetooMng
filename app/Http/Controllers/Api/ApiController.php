@@ -102,11 +102,12 @@ class ApiController extends Controller
 
     public function screens($location_id,$screen_id, Request $request)
     {
-        $gameboard = active_game($location_id);
+        $gameboard = $this->active_game($location_id);
 
         if (isset($gameboard))
         {
-            return $gameboard->gameboardGameViews();
+            return json_encode($gameboard->gameViews);
+
         }
 
 /*

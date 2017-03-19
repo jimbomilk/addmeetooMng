@@ -37,6 +37,7 @@
                     @endif
 
                     <li><a href="/{{$login_user->type}}/locations"><i class="fa fa-building-o"></i> Locations</a></li>
+                    <li><a href="/{{$login_user->type}}/messages"><i class="fa fa-paper-plane-o"></i> Messages</a></li>
                     <li><a href="/{{$login_user->type}}/advertisements"><i class="fa fa-bullhorn"></i> Advertisements</a></li>
                 </ul>
             </li>

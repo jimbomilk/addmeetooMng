@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
         $this->call('ActivityTableSeeder');
         $this->call('AuctionTableSeeder');
+        $this->call('MessageTableSeeder');
 
 	}
 
@@ -42,7 +43,8 @@ class DatabaseSeeder extends Seeder {
                 'screens',
                 'users',
                 'user_profiles',
-                'game_views'
+                'game_views',
+                'messages'
         );
 
         $this->dbForeign(false);

@@ -8,7 +8,7 @@ class Activity extends Model {
 
     protected $table = 'activities';
 
-    protected $fillable = ['selection'];
+    protected $fillable = ['selection','starttime'];
 
     public function activityOptions()
     {
@@ -19,5 +19,7 @@ class Activity extends Model {
     {
         return $this->hasMany('App\Gameboard');
     }
+
+
 
 }

@@ -25,9 +25,7 @@ class ActivityTableSeeder extends Seeder {
 
         $start = $faker->dateTimeBetween('+10 hour','+20 hour');
         $ending = Carbon::createFromTimeStamp($start->getTimestamp());
-        $duration = $faker->numberBetween(10,40);
-        $ending->addMinutes($duration);
-        $deadline = $faker->dateTimeBetween('+1 hour','+10 hour');
+        $deadline = $faker->numberBetween(-30,+30);
 
         //***********************************************************************************
         //Activity
