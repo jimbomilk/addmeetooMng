@@ -13,6 +13,7 @@ php artisan migrate:refresh
 
 
 para importar los datos :
+
 php artisan db:seed
 
 Pero antes recordar que hay que recargar las clases con : composer dump-autoload

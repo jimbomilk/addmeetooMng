@@ -35,4 +35,15 @@ class GameboardOption extends Model
     {
         return $this->belongsTo('App\ActivityOption','activity_option_id','id');
     }
+
+
+    // Los resultados vienen de la actividad porque está en modo automático.
+    public function getResultAttribute($value)
+    {
+        if ($this->gameboard->auto)
+        {
+            return $this->activityOption->result;
+        }
+        return $value;
+    }
 }

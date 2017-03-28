@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\location;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +14,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
+        Commands\LocationUpdate::class,
+        Commands\LocationSchedule::class
     ];
 
     /**
@@ -26,5 +28,19 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        // Creamos una tarea para cada location
+        $locations = Location::all();
+        foreach ($locations as $location)
+        {
+            $schedule->command('location_schedule '.$location->id)
+                     ->everyMinute();
+                     //->withoutOverlapping();
+
+            $schedule->command('location_update '.$location->id)
+                ->dailyAt('16:12');
+                //->dailyAt('06:00');
+        }
+
     }
 }

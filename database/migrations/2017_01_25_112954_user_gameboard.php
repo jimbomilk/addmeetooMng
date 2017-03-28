@@ -31,6 +31,7 @@ class UserGameboard extends Migration
                 ->onDelete('cascade');
 
             $table->binary('progression'); // json de la progressión para los game.
+            $table->longText('values'); // json de opciones [{opcion1:value},{opcion2:value}...]
 
             $table->timestamps();
         });

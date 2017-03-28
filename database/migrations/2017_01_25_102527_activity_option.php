@@ -19,7 +19,7 @@ class ActivityOption extends Migration
             $table->string('image');
 
 
-            $table->integer('result')->default(-1); // sólo aplicable para los resultados de las apuestas.
+            $table->integer('result')->default(-1);
 
             $table->integer('activity_id')->unsigned();
             $table->foreign('activity_id')

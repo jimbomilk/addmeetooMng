@@ -27,7 +27,6 @@ class DatabaseSeeder extends Seeder {
     public function truncateTables()
     {
         $tables = array(
-                'user_gameboard_options',
                 'user_gameboards',
                 'gameboard_options',
                 'gameboards',

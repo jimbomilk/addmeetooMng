@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\Envelope;
+use App\Events\MessageEvent;
 use App\Gameboard;
+use App\UserGameboard;
 use Illuminate\Http\Request;
 use JWTAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\GameView;
+
+
+
 
 class ApiController extends Controller
 {
@@ -150,6 +155,74 @@ class ApiController extends Controller
     }
 
 
+    public function gameboard($gameboard_id, Request $request)
+    {
+        try {
+            $gameboard = Gameboard::findOrFail($gameboard_id);
+        } catch (Exception $e) {
+            return response()->json(['error' => "Game NOT FOUND: $gameboard_id"],HttpResponse::HTTP_NOT_FOUND );
+        }
+
+        $input = $request->all();
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+
+        // Ademas del game queremos enviar las opciones
+
+        $options = $gameboard->gameboardOptions()->get();
+        $activity = $gameboard->activity()->get();
+        $data = array();
+        $data['gameboard'] = $gameboard;
+        $data['activity'] = $activity;
+        $data['options'] = $options;
+
+
+        return json_encode($data);
+    }
+
+    public function useroptions($gameboard_id,Request $request)
+    {
+        $input = $request->all();
+        try {
+            $gameboard = Gameboard::findOrFail($gameboard_id);
+        } catch (Exception $e) {
+            return response()->json(['error' => "Game NOT FOUND: $gameboard_id"],HttpResponse::HTTP_NOT_FOUND );
+        }
+
+
+        try {
+            $user = JWTAuth::toUser($input['token']);
+
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+
+        $values = $input['values'];
+        // Guardar las opciones, generar un mensaje para la pantalla y responder OK
+
+        $result = UserGameboard::firstOrNew (['gameboard_id'=>$gameboard_id,'user_id'=>$user->id]);
+        $result->values = json_encode($values);
+        $result->save();
+
+        $message = new Envelope();
+        $message->setText($user->name,$values);
+        $message->image = $user->profile->avatar;
+        $message->reward = $gameboard->activity->reward_participation;
+
+
+        // A pantalla
+        event(new MessageEvent($message, 'location2'/*.$gameboard->location_id*/));
+
+        // Mensaje
+
+        return json_encode($message);
+    }
+
+
+
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -157,7 +230,9 @@ class ApiController extends Controller
         if (!$token = JWTAuth::attempt($credentials)) {
             return response()->json(['result' => 'wrong email or password.']);
         }
-        return response()->json(['token' => $token]);
+        $user = JWTAuth::toUser($token);
+
+        return response()->json(['token' => $token,'user' => $user, 'profile' => $user->profile]);
 
     }
 }

@@ -1,4 +1,5 @@
 <?php
+use App\Status;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Carbon\Carbon as Carbon;
@@ -24,7 +25,8 @@ class ActivityTableSeeder extends Seeder {
         $faker = Faker::create();
 
         $start = $faker->dateTimeBetween('+10 hour','+20 hour');
-        $ending = Carbon::createFromTimeStamp($start->getTimestamp());
+        //$ending = Carbon::createFromTimeStamp($start->getTimestamp());
+        $duration = $faker->numberBetween(60,240); // entre 1 y 4 horas
         $deadline = $faker->numberBetween(-30,+30);
 
         //***********************************************************************************
@@ -34,7 +36,7 @@ class ActivityTableSeeder extends Seeder {
             'name'                  => $name,
             'description'           => $description,
             'starttime'             => $start,
-            'endtime'               => $ending,
+            'duration'               => $duration,
             'deadline'              => $deadline,
             'type'                  => $type,
             'category'              => $category,
@@ -49,14 +51,14 @@ class ActivityTableSeeder extends Seeder {
             'name'                  => $name,
             'description'           => $description,
             'starttime'             => $start,
-            'endtime'               => $ending,
+            'duration'               => $duration,
             'deadline'              => $deadline,
             'selection'             => $selection,
             'progression_type'      => $progression_type,
             'activity_id'           => $activity_id,
             'location_id'           => $location,
             'selection'             => $selection,
-            'status'                => 'running'
+            'status'                => Status::SCHEDULED
 
         ) );
 
@@ -91,12 +93,6 @@ class ActivityTableSeeder extends Seeder {
                 'image'                 => $faker->imageUrl($width = 640, $height = 480),
                 'gameboard_id'          => $gameboard_id,
                 'activity_option_id'    => $activity_option
-            ) );
-
-            $gameboard_user_option  = \DB::table('user_gameboard_options')->insertGetId( array(
-                'user_gameboard_id'     => $gameboard_user,
-                'value'                 => $faker->numberBetween(0,12)
-
             ) );
 
 

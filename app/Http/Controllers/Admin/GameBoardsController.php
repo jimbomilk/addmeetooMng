@@ -60,24 +60,8 @@ class GameboardsController extends Controller {
     {
         // Cuando creamos un gameboard, tenemos que crear tb todas sus opciones (copia de la actividad)
         $gameboard = new Gameboard($request->all());
-        $gameboard->status = Status::$values['Created'];
-        $gameboard->starttime = $gameboard->activity->starttime;
-        $gameboard->endtime = $gameboard->activity->endtime;
-        $gameboard->description = $gameboard->activity->description;
-        $gameboard->save();
 
-        //Recuperamos la activity y creamos los gameboard_options , copia de las activity options
-        $options = ActivityOption::where('activity_id',$gameboard->activity_id)->get();
-        foreach ($options as $activityOption)
-        {
-            $gameboardOption = new GameboardOption($gameboard->id,$activityOption);
-            $gameboardOption->save();
-        }
-
-        // Además tenemos que crear la pantalla inicial del juego.
-        $this->createGameView($gameboard);
-
-
+        $gameboard->createGame();
 
         return redirect()->route(Auth::user()->type.".gameboards.index");
     }
@@ -88,73 +72,7 @@ class GameboardsController extends Controller {
 
 
 
-    /**
-     * Toda actividad tiene 4 pantallas: presentación , juego , ranking y finalización.
-     * Estás pantallas no son estáticas sino que tienen que incluir llamadas al servidor para irse actualizando.
-     * @param  Gameboard  $gameboard
-     * @return boolean
-     */
-    public function createGameView($gameboard)
-    {
 
-        if ($gameboard->status == Status::CREATED) {
-            //1. Presentation
-            $presentation = new GameView();
-            $presentation->createX($gameboard);
-            $presentation->save();
-
-            //Publicamos la pantalla
-            event(new ScreenEvent($presentation,'location'.$gameboard->location->id));
-        }
-        elseif ($gameboard->status == Status::SCHEDULED) {
-            //1. Presentation
-            $presentation = new GameView();
-            $presentation->createX($gameboard);
-            $presentation->save();
-
-            //Publicamos la pantalla
-            event(new ScreenEvent($presentation, 'location' . $gameboard->location->id));
-        }
-        elseif ($gameboard->status == Status::STARTLIST) {
-            //1. Presentation
-            $presentation = new GameView();
-            $presentation->createX($gameboard);
-            $presentation->save();
-
-            //Publicamos la pantalla
-            event(new ScreenEvent($presentation, 'location' . $gameboard->location->id));
-        }
-        elseif ($gameboard->status == Status::RUNNING) {
-            //1. Presentation
-            $presentation = new GameView();
-            $presentation->createX($gameboard);
-            $presentation->save();
-
-            //Publicamos la pantalla
-            event(new ScreenEvent($presentation, 'location' . $gameboard->location->id));
-        }
-        elseif ($gameboard->status == Status::FINISHED) {
-            //1. Presentation
-            $presentation = new GameView();
-            $presentation->createX($gameboard);
-            $presentation->save();
-
-            //Publicamos la pantalla
-            event(new ScreenEvent($presentation, 'location' . $gameboard->location->id));
-        }
-        elseif ($gameboard->status == Status::OFFICIAL) {
-            //1. Presentation
-            $presentation = new GameView();
-            $presentation->createX($gameboard);
-            $presentation->save();
-
-            //Publicamos la pantalla
-            event(new ScreenEvent($presentation, 'location' . $gameboard->location->id));
-        }
-
-        return false;
-
-    }
 
 
 	/**

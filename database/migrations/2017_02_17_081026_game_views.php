@@ -14,6 +14,7 @@ class GameViews extends Migration
     {
         Schema::create('game_views', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('status');
             $table->string('logo1')->nullable();
             $table->string('headerMain')->nullable();
             $table->string('headerSub')->nullable();

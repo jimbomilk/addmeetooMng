@@ -4,7 +4,6 @@ use App\Http\Requests\GameboardOptionsRequest;
 use App\Http\Controllers\Controller;
 use App\GameboardOption;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 
@@ -28,7 +27,7 @@ class GameboardOptionsController extends Controller {
 	public function index()
 	{
         $gameboard_options = GameboardOption::paginate();
-        return view ('admin.common.index',['name'=>'gameboards','set'=>$gameboard_options]);
+        return view ('admin.common.index',['name'=>'gameboard_options','set'=>$gameboard_options]);
 	}
 
 	/**

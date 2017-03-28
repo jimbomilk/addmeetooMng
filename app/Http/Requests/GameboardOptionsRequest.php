@@ -2,7 +2,7 @@
 
 
 
-class ActivityOptionsRequest extends Request {
+class GameboardOptionsRequest extends Request {
 
 
     /**

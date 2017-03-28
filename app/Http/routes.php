@@ -103,12 +103,14 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     //Route::get('login', 'LoginController@loginWithTwitter');
     Route::post('authenticate','ApiController@authenticate');
     Route::post('screens/{location_id}/{screen_id}','ApiController@screens');
+    Route::post('gameboard/{gameboard_id}','ApiController@gameboard');
 
+    Route::post('gameboard/useroptions/{gameboard_id}','ApiController@useroptions');
 
     //Route::get('auctions', 'ApiController@indexAuctions');
     //Route::get('auction/{id}', 'ApiController@indexAuction');
     //Route::get('auctionbid/{id}', 'ApiController@updateAuction');
-    //  Route::get('persons', 'ApiController@persons');
+    //Route::get('persons', 'ApiController@persons');
 
     Route::get('images/{filename}', function ($filename)
     {

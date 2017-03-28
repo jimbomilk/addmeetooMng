@@ -10,7 +10,6 @@ use Carbon\Carbon;
 
 class Gameboard extends Model
 {
-
     protected $table = 'gameboards';
     protected $fillable = ['name','activity_id','location_id','starttime','deadline','status'];
 
@@ -80,6 +79,53 @@ class Gameboard extends Model
     }
 
 
+    public function createGame()
+    {
+        $this->status = Status::SCHEDULED;
 
+        $this->starttime = $this->activity->starttime;
+        $this->endtime = $this->activity->endtime;
+        $this->description = $this->activity->description;
+        $this->save();
+
+        //Recuperamos la activity y creamos los gameboard_options , copia de las activity options
+        $options = ActivityOption::where('activity_id',$this->activity_id)->get();
+        foreach ($options as $activityOption)
+        {
+            $gameboardOption = new GameboardOption($this->id,$activityOption);
+            $gameboardOption->save();
+        }
+
+        // Además tenemos que crear las pantallas iniciales del juego.
+        $this->createGameViews();
+
+
+    }
+
+    /**
+     * Toda actividad tiene 4 pantallas: presentación , juego , ranking y finalización.
+     * Estás pantallas no son estáticas sino que tienen que incluir llamadas al servidor para irse actualizando.
+     * @param  Gameboard  $gameboard
+     * @return boolean
+     */
+    public function createGameViews()
+    {
+        foreach(Status::$desc as $key => $value)
+        {
+            $presentation = new GameView();
+            $presentation->status = $value;
+            $presentation->createX($this);
+            $presentation->save();
+        }
+
+        return false;
+
+    }
+
+    public function getGameView()
+    {
+        return $this->gameViews->where('status', $this->status)->first();
+
+    }
 
 }
