@@ -47,7 +47,7 @@ class CategoriesController extends Controller {
         $category = new Category($request->all());
         $category->save();
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route($this->indexPage("categories"));
     }
 
 
@@ -88,7 +88,7 @@ class CategoriesController extends Controller {
         $this->category->fill($request->all());
         $this->category->save();
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route($this->indexPage("categories"));
     }
 
 	/**
@@ -112,7 +112,7 @@ class CategoriesController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.categories.index');
+        return redirect()->route($this->indexPage("categories"));
     }
 
 }

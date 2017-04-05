@@ -54,7 +54,7 @@ class ItemsController extends Controller {
         $item = new Item($request->all());
         $item->save();
 
-        return redirect()->route('admin.items.index');
+        return redirect()->route($this->indexPage("items"));
 	}
 
 	/**
@@ -95,7 +95,7 @@ class ItemsController extends Controller {
         $this->item->fill($request->all());
         $this->item->save();
 
-        return redirect()->route('admin.items.index');
+        return redirect()->route($this->indexPage("items"));
 	}
 
 	/**
@@ -119,7 +119,7 @@ class ItemsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.items.index');
+        return redirect()->route($this->indexPage("items"));
 	}
 
 }

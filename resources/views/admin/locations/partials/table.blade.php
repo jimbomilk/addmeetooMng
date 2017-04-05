@@ -3,22 +3,30 @@
         <th>Logo</th>
         <th>Name</th>
         <th>Country</th>
-        <th>City</th>
+        <th>Address</th>
+        <th></th>
         <th></th>
         <th></th>
     </tr>
     @foreach($set as $location)
         <tr data-id="{{$location->id}}">
-            <td>{{$location->logo}}</td>
+            <td>{!! HTML::image('images/'.$location->logo, 'location photo',array( 'width' => 70, 'height' => 70 )) !!}</td>
             <td>{{$location->name}}</td>
-            <td>{{$location->country}}</td>
-            <td>{{$location->city}}</td>
+            <td>{{$location->country->name}}</td>
+            <td>{{$location->address}}</td>
+
             <td>
-                <a href="{{ route("$login_user->type.locations.edit", $location) }}" class="btn-edit"><i class="fa fa-pencil"></i></a>
+                @include("admin.common.btn_edit",array('var'=>$location))
             </td>
+
             <td>
-                <a href="#!" class="btn-delete"><i class="fa fa-trash-o"></i></a>
+                @include("admin.common.btn_delete",array('var'=>$location))
             </td>
+
+            <td>
+                @include("admin.common.btn_other",array('route'=> 'location_restart','var'=>$location))
+            </td>
+
         </tr>
     @endforeach
 

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
@@ -22,5 +23,10 @@ class Controller extends BaseController
 
         View::share('login_user', $login_user);
 
+    }
+
+    public function indexPage($name)
+    {
+        return Auth::user()->type.".".$name.".index";
     }
 }

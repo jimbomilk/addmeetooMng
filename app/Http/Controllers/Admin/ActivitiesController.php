@@ -3,11 +3,8 @@
 use App\Http\Requests\ActivityRequest;
 use App\Http\Controllers\Controller;
 use App\Activity;
-use App\Category;
-use App\Location;
-use App\LocationPosition;
+use App\General;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Session;
 
 class ActivitiesController extends Controller {
@@ -20,9 +17,7 @@ class ActivitiesController extends Controller {
         $this->middleware('auth');
     }
 
-    
-
-	/**
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -33,6 +28,17 @@ class ActivitiesController extends Controller {
         return view ('admin.common.index',['name'=>'activities','set'=>$activities]);
 	}
 
+    public function sendView ($element=null)
+    {
+        $types = General::getEnumValues('activities','type') ;
+        $categories = General::getEnumValues('activities','category') ;
+        if (isset($element))
+            return view('admin.common.edit',['name'=>'activities','element' => $element,'types'=>$types,'categories'=>$categories]);
+        else
+            return view('admin.common.create',['name'=>'activities','types'=>$types,'categories'=>$categories]);
+
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -40,7 +46,7 @@ class ActivitiesController extends Controller {
 	 */
 	public function create()
 	{
-        return view('admin.common.create',['name'=>'activities']);
+        return $this->sendView();
 	}
 
 	/**
@@ -53,7 +59,7 @@ class ActivitiesController extends Controller {
         $activity = new Activity($request->all());
         $activity->save();
 
-        return redirect()->route('admin.activities.index');
+        return redirect()->route($this->indexPage("activities"));
 	}
 
 	/**
@@ -62,14 +68,16 @@ class ActivitiesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Request $request,$id)
 	{
         $activity = Activity::findOrFail($id);
 
         if (isset ($activity))
         {
-            $options = $activity->activityOptions()->paginate();
-            return view('admin.common.index',['name'=>'activity_options','set' => $options]);
+            //$options = $activity->activityOptions()->paginate();
+            $request->session()->put('activity_id',$id);
+            return redirect()->route($this->indexPage("activity_options"));
+            //return view('admin.common.index',['name'=>'activity_options','set' => $options]);
         }
 	}
 
@@ -85,7 +93,7 @@ class ActivitiesController extends Controller {
           
         if (isset ($activity))
         {
-            return view('admin.common.edit',['name'=>'activities','element' => $activity]);
+            return $this->sendView($activity);
         }
 
 	}
@@ -102,7 +110,7 @@ class ActivitiesController extends Controller {
         $this->activity->fill($request->all());
         $this->activity->save();
 
-        return redirect()->route('admin.activities.index');
+        return redirect()->route($this->indexPage("activities"));
 	}
 
 	/**
@@ -126,7 +134,7 @@ class ActivitiesController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.activities.index');
+        return redirect()->route($this->indexPage("activities"));
 	}
 
 }

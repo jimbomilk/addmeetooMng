@@ -5,8 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bid extends Model {
 
     protected $table = 'bids';
-
-    protected $fillable = ['price','bidder_id','item_id'];
+    protected $guarded = ['id'];
 
 
     public function bidder()

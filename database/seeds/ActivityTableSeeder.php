@@ -3,6 +3,7 @@ use App\Status;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Carbon\Carbon as Carbon;
+use Illuminate\Support\Facades\Config;
 
 /**
  * Created by PhpStorm.
@@ -19,14 +20,10 @@ class ActivityTableSeeder extends Seeder {
 
     
 
-    public function newActivity($location,$name,$description,$type,$category,$head2head,$selection,$progression_type,$options)
+    public function newActivity($start, $duration, $location,$name,$description,$type,$category,$head2head,$selection,$progression_type,$options)
     {
 
         $faker = Faker::create();
-
-        $start = $faker->dateTimeBetween('+10 hour','+20 hour');
-        //$ending = Carbon::createFromTimeStamp($start->getTimestamp());
-        $duration = $faker->numberBetween(60,240); // entre 1 y 4 horas
         $deadline = $faker->numberBetween(-30,+30);
 
         //***********************************************************************************
@@ -36,7 +33,7 @@ class ActivityTableSeeder extends Seeder {
             'name'                  => $name,
             'description'           => $description,
             'starttime'             => $start,
-            'duration'               => $duration,
+            'duration'              => $duration,
             'deadline'              => $deadline,
             'type'                  => $type,
             'category'              => $category,
@@ -51,7 +48,7 @@ class ActivityTableSeeder extends Seeder {
             'name'                  => $name,
             'description'           => $description,
             'starttime'             => $start,
-            'duration'               => $duration,
+            'duration'              => $duration,
             'deadline'              => $deadline,
             'selection'             => $selection,
             'progression_type'      => $progression_type,
@@ -63,16 +60,6 @@ class ActivityTableSeeder extends Seeder {
         ) );
 
 
-        //Cogemos un usuario aleatorio
-        $users = \DB::table('users')->where('type', '=', 'user' );
-        $iduser = $faker->randomElement($users->lists('id'));
-
-        // Creamos GameboardUser
-
-        $gameboard_user = \DB::table('user_gameboards')->insertGetId( array(
-            'gameboard_id'          => $gameboard_id,
-            'user_id'               => $iduser,
-        ) );
 
         $i=0;
         foreach ($options as $aux)
@@ -99,33 +86,23 @@ class ActivityTableSeeder extends Seeder {
         }
 
         // Creamos las game_views
+        $gameboard = \App\Gameboard::findOrFail($gameboard_id);
+        if (isset($gameboard))
+            $gameboard->createGameViews();
 
-
-        for ($i=0; $i < 10; $i++) {
-
-            $messages = array();
-            for ($j = 0; $j < 10; $j++) {
-                // get a random digit, but always a new one, to avoid duplicates
-                $messages [] = $faker->text(20);
-            }
-
-            $max = \DB::table('game_views')->max('id');
-
-            $game_view = \DB::table('game_views')->insertGetId(array(
+        //Creamos usuarios del juego
+        for ($k=0;$k<20 ;$k++) {
+            $users = \DB::table('users')->where('type', '=', 'user');
+            $iduser = $faker->randomElement($users->lists('id'));
+            $gameboarduser = \DB::table('user_gameboards')->insertGetId(array(
+                'points' => $faker->numberBetween(10, 10000),
                 'gameboard_id' => $gameboard_id,
-                'logo1' => "/images/logo_modern_big_white.png",
+                'user_id' => $iduser
 
-                'headerMain' => $faker->text(20),
-                'headerSub' => $faker->text(20),
-                'logo2' => $faker->imageUrl($width = 640, $height = 480),
-                'body' => $faker->text(200),
-                'next' =>  $max+2,
-                'messages' => json_encode($messages)
 
             ));
-
-
         }
+
 
     }
 
@@ -145,129 +122,84 @@ class ActivityTableSeeder extends Seeder {
         $idlocation1 = \DB::table('locations')->insertGetId( array(
             'name'          => 'Disco Madrid80',
             'owner_id'         => $idowner,
-            'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
-            'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
-            'logo'          => $faker->image()
+            'countries_id'    => 724,
+            'logo'          => $faker->imageUrl($width = 48, $height = 48)
         ));
 
-        for($i=0;$i<4;$i++)
-        {
-            $idscreen = \DB::table('screens')->insertGetId( array(
 
-                'description'   => 'TV_' + $faker->text(20),
-                'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
-                'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
-                'location_id'   => $idlocation1
-            ));
-        }
-
+        $idowner = $faker->randomElement($owners->lists('id'));
         $idlocation2 = \DB::table('locations')->insertGetId( array(
             'name'          => 'Bar Pepe',
-            'owner_id'         => $idowner,
-            'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
-            'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
-            'logo'          => $faker->image()
+            'owner_id'      => $idowner,
+            'countries_id'    => 724,
+            'logo'          => 'bar_white.png', // Logo del bar
         ));
 
-        for($i=0;$i<2;$i++)
-        {
-            $idscreen = \DB::table('screens')->insertGetId( array(
 
-                'description'   => 'TV_' + $faker->text(20),
-                'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
-                'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
-                'location_id'   => $idlocation2
-            ));
-        }
-
+        $idowner = $faker->randomElement($owners->lists('id'));
         $idlocation3 = \DB::table('locations')->insertGetId( array(
             'name'          => 'Xanadu Shopping Mall',
             'owner_id'      => $idowner,
-            'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
-            'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
-            'logo'          => $faker->image()
+            'countries_id'    => 724,
+            'logo'          => $faker->imageUrl($width = 48, $height = 48)
         ));
 
-        for($i=0;$i<10;$i++)
-        {
-            $idscreen = \DB::table('screens')->insertGetId( array(
-
-                'description'   => 'TV_' + $faker->text(20),
-                'latitude'      => $faker->latitude($min = -90, $max = 90),     // 77.147489
-                'longitude'     => $faker->longitude($min = -180, $max = 180),  // 86.211205
-                'location_id'   => $idlocation3
-            ));
-        }
-
-        $start = $faker->dateTimeBetween('+10 hour','+20 hour');
-        $ending = Carbon::createFromTimeStamp($start->getTimestamp());
-        $now = Carbon::now(new DateTimeZone(Config::get('app.timezone')));
-        $duration = $faker->numberBetween(10,40);
-        $ending->addMinutes($duration);
-        $deadline = $faker->dateTimeBetween('+1 hour','+10 hour');
-
-
-        if ($now>$ending)
-            $status = 'finished';
-        elseif ($now>$start && $now<$ending)
-            $status = 'running';
-        else $status = 'ready';
 
 
         //Voting activity
         //***********************************************************************************
         //Activity
-
-        $options = array('spain','france','russia','netherland','italy','swiss','portugal','great britain',
+        $options_eurovision = array('spain','france','russia','netherland','italy','swiss','portugal','great britain',
             'germany','belgium','israel','turkey','greece','lituania','slovenia','chipre','andorra');
+        $options_match1 = array('Real Madrid','Barcelona');
 
-        $this->newActivity($idlocation1,'Eurovision','Elige tu canción favorita','vote','party',false,12,'ordered',$options);
+        $options_game = array('que rio pasa por madrid?','done esta la mpntaña más alta de españa?','quien inventó la bombilla?','Como se llama el rey de españa?','donde esta la sagrada familia?','quien es cristiano ronaldo?', 'que pais gano eurovision el año pasado?', 'quien es maradona?', 'donde se celebro el mundial del 82?');
 
+        $options_match2 = array('Celta','Valladolid');
 
-        //Betting Activity
-        //***********************************************************************************
-        $options = array('Real Madrid','Barcelona');
-        $this->newActivity($idlocation2,'El Partidazo','Introduce el resultado','bet','sports',true,0,'ordered',$options);
+        $options_encuesta = array('mahou','estrella galicia','san miguel','buckler','guinness','bud');
 
-        //Game Activity
-        //***********************************************************************************
-        $options = array('que rio pasa por madrid?','done esta la mpntaña más alta de españa?','quien inventó la bombilla?','Como se llama el rey de españa?','donde esta la sagrada familia?','quien es cristiano ronaldo?', 'que pais gano eurovision el año pasado?', 'quien es maradona?', 'donde se celebro el mundial del 82?');
-        $this->newActivity($idlocation3,'Gymkana','Busqueda del tesoro','game','party',false,0,'random',$options);
+        $options_match3 = array('At. Madrid','Valencia');
 
+        $options_encuesta2 = array('madonna','michael jackson','raphael','rolling stone','sabina','rocio jurado');
 
+        $start = Carbon::createFromTime(9,0,0,'UTC');
+        $oneday = Carbon::createFromTime(9,0,0,'UTC');
+        $oneday->addDay(1);
 
-        /*for ($j = 0; $j < 3; $j ++)
+        $duration = 10;
+
+        for ($i=0;$i<20 && $start<$oneday;$i++)
         {
+            $this->newActivity($start,$duration,$idlocation2,'eurovision','EUROVISION: vota tu canción','vote','party',false,12,'ordered',$options_eurovision);
+            $start = $start->addMinutes($duration);
 
-            for ($k = 0; $k < 5; $k ++)
-            {
+            $this->newActivity($start,$duration,$idlocation1,'partidazo','EL PARTIDAZO','bet','sports',true,0,'ordered',$options_match1);
+            $start = $start->addMinutes($duration);
 
-                $id = \DB::table('activities')->insertGetId( array(
+            $this->newActivity($start,$duration,$idlocation3,'gymkana','Busqueda del tesoro','game','party',false,0,'random',$options_game);
+            $start = $start->addMinutes($duration);
 
-                    'name'                  => $faker->word(),
+            $this->newActivity($start,$duration,$idlocation1,'viajeros','¿A que pais te gustaría viajar?','vote','party',false,12,'ordered',$options_eurovision);
+            $start = $start->addMinutes($duration);
 
-                    'description'           => $faker->text(200),
-                    'start'                 => $start,
-                    'state'                 => $status,
-                    'duration'              => $duration,
-                    'ending'                => $ending,
+            $this->newActivity($start,$duration,$idlocation2,'partidazo','EL PARTIDAZO','bet','sports',true,0,'ordered',$options_match2);
+            $start = $start->addMinutes($duration);
 
-                    'selection'             => $faker->randomElement(['random','best']),
-                    'point_system'          => $faker->randomElement(['bypoint','bytime']),
-                    'how'                   => $faker->randomElement(['byposition','bypairing']),
-                    'category_id'           => $idcategory,
-                    'location_id'           => $idlocation,
-                    'location_position_id'  => $idposition,
-                    'duration'              => $faker->numberBetween(5,720)
-                ) );
+            $this->newActivity($start,$duration,$idlocation3,'encuesta','¿Cúal es tu cerveza favorita?','vote','party',false,3,'ordered',$options_encuesta);
+            $start = $start->addMinutes($duration);
 
+            $this->newActivity($start,$duration,$idlocation2,'partidazo','EL PARTIDAZO','bet','sports',true,0,'ordered',$options_match3);
+            $start = $start->addMinutes($duration);
 
-
-            }
+            $this->newActivity($start,$duration,$idlocation1,'encuesta','¿Cúal es tu cantante favorito?','vote','party',false,3,'ordered',$options_encuesta2);
+            $start = $start->addMinutes($duration);
 
         }
 
-        */
+
+
+
 
 
 

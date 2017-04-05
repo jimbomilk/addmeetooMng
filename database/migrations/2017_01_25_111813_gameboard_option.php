@@ -27,11 +27,6 @@ class GameboardOption extends Migration
 
 
             $table->integer('activity_option_id')->unsigned();
-            $table->foreign('activity_option_id')
-                ->references('id')
-                ->on('activity_options')
-                ->onDelete('cascade');
-
             $table->timestamps();
         });
     }

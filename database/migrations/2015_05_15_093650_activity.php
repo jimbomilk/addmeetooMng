@@ -18,7 +18,8 @@ class Activity extends Migration {
             $table->string('name',100);
             $table->longText('description');
 
-            $table->time('starttime')->nullable();
+            $table->time('starttime')->nullable(); //siempre guardamos en UTC
+
             $table->integer('duration')->default(60); // en minutos
             $table->integer('deadline')->default(0);// si n es 0 significa que se puede participar todo el tiempo
             //                          Si es n>0  significa que desde q empieza la actividad hay n minutos para participar

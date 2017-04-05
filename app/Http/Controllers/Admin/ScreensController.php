@@ -53,7 +53,7 @@ class ScreensController extends Controller {
         $screen = new Screen($request->all());
         $screen->save();
 
-        return redirect()->route('admin.screens.index');
+        return redirect()->route($this->indexPage("screens"));
 	}
 
 	/**
@@ -92,7 +92,7 @@ class ScreensController extends Controller {
         $this->screen->fill($request->all());
         $this->screen->save();
 
-        return redirect()->route('admin.screens.index');
+        return redirect()->route($this->indexPage("screens"));
 	}
 
 	/**
@@ -116,7 +116,7 @@ class ScreensController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.screens.index');
+        return redirect()->route($this->indexPage("screens"));
 	}
 
 }

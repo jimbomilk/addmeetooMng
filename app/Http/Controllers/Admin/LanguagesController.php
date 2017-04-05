@@ -49,7 +49,7 @@ class LanguagesController extends Controller {
         $language = new Item($request->all());
         $language->save();
 
-        return redirect()->route('admin.languages.index');
+        return redirect()->route($this->indexPage("languajes"));
     }
 
 	/**
@@ -90,7 +90,7 @@ class LanguagesController extends Controller {
         $this->language->fill($request->all());
         $this->language->save();
 
-        return redirect()->route('admin.languages.index');
+        return redirect()->route($this->indexPage("languajes"));
     }
 
 	/**
@@ -114,7 +114,7 @@ class LanguagesController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.languages.index');
+        return redirect()->route($this->indexPage("languajes"));
     }
 
 }

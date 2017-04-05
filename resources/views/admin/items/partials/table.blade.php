@@ -17,13 +17,21 @@
             <td>{{$item->max_price}}</td>
 
             <td>
-                <a href="{{ route('admin.auctions.edit', $item->auction) }}">Auction #{{$item->auction->id}}</a></td>
+                <a href="{{ route('admin.auctions.edit', $item->auction) }}">Auction #</a></td>
+            <td>
+
             <td>
                 @if (!isset($item->auction))
                     <a href="{{ route('admin.auctions.create', $item) }}" class="btn-edit">Create Auction</a>
                 @endif
-                <a href="{{ route('admin.items.edit', $item) }}" class="btn-edit">Edit</a>
-                <a href="#!" class="btn-delete">Delete</a>
+            </td>
+
+            <td>
+                @include("admin.common.btn_edit",array('var'=>$item))
+            </td>
+
+            <td>
+                @include("admin.common.btn_delete",array('var'=>$item))
             </td>
         </tr>
     @endforeach

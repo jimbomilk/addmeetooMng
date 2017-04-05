@@ -5,8 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bidder extends Model {
 
     protected $table = 'bidders';
-
-    protected $fillable = ['user_id'];
+    protected $guarded = ['id'];
 
 
     public function user()

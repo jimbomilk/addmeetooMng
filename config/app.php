@@ -2,6 +2,7 @@
 
 return [
 
+
     /* hola
     |--------------------------------------------------------------------------
     | Application Environment
@@ -158,11 +159,10 @@ return [
         App\Providers\RouteServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
-
         Collective\Html\HtmlServiceProvider::class,
-        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-
+        Webpatser\Countries\CountriesServiceProvider::class,
+        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
     ),
 
     /*
@@ -210,9 +210,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form'=> Collective\Html\FormFacade::class,
         'HTML'=> Collective\Html\HtmlFacade::class,
-        'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'Countries' => Webpatser\Countries\CountriesFacade::class,
+
 
     ],
 

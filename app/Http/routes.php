@@ -42,20 +42,25 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     // ** ADMIN  **
     Route::resource('users', 'UsersController');
     Route::resource('locations', 'LocationsController');
-    //Route::resource('advertisements', 'AdvertisementController');
+
+
+    // ** ADS **
+    Route::resource('advertisements', 'AdvertisementsController');
+    Route::resource('adspacks', 'AdsPacksController');
+
 
     // ** GAMES  **
     Route::resource('activities', 'ActivitiesController');
     Route::resource('activity_options', 'ActivityOptionsController');
     Route::post('activity_options/fastUpdate/{id}', ['as' => 'activity_option_fast', 'uses' => 'ActivityOptionsController@fastUpdate']);
-
-
     Route::resource('gameboards', 'GameboardsController');
+    Route::post('gameboards/fastUpdate/{id}', ['as' => 'gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
     Route::resource('gameboard_options', 'GameboardOptionsController');
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
-
-
+    Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
     Route::resource('messages', 'MessagesController');
+    Route::resource('usergameboards','UserGameboardsController');
+
 
     // ** AUCTIONS **
     Route::resource('items', 'ItemsController');
@@ -63,8 +68,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('bids', 'BidsController');
 
     // ** TV SET **
-    Route::resource('tvconfigs', 'TvConfigsController');
-    Route::resource('screens', 'ScreensController');
+    //Route::resource('tvconfigs', 'TvConfigsController');
+    //Route::resource('screens', 'ScreensController');
 
 });
 
@@ -75,10 +80,11 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 
     // ** LOCATIONS**
     Route::resource('locations', 'LocationsController');
-    //Route::resource('advertisements', 'AdvertisementController');
+    Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
 
     // ** GAMES  **
     Route::resource('gameboards', 'GameboardsController');
+    Route::resource('usergameboards','UserGameboardsController');
 
 
     // ** AUCTIONS **
@@ -89,6 +95,15 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 
 });
 
+Route::group(['prefix'=>'user','middleware' => ['auth','is_user'],'namespace'=>'admin'],function(){
+
+    Route::resource('/', 'AdminController');
+
+    // ** ADS **
+    Route::resource('advertisements', 'AdvertisementsController');
+    Route::resource('adspacks', 'AdsPacksController');
+
+});
 
 
 Route::get ('home', function()
@@ -96,7 +111,20 @@ Route::get ('home', function()
     return "Welcome to ADDMEETOO";
 })->name('home');
 
+Route::get('images/{folder}/{filename}', function ($folder,$filename)
+{
+    $path = storage_path() . '/app/public/'. $folder .'/' . $filename;
 
+    if(!File::exists($path)) abort(404);
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
 
 Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api'],function(){
 

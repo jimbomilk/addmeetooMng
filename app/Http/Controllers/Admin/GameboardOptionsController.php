@@ -6,6 +6,7 @@ use App\GameboardOption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\File;
 
 class GameboardOptionsController extends Controller {
 
@@ -24,11 +25,23 @@ class GameboardOptionsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-        $gameboard_options = GameboardOption::paginate();
+        $id = $request->session()->get('gameboard_id');
+        $gameboard_options = GameboardOption::where('gameboard_id','=',$id)->paginate();
+
         return view ('admin.common.index',['name'=>'gameboard_options','set'=>$gameboard_options]);
 	}
+
+
+    public function sendView ($element=null)
+    {
+        if (isset($element))
+            return view('admin.common.edit',['name'=>'gameboard_options','element' => $element]);
+        else
+            return view('admin.common.create',['name'=>'gameboard_options']);
+    }
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -37,7 +50,7 @@ class GameboardOptionsController extends Controller {
 	 */
 	public function create()
 	{
-        return view('admin.common.create',['name'=>'gameboard_options']);
+        return sendView();
 	}
 
 	/**
@@ -48,9 +61,17 @@ class GameboardOptionsController extends Controller {
 	public function store(GameboardOptionsRequest $request)
 	{
         $gameboardOptions = new GameboardOption($request->all());
+        $id = $request->session()->get('gameboard_id');
+        $gameboardOptions->gameboard_id = $id;
         $gameboardOptions->save();
 
-        return redirect()->route('admin.gameboard_options.index');
+        $filename = $request->saveFile('image','gameboard'.$gameboardOptions->id);
+        if ($filename != $gameboardOptions->image) {
+            $gameboardOptions->image = $filename;
+            $gameboardOptions->save();
+        }
+
+        return redirect()->route($this->indexPage("gameboard_options"));
 	}
 
 	/**
@@ -76,7 +97,8 @@ class GameboardOptionsController extends Controller {
           
         if (isset ($gameboardOption))
         {
-            return view('admin.common.edit',['name'=>'gameboard_options','element' => $gameboardOption]);
+            return sendView($gameboardOption);
+
         }
 
 	}
@@ -108,9 +130,15 @@ class GameboardOptionsController extends Controller {
 	{
         $gameboardoption = GameboardOption::findOrFail($id);
         $gameboardoption->fill($request->all());
+
+
+        $filename = $request->saveFile('image','gameboard'.$gameboardoption->id);
+        if(isset($filename))
+            $gameboardoption->image = $filename;
+
         $gameboardoption->save();
 
-        return redirect()->route('admin.gameboard_options.index');
+        return redirect()->route($this->indexPage("gameboard_options"));
 	}
 
 	/**
@@ -122,6 +150,9 @@ class GameboardOptionsController extends Controller {
     public function destroy($id,Request $request)
 	{
         $gameboardOption = GameboardOption::findOrFail($id);
+
+        File::deleteDirectory(storage_path().'/app/public/gameboard'.$gameboardOption->id);
+
         $gameboardOption->delete();
         $message = $gameboardOption->name. ' deleted';
         if ($request->ajax())
@@ -134,7 +165,7 @@ class GameboardOptionsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.gameboard_options.index');
+        return redirect()->route($this->indexPage("gameboard_options"));
 	}
 
 }

@@ -5,6 +5,7 @@ namespace App\Console;
 use App\location;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Schema;
 
 class Kernel extends ConsoleKernel
 {
@@ -30,17 +31,18 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         // Creamos una tarea para cada location
-        $locations = Location::all();
-        foreach ($locations as $location)
-        {
-            $schedule->command('location_schedule '.$location->id)
-                     ->everyMinute();
-                     //->withoutOverlapping();
+        if (Schema::hasTable('locations')) {
+            $locations = Location::all();
+            foreach ($locations as $location)
+            {
+                $schedule->command('location_schedule '.$location->id)
+                         ->everyMinute();
+                         //->withoutOverlapping();
 
-            $schedule->command('location_update '.$location->id)
-                ->dailyAt('16:12');
-                //->dailyAt('06:00');
+                //$schedule->command('location_update '.$location->id)
+                    //->dailyAt('16:12');
+                    //->dailyAt('06:00');
+            }
         }
-
     }
 }

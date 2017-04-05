@@ -5,6 +5,5 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model {
 
     protected $table = 'languages';
-
-    protected $fillable = ['code', 'description'];
+    protected $guarded = ['id'];
 }

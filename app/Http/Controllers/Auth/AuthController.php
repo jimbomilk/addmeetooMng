@@ -131,7 +131,7 @@ class AuthController extends Controller
 
         if( auth()->user()->is('user'))
         {
-            return redirect()->route('home');
+            return redirect()->route('admin..index');
         }
 
         if( auth()->user()->is('admin'))

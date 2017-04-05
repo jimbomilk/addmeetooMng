@@ -5,9 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Screen extends Model {
 
     protected $table = 'screens';
-
-    protected $guarded = ['location_id'];
-
+    protected $guarded = ['id','location_id'];
 
     public function location()
     {

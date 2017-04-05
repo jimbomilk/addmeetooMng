@@ -8,8 +8,7 @@ class UserGameboard extends Model
 {
 
     protected $table = 'user_gameboards';
-
-    protected $fillable = ['gameboard_id','user_id'];
+    protected $guarded = ['id'];
 
     public function user()
     {
@@ -18,6 +17,6 @@ class UserGameboard extends Model
 
     public function gameboard()
     {
-        return $this->hasOne('App\Gameboard');
+        return $this->belongsTo('App\Gameboard');
     }
 }

@@ -25,9 +25,8 @@
 
                         @include('admin.common.partials.msgErrors')
 
-                        {!! Form::model($element, array('route' => ["admin.$name.update",$element->id], 'method' => 'PUT' )) !!}
+                        {!! Form::model($element, array('route' => [$login_user->type.".$name.update",$element->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
                             @include("admin.$name.partials.fields")
-
                             <button type="submit" class="btn btn-default">Update</button>
                         {!! Form::close() !!}
 

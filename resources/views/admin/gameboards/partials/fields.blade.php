@@ -1,20 +1,16 @@
 <div class="form-group">
 
-
-    {!! Form::label('activity', Lang::get('label.activity')) !!}
-    {!! Form::select('activity_id', $activities, null, ['id' => 'activity', 'class' => 'form-control']) !!}
-
-    {!! Form::label('location', Lang::get('label.location')) !!}
-    {!! Form::select('location_id', $locations, null, ['id' => 'location', 'class' => 'form-control']) !!}
-
-
-    {!! Form::label('name', Lang::get('label.name')) !!}
-    {!! Form::text('name', null, array('class'=>'form-control','placeholder'=>Lang::get('label.name'))) !!}
-
-    {!! Form::label('deadline', Lang::get('label.deadline')) !!}
-    {!! Form::number('deadline', null, array('class'=>'form-control','placeholder'=>Lang::get('label.deadline'))) !!}
-
-    {!! Form::label('status', Lang::get('label.status')) !!}
-    {!! Form::select('status', $statuses,null, ['id' => 'status', 'class' => 'form-control']) !!}
+    @include("admin.common.input_select",array('var'=>'activity_id','col'=>$activities))
+    @include("admin.common.input_select",array('var'=>'location_id','col'=>$locations))
+    @include("admin.common.input_text",array('var'=>'name'))
+    @include("admin.common.input_text",array('var'=>'description'))
+    @include("admin.common.input_check",array('var'=>'auto','default'=>1))
+    @include("admin.common.input_time",array('var'=>'starttime'))
+    @include("admin.common.input_number",array('var'=>'duration'))
+    @include("admin.common.input_number",array('var'=>'deadline'))
+    @include("admin.common.input_check",array('var'=>'participation_status','default'=>1))
+    @include("admin.common.input_number",array('var'=>'selection'))
+    @include("admin.common.input_select",array('var'=>'progression_type','col'=>$progression))
+    @include("admin.common.input_check",array('var'=>'multiscreen','default'=>0))
 
 </div>

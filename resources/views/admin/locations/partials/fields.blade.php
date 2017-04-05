@@ -1,4 +1,20 @@
-<div class="form-group">
-    {!! Form::label('name', Lang::get('label.loc_name')) !!}
-    {!! Form::text('name', null, array('class'=>'form-control','placeholder'=>Lang::get('label.loc_desc_name'))) !!}
+@include("admin.common.input_file",array('var'=>'logo'))
+@include("admin.common.input_select",array('var'=>'category','col'=>$categories))
+@include("admin.common.input_select",array('var'=>'owner_id','col'=>$owners))
+@include("admin.common.input_text",array('var'=>'name'))
+@include("admin.common.input_text",array('var'=>'phone'))
+@include("admin.common.input_text",array('var'=>'latitude'))
+@include("admin.common.input_text",array('var'=>'longitude'))
+@include("admin.common.input_select",array('var'=>'countries_id','col'=>$countries))
+@include("admin.common.input_text",array('var'=>'timezone'))
+@include("admin.common.input_text",array('var'=>'website'))
+
+@include("admin.common.input_text",array('var'=>'address'))
+<div style="height:100%;width: 100%">
+    {!!  $map['html'] !!}
 </div>
+
+
+@section('scripts')
+    {!! $map['js'] !!}
+@endsection

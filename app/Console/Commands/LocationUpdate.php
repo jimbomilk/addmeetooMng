@@ -56,6 +56,9 @@ class LocationUpdate extends Command
                 // Se reinicia el status
                 $gameboard->status = Status::SCHEDULED;
 
+                //Se abren las votaciones
+                $gameboard->participation_status = true;
+
                 // Se limpian los valores de los participantes en el juego...OJO en el futuro habrá que almacenarlos
                 // en algun histórico para BIG DATA
                 $gameboard->gameboardUsers()->delete();

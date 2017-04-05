@@ -61,7 +61,7 @@ class BidsController extends Controller {
         $item = new Bid($request->all());
         $item->save();
 
-        return redirect()->route('admin.bids.index');
+        return redirect()->route($this->indexPage("bids"));
 	}
 
 	/**
@@ -98,7 +98,7 @@ class BidsController extends Controller {
         $this->bid->fill($request->all());
         $this->bid->save();
 
-        return redirect()->route('admin.bids.index');
+        return redirect()->route($this->indexPage("bids"));
 	}
 
 	/**
@@ -122,7 +122,7 @@ class BidsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.bids.index');
+        return redirect()->route($this->indexPage("bids"));
 	}
 
 }

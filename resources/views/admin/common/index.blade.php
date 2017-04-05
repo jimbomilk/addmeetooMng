@@ -36,11 +36,13 @@
                             <button type="submit" class="btn btn-default">Search</button>
                         {!! Form::close() !!}
 
+                        @if(!isset($hide_new) || !$hide_new)
                         <p>
                             <a class="btn btn-info" href="{{ route("$login_user->type.$name.create") }}" role="button">
                                 New
                             </a>
                         </p>
+                        @endif
 
                         @include("admin.$name.partials.table")
 

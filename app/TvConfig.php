@@ -5,8 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class TvConfig extends Model {
 
     protected $table = 'tvconfigs';
-
-    protected $fillable = ['state','screen_timer','location_id'];
+    protected $guarded = ['id'];
 
 
     public function location()

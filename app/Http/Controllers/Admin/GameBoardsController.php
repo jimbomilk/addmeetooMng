@@ -1,7 +1,8 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\General;
 use App\Http\Controllers\Controller;
-use Log;
+use Illuminate\Support\Facades\Log;
 use App\Gameboard;
 use App\GameboardOption;
 use App\Activity;
@@ -12,7 +13,7 @@ use App\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Events\ScreenEvent;
+
 
 
 
@@ -32,6 +33,18 @@ class GameboardsController extends Controller {
 
     }
 
+    public function sendView ($element=null)
+    {
+        $locations = Auth::user()->locations()->lists('name','id');
+        $activities = Activity::all()->pluck('name','id');
+        $progression = General::getEnumValues('gameboards','progression_type') ;
+
+        if (isset($element))
+            return view('admin.common.edit',['name'=>'gameboards','element' => $element,'statuses'=>Status::$desc,'locations'=>$locations,'activities'=>$activities,'progression'=>$progression]);
+        else
+            return view('admin.common.create',['name'=>'gameboards','statuses'=>Status::$desc,'locations'=>$locations,'activities'=>$activities,'progression'=>$progression]);
+    }
+
     public function index()
 	{
         if (Auth::user()->is('admin'))
@@ -39,7 +52,7 @@ class GameboardsController extends Controller {
         else
             $gameboards = Auth::user()->gameboards()->paginate();
 
-        return view ('admin.common.index',['name'=>'gameboards','set'=>$gameboards]);
+        return view ('admin.common.index',['name'=>'gameboards','set'=>$gameboards,'statuses'=>Status::$desc,'colours'=>Status::$colors]);
 	}
 
 	/**
@@ -49,10 +62,8 @@ class GameboardsController extends Controller {
 	 */
 	public function create()
 	{
-        $locations = Auth::user()->locations()->lists('name','id');
-        $activities = Activity::all()->pluck('name','id');
-        return view('admin.common.create',['name'=>'gameboards','statuses'=>Status::$values,'locations'=>$locations,'activities'=>$activities]);
-	}
+        return $this->sendView();
+    }
 
 
 
@@ -60,19 +71,10 @@ class GameboardsController extends Controller {
     {
         // Cuando creamos un gameboard, tenemos que crear tb todas sus opciones (copia de la actividad)
         $gameboard = new Gameboard($request->all());
-
         $gameboard->createGame();
 
-        return redirect()->route(Auth::user()->type.".gameboards.index");
+        return redirect()->route($this->indexPage("gameboards"));
     }
-
-    //
-    //
-
-
-
-
-
 
 
 	/**
@@ -81,14 +83,18 @@ class GameboardsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Request $request,$id)
 	{
         $game = Gameboard::findOrFail($id);
 
         if (isset ($game))
         {
-            $options = $game->gameboardOptions()->paginate();
-            return view('admin.common.index',['name'=>'gameboard_options','set' => $options]);
+            //$options = $game->gameboardOptions()->paginate();
+            $request->session()->put('gameboard_id',$id);
+
+            return redirect()->route($this->indexPage("gameboard_options"));
+
+            //return view('admin.common.index',['name'=>'gameboard_options','set' => $options,'hide_new'=>$game->auto]);
         }
 	}
 
@@ -102,12 +108,9 @@ class GameboardsController extends Controller {
 	{
         $gameboard = Gameboard::findOrFail($id);
 
-        $locations = Auth::user()->locations()->lists('name','id');
-        $activities = Activity::all()->pluck('name','id');
-
         if (isset($gameboard))
         {
-           return view ('admin.common.edit',['name'=>'gameboards','element'=>$gameboard,'statuses'=>Status::$desc,'locations'=>$locations,'activities'=>$activities]);
+            return $this->sendView($gameboard);
         }
 	}
 
@@ -119,24 +122,20 @@ class GameboardsController extends Controller {
 	 */
     public function update(GameboardRequest $request, $id)
     {
-
-
         $this->gameboard = Gameboard::findOrFail($id);
-
-        $prev_status = $this->gameboard->status;
-
+        $currentstatus = $this->gameboard->status;
         $this->gameboard->fill($request->all());
+
+        // Transformation as we always save UTC in BBDD
+        $this->gameboard->starttime = $this->gameboard->getUTCStarttime();
         $this->gameboard->save();
 
-        $curr_status = $this->gameboard->status;
-
-        if ($prev_status != $curr_status)
+        if ($currentstatus != $this->gameboard->status && $this->gameboard->status == Status::OFFICIAL )
         {
-            //Actualizamos la pantalla
-            $this->createGameView($this->gameboard);
+            $this->gameboard->publish();
         }
 
-        return redirect()->route(Auth::user()->type.".gameboards.index");
+        return redirect()->route($this->indexPage("gameboards"));
     }
 
 	/**
@@ -160,7 +159,22 @@ class GameboardsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route(Auth::user()->type.".gameboards.index");
+        return redirect()->route($this->indexPage("gameboards"));
     }
 
+
+    public function fastUpdate($id)
+    {
+        $column_name = Input::get('name');
+        $column_value = Input::get('value');
+
+        if( Input::has('name') && Input::has('value')) {
+            $game = Gameboard::select()
+                ->where('id', '=', $id)
+                ->update([$column_name => $column_value]);
+            return response()->json([ 'code'=>200], 200);
+        }
+
+        return response()->json([ 'error'=> 400, 'message'=> 'Not enought params' ], 400);
+    }
 }

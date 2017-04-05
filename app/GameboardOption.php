@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class GameboardOption extends Model
 {
     protected $table = 'gameboard_options';
-
-    protected $fillable = ['gameboard_id','activity_option_id'];
+    protected $guarded = ['id'];
 
 
     public function __construct($game_id=null,$activity_option=null,$attributes = array())

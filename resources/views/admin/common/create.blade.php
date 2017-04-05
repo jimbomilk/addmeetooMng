@@ -27,7 +27,7 @@
                         @include('admin.common.partials.msgErrors')
 
 
-                        {!! Form::open(array('route' => "$login_user->type.$name.store", 'method' => 'POST' )) !!}
+                        {!! Form::open(array('route' => "$login_user->type.$name.store", 'method' => 'POST', 'enctype' => 'multipart/form-data')) !!}
                             @include("admin.$name.partials.fields")
                             <button type="submit" class="btn btn-default">Create</button>
 

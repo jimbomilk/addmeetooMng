@@ -66,7 +66,7 @@ class TvConfigsController extends Controller {
         $tvconfig = new TvConfig($request->all());
         $tvconfig->save();
 
-        return redirect()->route('admin.tvconfigs.index');
+        return redirect()->route($this->indexPage("tvconfigs"));
 	}
 
 	/**
@@ -110,7 +110,7 @@ class TvConfigsController extends Controller {
         $this->tvconfig->fill($request->all());
         $this->tvconfig->save();
 
-        return redirect()->route('admin.tvconfigs.index');
+        return redirect()->route($this->indexPage("tvconfigs"));
 	}
 
 	/**
@@ -134,7 +134,7 @@ class TvConfigsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.tvconfigs.index');
+        return redirect()->route($this->indexPage("tvconfigs"));
 	}
 
 }

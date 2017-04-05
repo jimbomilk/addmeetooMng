@@ -1,6 +1,10 @@
 <table class="table table-striped">
     <tr>
         <th>Name</th>
+        <th>Description</th>
+        <th>Start Time</th>
+        <th>Duration</th>
+        <th>Deadline</th>
         <th></th>
         <th></th>
         <th></th>
@@ -8,19 +12,24 @@
     @foreach($set as $activity)
         <tr data-id="{{$activity->id}}">
             <td>{{$activity->name}}</td>
+            <td>{{$activity->description}}</td>
+            <td>{{$activity->starttime}}</td>
+            <td>{{$activity->duration}}</td>
+            <td>{{$activity->deadline}}</td>
+
+
             <td>
-                <a href="{{ route('admin.activities.edit', $activity) }}" class="btn-edit"><i class="fa fa-pencil"></i></a>
+                @include("admin.common.btn_edit",array('var'=>$activity))
             </td>
 
             <td>
-                <a href="{{ route('admin.activities.show', $activity) }}" class="btn-edit"><i class="fa fa-list-ul"></i></a>
+                @include("admin.common.btn_show",array('var'=>$activity))
             </td>
+
             <td>
-                {!! Form::open(['method' => 'DELETE','route' => ['admin.activities.destroy', $activity],'style'=>'display:inline']) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                {!! Form::close() !!}
+                @include("admin.common.btn_delete",array('var'=>$activity))
             </td>
         </tr>
     @endforeach
-
+    <div class="pagination"> {{ $set->links() }} </div>
 </table>

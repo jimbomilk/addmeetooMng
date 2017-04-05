@@ -1,13 +1,18 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Country;
+use App\General;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\LocationUpdateRequest;
 use App\Location;
 use App\Http\Requests\LocationRequest;
+use App\User;
+
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
-use GeneaLabs\Phpgmaps\Facades\Phpgmaps;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -24,11 +29,7 @@ class LocationsController extends Controller {
     {
         parent::__construct();
         $this->middleware('auth');
-
     }
-
- 
-
 
     public function index()
 	{
@@ -40,6 +41,21 @@ class LocationsController extends Controller {
         return view ('admin.common.index',['name'=>'locations','set'=>$locations]);
 	}
 
+
+    public function sendView ($element=null)
+    {
+        $owners = User::where('type','=','owner')->lists('name','id');
+        $categories = General::getEnumValues('locations','category');
+        $countries = Country::all()->pluck('name','id');
+
+        $map = General::createMap($element);
+
+        if (isset($element))
+            return view('admin.common.edit',['name'=>'locations','element' => $element,'owners' =>$owners,'categories'=>$categories,'countries'=>$countries,'map'=>$map]);
+        else
+            return view('admin.common.create',['name'=>'locations','owners' =>$owners,'categories'=>$categories,'countries'=>$countries,'map'=>$map]);
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -47,20 +63,23 @@ class LocationsController extends Controller {
 	 */
 	public function create()
 	{
-        return view('admin.common.create',['name'=>'locations']);
+        return $this->sendView();
 	}
+
 
 
     public function store(LocationRequest $request)
     {
-
         $location = new Location($request->all());
-
         $location->owner_id = Auth::user()->id;
-
         $location->save();
 
-        return redirect()->route(Auth::user()->type.".locations.index");
+        $filename = $request->saveFile('logo','location'.$location->id);
+        if ($filename != $location->logo) {
+            $location->logo = $filename;
+            $location->save();
+        }
+        return redirect()->route($this->indexPage("locations"));
     }
 
 
@@ -84,10 +103,13 @@ class LocationsController extends Controller {
 	public function edit($id)
 	{
         $location = Location::findOrFail($id);
+
         if (isset($location))
         {
-            $marker = $this->maps($location);
-            return view ('admin.common.edit',['name'=>'locations','element'=>$location,'marker'=>$marker]);
+
+
+
+            return $this->sendView($location);
         }
 	}
 
@@ -97,14 +119,18 @@ class LocationsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-    public function update(LocationRequest $request, $id)
+    public function update(LocationUpdateRequest $request, $id)
     {
+        $location = Location::findOrFail($id);
+        $location->fill($request->all());
 
-        $this->location = Location::findOrFail($id);
-        $this->location->fill($request->all());
-        $this->location->save();
+        $filename = $request->saveFile('logo','location'.$location->id);
+        if(isset($filename))
+            $location->logo = $filename;
 
-        return redirect()->route('admin.locations.index');
+        $location->save();
+
+        return redirect()->route($this->indexPage("locations"));
     }
 
 	/**
@@ -115,9 +141,12 @@ class LocationsController extends Controller {
 	 */
     public function destroy($id,Request $request)
     {
-        $this->location = Location::findOrFail($id);
-        $this->location->delete();
-        $message = $this->location->name. ' deleted';
+        $location = Location::findOrFail($id);
+
+        File::deleteDirectory(storage_path().'/app/public/location'.$location->id);
+
+        $location->delete();
+        $message = $location->name. ' deleted';
         if ($request->ajax())
         {
             return response()->json([
@@ -128,37 +157,31 @@ class LocationsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.locations.index');
+        return redirect()->route($this->indexPage("locations"));
     }
 
-    public function maps(Location $location)
+
+    /*
+     * Game restarting : all
+     */
+    public function restart($location)
     {
-        $marker = array();
-        $config = array();
-        $config['center'] = $location->geolocation;
-        if ($location->geolocation == null )
-        {
-            return;
+        $location = Location::findOrFail($location);
+        if (isset($location)) {
+            foreach ($location->gameboards as $gameboard) {
+                if ($gameboard->destroyGame())
+                    $gameboard->createGame();
+            }
         }
-        $config['onboundschanged'] = 'if (!centreGot) {
-                    marker_0.setOptions({
-                        position: new google.maps.LatLng('.$location->geolocation.')
-                    });
-                }
-                centreGot = true;';
 
+        Session::flash('message','Location restarted');
+        return redirect()->route($this->indexPage("locations"));
+    }
 
-        $circle = array();
-        $circle['center'] = $location->geolocation;
-        $circle['radius'] = '5000';
-        \Gmaps::add_circle($circle);
-
-        \Gmaps::initialize($config);
-        \Gmaps::add_marker($marker);
-        $map = \Gmaps::create_map();
-        $marker=  array('map_js' => $map['js'], 'map_html' => $map['html']);
-        return $marker;
+    public function updateCoords(LocationRequest $request)
+    {
 
     }
+
 
 }

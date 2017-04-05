@@ -115,25 +115,6 @@ class ApiController extends Controller
 
         }
 
-/*
-        try {
-            $gameviews = DB::table('game_views')
-                ->join('gameboards', 'game_views.gameboard_id', '=' , 'gameboards.id' )
-
-                where('gameboards.location_id', '=', $location_id)->get();
-
-        } catch (Exception $e) {
-            return response()->json(['error' => "Screen NOT FOUND: $id"],HttpResponse::HTTP_NOT_FOUND );
-        }
-
-        $input = $request->all();
-        try {
-            JWTAuth::toUser($input['token']);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }
-        return json_encode($gameviews);
-*/
     }
 
     public function screen($id, Request $request)

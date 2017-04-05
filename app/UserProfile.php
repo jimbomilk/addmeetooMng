@@ -5,7 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 class UserProfile extends Model {
 
 
-	 protected $table = 'user_profiles';
+	protected $table = 'user_profiles';
+    protected $guarded = ['id'];
 
 	public function getAgeAttribute()
 	{

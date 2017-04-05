@@ -5,8 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class location extends Model {
 
     protected $table = 'locations';
-
-    protected $fillable = ['name'];
+    protected $guarded = ['id'];
 
 
     public function screens()
@@ -14,14 +13,19 @@ class location extends Model {
         return $this->hasMany('App\Screen');
     }
 
-    public function getGeolocationAttribute()
+    public function getImagesPathAttribute()
     {
-        return $this->latitude . ','. $this->longitude;
+        return 'location'.$this->id;
     }
 
     public function owner()
     {
         return $this->belongsTo('App\User','owner_id','id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo('App\Country','countries_id','id');
     }
 
     public function gameboards()
@@ -32,6 +36,11 @@ class location extends Model {
     public function messages()
     {
         return $this->hasmany('App\Messages');
+    }
+
+    public function getAddress()
+    {
+        return $this->street.','.$this->city.','.$this->state.','.$this->country->name.','.$this->post_code;
     }
 
 }

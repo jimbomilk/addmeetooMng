@@ -4,11 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auction extends Model {
 
-
-
     protected $table = 'auctions';
-
-    protected $fillable = ['state', 'start','location_id', 'ending','duration', 'times','winning_bid'];
+    protected $guarded = ['id'];
 
 
     public function location()

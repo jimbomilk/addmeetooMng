@@ -6,16 +6,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use App\Events\ScreenEvent;
 
 
 class Gameboard extends Model
 {
     protected $table = 'gameboards';
-    protected $fillable = ['name','activity_id','location_id','starttime','deadline','status'];
+    protected $guarded = ['id'];
 
     public function activity()
     {
-        return $this->belongsTo('App\Activity','activity_id','id');
+        return $this->belongsTo('App\Activity');
     }
 
     public function location()
@@ -73,27 +76,81 @@ class Gameboard extends Model
         return $this->activity->head2head;
     }
 
+    //Recogemos el valor UTC de la BBDD y devolvemos el valor local.
+    public function getLocalStarttime()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $starttime = Carbon::parse($this->starttime);
+        $ret = $starttime->addHours($localoffset)->toTimeString();
+        return $ret;
+    }
+
+    // Dado un valor local devolvemos su UTC
+    public function getUTCStarttime()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $starttime = Carbon::parse($this->starttime);
+        $ret = $starttime->subHours($localoffset)->toTimeString();
+        return $ret;
+    }
+
+
     public function getTypeAttribute($value)
     {
         return $this->activity->type;
     }
 
 
+    public function getGameCode()
+    {
+        return sprintf("%05d", $this->id);
+    }
+
+    public function getGameId($value)
+    {
+        return ($value + 0);
+    }
+
+
+    public function destroyGame()
+    {
+        try{
+            DB::beginTransaction();
+            UserGameboard::where('gameboard_id',$this->id)->delete();
+            GameView::where('gameboard_id',$this->id)->delete();
+
+            //Si el juego es auto, tendremos que borrar las gameboardoptions
+            if ($this->auto) {
+                GameboardOption::where('gameboard_id',$this->id)->delete();
+            }
+            DB::commit();
+            return true;
+        } catch(\PDOException $e)
+        {
+            DB::rollback();
+            return false;
+        }
+    }
+
     public function createGame()
     {
+        //status initilization
         $this->status = Status::SCHEDULED;
-
+        $this->participation_status = true;       //open voting
         $this->starttime = $this->activity->starttime;
-        $this->endtime = $this->activity->endtime;
+        $this->duration = $this->activity->duration;
+        $this->deadline = $this->activity->deadline ;
         $this->description = $this->activity->description;
         $this->save();
 
-        //Recuperamos la activity y creamos los gameboard_options , copia de las activity options
-        $options = ActivityOption::where('activity_id',$this->activity_id)->get();
-        foreach ($options as $activityOption)
-        {
-            $gameboardOption = new GameboardOption($this->id,$activityOption);
-            $gameboardOption->save();
+
+        //Si el juego es auto, tendremos que crear las options a partir de la activity_options
+        if ($this->auto) {
+            $options = ActivityOption::where('activity_id', $this->activity_id)->get();
+            foreach ($options as $activityOption) {
+                $gameboardOption = new GameboardOption($this->id, $activityOption);
+                $gameboardOption->save();
+            }
         }
 
         // Además tenemos que crear las pantallas iniciales del juego.
@@ -113,8 +170,7 @@ class Gameboard extends Model
         foreach(Status::$desc as $key => $value)
         {
             $presentation = new GameView();
-            $presentation->status = $value;
-            $presentation->createX($this);
+            $presentation->createX($this,$key);
             $presentation->save();
         }
 
@@ -126,6 +182,14 @@ class Gameboard extends Model
     {
         return $this->gameViews->where('status', $this->status)->first();
 
+    }
+
+    public function publish()
+    {
+        //Publicamos la pantalla
+        $gameview = $this->getGameView();
+        if (isset($gameview))
+            event(new ScreenEvent($gameview, 'location2'  /*. $location->id*/)); // De momento todo lo pintamos en la location2
     }
 
 }

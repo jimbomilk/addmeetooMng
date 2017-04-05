@@ -4,7 +4,7 @@ use App\Http\Requests\ActivityOptionsRequest;
 use App\Http\Controllers\Controller;
 use App\ActivityOption;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 
@@ -13,7 +13,6 @@ class ActivityOptionsController extends Controller {
 
     public function __construct()
     {
-
         parent::__construct();
         $this->middleware('auth');
     }
@@ -25,11 +24,24 @@ class ActivityOptionsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-        $activity_options = ActivityOption::paginate();
-        return view ('admin.common.index',['name'=>'activities','set'=>$activity_options]);
+        //$activity_options = ActivityOption::paginate();
+
+        $id = $request->session()->get('activity_id');
+        $activity_options = ActivityOption::where('activity_id','=',$id)->paginate();
+
+        return view ('admin.common.index',['name'=>'activity_options','set'=>$activity_options]);
 	}
+
+    public function sendView ($element=null)
+    {
+        if (isset($element))
+            return view('admin.common.edit',['name'=>'activity_options','element' => $element]);
+        else
+            return view('admin.common.create',['name'=>'activity_options']);
+
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -38,7 +50,7 @@ class ActivityOptionsController extends Controller {
 	 */
 	public function create()
 	{
-        return view('admin.common.create',['name'=>'activity_options']);
+        return $this->sendView();
 	}
 
 	/**
@@ -49,9 +61,18 @@ class ActivityOptionsController extends Controller {
 	public function store(ActivityOptionsRequest $request)
 	{
         $activityOptions = new ActivityOption($request->all());
+        $id = $request->session()->get('activity_id');
+        $activityOptions->gameboard_id = $id;
         $activityOptions->save();
 
-        return redirect()->route('admin.activity_options.index');
+
+        $filename = $request->saveFile('image','activity'.$activityOptions->id);
+        if ($filename != $activityOptions->image) {
+            $activityOptions->image = $filename;
+            $activityOptions->save();
+        }
+
+        return redirect()->route($this->indexPage("activity_options"));
 	}
 
 	/**
@@ -77,7 +98,8 @@ class ActivityOptionsController extends Controller {
           
         if (isset ($activityOption))
         {
-            return view('admin.common.edit',['name'=>'activity_options','element' => $activityOption]);
+            return $this->sendView($activityOption);
+
         }
 
 	}
@@ -109,9 +131,14 @@ class ActivityOptionsController extends Controller {
 	{
         $activityoption = ActivityOption::findOrFail($id);
         $activityoption->fill($request->all());
+
+        $filename = $request->saveFile('image','activity'.$activityoption->id);
+        if(isset($filename))
+            $activityoption->image = $filename;
+
         $activityoption->save();
 
-        return redirect()->route('admin.activity_options.index');
+        return redirect()->route($this->indexPage("activity_options"));
 	}
 
 	/**
@@ -123,6 +150,9 @@ class ActivityOptionsController extends Controller {
     public function destroy($id,Request $request)
 	{
         $activityOption = ActivityOption::findOrFail($id);
+
+        File::deleteDirectory(storage_path().'/app/public/activity'.$activityOption->id);
+
         $activityOption->delete();
         $message = $activityOption->name. ' deleted';
         if ($request->ajax())
@@ -135,7 +165,7 @@ class ActivityOptionsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.activity_options.index');
+        return redirect()->route($this->indexPage("activity_options"));
 	}
 
 }

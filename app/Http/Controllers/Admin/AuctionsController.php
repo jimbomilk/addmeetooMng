@@ -55,7 +55,7 @@ class AuctionsController extends Controller {
         $item = new Auction($request->all());
         $item->save();
 
-        return redirect()->route('admin.auctions.index');
+        return redirect()->route($this->indexPage("auctions"));
 	}
 
 	/**
@@ -95,7 +95,7 @@ class AuctionsController extends Controller {
         $this->auction->fill($request->all());
         $this->auction->save();
 
-        return redirect()->route('admin.auctions.index');
+        return redirect()->route($this->indexPage("auctions"));
 	}
 
 	/**
@@ -119,7 +119,7 @@ class AuctionsController extends Controller {
         }
 
         Session::flash('message',$message);
-        return redirect()->route('admin.auctions.index');
+        return redirect()->route($this->indexPage("auctions"));
 	}
 
 }

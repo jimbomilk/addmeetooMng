@@ -26,6 +26,7 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
 
+            @if ($login_user->is('admin') || $login_user->is('owner')  )
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i>
@@ -38,10 +39,22 @@
 
                     <li><a href="/{{$login_user->type}}/locations"><i class="fa fa-building-o"></i> Locations</a></li>
                     <li><a href="/{{$login_user->type}}/messages"><i class="fa fa-paper-plane-o"></i> Messages</a></li>
-                    <li><a href="/{{$login_user->type}}/advertisements"><i class="fa fa-bullhorn"></i> Advertisements</a></li>
+                </ul>
+            </li>
+            @endif
+
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-rocket"></i> <span>Advertisements</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+
+                <ul class="treeview-menu">
+                    <li><a href="/{{$login_user->type}}/advertisements"><i class="fa fa-adn"></i> Ads</a></li>
                 </ul>
             </li>
 
+
+            @if ($login_user->is('admin') || $login_user->is('owner')  )
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-delicious"></i> <span>Games</span> <i class="fa fa-angle-left pull-right"></i>
@@ -52,23 +65,23 @@
                         <li><a href="/admin/activities"><i class="fa fa-universal-access"></i>Activities</a></li>
                     @endif
                     <li><a href="/{{$login_user->type}}/gameboards"><i class="fa fa-delicious"></i>Game Boards</a></li>
-                    <li><a href="/{{$login_user->type}}/usergameboards"><i class="fa fa-gamepad"></i>Game Users</a></li>
                 </ul>
             </li>
+            @endif
 
+            @if ($login_user->is('admin') || $login_user->is('owner')  )
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-line-chart"></i> <span>Rankings</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
 
                 <ul class="treeview-menu">
-                    <li><a href="/{{$login_user->type}}/rankinglocal"><i class="fa fa-line-chart"></i> Global Ranking</a></li>
-                    <li><a href="/{{$login_user->type}}/rankingsport"><i class="fa fa-futbol-o"></i> Sports Ranking</a></li>
-                    <li><a href="/{{$login_user->type}}/rankinggame"><i class="fa fa-delicious"></i> Gamming Ranking</a></li>
-                    <li><a href="/{{$login_user->type}}/rankingparty"><i class="fa fa-smile-o"></i> Party Ranking</a></li>
-                    <li><a href="/{{$login_user->type}}/rankingshopping"><i class="fa fa-shopping-cart"></i> Shopping Ranking</a></li>
+                    <li><a href="/{{$login_user->type}}/usergameboards"><i class="fa fa-line-chart"></i> Ranking</a></li>
                 </ul>
             </li>
+            @endif
+
+            @if ($login_user->is('admin') || $login_user->is('owner')  )
             <li class="treeview active">
                 <a href="#">
                     <i class="fa fa-gavel"></i>
@@ -83,18 +96,8 @@
 
                 </ul>
             </li>
+            @endif
 
-            <li class="treeview active">
-                <a href="#">
-                    <i class="fa fa-video-camera"></i>
-                    <span>Screens</span><i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/{{$login_user->type}}/tvconfigs"><i class="fa fa-circle-o"></i> Config</a></li>
-                    <li><a href="/{{$login_user->type}}/tvlive"><i class="fa fa-circle-o"></i> Status</a></li>
-
-                </ul>
-            </li>
 
 
         </ul>

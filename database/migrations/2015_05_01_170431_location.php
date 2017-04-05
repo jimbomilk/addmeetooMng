@@ -22,19 +22,21 @@ class Location extends Migration {
                 ->references('id')
                 ->on('users');
 
-            $table->string('latitude');
-            $table->string('longitude');
             $table->string('logo');
             $table->string('slogan');
 
-            $table->string('street',    60);
-            $table->string('city',      60);
-            $table->string('state',     60);
-            $table->string('post_code', 10);
-            $table->integer('country_id')->unsigned()->index();
+            $table->string('address');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->integer('countries_id')->unsigned()->index();
+            $table->foreign('countries_id')
+                ->references('id')
+                ->on('countries');
             $table->string('phone',    16);
             $table->string('email',    60);
             $table->string('website', 100);
+            $table->string('timezone')->default('Europe/Madrid');
+            $table->enum('category',array('restaurant','bar','cinema','shopping','sports','karaoke','museum','party'));
 
 			$table->timestamps();
 		});

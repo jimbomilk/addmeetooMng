@@ -1,7 +1,19 @@
 <div class="form-group">
-    {!! Form::label('name', Lang::get('label.act_name')) !!}
-    {!! Form::text('name', null, array('class'=>'form-control','placeholder'=>Lang::get('label.act_desc_name'))) !!}
-    {!! Form::label('type', Lang::get('label.act_type')) !!}
-    {!! Form::select('type', ['' => 'Select one','vote'=>'Voting' ,'bet'=>'Betting','game'=>'Game'],null, ['class'=>'form-control']) !!}
+
+    @include("admin.common.input_text",array('var'=>'name'))
+    @include("admin.common.input_text",array('var'=>'description'))
+    @include("admin.common.input_time",array('var'=>'starttime'))
+    @include("admin.common.input_number",array('var'=>'duration'))
+    @include("admin.common.input_number",array('var'=>'deadline'))
+    @include("admin.common.input_select",array('var'=>'type','col'=>$types))
+    @include("admin.common.input_select",array('var'=>'category','col'=>$categories))
+    @include("admin.common.input_check",array('var'=>'head2head','default'=>1))
+    @include("admin.common.input_number",array('var'=>'selection'))
+    @include("admin.common.input_number",array('var'=>'reward_participation'))
+    @include("admin.common.input_check",array('var'=>'reward','default'=>1))
+    @include("admin.common.input_number",array('var'=>'reward_first'))
+    @include("admin.common.input_number",array('var'=>'reward_second'))
+    @include("admin.common.input_number",array('var'=>'reward_third'))
+
 </div>
 

@@ -21,7 +21,6 @@ class GameViews extends Migration
             $table->string('logo2')->nullable();
             $table->longText('body')->nullable();
             $table->integer('next')->nullable();
-            $table->longText('messages');
 
             $table->integer('gameboard_id')->unsigned();
             $table->foreign('gameboard_id')

@@ -36,6 +36,17 @@ class UsersController extends Controller {
         return view ('admin.common.index',['name'=>'users','set'=>$users]);
 	}
 
+
+    public function sendView($element=null)
+    {
+        $types = General::getEnumValues('users','type') ;
+        if (isset($element))
+            return view('admin.common.edit',['name'=>'users','element' => $element,'types'=>$types]);
+        else
+            return view('admin.common.create',['name'=>'users','types'=>$types]);
+
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -43,7 +54,7 @@ class UsersController extends Controller {
 	 */
 	public function create()
 	{
-        return view('admin.common.create',['name'=>'users']);
+        return $this->sendView();
 	}
 
 	/**
@@ -79,7 +90,7 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-        return view ('admin.common.edit',['name'=>'users','element'=>$this->user]);
+        return $this->sendView($this->user);
 	}
 
 	/**

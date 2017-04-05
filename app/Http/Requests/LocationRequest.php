@@ -23,7 +23,8 @@ class LocationRequest extends Request {
 	public function rules()
 	{
 		return [
-            'name'                      => 'required',
+            'name' => 'required',
+            'logo' => 'required|mimes:jpeg,bmp,png'
         ];
 	}
 

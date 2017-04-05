@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model {
 
     protected $table = 'activities';
-
-    protected $fillable = ['selection','starttime'];
+    protected $guarded = ['id'];
 
     public function activityOptions()
     {

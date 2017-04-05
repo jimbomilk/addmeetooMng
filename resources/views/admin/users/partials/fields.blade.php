@@ -1,24 +1,6 @@
-<div class="form-group">
-    {!! Form::label('name', 'Name') !!}
-    {!! Form::text('name', null, ['class'=>'form-control','placeholder'=>'Please enter your name'] ) !!}
+@include("admin.common.input_text",array('var'=>'name'))
+@include("admin.common.input_text",array('var'=>'email'))
+@include("admin.common.input_password",array('var'=>'password'))
+@include("admin.common.input_password",array('var'=>'password2'))
+@include("admin.common.input_select",array('var'=>'type','col'=>$types))
 
-</div>
-<div class="form-group">
-    {!! Form::label('email', 'E-Mail Address') !!}
-    {!! Form::text('email', null, ['class'=>'form-control','placeholder'=>'Please enter your email'] ) !!}
-
-</div>
-<div class="form-group">
-    {!! Form::label('password', 'Password') !!}
-    {!! Form::password('password', ['class'=>'form-control','placeholder'=>'Please input password']) !!}
-
-</div>
-<div class="form-group">
-    {!! Form::label('password2', 'Repeat Password') !!}
-    {!! Form::password('password2', ['class'=>'form-control','placeholder'=>'Please input password again']) !!}
-
-</div>
-<div class="form-group">
-    {!! Form::label('type', 'Type') !!}
-    {!! Form::select('type', ['' => 'Select type','user'=>'User','admin'=>'Admin'],null, ['class'=>'form-control']) !!}
-</div>

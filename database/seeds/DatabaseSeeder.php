@@ -15,14 +15,16 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
         $this->truncateTables();
-
+        $this->call('CountriesSeeder');
 		$this->call('AdminTableSeeder');
 		$this->call('UserTableSeeder');
         $this->call('ActivityTableSeeder');
         $this->call('AuctionTableSeeder');
         $this->call('MessageTableSeeder');
+        $this->call('AdsTableSeeder');
 
-	}
+
+    }
 
     public function truncateTables()
     {
@@ -43,7 +45,13 @@ class DatabaseSeeder extends Seeder {
                 'users',
                 'user_profiles',
                 'game_views',
-                'messages'
+                'messages',
+                'adscategories',
+                'advertisements',
+                'adscategorylocations',
+                'adspacks',
+                'adslocations',
+                 Config::get('countries.table_name')
         );
 
         $this->dbForeign(false);
