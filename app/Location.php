@@ -38,9 +38,20 @@ class location extends Model {
         return $this->hasmany('App\Messages');
     }
 
+    public function currentGame()
+    {
+        return $this->hasOne('App\Gameboard','current_game','id');
+    }
+
+    public function previousGame()
+    {
+        return $this->hasOne('App\Gameboard','previous_game','id');
+    }
+
     public function getAddress()
     {
         return $this->street.','.$this->city.','.$this->state.','.$this->country->name.','.$this->post_code;
     }
+
 
 }

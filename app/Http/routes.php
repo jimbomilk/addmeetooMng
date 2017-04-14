@@ -41,7 +41,9 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
 
     // ** ADMIN  **
     Route::resource('users', 'UsersController');
+    Route::resource('userprofiles', 'UserProfilesController');
     Route::resource('locations', 'LocationsController');
+
 
 
     // ** ADS **
@@ -70,6 +72,22 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     // ** TV SET **
     //Route::resource('tvconfigs', 'TvConfigsController');
     //Route::resource('screens', 'ScreensController');
+
+
+    Route::get('images/{folder}/{filename}', function ($folder,$filename)
+    {
+        $path = storage_path() . '/app/public/'. $folder .'/' . $filename;
+
+        if(!File::exists($path)) abort(404);
+
+        $file = File::get($path);
+        $type = File::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    });
 
 });
 
@@ -111,38 +129,25 @@ Route::get ('home', function()
     return "Welcome to ADDMEETOO";
 })->name('home');
 
-Route::get('images/{folder}/{filename}', function ($folder,$filename)
-{
-    $path = storage_path() . '/app/public/'. $folder .'/' . $filename;
-
-    if(!File::exists($path)) abort(404);
-
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
-});
 
 Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api'],function(){
 
     //Route::get('login', 'LoginController@loginWithTwitter');
     Route::post('authenticate','ApiController@authenticate');
-    Route::post('screens/{location_id}/{screen_id}','ApiController@screens');
+    //Route::post('screens/{location_id}/{screen_id}','ApiController@screens');
     Route::post('gameboard/{gameboard_id}','ApiController@gameboard');
 
     Route::post('gameboard/useroptions/{gameboard_id}','ApiController@useroptions');
+
 
     //Route::get('auctions', 'ApiController@indexAuctions');
     //Route::get('auction/{id}', 'ApiController@indexAuction');
     //Route::get('auctionbid/{id}', 'ApiController@updateAuction');
     //Route::get('persons', 'ApiController@persons');
 
-    Route::get('images/{filename}', function ($filename)
+    Route::get('images/{path}/{filename}', function ($path,$filename)
     {
-        $path = storage_path() . '/' . $filename;
+        $path = storage_path().'/app/public/' . $path. '/'. $filename;
 
         if(!File::exists($path)) abort(404);
 

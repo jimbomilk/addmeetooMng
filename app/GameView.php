@@ -21,7 +21,7 @@ class GameView extends Model
     {
         $this->gameboard_id = $gameboard->getGameCode();
 
-        $this->logo1 = $this->urlRequest($gameboard->location->logo,$gameboard->location->imagesPath);
+        $this->logo1 = $gameboard->location->logo;
         $this->logo2 = $gameboard->name;
         $this->headerMain = $gameboard->description;
         $this->status = $status;
@@ -43,15 +43,5 @@ class GameView extends Model
 
     }
 
-    public function urlRequest($image,$location="")
-    {
-        // host + base + view + component + location + screen
-        $ret =  "host/images/";
-        if ($location != "")
-            $ret .= $location . "/";
-        $ret .= $image;
-
-        return $ret;
-    }
 
 }

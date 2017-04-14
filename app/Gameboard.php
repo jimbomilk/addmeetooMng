@@ -31,6 +31,7 @@ class Gameboard extends Model
         return $this->hasMany('App\GameboardOption');
     }
 
+
     public function gameboardUsers()
     {
         return $this->hasMany('App\UserGameboard');
@@ -41,16 +42,26 @@ class Gameboard extends Model
         return $this->hasMany('App\GameView');
     }
 
+    public function getHasResults()
+    {
+        foreach($this->gameboardOptions as $option)
+        {
+            if ($option->result == -1)
+                return false;
+        }
+        return true;
+    }
+
     public function getStartdateAttribute($value)
     {
-        if (!isset($value))
+        if ($this->auto)
             return Carbon::createFromTimestamp($this->activity->starttime->getTimestamp());
         return $value;
     }
 
     public function EndtimeAttribute($value)
     {
-        if (!isset($value))
+        if ($this->auto)
             return $this->activity->endtime;
         return $value;
 
@@ -58,7 +69,7 @@ class Gameboard extends Model
 
     public function getDeadlineAttribute($value)
     {
-        if (!isset($value))
+        if ($this->auto)
             return $this->activity->deadline;
         else
             return $value;
@@ -66,7 +77,7 @@ class Gameboard extends Model
 
     public function getSelectionAttribute($value)
     {
-        if (!isset($value))
+        if ($this->auto)
             return $this->activity->selection;
         return $value;
     }
@@ -148,8 +159,7 @@ class Gameboard extends Model
         if ($this->auto) {
             $options = ActivityOption::where('activity_id', $this->activity_id)->get();
             foreach ($options as $activityOption) {
-                $gameboardOption = new GameboardOption($this->id, $activityOption);
-                $gameboardOption->save();
+                $gameboardOption = new GameboardOption($this->id, $activityOption);$gameboardOption->save();
             }
         }
 
@@ -184,12 +194,73 @@ class Gameboard extends Model
 
     }
 
+    private function associativeOptions($values)
+    {
+        $output = array();
+        foreach($values as $key => $value)
+            $output[$value['option']]=$value['value'];
+        return $output;
+    }
+
+    public function calculateRankings()
+    {
+        // Tenemos los resultados, por lo que hay que recorrer los usergames y asignar puntos.
+        foreach($this->gameboardUsers as $user)
+        {
+            $user->rank = 0;
+            $user->rankpo = 0;
+            $user->temp_points = 0;
+            $user->points=0;
+            //recogemos su array de values
+            $user_values = json_decode($user->values,true);
+
+            if (isset($user_values)) {
+                $user_options = $this->associativeOptions($user_values);
+                $points = 0;
+                foreach ($this->gameboardOptions as $option){
+                    if ($user_options[$option->description] == $option->result)
+                      $points++;
+                }
+                $user->temp_points = $points;
+            }
+
+        }
+
+        //Ordenamos los Users por temp_points
+        $prev=0;$rank=0;$rankpo=0;
+        $sorted = $this->gameboardUsers->sortByDesc('temp_points');
+        foreach($sorted as $user)
+        {
+
+            $rank++;
+            if ($prev != $user->temp_points)
+                $rankpo++;
+            $prev=$user->temp_points;
+            $user->rank = $rank;
+            $user->rankpo = $rankpo;
+
+            //Asignación de recompensas
+            if ($user->temp_points>0) {
+                if ($user->rankpo == 1)
+                    $user->points = $this->activity->reward_first;
+                if ($user->rankpo == 2)
+                    $user->points = $this->activity->reward_second;
+                if ($user->rankpo == 3)
+                    $user->points = $this->activity->reward_third;
+            }
+
+            $user->save();
+        }
+    }
+
+
+/*
     public function publish()
     {
         //Publicamos la pantalla
         $gameview = $this->getGameView();
         if (isset($gameview))
-            event(new ScreenEvent($gameview, 'location2'  /*. $location->id*/)); // De momento todo lo pintamos en la location2
+            event(new ScreenEvent($gameview, 'location'  . $location->id)); // De momento todo lo pintamos en la location2
     }
-
+*/
 }

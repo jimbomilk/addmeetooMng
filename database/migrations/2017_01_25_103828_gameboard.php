@@ -30,7 +30,6 @@ class Gameboard extends Migration
             //                          Si es n>0  significa que desde q empieza la actividad hay n minutos para participar
 
             $table->boolean('participation_status')->default(true); // true si las apuestas están abiertas
-
             $table->integer('selection'); // Cuantos hay q elegir
 
             // progression_type: define como va evolucionando el juego y sus pantallas.
@@ -38,7 +37,6 @@ class Gameboard extends Migration
             // y en otro tipo de juego pueden ser aleatorias.
             $table->enum('progression_type',['ordered','random']);
             $table->boolean('multiscreen')->default(false); //si true siginifica que tenemos que pintar cosas diferentes en cada screen dependiendiendo de la progression del usuario.
-            $table->text('ranking');
             $table->string('status')->default(Status::DISABLED);
 
             $table->integer('activity_id')->unsigned();

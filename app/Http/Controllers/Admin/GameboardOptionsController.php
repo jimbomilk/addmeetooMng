@@ -114,6 +114,7 @@ class GameboardOptionsController extends Controller {
             $option = GameboardOption::select()
                 ->where('id', '=', $id)
                 ->update([$column_name => $column_value]);
+
             return response()->json([ 'code'=>200], 200);
         }
 

@@ -98,12 +98,8 @@ class ActivityTableSeeder extends Seeder {
                 'points' => $faker->numberBetween(10, 10000),
                 'gameboard_id' => $gameboard_id,
                 'user_id' => $iduser
-
-
             ));
         }
-
-
     }
 
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class DatabaseSeeder extends Seeder {
 
@@ -53,6 +54,10 @@ class DatabaseSeeder extends Seeder {
                 'adslocations',
                  Config::get('countries.table_name')
         );
+
+        //Y tenemos que borrar las imagenes...
+        $directory = storage_path().'/app/public';
+        File::deleteDirectory($directory,true);
 
         $this->dbForeign(false);
         foreach ($tables as $table)

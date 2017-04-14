@@ -23,5 +23,5 @@
             </td>
         </tr>
     @endforeach
-
+    <div class="pagination"> {{ $set->links() }} </div>
 </table>

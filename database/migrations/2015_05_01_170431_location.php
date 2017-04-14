@@ -22,6 +22,9 @@ class Location extends Migration {
                 ->references('id')
                 ->on('users');
 
+            $table->integer('current_game')->nullable()->unsigned();
+            $table->integer('previous_game')->nullable()->unsigned();
+
             $table->string('logo');
             $table->string('slogan');
 

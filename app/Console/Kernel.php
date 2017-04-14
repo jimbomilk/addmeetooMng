@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\LocationUpdate::class,
+        Commands\SendScreen::class,
         Commands\LocationSchedule::class
     ];
 
@@ -35,14 +35,14 @@ class Kernel extends ConsoleKernel
             $locations = Location::all();
             foreach ($locations as $location)
             {
+                $schedule->command('screen '.$location->id)
+                    ->everyMinute();
                 $schedule->command('location_schedule '.$location->id)
                          ->everyMinute();
-                         //->withoutOverlapping();
 
-                //$schedule->command('location_update '.$location->id)
-                    //->dailyAt('16:12');
-                    //->dailyAt('06:00');
+
             }
         }
+
     }
 }

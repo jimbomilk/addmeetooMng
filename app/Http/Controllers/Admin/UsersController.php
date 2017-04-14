@@ -1,10 +1,12 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\General;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Route;
@@ -44,7 +46,6 @@ class UsersController extends Controller {
             return view('admin.common.edit',['name'=>'users','element' => $element,'types'=>$types]);
         else
             return view('admin.common.create',['name'=>'users','types'=>$types]);
-
     }
 
 	/**
@@ -64,7 +65,6 @@ class UsersController extends Controller {
 	 */
 	public function store(CreateUserRequest $request)
 	{
-
 		$user = new User($request->all());
         $user->save();
 
@@ -79,7 +79,9 @@ class UsersController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        $profile = UserProfile::findOrFail($id);
+        $genders = General::getEnumValues('user_profiles','gender');
+        return view('admin.common.edit',['name'=>'userprofiles','element'=>$profile,'genders'=>$genders]);
 	}
 
 	/**
