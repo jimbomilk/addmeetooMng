@@ -14,6 +14,8 @@ return [
     */
 
     'locations' => 'Locations',
+    'gameboards' => 'Juegos',
+    'gameboard_options' => 'Opciones del Juego',
 
 
 ];

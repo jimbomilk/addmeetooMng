@@ -4,6 +4,7 @@ use App\Http\Requests\GameboardOptionsRequest;
 use App\Http\Controllers\Controller;
 use App\GameboardOption;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
@@ -34,7 +35,7 @@ class GameboardOptionsController extends Controller {
 	}
 
 
-    public function sendView ($element=null)
+    public function sendView($element=null)
     {
         if (isset($element))
             return view('admin.common.edit',['name'=>'gameboard_options','element' => $element]);
@@ -50,7 +51,7 @@ class GameboardOptionsController extends Controller {
 	 */
 	public function create()
 	{
-        return sendView();
+        return $this->sendView();
 	}
 
 	/**
@@ -60,15 +61,15 @@ class GameboardOptionsController extends Controller {
 	 */
 	public function store(GameboardOptionsRequest $request)
 	{
-        $gameboardOptions = new GameboardOption($request->all());
+        $gameboardOption = new GameboardOption($request->all());
         $id = $request->session()->get('gameboard_id');
-        $gameboardOptions->gameboard_id = $id;
-        $gameboardOptions->save();
+        $gameboardOption->gameboard_id = $id;
+        $gameboardOption->save();
 
-        $filename = $request->saveFile('image','gameboard'.$gameboardOptions->id);
-        if ($filename != $gameboardOptions->image) {
-            $gameboardOptions->image = $filename;
-            $gameboardOptions->save();
+        $filename = $request->saveFile('image',$gameboardOption->path);
+        if ($filename != $gameboardOption->image) {
+            $gameboardOption->image = $filename;
+            $gameboardOption->save();
         }
 
         return redirect()->route($this->indexPage("gameboard_options"));
@@ -97,7 +98,7 @@ class GameboardOptionsController extends Controller {
           
         if (isset ($gameboardOption))
         {
-            return sendView($gameboardOption);
+            return $this->sendView($gameboardOption);
 
         }
 
@@ -133,7 +134,7 @@ class GameboardOptionsController extends Controller {
         $gameboardoption->fill($request->all());
 
 
-        $filename = $request->saveFile('image','gameboard'.$gameboardoption->id);
+        $filename = $request->saveFile('image',$gameboardoption->path);
         if(isset($filename))
             $gameboardoption->image = $filename;
 
@@ -152,7 +153,7 @@ class GameboardOptionsController extends Controller {
 	{
         $gameboardOption = GameboardOption::findOrFail($id);
 
-        File::deleteDirectory(storage_path().'/app/public/gameboard'.$gameboardOption->id);
+        File::deleteDirectory(storage_path('app/public/').$gameboardOption->path);
 
         $gameboardOption->delete();
         $message = $gameboardOption->name. ' deleted';

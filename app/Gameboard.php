@@ -15,6 +15,7 @@ class Gameboard extends Model
 {
     protected $table = 'gameboards';
     protected $guarded = ['id'];
+    protected $path = 'gameboard';
 
     public function activity()
     {
@@ -31,6 +32,24 @@ class Gameboard extends Model
         return $this->hasMany('App\GameboardOption');
     }
 
+    public function getNameAttribute($value)
+    {
+        if($this->auto && !isset($value))
+            return $this->activity->name;
+        return $value;
+    }
+
+    public function getDescriptionAttribute($value)
+    {
+        if(!isset($value)&&$this->auto)
+            return $this->activity->description;
+        return $value;
+    }
+
+    public function getPathAttribute()
+    {
+        return $this->table.'/'.$this->path.$this->id;
+    }
 
     public function gameboardUsers()
     {
@@ -52,20 +71,12 @@ class Gameboard extends Model
         return true;
     }
 
-    public function getStartdateAttribute($value)
+    public function getStarttimeAttribute($value)
     {
-        if ($this->auto)
-            return Carbon::createFromTimestamp($this->activity->starttime->getTimestamp());
-        return $value;
+        $st = ($this->auto)?$this->activity->starttime:$value;
+        return $st;
     }
 
-    public function EndtimeAttribute($value)
-    {
-        if ($this->auto)
-            return $this->activity->endtime;
-        return $value;
-
-    }
 
     public function getDeadlineAttribute($value)
     {
@@ -88,7 +99,7 @@ class Gameboard extends Model
     }
 
     //Recogemos el valor UTC de la BBDD y devolvemos el valor local.
-    public function getLocalStarttime()
+    public function getLocalStarttimeAttribute()
     {
         $localoffset = Carbon::now($this->location->timezone)->offsetHours;
         $starttime = Carbon::parse($this->starttime);
@@ -128,7 +139,6 @@ class Gameboard extends Model
         try{
             DB::beginTransaction();
             UserGameboard::where('gameboard_id',$this->id)->delete();
-            GameView::where('gameboard_id',$this->id)->delete();
 
             //Si el juego es auto, tendremos que borrar las gameboardoptions
             if ($this->auto) {
@@ -146,25 +156,30 @@ class Gameboard extends Model
     public function createGame()
     {
         //status initilization
-        $this->status = Status::SCHEDULED;
+        $this->status = Status::DISABLED;
         $this->participation_status = true;       //open voting
-        $this->starttime = $this->activity->starttime;
+        /*$this->starttime = $this->activity->starttime;
         $this->duration = $this->activity->duration;
         $this->deadline = $this->activity->deadline ;
-        $this->description = $this->activity->description;
+        $this->description = $this->activity->description;*/
         $this->save();
 
 
         //Si el juego es auto, tendremos que crear las options a partir de la activity_options
         if ($this->auto) {
+            // Primero  borramos todas sus opciones
+            GameboardOption::where('gameboard_id',$this->id)->delete();
+
+            //Cogemos las opciones de la actividad y las volvemos a crear
             $options = ActivityOption::where('activity_id', $this->activity_id)->get();
             foreach ($options as $activityOption) {
-                $gameboardOption = new GameboardOption($this->id, $activityOption);$gameboardOption->save();
+                $gameboardOption = new GameboardOption();
+                $gameboardOption->init($this->id, $activityOption);
+                $gameboardOption->save();
             }
         }
 
-        // Además tenemos que crear las pantallas iniciales del juego.
-        $this->createGameViews();
+
 
 
     }
@@ -177,6 +192,8 @@ class Gameboard extends Model
      */
     public function createGameViews()
     {
+        // Primero las borramos todas
+        GameView::where('gameboard_id',$this->id)->delete();
         foreach(Status::$desc as $key => $value)
         {
             $presentation = new GameView();
@@ -188,9 +205,21 @@ class Gameboard extends Model
 
     }
 
+    public function updateGameView()
+    {
+        $gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',$this->status)->firstOrFail();
+        if (isset($gameview))
+        {
+            $gameview->createX($this,$this->status);
+            $gameview->save();
+        }
+
+    }
+
     public function getGameView()
     {
-        return $this->gameViews->where('status', $this->status)->first();
+        //Log::info('Game View:'.$this->gameViews->where('status',$this->status+0) . ' status:'.$this->status);
+        return $this->gameViews->where('status', $this->status+0)->first();
 
     }
 

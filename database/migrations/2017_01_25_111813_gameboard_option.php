@@ -26,7 +26,7 @@ class GameboardOption extends Migration
                 ->onDelete('cascade');
 
 
-            $table->integer('activity_option_id')->unsigned();
+            $table->integer('activity_option_id')->nullable();
             $table->timestamps();
         });
     }

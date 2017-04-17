@@ -19,6 +19,20 @@
 //header('Access-Control-Allow-Origin: http://localhost:4200');
 //header('Access-Control-Allow-Credentials: true');
 
+function imageFile($path, $file)
+{
+    $path = storage_path('/app/public/').$path.'/'. $file;
+
+    if(!File::exists($path)) abort(404);
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+}
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -63,6 +77,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('messages', 'MessagesController');
     Route::resource('usergameboards','UserGameboardsController');
 
+    Route::post('gameboards/preview/{id}',['as'=>'gameboards_preview', 'uses' => 'GameboardsController@preview']);
+
 
     // ** AUCTIONS **
     Route::resource('items', 'ItemsController');
@@ -76,17 +92,11 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
 
     Route::get('images/{folder}/{filename}', function ($folder,$filename)
     {
-        $path = storage_path() . '/app/public/'. $folder .'/' . $filename;
-
-        if(!File::exists($path)) abort(404);
-
-        $file = File::get($path);
-        $type = File::mimeType($path);
-
-        $response = Response::make($file, 200);
-        $response->header("Content-Type", $type);
-
-        return $response;
+        return imageFile($folder,$filename);
+    });
+    Route::get('images/{folder1}/{folder2}/{folder3}/{filename}', function ($folder1,$folder2,$folder3,$filename)
+    {
+        return imageFile($folder1.'/'.$folder2.'/'.$folder3,$filename);
     });
 
 });
@@ -130,6 +140,7 @@ Route::get ('home', function()
 })->name('home');
 
 
+
 Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api'],function(){
 
     //Route::get('login', 'LoginController@loginWithTwitter');
@@ -147,19 +158,15 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
 
     Route::get('images/{path}/{filename}', function ($path,$filename)
     {
-        $path = storage_path().'/app/public/' . $path. '/'. $filename;
+        return imageFile($path,$filename);
+    });
 
-        if(!File::exists($path)) abort(404);
-
-        $file = File::get($path);
-        $type = File::mimeType($path);
-
-        $response = Response::make($file, 200);
-        $response->header("Content-Type", $type);
-
-        return $response;
+    Route::get('images/{folder1}/{folder2}/{folder3}/{filename}', function ($folder1,$folder2,$folder3,$filename)
+    {
+        return imageFile($folder1.'/'.$folder2.'/'.$folder3,$filename);
     });
 
 
 });
+use Illuminate\Support\Facades\File;
 

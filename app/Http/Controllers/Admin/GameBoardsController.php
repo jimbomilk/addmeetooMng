@@ -1,7 +1,10 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Events\ScreenEvent;
 use App\General;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use App\Gameboard;
 use App\GameboardOption;
@@ -39,8 +42,10 @@ class GameboardsController extends Controller {
         $activities = Activity::all()->pluck('name','id');
         $progression = General::getEnumValues('gameboards','progression_type') ;
 
-        if (isset($element))
-            return view('admin.common.edit',['name'=>'gameboards','element' => $element,'statuses'=>Status::$desc,'locations'=>$locations,'activities'=>$activities,'progression'=>$progression]);
+        if (isset($element)) {
+            $element->starttime = $element->localStarttime;
+            return view('admin.common.edit', ['name' => 'gameboards', 'element' => $element, 'statuses' => Status::$desc, 'locations' => $locations, 'activities' => $activities, 'progression' => $progression]);
+        }
         else
             return view('admin.common.create',['name'=>'gameboards','statuses'=>Status::$desc,'locations'=>$locations,'activities'=>$activities,'progression'=>$progression]);
     }
@@ -71,6 +76,7 @@ class GameboardsController extends Controller {
     {
         // Cuando creamos un gameboard, tenemos que crear tb todas sus opciones (copia de la actividad)
         $gameboard = new Gameboard($request->all());
+        $gameboard->starttime = $gameboard->getUTCStarttime();
         $gameboard->createGame();
 
         return redirect()->route($this->indexPage("gameboards"));
@@ -98,6 +104,33 @@ class GameboardsController extends Controller {
         }
 	}
 
+    public  function preview($id)
+    {
+        $game = Gameboard::findOrFail($id);
+
+        if (isset ($game)) {
+            //Reiniciamos sus vistas
+            if ($game->status == Status::SCHEDULED)
+                $game->createGameViews();
+            else
+                $game->updateGameView();
+
+            $gameview = $game->getGameView();
+
+            if (isset($gameview)) {
+                event(new ScreenEvent($gameview, 'location' . $game->location->id));
+
+                $message = $game->name . ' sent preview';
+                Session::flash('message', $message);
+            }
+            else
+            {
+                $message = 'ERROR: '.$game->name . ' no tiene ninguna vista creada!';
+                Session::flash('message', $message);
+            }
+        }
+        return redirect()->route($this->indexPage("gameboards"));
+    }
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -146,9 +179,12 @@ class GameboardsController extends Controller {
 	 */
     public function destroy($id,Request $request)
     {
-        $this->gameboard = Gameboard::findOrFail($id);
-        $this->gameboard->delete();
-        $message = $this->gameboard->name. ' deleted';
+        $gameboard = Gameboard::findOrFail($id);
+
+        File::deleteDirectory(storage_path('app/public/').$gameboard->path);
+
+        $gameboard->delete();
+        $message = $gameboard->name. ' deleted';
         if ($request->ajax())
         {
             return response()->json([
@@ -165,8 +201,10 @@ class GameboardsController extends Controller {
 
     public function fastUpdate($id)
     {
+
         $column_name = Input::get('name');
         $column_value = Input::get('value');
+        Log::info('col:'.$column_name.' , val:'.$column_value);
 
         if( Input::has('name') && Input::has('value')) {
             $game = Gameboard::select()

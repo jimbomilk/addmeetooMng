@@ -7,11 +7,12 @@
         <th>Results</th>
         <th></th>
         <th></th>
+
     </tr>
     @foreach($set as $gameboard_option)
         <tr data-id="{{$gameboard_option->id}}">
             <td>{{$gameboard_option->description}}</td>
-            <td>{!! HTML::image('images/'.$gameboard_option->image, 'photo',array( 'width' => 70, 'height' => 70 )) !!}</td>
+            <td>{!! HTML::image($login_user->type.'/images/'.$gameboard_option->image, 'photo',array( 'width' => 70, 'height' => 70 )) !!}</td>
             <td>{{$gameboard_option->result}}</td>
             <td>
                 @if(!$gameboard_option->gameboard->auto)

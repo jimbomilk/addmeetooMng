@@ -38,31 +38,28 @@
     <![endif]-->
 
 
-
-
 </head>
 <body class="skin-blue">
-    
+
+
+
 @yield('content')
+
 
 <!-- jQuery 2.1.3 -->
 <script src="{{ asset('/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 
+
+
 <!-- Bootstrap 3.3.2 JS -->
 <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<!-- x-editable (bootstrap version) -->
 
-<link href="{{ asset('/bootstrap3-editable/css/bootstrap-editable.css') }}" rel="stylesheet">
-<script src="{{ asset('/bootstrap3-editable/js/bootstrap-editable.js') }} "></script>
-
-
+<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 @yield('scripts')
 
-<!-- Morris.js charts -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 
 
-<script src="{{ asset('/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
 <!-- Sparkline -->
 <script src="{{ asset('/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 <!-- jvectormap -->
@@ -71,6 +68,9 @@
 <!-- jQuery Knob Chart -->
 <script src="{{ asset('/plugins/knob/jquery.knob.js') }}" type="text/javascript"></script>
 
+<!-- Morris.js charts -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="{{ asset('/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
 
 <!-- daterangepicker -->
 <script src="{{ asset('/plugins/daterangepicker/moment.min.js') }}" type="text/javascript"></script>
@@ -93,6 +93,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('/dist/js/pages/dashboard.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/dist/js/global.js') }}" type="text/javascript"></script>
+
+
+
 
 </body>
 </html>

@@ -10,7 +10,7 @@
     </tr>
     @foreach($set as $location)
         <tr data-id="{{$location->id}}">
-            <td>{!! HTML::image('images/'.$location->logo, 'location photo',array( 'width' => 70, 'height' => 70 )) !!}</td>
+            <td>{!! HTML::image($login_user->type.'/images/'.$location->logo, 'location photo',array( 'width' => 70, 'height' => 70 )) !!}</td>
             <td>{{$location->name}}</td>
             <td>{{$location->country->name}}</td>
             <td>{{$location->address}}</td>
@@ -24,7 +24,7 @@
             </td>
 
             <td>
-                @include("admin.common.btn_other",array('route'=> 'location_restart','var'=>$location))
+                @include("admin.common.btn_other",array('route'=> 'location_restart','var'=>$location,'label'=>'restart'))
             </td>
 
         </tr>

@@ -60,16 +60,16 @@ class ActivityOptionsController extends Controller {
 	 */
 	public function store(ActivityOptionsRequest $request)
 	{
-        $activityOptions = new ActivityOption($request->all());
+        $activityOption = new ActivityOption($request->all());
         $id = $request->session()->get('activity_id');
-        $activityOptions->gameboard_id = $id;
-        $activityOptions->save();
+        $activityOption->activity_id = $id;
+        $activityOption->save();
 
 
-        $filename = $request->saveFile('image','activity'.$activityOptions->id);
-        if ($filename != $activityOptions->image) {
-            $activityOptions->image = $filename;
-            $activityOptions->save();
+        $filename = $request->saveFile('image',$activityOption->path);
+        if ($filename != $activityOption->image) {
+            $activityOption->image = $filename;
+            $activityOption->save();
         }
 
         return redirect()->route($this->indexPage("activity_options"));
@@ -132,7 +132,7 @@ class ActivityOptionsController extends Controller {
         $activityoption = ActivityOption::findOrFail($id);
         $activityoption->fill($request->all());
 
-        $filename = $request->saveFile('image','activity'.$activityoption->id);
+        $filename = $request->saveFile('image',$activityoption->path);
         if(isset($filename))
             $activityoption->image = $filename;
 
@@ -151,7 +151,7 @@ class ActivityOptionsController extends Controller {
 	{
         $activityOption = ActivityOption::findOrFail($id);
 
-        File::deleteDirectory(storage_path().'/app/public/activity'.$activityOption->id);
+        File::deleteDirectory(storage_path('app/public/').$activityOption->path);
 
         $activityOption->delete();
         $message = $activityOption->name. ' deleted';

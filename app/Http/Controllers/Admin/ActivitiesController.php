@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Activity;
 use App\General;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 
 class ActivitiesController extends Controller {
@@ -121,9 +122,12 @@ class ActivitiesController extends Controller {
 	 */
     public function destroy($id,Request $request)
 	{
-        $this->activity = Activity::findOrFail($id);
-        $this->activity->delete();
-        $message = $this->activity->name. ' deleted';
+        $activity = Activity::findOrFail($id);
+
+        File::deleteDirectory(storage_path('app/public/').$activity->path);
+
+        $activity->delete();
+        $message = $activity->name. ' deleted';
         if ($request->ajax())
         {
             return response()->json([

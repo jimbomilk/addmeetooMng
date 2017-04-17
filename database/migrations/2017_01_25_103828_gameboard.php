@@ -25,17 +25,17 @@ class Gameboard extends Migration
             // establecimiento lo gestionará por si mismo.
 
             $table->time('starttime')->nullable(); //fecha y hora de comienzo de la actividad
-            $table->integer('duration')->default(60);    // en minutos
-            $table->integer('deadline')->default(0); // si n es 0 significa que se puede participar todo el tiempo
+            $table->integer('duration')->nullable();    // en minutos
+            $table->integer('deadline')->nullable(); // si n es 0 significa que se puede participar todo el tiempo
             //                          Si es n>0  significa que desde q empieza la actividad hay n minutos para participar
 
             $table->boolean('participation_status')->default(true); // true si las apuestas están abiertas
-            $table->integer('selection'); // Cuantos hay q elegir
+            $table->integer('selection')->nullable();; // Cuantos hay q elegir
 
             // progression_type: define como va evolucionando el juego y sus pantallas.
             // Por ejemplo en una votacion son ordenadas, en un juego tipo gymkana son por usuario
             // y en otro tipo de juego pueden ser aleatorias.
-            $table->enum('progression_type',['ordered','random']);
+            $table->enum('progression_type',['ordered','random'])->default('ordered')->nullable();
             $table->boolean('multiscreen')->default(false); //si true siginifica que tenemos que pintar cosas diferentes en cada screen dependiendiendo de la progression del usuario.
             $table->string('status')->default(Status::DISABLED);
 

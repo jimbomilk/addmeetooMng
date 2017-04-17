@@ -18,14 +18,10 @@ class ActivityTableSeeder extends Seeder {
      *
      */
 
-    
-
-    public function newActivity($start, $duration, $location,$name,$description,$type,$category,$head2head,$selection,$progression_type,$options)
+    public function newActivity($start, $duration,$name,$description,$type,$category,$head2head,$selection)
     {
-
         $faker = Faker::create();
         $deadline = $faker->numberBetween(-30,+30);
-
         //***********************************************************************************
         //Activity
         $activity_id = \DB::table('activities')->insertGetId( array(
@@ -42,53 +38,68 @@ class ActivityTableSeeder extends Seeder {
 
         ) );
 
-        //Gameboard
-        $gameboard_id =  \DB::table('gameboards')->insertGetId( array(
-
-            'name'                  => $name,
-            'description'           => $description,
-            'starttime'             => $start,
-            'duration'              => $duration,
-            'deadline'              => $deadline,
-            'selection'             => $selection,
-            'progression_type'      => $progression_type,
-            'activity_id'           => $activity_id,
-            'location_id'           => $location,
-            'selection'             => $selection,
-            'status'                => Status::SCHEDULED
-
-        ) );
-
-
-
-        $i=0;
-        foreach ($options as $aux)
-        {
-            $i++;
-            $activity_option = \DB::table('activity_options')->insertGetId( array(
-
-                'order'                 => $i,
-                'description'           => $aux,
-                'image'                 => $faker->imageUrl($width = 640, $height = 480),
-                'activity_id'           => $activity_id
-            ) );
-
-            $gameboard_option = \DB::table('gameboard_options')->insertGetId( array(
-
-                'order'                 => $i,
-                'description'           => $aux,
-                'image'                 => $faker->imageUrl($width = 640, $height = 480),
-                'gameboard_id'          => $gameboard_id,
-                'activity_option_id'    => $activity_option
-            ) );
-
-
+        //Recogemos las opciones
+        $source = storage_path().'/app/private/activities/'.$name;
+        $dir = opendir($source);
+        $files = array();
+        while ($current = readdir($dir)){
+            if( $current != "." && $current != "..") {
+                $files[] = $current;
+            }
         }
 
-        // Creamos las game_views
+        for($i=0; $i<count( $files ); $i++) {
+
+
+            $activity_option = \DB::table('activity_options')->insertGetId(array(
+                'order' => $i+1,
+                'description' => utf8_encode(pathinfo($files[$i], PATHINFO_FILENAME)),
+                'activity_id' => $activity_id
+            ));
+
+            //Guardamos la imagen
+            $option = \App\ActivityOption::findOrFail($activity_option);
+            if (isset($option))
+            {
+                $sourcefile= $source.'/'.$files[$i];
+                $target = storage_path('app/public/').$option->path.'/';
+                //Creamos el directorio si no existiese
+                if (!file_exists($target)) {
+                    mkdir($target, 0777, true);
+                };
+
+
+                copy($sourcefile, $target.utf8_encode($files[$i]));
+                $option->image=$option->path.'/'.utf8_encode($files[$i]);
+                $option->save();
+            }
+        }
+
+
+        return $activity_id;
+    }
+
+
+    public function newGame($activity_id,$location,$start, $duration)
+    {
+
+        $faker = Faker::create();
+
+        //Gameboard
+        $gameboard_id =  \DB::table('gameboards')->insertGetId( array(
+            'auto'                  => 1,
+            'participation_status'  => 1,
+            'starttime'             => $start,
+            'duration'              => $duration,
+            'activity_id'           => $activity_id,
+            'location_id'           => $location,
+            'status'                => Status::DISABLED
+        ) );
+
+        // Creamos las game options
         $gameboard = \App\Gameboard::findOrFail($gameboard_id);
         if (isset($gameboard))
-            $gameboard->createGameViews();
+            $gameboard->createGame();
 
         //Creamos usuarios del juego
         for ($k=0;$k<20 ;$k++) {
@@ -112,93 +123,77 @@ class ActivityTableSeeder extends Seeder {
         $idposition= null;
 
 
+        $source = storage_path().'/app/private/locations';
+        $dir = opendir($source);
+        $files = array();
+        while ($current = readdir($dir)){
+            if( $current != "." && $current != "..") {
+                $files[] = $current;
+            }
+        }
+
         $owners = \DB::table('users')->where('type', '=', 'owner' );
-        $idowner = $faker->randomElement($owners->lists('id'));
+        for($i=0; $i<count( $files ); $i++) {
+            $source = storage_path().'/app/private/locations';
+            $target = storage_path().'/app/public/location';
+            $target_name = 'location';
 
-        $idlocation1 = \DB::table('locations')->insertGetId( array(
-            'name'          => 'Disco Madrid80',
-            'owner_id'         => $idowner,
-            'countries_id'    => 724,
-            'logo'          => $faker->imageUrl($width = 48, $height = 48)
-        ));
+            $idowner = $faker->randomElement($owners->lists('id'));
+            $idlocation = \DB::table('locations')->insertGetId( array(
+                'name'          => 'Lugar',
+                'owner_id'      => $idowner,
+                'countries_id'    => 724,
+                'logo'          => $target_name.($i+1).'/'.$files[$i]
+            ));
 
+            $target .= $idlocation;
+            //Creamos el directorio si no existiese
+            if (!file_exists($target)) {
+                mkdir($target, 0777, true);
+            };
 
-        $idowner = $faker->randomElement($owners->lists('id'));
-        $idlocation2 = \DB::table('locations')->insertGetId( array(
-            'name'          => 'Bar Pepe',
-            'owner_id'      => $idowner,
-            'countries_id'    => 724,
-            'logo'          => 'bar_white.png', // Logo del bar
-        ));
+            $source = $source . '/' . $files[$i];
+            $target = $target . '/' . $files[$i];
+            //Cogemos la imagen y la guardamos en su carpeta correspondiente
+            copy($source, $target);
 
-
-        $idowner = $faker->randomElement($owners->lists('id'));
-        $idlocation3 = \DB::table('locations')->insertGetId( array(
-            'name'          => 'Xanadu Shopping Mall',
-            'owner_id'      => $idowner,
-            'countries_id'    => 724,
-            'logo'          => $faker->imageUrl($width = 48, $height = 48)
-        ));
-
+        }
 
 
         //Voting activity
         //***********************************************************************************
         //Activity
-        $options_eurovision = array('spain','france','russia','netherland','italy','swiss','portugal','great britain',
-            'germany','belgium','israel','turkey','greece','lituania','slovenia','chipre','andorra');
-        $options_match1 = array('Real Madrid','Barcelona');
-
-        $options_game = array('que rio pasa por madrid?','done esta la mpntaña más alta de españa?','quien inventó la bombilla?','Como se llama el rey de españa?','donde esta la sagrada familia?','quien es cristiano ronaldo?', 'que pais gano eurovision el año pasado?', 'quien es maradona?', 'donde se celebro el mundial del 82?');
-
-        $options_match2 = array('Celta','Valladolid');
-
-        $options_encuesta = array('mahou','estrella galicia','san miguel','buckler','guinness','bud');
-
-        $options_match3 = array('At. Madrid','Valencia');
-
-        $options_encuesta2 = array('madonna','michael jackson','raphael','rolling stone','sabina','rocio jurado');
 
         $start = Carbon::createFromTime(9,0,0,'UTC');
         $oneday = Carbon::createFromTime(9,0,0,'UTC');
         $oneday->addDay(1);
 
-        $duration = 10;
 
-        for ($i=0;$i<20 && $start<$oneday;$i++)
-        {
-            $this->newActivity($start,$duration,$idlocation2,'eurovision','EUROVISION: vota tu canción','vote','party',false,12,'ordered',$options_eurovision);
-            $start = $start->addMinutes($duration);
 
-            $this->newActivity($start,$duration,$idlocation1,'partidazo','EL PARTIDAZO','bet','sports',true,0,'ordered',$options_match1);
-            $start = $start->addMinutes($duration);
+        $duration = 30;
 
-            $this->newActivity($start,$duration,$idlocation3,'gymkana','Busqueda del tesoro','game','party',false,0,'random',$options_game);
-            $start = $start->addMinutes($duration);
 
-            $this->newActivity($start,$duration,$idlocation1,'viajeros','¿A que pais te gustaría viajar?','vote','party',false,12,'ordered',$options_eurovision);
-            $start = $start->addMinutes($duration);
 
-            $this->newActivity($start,$duration,$idlocation2,'partidazo','EL PARTIDAZO','bet','sports',true,0,'ordered',$options_match2);
-            $start = $start->addMinutes($duration);
+        //Para cada location creamos todos los juegos del día
+        $locations = \App\Location::all();
+        foreach($locations as $location){
 
-            $this->newActivity($start,$duration,$idlocation3,'encuesta','¿Cúal es tu cerveza favorita?','vote','party',false,3,'ordered',$options_encuesta);
-            $start = $start->addMinutes($duration);
+            while ($start < $oneday) {
+                // Tenemos 3 activities diferentes
+                $start = $start->addMinutes($duration);
+                $activity_id1 = $this->newActivity($start, $duration,'partido','INTRODUCE RESULTADO','bet','sports',true,0);
+                $this->newGame($activity_id1, $location->id, $start, $duration);
 
-            $this->newActivity($start,$duration,$idlocation2,'partidazo','EL PARTIDAZO','bet','sports',true,0,'ordered',$options_match3);
-            $start = $start->addMinutes($duration);
+                $start = $start->addMinutes($duration);
+                $activity_id2 = $this->newActivity($start, $duration,'eurovision','ELIGE TU CANCION FAVORITA','vote','party',false,0);
+                $this->newGame($activity_id2, $location->id, $start, $duration);
 
-            $this->newActivity($start,$duration,$idlocation1,'encuesta','¿Cúal es tu cantante favorito?','vote','party',false,3,'ordered',$options_encuesta2);
-            $start = $start->addMinutes($duration);
+                $start = $start->addMinutes($duration);
+                $activity_id3 = $this->newActivity($start, $duration,'cantantes','ELIGE TU CANTANTE FAVORITO','vote','party',false,0);
+                $this->newGame($activity_id3, $location->id, $start, $duration);
 
+            }
         }
-
-
-
-
-
-
-
 
 
     }

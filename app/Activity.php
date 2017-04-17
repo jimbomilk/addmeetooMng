@@ -8,6 +8,7 @@ class Activity extends Model {
 
     protected $table = 'activities';
     protected $guarded = ['id'];
+    protected $path = 'activity';
 
     public function activityOptions()
     {
@@ -20,5 +21,9 @@ class Activity extends Model {
     }
 
 
+    public function getPathAttribute()
+    {
+        return $this->table.'/'.$this->path.$this->id;
+    }
 
 }

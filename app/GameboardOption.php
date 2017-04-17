@@ -9,11 +9,11 @@ class GameboardOption extends Model
 {
     protected $table = 'gameboard_options';
     protected $guarded = ['id'];
+    protected $path='option';
 
 
-    public function __construct($game_id=null,$activity_option=null,$attributes = array())
+    public function init($game_id=null,$activity_option=null)
     {
-        parent::__construct($attributes);
         $this->gameboard_id = !is_null($game_id) ? $game_id : null;
 
         if (!is_null($activity_option))
@@ -24,6 +24,12 @@ class GameboardOption extends Model
             $this->order = $activity_option->order;
         }
     }
+
+    public function getPathAttribute()
+    {
+        return $this->gameboard->path.'/'.$this->path.$this->id;
+    }
+
 
     public function gameboard()
     {
@@ -40,7 +46,7 @@ class GameboardOption extends Model
     // Los resultados vienen de la actividad porque está en modo automático.
     public function getResultAttribute($value)
     {
-        if ($this->gameboard->auto)
+        if (isset($this->activity_option_id))
         {
             return $this->activityOption->result;
         }
