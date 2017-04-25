@@ -207,12 +207,30 @@ class GameboardsController extends Controller {
         Log::info('col:'.$column_name.' , val:'.$column_value);
 
         if( Input::has('name') && Input::has('value')) {
-            $game = Gameboard::select()
+            /*$game = Gameboard::select()
                 ->where('id', '=', $id)
-                ->update([$column_name => $column_value]);
+                ->update([$column_name => $column_value]);*/
+            $this->updateGame($id,$column_name,$column_value);
             return response()->json([ 'code'=>200], 200);
         }
 
         return response()->json([ 'error'=> 400, 'message'=> 'Not enought params' ], 400);
     }
+
+    public function updateGame($id,$column_name,$column_value)
+    {
+        $gameboard = Gameboard::findOrFail($id);
+        if (isset($gameboard))
+        {
+            $gameboard->$column_name = $column_value;
+            $gameboard->save();
+
+            // Dependiendo del campo modificado tenemos que hacer diferentes acciones
+            if ($column_name == 'status' && $column_value == Status::OFFICIAL)
+                $gameboard->calculateRankings();
+
+
+        }
+    }
 }
+

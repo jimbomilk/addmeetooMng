@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Events\Envelope;
 use App\Events\MessageEvent;
 use App\Gameboard;
+use App\User;
 use App\UserGameboard;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 
@@ -183,5 +185,29 @@ class ApiController extends Controller
 
     }
 
+
+    public function newAccount(Request $request)
+    {
+        // Recogemos las credenciales
+        $credentials = $request->only('email', 'password');
+
+
+        // Vemos si existe en la base de datos. Si existe , damos error
+        if ($token = JWTAuth::attempt($credentials)) {
+            return response()->json(['result' => 'El usuario ya existe.']);
+        }
+
+        // Si no existe, creamos el usuario, lo guardamos en la base de datos y devolvemos el usuario creado, el token y el profile
+        $user = new User($request->all());
+
+        if (isset($user)) {
+            $token = JWTAuth::fromUser($user);
+            $user->type = 'user';
+            $user->save();
+        }
+
+        return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
+
+    }
 
 }

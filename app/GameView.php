@@ -29,7 +29,7 @@ class GameView extends Model
 
 
         if ($status <= Status::SCHEDULED) {
-            $this->headerSub = 'Descárgate Addmeetoo en tu móvil y participa';
+            $this->headerSub = 'Descárgate Yuncos Participa en tu móvil y participa';
             $this->body = $this->scheduleBody($gameboard);
         }
         elseif ($status == Status::STARTLIST) {
@@ -55,6 +55,7 @@ class GameView extends Model
     private function scheduleBody($gameboard){
         $this->type='options';
         $body = array();
+
         foreach ($gameboard->gameboardOptions as $option) {
             $body[] = [ 'order'=>$option->order,
                         'description'=>$option->description,
@@ -142,7 +143,8 @@ class GameView extends Model
         $body = array();
         // Recoger los datos de participación de los hombres
         $gameusers = UserGameboard::where('gameboard_id',$gameboard->id)
-                    ->orderBy('rankpo', 'desc')
+                    ->orderBy('rankpo', 'asc')
+                    ->take(10)
                     ->get();
 
         $body = array();
@@ -150,7 +152,7 @@ class GameView extends Model
             $body[] = [ 'order'=>$gameuser->rank,
                         'description'=>$gameuser->user->name,
                         'image'=>$gameuser->user->profile->avatar,
-                        'result'=>$gameuser->points];
+                        'result'=>'Puntos:'.$gameuser->points];
         }
         return json_encode($body);
     }

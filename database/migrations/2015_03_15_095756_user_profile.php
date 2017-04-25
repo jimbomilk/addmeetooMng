@@ -23,7 +23,7 @@ class UserProfile extends Migration {
             $table->integer('points')->default(0);
             $table->integer('rank_city')->default(0);
             $table->integer('rank_national')->default(0);
-            $table->integer('rank_world')->default(0);
+            $table->integer('rank_regional')->default(0);
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')

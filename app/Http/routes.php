@@ -85,10 +85,6 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('auctions', 'AuctionsController');
     Route::resource('bids', 'BidsController');
 
-    // ** TV SET **
-    //Route::resource('tvconfigs', 'TvConfigsController');
-    //Route::resource('screens', 'ScreensController');
-
 
     Route::get('images/{folder}/{filename}', function ($folder,$filename)
     {
@@ -145,6 +141,7 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
 
     //Route::get('login', 'LoginController@loginWithTwitter');
     Route::post('authenticate','ApiController@authenticate');
+    Route::post('newAccount','ApiController@newAccount');
     //Route::post('screens/{location_id}/{screen_id}','ApiController@screens');
     Route::post('gameboard/{gameboard_id}','ApiController@gameboard');
 

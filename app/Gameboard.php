@@ -260,21 +260,20 @@ class Gameboard extends Model
         $sorted = $this->gameboardUsers->sortByDesc('temp_points');
         foreach($sorted as $user)
         {
-
-            $rank++;
+            $rankpo++;
             if ($prev != $user->temp_points)
-                $rankpo++;
+                $rank++;
             $prev=$user->temp_points;
             $user->rank = $rank;
             $user->rankpo = $rankpo;
 
             //Asignación de recompensas
             if ($user->temp_points>0) {
-                if ($user->rankpo == 1)
+                if ($user->rank == 1)
                     $user->points = $this->activity->reward_first;
-                if ($user->rankpo == 2)
+                if ($user->rank == 2)
                     $user->points = $this->activity->reward_second;
-                if ($user->rankpo == 3)
+                if ($user->rank == 3)
                     $user->points = $this->activity->reward_third;
             }
 

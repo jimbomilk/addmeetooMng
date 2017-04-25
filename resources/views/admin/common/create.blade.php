@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create new {{ trans('label.'.$name)}} </div>
+                    <div class="panel-heading">{{ trans('create_new')}} {{ trans('label.'.$name)}} </div>
 
                     <div class="panel-body">
 

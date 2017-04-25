@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Gameboard;
 use App\Http\Requests\GameboardOptionsRequest;
 use App\Http\Controllers\Controller;
 use App\GameboardOption;
@@ -29,9 +30,13 @@ class GameboardOptionsController extends Controller {
 	public function index(Request $request)
 	{
         $id = $request->session()->get('gameboard_id');
-        $gameboard_options = GameboardOption::where('gameboard_id','=',$id)->paginate();
 
-        return view ('admin.common.index',['name'=>'gameboard_options','set'=>$gameboard_options]);
+        $gameboard = Gameboard::findOrFail($id);
+        if (isset($gameboard)) {
+            $gameboard_options = GameboardOption::where('gameboard_id', '=', $id)->paginate();
+
+            return view('admin.common.index', ['name' => 'gameboard_options', 'set' => $gameboard_options, 'hide_new' => $gameboard->auto]);
+        }
 	}
 
 
@@ -40,7 +45,7 @@ class GameboardOptionsController extends Controller {
         if (isset($element))
             return view('admin.common.edit',['name'=>'gameboard_options','element' => $element]);
         else
-            return view('admin.common.create',['name'=>'gameboard_options']);
+            return view('admin.common.create',['name'=>'gameboard_options','creation'=>1]);
     }
 
 

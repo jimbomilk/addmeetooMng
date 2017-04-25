@@ -16,6 +16,9 @@ return [
     'locations' => 'Locations',
     'gameboards' => 'Juegos',
     'gameboard_options' => 'Opciones del Juego',
+    'activity_options' => 'Opctiones de la actividad',
+    'activities' => 'Actividades',
+    'advertisements' => 'Anuncios',
 
 
 ];

@@ -106,9 +106,11 @@ class ActivityTableSeeder extends Seeder {
             $users = \DB::table('users')->where('type', '=', 'user');
             $iduser = $faker->randomElement($users->lists('id'));
             $gameboarduser = \DB::table('user_gameboards')->insertGetId(array(
-                'points' => $faker->numberBetween(10, 10000),
+                'points' => (20-$k) * 100,
                 'gameboard_id' => $gameboard_id,
-                'user_id' => $iduser
+                'user_id' => $iduser,
+                'rank' => $k+1,
+                'rankpo' => $k+1
             ));
         }
     }
@@ -181,15 +183,15 @@ class ActivityTableSeeder extends Seeder {
             while ($start < $oneday) {
                 // Tenemos 3 activities diferentes
                 $start = $start->addMinutes($duration);
-                $activity_id1 = $this->newActivity($start, $duration,'partido','INTRODUCE RESULTADO','bet','sports',true,0);
+                $activity_id1 = $this->newActivity($start, $duration,'partido','ENVIA TUS PRONOSTICOS','bet','sports',true,0);
                 $this->newGame($activity_id1, $location->id, $start, $duration);
 
                 $start = $start->addMinutes($duration);
-                $activity_id2 = $this->newActivity($start, $duration,'eurovision','ELIGE TU CANCION FAVORITA','vote','party',false,0);
+                $activity_id2 = $this->newActivity($start, $duration,'encuesta','¿QUE CURSO TE GUSTARÍA HACER?','vote','party',false,0);
                 $this->newGame($activity_id2, $location->id, $start, $duration);
 
                 $start = $start->addMinutes($duration);
-                $activity_id3 = $this->newActivity($start, $duration,'cantantes','ELIGE TU CANTANTE FAVORITO','vote','party',false,0);
+                $activity_id3 = $this->newActivity($start, $duration,'encuesta','¿QUE GRUPO TE GUSTARÍA QUE TOCASE EN LAS FIESTAS?','vote','party',false,0);
                 $this->newGame($activity_id3, $location->id, $start, $duration);
 
             }

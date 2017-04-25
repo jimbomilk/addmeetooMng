@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder {
             $id = \DB::table('users')->insertGetId( array(
                 
                 'name'      => $faker->name($gender),
-                'email'     => $faker->unique()->email,
+                'email'     => "test".$i,
                 'password'  => \Hash::make('123456'),
                 'type'      => $faker->randomElement(['user','owner'])
             ) );
@@ -40,7 +40,11 @@ class UserTableSeeder extends Seeder {
                 'gender'    => $gender,
                 'bio'       => $faker->paragraph(rand(1,4)),
                 'phone'     => $faker->phoneNumber,
-                'avatar'    => $faker->imageUrl(64, 48)
+                'avatar'    => $faker->imageUrl(64, 48),
+                'points'    => $faker->numberBetween(50,2000),
+                'rank_city'    => $faker->randomNumber(2),
+                'rank_national'    => $faker->randomNumber(4),
+                'rank_regional'    => $faker->randomNumber(3)
 
             ));
         }
