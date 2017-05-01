@@ -42,9 +42,8 @@ class UserTableSeeder extends Seeder {
                 'phone'     => $faker->phoneNumber,
                 'avatar'    => $faker->imageUrl(64, 48),
                 'points'    => $faker->numberBetween(50,2000),
-                'rank_city'    => $faker->randomNumber(2),
-                'rank_national'    => $faker->randomNumber(4),
-                'rank_regional'    => $faker->randomNumber(3)
+                'rank'    => $faker->randomNumber(2),
+
 
             ));
         }

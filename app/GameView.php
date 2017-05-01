@@ -21,7 +21,8 @@ class GameView extends Model
 
     public function createX($gameboard,$status)
     {
-        $this->gameboard_id = $gameboard->getGameCode();
+        $this->gameboard_id = $gameboard->id;
+        $this->code = $gameboard->getGameCode();
         $this->logo1 = $gameboard->location->logo;
         $this->logo2 = $gameboard->activity->name;
         $this->headerMain = $gameboard->description;
@@ -46,7 +47,10 @@ class GameView extends Model
         }
         elseif ($status == Status::OFFICIAL) {
             $this->headerSub = 'RESULTADOS';
-            $this->body = $this->officialBody($gameboard);
+            if($gameboard->activity->type == 'vote')
+                $this->body = $this->finishedBody($gameboard);
+            else
+                $this->body = $this->officialBody($gameboard);
         }
         else
             $this->headerSub = Status::$desc[$status];
@@ -70,8 +74,6 @@ class GameView extends Model
         $data = [];
         $chart = new Chart('ColumnChart');
 
-
-        // Recoger los datos de participación de los hombres
         $query = "SELECT COUNT(*) as participacion FROM user_gameboards".
                  " WHERE user_gameboards.gameboard_id = ".$gameboard->id;
 
@@ -121,7 +123,7 @@ class GameView extends Model
             foreach ($results as $result)
             {
                 $options = json_decode($result->values,true);
-                var_dump($options[0]);
+                //var_dump($options[0]);
                 // $options es un array de 2 dimensiones: la primera dimension es la opcion y el segundo el valor/descripcion
                 if ($options[0]['value'] + 0 > $options[1]['value'] + 0)
                     $val1++;
@@ -132,6 +134,36 @@ class GameView extends Model
             }
 
             $chart->dataSeries[] = ['', $val1, $valx, $val2];
+        }
+        else{
+            $serie = array(); // headers
+            $values = array();
+            $serie[]='';
+
+            $v = array(); // values
+            foreach ($results as $i=>$result) {
+                $options = json_decode($result->values, true);
+                foreach($options as $option) {
+                    if($i==0) {
+                        $serie[] = $option['option'];
+                        $v['']=0;
+                        $v[$option['option']]=0;
+                    }
+                    $v[$option['option']] = $v[$option['option']] + $option['value'];
+                }
+            }
+            foreach($serie as $k=>$s)
+                if($k==0)
+                    $values[]='';
+                else
+                    $values[] = 100/$v[$s];
+
+            $chart->dataSeries[] = $serie;
+            $chart->dataSeries[] = $values;
+
+            Log::info('Serie:'.print_r($chart->dataSeries,true));
+
+
         }
 
         //Log::info('Datas:'.json_encode($chart));

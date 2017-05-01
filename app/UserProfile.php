@@ -8,6 +8,9 @@ class UserProfile extends Model {
 	protected $table = 'user_profiles';
     protected $guarded = ['id'];
 
+
+
+
 	public function getAgeAttribute()
 	{
 		return \Carbon\Carbon::parse($this->birth_date)->age;

@@ -21,9 +21,8 @@ class UserProfile extends Migration {
             $table->enum('gender', ['male','female']);
             $table->string('avatar')->nullable();
             $table->integer('points')->default(0);
-            $table->integer('rank_city')->default(0);
-            $table->integer('rank_national')->default(0);
-            $table->integer('rank_regional')->default(0);
+            $table->integer('rank')->default(0);
+            $table->integer('rankpo')->default(0);
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')

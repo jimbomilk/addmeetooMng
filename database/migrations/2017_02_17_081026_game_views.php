@@ -22,6 +22,7 @@ class GameViews extends Migration
             $table->longText('body')->nullable();
             $table->integer('next')->nullable();
             $table->string('type')->nullable();
+            $table->string('code')->nullable();
 
             $table->integer('gameboard_id')->unsigned();
             $table->foreign('gameboard_id')

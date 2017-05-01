@@ -95,6 +95,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
         return imageFile($folder1.'/'.$folder2.'/'.$folder3,$filename);
     });
 
+
+
 });
 
 
@@ -144,9 +146,10 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     Route::post('newAccount','ApiController@newAccount');
     //Route::post('screens/{location_id}/{screen_id}','ApiController@screens');
     Route::post('gameboard/{gameboard_id}','ApiController@gameboard');
-
     Route::post('gameboard/useroptions/{gameboard_id}','ApiController@useroptions');
-
+    Route::post('gameboards','ApiController@gameboards'); // Pantalla eventos de los moviles
+    Route::post('fileupload','ApiController@fileUpload');
+    Route::post('userUpdate','ApiController@userUpdate');
 
     //Route::get('auctions', 'ApiController@indexAuctions');
     //Route::get('auction/{id}', 'ApiController@indexAuction');
@@ -163,7 +166,7 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
         return imageFile($folder1.'/'.$folder2.'/'.$folder3,$filename);
     });
 
-
 });
-use Illuminate\Support\Facades\File;
+
+
 

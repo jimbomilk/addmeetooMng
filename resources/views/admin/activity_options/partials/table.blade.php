@@ -13,8 +13,8 @@
             <td>{{$activity_option->order}}</td>
             <td>{{$activity_option->description}}</td>
             <!-- <td>{!! HTML::image($login_user->type.'/images/'.$activity_option->image, 'photo',array( 'width' => 70, 'height' => 70 )) !!}</td>-->
-            <td>{{$activity_option->result}}</td>
 
+            <td><a href="#" class="fastEdit" data-type="number" data-column="result" data-url="{{route('activity_option_fast',['id'=>$activity_option->id])}}" data-pk="{{$activity_option->id}}" data-name="result"> {{$activity_option->result}} </a> </td>
             <td>
                 @include("admin.common.btn_edit",array('var'=>$activity_option))
             </td>
@@ -29,3 +29,27 @@
     <div class="pagination"> {{ $set->links() }} </div>
 </table>
 
+@section('scripts')
+    <script type= text/javascript>
+        $(document).ready(function() {
+            $.fn.editable.defaults.mode = 'inline';
+            //make username editable
+            $('.fastEdit').editable({
+                params: function(params) {
+                    // add additional params from data-attributes of trigger element
+                    params._token = $("#_token").data("token");
+                    params.name = $(this).editable().data('name');
+                    return params;
+                },
+                error: function(response, newValue) {
+                    if(response.status === 500) {
+                        return 'Server error. Check entered data.';
+                    } else {
+                        return response.responseText;
+                        // return "Error.";
+                    }
+                }
+            });
+        });
+    </script>
+@endsection

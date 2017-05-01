@@ -106,9 +106,6 @@ class LocationsController extends Controller {
 
         if (isset($location))
         {
-
-
-
             return $this->sendView($location);
         }
 	}

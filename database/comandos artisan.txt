@@ -34,3 +34,6 @@ php artisan make:controller ExampleController --resource
 
 Crear model:
 php artisan make:model User
+
+Lanzar las QUEUES:
+php artisan queue:listen --queue=SCREENS,smallpack,bigpack,default

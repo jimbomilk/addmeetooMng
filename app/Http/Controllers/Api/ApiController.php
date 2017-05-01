@@ -12,6 +12,8 @@ use Illuminate\Http\Response as HttpResponse;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 
@@ -98,6 +100,16 @@ class ApiController extends Controller
 
     }
 
+    public function saveFile($file,$name,$folder)
+    {
+        $filename = null;
+        if (isset($file)) {
+            $filename = $folder . '/' . $name ;
+            Storage::disk('local')->put($filename, File::get($file));
+        }
+
+        return $filename;
+    }
 
 
     public function gameboard($gameboard_id, Request $request)
@@ -164,11 +176,30 @@ class ApiController extends Controller
 
 
         // A pantalla
-        event(new MessageEvent($message, 'location2'/*.$gameboard->location_id*/));
+        event(new MessageEvent($message, $gameboard->location_id));
 
         // Mensaje
 
         return json_encode($message);
+    }
+
+
+    // Devuelve todos los gameboards activos para el día de hoy
+    public function gameboards()
+    {
+        $gameboards = Gameboard::all();
+        $now = Carbon::now(Config::get('app.timezone'));
+
+        $gameviews = array();
+        foreach($gameboards as $gameboard)
+        {
+            $start = Carbon::parse($gameboard->starttime); //en UTC
+            $end = Carbon::parse($gameboard->starttime)->addMinutes($gameboard->duration);
+            if ($now>$start && $now<$end)
+                $gameviews[] = $gameboard->getGameView();
+        }
+        return json_encode($gameviews);
+
     }
 
 
@@ -208,6 +239,39 @@ class ApiController extends Controller
 
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
 
+    }
+
+
+    public function fileUpload(Request $request)
+    {
+        try {
+            $user = JWTAuth::toUser($request->input('token'));
+            $filename = $this->saveFile($request->file('file'),$request->input('filename'), $user->path);
+            if ($filename != $user->profile->avatar) {
+                $user->profile->avatar = $filename;
+                $user->profile->save();
+            }
+        } catch (Exception $e) {
+                return response()->json($e->getMessage());
+        }
+
+        return response()->json($user->profile->avatar);
+    }
+
+    public function userUpdate(Request $request)
+    {
+        try {
+            $user = JWTAuth::toUser($request->input('token'));
+            $user->profile->phone = $request->input('phone');
+            $user->profile->birth_date = $request->input('birthdate');
+            Log::info('Birth:'.$user->profile->birth_date);
+            $user->profile->save();
+
+        } catch (Exception $e) {
+            return response()->json($e->getMessage());
+        }
+
+        return response()->json($user->profile);
     }
 
 }

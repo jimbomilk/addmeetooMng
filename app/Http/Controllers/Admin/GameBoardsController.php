@@ -1,16 +1,13 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use App\Events\ScreenEvent;
 use App\General;
 use App\Http\Controllers\Controller;
+use App\Jobs\GameEngine;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use App\Gameboard;
-use App\GameboardOption;
 use App\Activity;
-use App\ActivityOption;
-use App\GameView;
 use App\Http\Requests\GameboardRequest;
 use App\Status;
 use Illuminate\Http\Request;
@@ -110,15 +107,15 @@ class GameboardsController extends Controller {
 
         if (isset ($game)) {
             //Reiniciamos sus vistas
-            if ($game->status == Status::SCHEDULED)
-                $game->createGameViews();
-            else
-                $game->updateGameView();
-
-            $gameview = $game->getGameView();
+            $gameview = $game->updateGameView();
 
             if (isset($gameview)) {
-                event(new ScreenEvent($gameview, 'location' . $game->location->id));
+
+                $job = (new GameEngine($game, $game->location_id))
+                    ->onQueue('SCREENS');
+                $this->dispatch($job);
+
+                //event(new ScreenEvent($gameview, 'location' . $game->location->id));
 
                 $message = $game->name . ' sent preview';
                 Session::flash('message', $message);

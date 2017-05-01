@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use App\Events\ScreenEvent;
 
 
 class Gameboard extends Model
@@ -65,7 +64,7 @@ class Gameboard extends Model
     {
         foreach($this->gameboardOptions as $option)
         {
-            if ($option->result == -1)
+            if (!isset($option->result))
                 return false;
         }
         return true;
@@ -125,14 +124,8 @@ class Gameboard extends Model
 
     public function getGameCode()
     {
-        return sprintf("%05d", $this->id);
+        return sprintf('%04d', $this->id);
     }
-
-    public function getGameId($value)
-    {
-        return ($value + 0);
-    }
-
 
     public function destroyGame()
     {
@@ -190,7 +183,7 @@ class Gameboard extends Model
      * @param  Gameboard  $gameboard
      * @return boolean
      */
-    public function createGameViews()
+    /*public function createGameViews()
     {
         // Primero las borramos todas
         GameView::where('gameboard_id',$this->id)->delete();
@@ -203,23 +196,24 @@ class Gameboard extends Model
 
         return false;
 
-    }
+    }*/
 
     public function updateGameView()
     {
-        $gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',$this->status)->firstOrFail();
-        if (isset($gameview))
-        {
-            $gameview->createX($this,$this->status);
-            $gameview->save();
+        $gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',$this->status)->first();
+        if (!isset($gameview)) {
+            $gameview = new GameView();
         }
+        $gameview->createX($this,$this->status);
+        $gameview->save();
+        return $gameview;
 
     }
 
     public function getGameView()
     {
         //Log::info('Game View:'.$this->gameViews->where('status',$this->status+0) . ' status:'.$this->status);
-        return $this->gameViews->where('status', $this->status+0)->first();
+        return $this->gameViews->where('status', $this->status)->first();
 
     }
 
@@ -234,14 +228,14 @@ class Gameboard extends Model
     public function calculateRankings()
     {
         // Tenemos los resultados, por lo que hay que recorrer los usergames y asignar puntos.
-        foreach($this->gameboardUsers as $user)
+        foreach($this->gameboardUsers as $user_game)
         {
-            $user->rank = 0;
-            $user->rankpo = 0;
-            $user->temp_points = 0;
-            $user->points=0;
+            $user_game->rank = 0;
+            $user_game->rankpo = 0;
+            $user_game->temp_points = 0;
+            $user_game->points=0;
             //recogemos su array de values
-            $user_values = json_decode($user->values,true);
+            $user_values = json_decode($user_game->values,true);
 
             if (isset($user_values)) {
                 $user_options = $this->associativeOptions($user_values);
@@ -250,7 +244,7 @@ class Gameboard extends Model
                     if ($user_options[$option->description] == $option->result)
                       $points++;
                 }
-                $user->temp_points = $points;
+                $user_game->temp_points = $points;
             }
 
         }
@@ -258,27 +252,34 @@ class Gameboard extends Model
         //Ordenamos los Users por temp_points
         $prev=0;$rank=0;$rankpo=0;
         $sorted = $this->gameboardUsers->sortByDesc('temp_points');
-        foreach($sorted as $user)
+        foreach($sorted as $user_game)
         {
             $rankpo++;
-            if ($prev != $user->temp_points)
+            if ($prev != $user_game->temp_points)
                 $rank++;
-            $prev=$user->temp_points;
-            $user->rank = $rank;
-            $user->rankpo = $rankpo;
+            $prev=$user_game->temp_points;
+            $user_game->rank = $rank;
+            $user_game->rankpo = $rankpo;
 
             //Asignación de recompensas
-            if ($user->temp_points>0) {
-                if ($user->rank == 1)
-                    $user->points = $this->activity->reward_first;
-                if ($user->rank == 2)
-                    $user->points = $this->activity->reward_second;
-                if ($user->rank == 3)
-                    $user->points = $this->activity->reward_third;
+            if ($user_game->temp_points>0) {
+                if ($user_game->rank == 1)
+                    $user_game->points = $this->activity->reward_first;
+                if ($user_game->rank == 2)
+                    $user_game->points = $this->activity->reward_second;
+                if ($user_game->rank == 3)
+                    $user_game->points = $this->activity->reward_third;
             }
 
-            $user->save();
+            $user_game->save();
+
+            // Además de acumular los puntos en el user_game se guardan en el user profile
+            $user_game->user->profile->points += $user_game->points;
         }
+
+
+
+
     }
 
 

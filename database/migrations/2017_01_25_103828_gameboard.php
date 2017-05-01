@@ -37,7 +37,7 @@ class Gameboard extends Migration
             // y en otro tipo de juego pueden ser aleatorias.
             $table->enum('progression_type',['ordered','random'])->default('ordered')->nullable();
             $table->boolean('multiscreen')->default(false); //si true siginifica que tenemos que pintar cosas diferentes en cada screen dependiendiendo de la progression del usuario.
-            $table->string('status')->default(Status::DISABLED);
+            $table->integer('status')->default(Status::DISABLED);
 
             $table->integer('activity_id')->unsigned();
             $table->foreign('activity_id')
