@@ -92,7 +92,10 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-        return $this->sendView($this->user);
+        $user = User::findOrFail($id);
+        if (isset ($user)) {
+            return $this->sendView($user);
+        }
 	}
 
 	/**
