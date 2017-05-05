@@ -7,10 +7,12 @@ use App\Events\MessageEvent;
 use App\Gameboard;
 use App\User;
 use App\UserGameboard;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -195,8 +197,11 @@ class ApiController extends Controller
         {
             $start = Carbon::parse($gameboard->starttime); //en UTC
             $end = Carbon::parse($gameboard->starttime)->addMinutes($gameboard->duration);
-            if ($now>$start && $now<$end)
-                $gameviews[] = $gameboard->getGameView();
+            //if ($now>$start && $now<$end){
+                $gameview = $gameboard->getGameView();
+                if (isset($gameview))
+                    $gameviews[] = $gameview;
+            //}
         }
         return json_encode($gameviews);
 

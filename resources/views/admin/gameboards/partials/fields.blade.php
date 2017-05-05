@@ -16,10 +16,13 @@
     <hr class="separator">
     @include("admin.common.input_time",array('var'=>'starttime'))
     @include("admin.common.input_number",array('var'=>'duration'))
-    @include("admin.common.input_number",array('var'=>'deadline'))
-    @include("admin.common.input_check",array('var'=>'participation_status','default'=>1))
     @include("admin.common.input_number",array('var'=>'selection'))
     </div>
+
+    <h3>Participación y fin del juego</h3>
+    <hr class="separator">
+    @include("admin.common.input_datetime",array('var'=>'deadline'))
+    @include("admin.common.input_datetime",array('var'=>'endgame'))
 
 </div>
 

@@ -21,7 +21,7 @@ class ActivityTableSeeder extends Seeder {
     public function newActivity($start, $duration,$name,$description,$type,$category,$head2head,$selection)
     {
         $faker = Faker::create();
-        $deadline = $faker->numberBetween(-30,+30);
+
         //***********************************************************************************
         //Activity
         $activity_id = \DB::table('activities')->insertGetId( array(
@@ -30,7 +30,6 @@ class ActivityTableSeeder extends Seeder {
             'description'           => $description,
             'starttime'             => $start,
             'duration'              => $duration,
-            'deadline'              => $deadline,
             'type'                  => $type,
             'category'              => $category,
             'head2head'             => $head2head,
@@ -84,13 +83,13 @@ class ActivityTableSeeder extends Seeder {
     {
 
         $faker = Faker::create();
-
+        $deadline = $faker->dateTimeBetween($start,'+30 minutes');
         //Gameboard
         $gameboard_id =  \DB::table('gameboards')->insertGetId( array(
             'auto'                  => 1,
-            'participation_status'  => 1,
             'starttime'             => $start,
             'duration'              => $duration,
+            'deadline'              => $deadline,
             'activity_id'           => $activity_id,
             'location_id'           => $location,
             'status'                => Status::DISABLED
@@ -191,7 +190,7 @@ class ActivityTableSeeder extends Seeder {
                 $this->newGame($activity_id2, $location->id, $start, $duration);
 
                 $start = $start->addMinutes($duration);
-                $activity_id3 = $this->newActivity($start, $duration,'encuesta','¿QUE GRUPO TE GUSTARÍA QUE TOCASE EN LAS FIESTAS?','vote','party',false,0);
+                $activity_id3 = $this->newActivity($start, $duration,'musica','¿QUE GRUPO TE GUSTARÍA QUE TOCASE EN LAS FIESTAS?','vote','party',false,0);
                 $this->newGame($activity_id3, $location->id, $start, $duration);
 
             }

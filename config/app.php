@@ -163,6 +163,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Webpatser\Countries\CountriesServiceProvider::class,
         GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
+        \App\Providers\CustomInputDateTime::class,
     ),
 
     /*

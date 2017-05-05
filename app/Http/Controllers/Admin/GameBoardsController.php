@@ -41,6 +41,8 @@ class GameboardsController extends Controller {
 
         if (isset($element)) {
             $element->starttime = $element->localStarttime;
+            $element->endgame = $element->localEndgame;
+            $element->deadline = $element->localDeadline;
             return view('admin.common.edit', ['name' => 'gameboards', 'element' => $element, 'statuses' => Status::$desc, 'locations' => $locations, 'activities' => $activities, 'progression' => $progression]);
         }
         else
@@ -74,6 +76,8 @@ class GameboardsController extends Controller {
         // Cuando creamos un gameboard, tenemos que crear tb todas sus opciones (copia de la actividad)
         $gameboard = new Gameboard($request->all());
         $gameboard->starttime = $gameboard->getUTCStarttime();
+        $gameboard->endgame = $gameboard->getUTCEndgame();
+        $gameboard->deadline = $gameboard->getUTCDeadline();
         $gameboard->createGame();
 
         return redirect()->route($this->indexPage("gameboards"));
@@ -137,6 +141,7 @@ class GameboardsController extends Controller {
 	public function edit($id)
 	{
         $gameboard = Gameboard::findOrFail($id);
+        Log::info('end:'. $gameboard->endgame==0);
 
         if (isset($gameboard))
         {
@@ -152,17 +157,19 @@ class GameboardsController extends Controller {
 	 */
     public function update(GameboardRequest $request, $id)
     {
-        $this->gameboard = Gameboard::findOrFail($id);
-        $currentstatus = $this->gameboard->status;
-        $this->gameboard->fill($request->all());
+        $gameboard = Gameboard::findOrFail($id);
+        $currentstatus = $gameboard->status;
+        $gameboard->fill($request->all());
 
         // Transformation as we always save UTC in BBDD
-        $this->gameboard->starttime = $this->gameboard->getUTCStarttime();
-        $this->gameboard->save();
+        $gameboard->starttime = $gameboard->getUTCStarttime();
+        $gameboard->endgame = $gameboard->getUTCEndgame();
+        $gameboard->deadline = $gameboard->getUTCDeadline();
+        $gameboard->save();
 
-        if ($currentstatus != $this->gameboard->status && $this->gameboard->status == Status::OFFICIAL )
+        if ($currentstatus != $gameboard->status && $gameboard->status == Status::OFFICIAL )
         {
-            $this->gameboard->publish();
+            $gameboard->publish();
         }
 
         return redirect()->route($this->indexPage("gameboards"));

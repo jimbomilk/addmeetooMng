@@ -19,10 +19,7 @@ class Activity extends Migration {
             $table->longText('description');
 
             $table->time('starttime')->nullable(); //siempre guardamos en UTC
-
             $table->integer('duration')->default(60); // en minutos
-            $table->integer('deadline')->default(0);// si n es 0 significa que se puede participar todo el tiempo
-            //                          Si es n>0  significa que desde q empieza la actividad hay n minutos para participar
             $table->enum('type',['vote','bet','game']); // tipo de actividad
             $table->enum('category',['sports','shopping','motor','party']); // where
             $table->boolean('head2head')->default(false);

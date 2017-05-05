@@ -9,7 +9,7 @@
     <hr class="separator">
     @include("admin.common.input_time",array('var'=>'starttime'))
     @include("admin.common.input_number",array('var'=>'duration'))
-    @include("admin.common.input_number",array('var'=>'deadline'))
+
 
     <h3>Características</h3>
     <hr class="separator">

@@ -4,6 +4,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -187,5 +188,25 @@ class GameView extends Model
                         'result'=>'Puntos:'.$gameuser->points];
         }
         return json_encode($body);
+    }
+
+    public function getStarttimeAttribute()
+    {
+        return $this->gameboard->starttime;
+    }
+
+    public function getDurationAttribute()
+    {
+        return $this->gameboard->duration;
+    }
+
+    public function getDeadlineAttribute()
+    {
+        return $this->gameboard->deadline;
+    }
+
+    public function getParticipationStatusAttribute()
+    {
+        return $this->gameboard->participation_status;
     }
 }

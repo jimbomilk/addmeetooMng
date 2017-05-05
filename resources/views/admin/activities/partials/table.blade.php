@@ -4,7 +4,6 @@
         <th>Description</th>
         <th>Start Time</th>
         <th>Duration</th>
-        <th>Deadline</th>
         <th></th>
         <th></th>
         <th></th>
@@ -15,9 +14,6 @@
             <td>{{$activity->description}}</td>
             <td>{{$activity->starttime}}</td>
             <td>{{$activity->duration}}</td>
-            <td>{{$activity->deadline}}</td>
-
-
             <td>
                 @include("admin.common.btn_edit",array('var'=>$activity))
             </td>

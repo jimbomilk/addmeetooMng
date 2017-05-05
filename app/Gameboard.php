@@ -76,13 +76,18 @@ class Gameboard extends Model
         return $st;
     }
 
-
-    public function getDeadlineAttribute($value)
+    /* If the participation has finished, return false */
+    public function getParticipationStatusAttribute()
     {
-        if ($this->auto)
-            return $this->activity->deadline;
-        else
-            return $value;
+
+        if(!isset($deadline))
+            return true;
+
+        $now = Carbon::now();
+        $deadline = Carbon::parse($this->deadline);
+        if ($now>=$deadline)
+            return false;
+        return true;
     }
 
     public function getSelectionAttribute($value)
@@ -106,12 +111,50 @@ class Gameboard extends Model
         return $ret;
     }
 
+    //Recogemos el valor UTC de la BBDD y devolvemos el valor local.
+    public function getLocalEndgameAttribute()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $endgame = Carbon::parse($this->endgame);
+        $ret = $endgame->addHours($localoffset)->format('Y-m-d\TH:i'); // 1975-12-25T14:15
+
+        return $ret;
+    }
+
+    public function getLocalDeadlineAttribute()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $deadline = Carbon::parse($this->deadline);
+        $ret = $deadline->addHours($localoffset)->format('Y-m-d\TH:i'); // 1975-12-25T14:15
+
+        return $ret;
+    }
+
     // Dado un valor local devolvemos su UTC
     public function getUTCStarttime()
     {
         $localoffset = Carbon::now($this->location->timezone)->offsetHours;
         $starttime = Carbon::parse($this->starttime);
         $ret = $starttime->subHours($localoffset)->toTimeString();
+        return $ret;
+    }
+
+    public function getUTCEndgame()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        Log::info('End game antes de UTC:'.$this->endgame);
+        $endgame = Carbon::parse($this->endgame);
+        Log::info('End game despues de parse:'.$endgame);
+        $ret = $endgame->subHours($localoffset);
+        Log::info('End game despues de UTC:'.$ret);
+        return $ret;
+    }
+
+    public function getUTCDeadline()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $deadline = Carbon::parse($this->deadline);
+        $ret = $deadline->subHours($localoffset);
         return $ret;
     }
 
@@ -150,8 +193,8 @@ class Gameboard extends Model
     {
         //status initilization
         $this->status = Status::DISABLED;
-        $this->participation_status = true;       //open voting
-        /*$this->starttime = $this->activity->starttime;
+        /*$this->participation_status = true;       //open voting
+        $this->starttime = $this->activity->starttime;
         $this->duration = $this->activity->duration;
         $this->deadline = $this->activity->deadline ;
         $this->description = $this->activity->description;*/
