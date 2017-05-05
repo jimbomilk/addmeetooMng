@@ -162,8 +162,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Webpatser\Countries\CountriesServiceProvider::class,
-        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
-        \App\Providers\CustomInputDateTime::class,
+        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class
     ),
 
     /*
