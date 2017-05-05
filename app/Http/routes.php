@@ -48,7 +48,7 @@ Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' =
 Route::get('logout', function () {return redirect('auth/logout');});
 
 // PARA ADMIN
-Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=>'Admin'],function(){
 
     Route::resource('/', 'AdminController');
 
@@ -100,7 +100,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
 });
 
 
-Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=>'admin'],function(){
+Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=>'Admin'],function(){
 
     Route::resource('/', 'AdminController');
 
@@ -121,7 +121,7 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 
 });
 
-Route::group(['prefix'=>'user','middleware' => ['auth','is_user'],'namespace'=>'admin'],function(){
+Route::group(['prefix'=>'user','middleware' => ['auth','is_user'],'namespace'=>'Admin'],function(){
 
     Route::resource('/', 'AdminController');
 
