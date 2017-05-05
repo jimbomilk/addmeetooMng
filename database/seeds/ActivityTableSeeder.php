@@ -83,13 +83,15 @@ class ActivityTableSeeder extends Seeder {
     {
 
         $faker = Faker::create();
-        $deadline = $faker->dateTimeBetween($start,'+30 minutes');
+        $deadline = Carbon::now()->addDays(3);
+        $endgame = Carbon::now()->addDays(3);
         //Gameboard
         $gameboard_id =  \DB::table('gameboards')->insertGetId( array(
             'auto'                  => 1,
             'starttime'             => $start,
             'duration'              => $duration,
             'deadline'              => $deadline,
+            'endgame'               => $endgame,
             'activity_id'           => $activity_id,
             'location_id'           => $location,
             'status'                => Status::DISABLED
