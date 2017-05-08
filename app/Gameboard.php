@@ -70,12 +70,6 @@ class Gameboard extends Model
         return true;
     }
 
-    public function getStarttimeAttribute($value)
-    {
-        $st = ($this->auto)?$this->activity->starttime:$value;
-        return $st;
-    }
-
     /* If the participation has finished, return false */
     public function getParticipationStatusAttribute()
     {
@@ -103,11 +97,11 @@ class Gameboard extends Model
     }
 
     //Recogemos el valor UTC de la BBDD y devolvemos el valor local.
-    public function getLocalStarttimeAttribute()
+    public function getLocalStartgameAttribute()
     {
         $localoffset = Carbon::now($this->location->timezone)->offsetHours;
-        $starttime = Carbon::parse($this->starttime);
-        $ret = $starttime->addHours($localoffset)->toTimeString();
+        $startgame = Carbon::parse($this->startgame);
+        $ret = $startgame->addHours($localoffset)->format('Y-m-d\TH:i');
         return $ret;
     }
 
@@ -131,22 +125,19 @@ class Gameboard extends Model
     }
 
     // Dado un valor local devolvemos su UTC
-    public function getUTCStarttime()
+    public function getUTCStartgame()
     {
         $localoffset = Carbon::now($this->location->timezone)->offsetHours;
-        $starttime = Carbon::parse($this->starttime);
-        $ret = $starttime->subHours($localoffset)->toTimeString();
+        $startgame = Carbon::parse($this->startgame);
+        $ret = $startgame->subHours($localoffset);
         return $ret;
     }
 
     public function getUTCEndgame()
     {
         $localoffset = Carbon::now($this->location->timezone)->offsetHours;
-        Log::info('End game antes de UTC:'.$this->endgame);
         $endgame = Carbon::parse($this->endgame);
-        Log::info('End game despues de parse:'.$endgame);
         $ret = $endgame->subHours($localoffset);
-        Log::info('End game despues de UTC:'.$ret);
         return $ret;
     }
 
@@ -193,13 +184,7 @@ class Gameboard extends Model
     {
         //status initilization
         $this->status = Status::DISABLED;
-        /*$this->participation_status = true;       //open voting
-        $this->starttime = $this->activity->starttime;
-        $this->duration = $this->activity->duration;
-        $this->deadline = $this->activity->deadline ;
-        $this->description = $this->activity->description;*/
         $this->save();
-
 
         //Si el juego es auto, tendremos que crear las options a partir de la activity_options
         if ($this->auto) {
@@ -214,35 +199,18 @@ class Gameboard extends Model
                 $gameboardOption->save();
             }
         }
-
-
-
-
     }
-
-    /**
-     * Toda actividad tiene 4 pantallas: presentación , juego , ranking y finalización.
-     * Estás pantallas no son estáticas sino que tienen que incluir llamadas al servidor para irse actualizando.
-     * @param  Gameboard  $gameboard
-     * @return boolean
-     */
-    /*public function createGameViews()
-    {
-        // Primero las borramos todas
-        GameView::where('gameboard_id',$this->id)->delete();
-        foreach(Status::$desc as $key => $value)
-        {
-            $presentation = new GameView();
-            $presentation->createX($this,$key);
-            $presentation->save();
-        }
-
-        return false;
-
-    }*/
 
     public function updateGameView()
     {
+        // La participación siempre se actualiza
+        $gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',Status::STARTLIST)->first();
+        if (!isset($gameview)) {
+            $gameview = new GameView();
+        }
+        $gameview->createX($this,Status::STARTLIST);
+        $gameview->save();
+
         $gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',$this->status)->first();
         if (!isset($gameview)) {
             $gameview = new GameView();
@@ -253,10 +221,10 @@ class Gameboard extends Model
 
     }
 
-    public function getGameView()
+    public function getGameView($status)
     {
         //Log::info('Game View:'.$this->gameViews->where('status',$this->status+0) . ' status:'.$this->status);
-        return $this->gameViews->where('status', $this->status)->first();
+        return $this->gameViews->where('status', $status)->first();
 
     }
 

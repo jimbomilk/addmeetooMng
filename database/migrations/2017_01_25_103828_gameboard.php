@@ -20,16 +20,11 @@ class Gameboard extends Migration
             $table->string('name', 100)->nullable();
             $table->longText('description')->nullable();
 
-            $table->boolean('auto')->default(true); // Si es true significa que el juego se gestiona
-            // automaticamente  desde la actividad. Si es false significa que el dueño del
-            // establecimiento lo gestionará por si mismo.
-
-            $table->time('starttime')->nullable(); //fecha y hora de comienzo de la actividad
-            $table->integer('duration')->nullable();    // en minutos
-
-            $table->dateTime('deadline')->nullable(); // fecha y hora de fin de participación
-            $table->dateTime('endgame')->nullable(); // cuando termina el juego.
-            $table->integer('selection')->nullable();; // Cuantos hay q elegir
+            $table->boolean('auto')->default(true); // Si es true significa que el juego no tiene opciones propias sino que son las propias de la actividad
+            $table->dateTime('deadline')->nullable();   // fecha y hora de fin de participación
+            $table->dateTime('startgame')->nullable();  // cuando empieza el juego.
+            $table->dateTime('endgame')->nullable();    // cuando termina el juego.
+            $table->integer('selection')->nullable();;  // Cuantos hay q elegir
 
             // progression_type: define como va evolucionando el juego y sus pantallas.
             // Por ejemplo en una votacion son ordenadas, en un juego tipo gymkana son por usuario

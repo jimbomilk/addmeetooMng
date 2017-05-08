@@ -56,8 +56,8 @@ class DatabaseSeeder extends Seeder {
         );
 
         //Y tenemos que borrar las imagenes...
-        $directory = storage_path().'/app/public';
-        File::deleteDirectory($directory,true);
+        //$directory = storage_path().'/app/public';
+        //File::deleteDirectory($directory,true);
 
         $this->dbForeign(false);
         foreach ($tables as $table)

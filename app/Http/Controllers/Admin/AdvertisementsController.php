@@ -67,8 +67,8 @@ class AdvertisementsController extends Controller {
         $ads->user_id = Auth::user()->id;
         $ads->save();
 
-        $file1 = $request->saveFile('imagebig','adv'.$ads->id);
-        $file2 = $request->saveFile('imagesmall','adv'.$ads->id);
+        $file1 = $request->saveFile('imagebig',$ads->path);
+        $file2 = $request->saveFile('imagesmall',$ads->path);
         if (isset($file1) && $ads->imagebig != $file1)
             $ads->imagebig = $file1;
         if (isset($file2) && $ads->imagesmall != $file1 )
@@ -124,8 +124,8 @@ class AdvertisementsController extends Controller {
         $ads = Advertisement::findOrFail($id);
         $ads->fill($request->all());
 
-        $file1 = $request->saveFile('imagebig','adv'.$ads->id);
-        $file2 = $request->saveFile('imagesmall','adv'.$ads->id);
+        $file1 = $request->saveFile('imagebig',$ads->path);
+        $file2 = $request->saveFile('imagesmall',$ads->path);
         if(isset($file1))
             $ads->imagebig = $file1;
         if(isset($file2))
@@ -147,7 +147,7 @@ class AdvertisementsController extends Controller {
         $ads = Advertisement::findOrFail($id);
 
 
-        File::deleteDirectory(storage_path().'/app/public/adv'.$ads->id);
+        Storage::disk('s3')->deleteDirectory($ads->path);
 
         $ads->delete();
 

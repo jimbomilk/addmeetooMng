@@ -44,10 +44,6 @@ class GameView extends Model
         }
         elseif ($status == Status::FINISHED) {
             $this->headerSub = 'ACTIVIDAD FINALIZADA';
-            $this->body = $this->finishedBody($gameboard);
-        }
-        elseif ($status == Status::OFFICIAL) {
-            $this->headerSub = 'RESULTADOS';
             if($gameboard->activity->type == 'vote')
                 $this->body = $this->finishedBody($gameboard);
             else
@@ -190,14 +186,14 @@ class GameView extends Model
         return json_encode($body);
     }
 
-    public function getStarttimeAttribute()
+    public function getStartgameAttribute()
     {
-        return $this->gameboard->starttime;
+        return $this->gameboard->startgame;
     }
 
-    public function getDurationAttribute()
+    public function getEndgameAttribute()
     {
-        return $this->gameboard->duration;
+        return $this->gameboard->endgame;
     }
 
     public function getDeadlineAttribute()

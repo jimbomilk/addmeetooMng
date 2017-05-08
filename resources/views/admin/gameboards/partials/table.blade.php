@@ -5,8 +5,8 @@
             <th>{{Lang::get('label.locations.name')}}</th>
         @endif
         <th>{{Lang::get('label.gameboards.name')}}</th>
-        <th>{{Lang::get('label.gameboards.starttime')}}</th>
-        <th>{{Lang::get('label.gameboards.duration')}}</th>
+        <th>{{Lang::get('label.gameboards.startgame')}}</th>
+        <th>{{Lang::get('label.gameboards.endgame')}}</th>
         <th>{{Lang::get('label.gameboards.status')}}</th>
 
         <th>{{Lang::get('label.gameboards.options')}}</th>
@@ -20,8 +20,8 @@
                 <td>{{$game->location->name}}</td>
             @endif
             <td>{{$game->name}}</td>
-            <td>{{$game->localStarttime}}</td>
-            <td>{{$game->duration}} min</td>
+            <td>{{$game->localStartgame}}</td>
+            <td>{{$game->localEndgame}} min</td>
             <td>
                <div class="btn-group">
                    <button type="button" class="btn btn-{{$colours[$game->status]}} dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">

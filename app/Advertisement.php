@@ -11,6 +11,7 @@ class Advertisement extends Model
 {
     protected $table = 'advertisements';
     protected $guarded = ['id'];
+    protected $path = 'adv';
 
     public function category()
     {
@@ -25,6 +26,11 @@ class Advertisement extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function getPathAttribute()
+    {
+        return $this->table.'/'.$this->path.$this->id;
     }
 
 }

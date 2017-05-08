@@ -1,16 +1,10 @@
 <?php namespace App\Http\Controllers\Admin;
-
-use App\Gameboard;
 use App\Http\Controllers\Controller;
-
-use App\Location;
 use App\Http\Requests\UserGameboardRequest;
+use App\location;
 use App\UserGameboard;
 use App\UserProfile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 
@@ -28,16 +22,7 @@ class UserProfilesController extends Controller {
         $this->middleware('auth');
     }
 
-
-
-
-
-
-
-
-
-
-	/**
+    /**
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int  $id
@@ -60,38 +45,17 @@ class UserProfilesController extends Controller {
 	 */
     public function update(UserGameboardRequest $request, $id)
     {
-
         $userprofile = UserProfile::findOrFail($id);
         $userprofile->fill($request->all());
+
+
+        $file1 = $request->saveFile('avatar',$userprofile->user->path);
+        if(isset($file1))
+            $userprofile->avatar = $file1;
         $userprofile->save();
 
         return redirect()->route($this->indexPage("users"));
     }
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-    public function destroy($id,Request $request)
-    {
-        $usergameboard = UserGameboard::findOrFail($id);
-        $usergameboard->delete();
-        $message = $usergameboard->name. ' deleted';
-        if ($request->ajax())
-        {
-            return response()->json([
-                'id' => $id,
-                'message' =>$message,
-                'total' => Location::All()->count()
-            ]);
-        }
-
-        Session::flash('message',$message);
-        return redirect()->route($this->indexPage("usergameboards"));
-    }
-
 
 
 }

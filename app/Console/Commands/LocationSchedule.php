@@ -47,57 +47,39 @@ class LocationSchedule extends Command
 
         foreach($location->gameboards as $gameboard)
         {
-            $start = Carbon::parse($gameboard->starttime); //en UTC
-            $end = Carbon::parse($gameboard->starttime)->addMinutes($gameboard->duration);
+            $start = Carbon::parse($gameboard->startgame); //en UTC
+            $end = Carbon::parse($gameboard->endgame);
 
             $newstatus = $gameboard->status;
 
-            if ($now >= $start && $now <= $end && $gameboard->status == Status::SCHEDULED) {
-                $newstatus = Status::STARTLIST;
-            }elseif ($now >= $start && $now <= $end && $gameboard->status == Status::STARTLIST){
+            if ($now >= $start && $now <= $end && $gameboard->status == Status::DISABLED){
+                $newstatus = Status::SCHEDULED;
+            }
+            elseif ($now >= $start  && $now <= $end && $gameboard->status >= Status::SCHEDULED && $gameboard->getHasResults()){
                 $newstatus = Status::RUNNING;
             }
-
-
-            // Si se acabo su tiempo lo terminamos
-            if ($now >= $end && $gameboard->status > Status::SCHEDULED){
+            elseif ($now > $end && $gameboard->status > Status::SCHEDULED){
                 $newstatus = Status::FINISHED;
-            }
-
-            // Si encima hemos recibido ya los resultados o se trata de una votación
-            if ($now >= $end && ($gameboard->getHasResults() || $gameboard->activity->type == 'vote') ){
-                $newstatus = Status::OFFICIAL;
-                if ($gameboard->activity->type == 'bet')
-                    $gameboard->calculateRankings();
             }
 
 
             // Si hay algún cambio se guarda en BBDD y se envia a pantalla
             if ($newstatus != $gameboard->status) {
                 Log::info('Gameboard :'.$gameboard->name. ' GAME_ID:'.$gameboard->id);
-                Log::info('Starting time :'.$gameboard->starttime);
                 Log::info('Status change from ' . $gameboard->status . ' to ' . $newstatus);
 
                 $gameboard->status = $newstatus;
+
+                if ($gameboard->activity->type == 'bet' && $newstatus == Status::FINISHED)
+                    $gameboard->calculateRankings();
                 $gameboard->save();
                 $gameboard->updateGameView();
-
             }
 
-
-
-            //DAILY RESET GAMES
-            $later = $end->addMinutes(60);
-
-            if ($gameboard->status > Status::SCHEDULED && $now >$later) {
-
-                $gameboard->status = Status::DISABLED;
-                $location->country->calculateRankings();
-            }
 
             // END GAME
-            $endGame = Carbon::parse($gameboard->endGame); //en UTC
-            if ($now > $endGame) {
+            $later = $end->addMinutes(60);
+            if ($now > $later) {
                 $location->country->calculateRankings();
                 // Se limpian los valores de los participantes en el juego...OJO en el futuro habrá que almacenarlos
                 // en algun histórico para BIG DATA. En este paso los puntos se acumulan en su profile.

@@ -110,8 +110,6 @@ class AdsTableSeeder extends Seeder
 
         for($i=0; $i<count( $files ); $i++) {
             $path = storage_path().'/app/private/ads';
-            $target = storage_path().'/app/public/adv';
-            $target_name = 'adv';
             $id=0;
             $extension="";
             $category="";
@@ -152,15 +150,16 @@ class AdsTableSeeder extends Seeder
 
                 }
 
-                $target_name .= $ads;
                 $sourcefile= $path.'/'.$files[$i];
-                $imagename = $target_name.'/'.utf8_encode($files[$i]);
-                $t = Storage::disk('s3')->put($imagename, file_get_contents($sourcefile), 'public');
-                $target_name = Storage::disk('s3')->url($imagename);
-                \DB::table('advertisements')
-                    ->where('id', '=', $ads)
-                    ->update(['imagebig' => $target_name, 'imagesmall' => $target_name]);
-                Log::info('ADS'.$ads. ", T:".print_r($t));
+                $adv = \App\Advertisement::find($ads);
+                if (isset($adv)) {
+                    $t = Storage::disk('s3')->put($adv->path, file_get_contents($sourcefile), 'public');
+                    $target_name = Storage::disk('s3')->url($adv->path);
+                    \DB::table('advertisements')
+                        ->where('id', '=', $ads)
+                        ->update(['imagebig' => $target_name, 'imagesmall' => $target_name]);
+                    Log::info('ADS' . $ads . ", T:" . print_r($t));
+                }
             }
         }
 

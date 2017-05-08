@@ -14,13 +14,12 @@
     <div id="diferida">
     <h3>Ejecución <small>Si deseas que sea gestionado por la actividad padre, marcar gestión diferida</small></h3>
     <hr class="separator">
-    @include("admin.common.input_time",array('var'=>'starttime'))
-    @include("admin.common.input_number",array('var'=>'duration'))
     @include("admin.common.input_number",array('var'=>'selection'))
     </div>
 
-    <h3>Participación y fin del juego</h3>
+    <h3>Inicio y fin del juego</h3>
     <hr class="separator">
+    @include("admin.common.input_datetime",array('var'=>'startgame'))
     @include("admin.common.input_datetime",array('var'=>'deadline'))
     @include("admin.common.input_datetime",array('var'=>'endgame'))
 

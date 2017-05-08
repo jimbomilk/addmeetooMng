@@ -23,8 +23,8 @@ class GameViews extends Migration
             $table->integer('next')->nullable();
             $table->string('type')->nullable();
             $table->string('code')->nullable();
-            $table->time('starttime')->nullable(); //fecha y hora de comienzo de la actividad
-            $table->integer('duration')->nullable();    // en minutos
+            $table->dateTime('startgame')->nullable(); //fecha y hora de comienzo de la actividad
+            $table->dateTime('endgame')->nullable();    // en minutos
             $table->dateTime('deadline')->nullable(); // fecha tope de participacion.
             $table->integer('gameboard_id')->unsigned();
             $table->foreign('gameboard_id')

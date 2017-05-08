@@ -2,8 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Advertisement;
-use App\Gameboard;
+use App\GameView;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -15,16 +14,16 @@ class GameEngine extends Job implements ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
-    protected $game;
+    protected $gameview;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Gameboard $game)
+    public function __construct(GameView $gameview)
     {
-        $this->game = $game;
+        $this->gameview = $gameview;
     }
 
     /**
@@ -35,10 +34,9 @@ class GameEngine extends Job implements ShouldQueue
     public function handle()
     {
         //Publicamos la pantalla
-        $gameview = $this->game->getGameView();
-        if (isset($gameview) ) {
+        if (isset($this->gameview) ) {
             //Log::info('Job running, GAMEID:' . $this->game->id . ' GAMEVIEW : ' . $gameview->id);
-            event(new ScreenEvent($gameview, 'location' . $this->game->location_id));
+            event(new ScreenEvent($this->gameview, 'location' . $this->gameview->gameboard->location_id));
         }
     }
 }

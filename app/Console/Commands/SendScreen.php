@@ -53,11 +53,6 @@ class SendScreen extends Command
     public function handle()
     {
         $location_id = $this->argument('location');
-        //Log::info('***Starting SKREEN location :'.$location_id.'  ***');
-
-        //De momento los cogemos todos ...posteriormente debemos filtrar por category y location
-
-
         $location = Location::findorfail($location_id);
 
         //Recoger las categorias que admite el local y crear query para
@@ -65,9 +60,9 @@ class SendScreen extends Command
 
         if (isset($location)) {
             // En 10 minutos hay que meter 30 anuncios y 30 pantallas
-            $delay=0;
             $nScreens = 0;
-            for ($count = 0; $count < 60; $count++) {
+            $delay = 0;
+            while ( $delay < 600 ) {
 
                 $delay = $delay + ($nScreens*30); // Las pantallas de actividad duran 30 segundos
 
@@ -122,18 +117,24 @@ class SendScreen extends Command
                      ->where('status' , '<=', Status::OFFICIAL)
                      ->cursor() as $gameboard)
         {
-            $start = Carbon::parse($gameboard->starttime)->addMinutes(-30);
-            $end = Carbon::parse($gameboard->starttime)->addMinutes($gameboard->duration+30);
+            $start = Carbon::parse($gameboard->startgame);
+            $end = Carbon::parse($gameboard->endgame);
             Log::info('*** GAME: '. $gameboard->id. ', NOW:'. $now .' START:' .$start. ', END: ' . $end);
 
             if ($now >= $start && $now <= $end) {
 
-                $nscreens++;
-                $job = (new GameEngine($gameboard, $location_id))
+                $nscreens ++;
+                $job = (new GameEngine($gameboard->getGameView($gameboard->status), $location_id))
                     ->delay($delay)
                     ->onQueue('SCREENS');
                 $this->dispatch($job);
-                $delay = $delay + 30;
+                $delay = $delay + 15;
+                // Pantalla de participación
+                $job = (new GameEngine($gameboard->getGameView(Status::STARTLIST), $location_id))
+                    ->delay($delay)
+                    ->onQueue('SCREENS');
+                $this->dispatch($job);
+                $delay = $delay + 15;
 
             }
         }

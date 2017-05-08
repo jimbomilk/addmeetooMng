@@ -40,7 +40,7 @@ class GameboardsController extends Controller {
         $progression = General::getEnumValues('gameboards','progression_type') ;
 
         if (isset($element)) {
-            $element->starttime = $element->localStarttime;
+            $element->startgame = $element->localStartgame;
             $element->endgame = $element->localEndgame;
             $element->deadline = $element->localDeadline;
             return view('admin.common.edit', ['name' => 'gameboards', 'element' => $element, 'statuses' => Status::$desc, 'locations' => $locations, 'activities' => $activities, 'progression' => $progression]);
@@ -75,7 +75,7 @@ class GameboardsController extends Controller {
     {
         // Cuando creamos un gameboard, tenemos que crear tb todas sus opciones (copia de la actividad)
         $gameboard = new Gameboard($request->all());
-        $gameboard->starttime = $gameboard->getUTCStarttime();
+        $gameboard->startgame = $gameboard->getUTCStartgame();
         $gameboard->endgame = $gameboard->getUTCEndgame();
         $gameboard->deadline = $gameboard->getUTCDeadline();
         $gameboard->createGame();
@@ -119,8 +119,6 @@ class GameboardsController extends Controller {
                     ->onQueue('SCREENS');
                 $this->dispatch($job);
 
-                //event(new ScreenEvent($gameview, 'location' . $game->location->id));
-
                 $message = $game->name . ' sent preview';
                 Session::flash('message', $message);
             }
@@ -158,19 +156,13 @@ class GameboardsController extends Controller {
     public function update(GameboardRequest $request, $id)
     {
         $gameboard = Gameboard::findOrFail($id);
-        $currentstatus = $gameboard->status;
         $gameboard->fill($request->all());
 
         // Transformation as we always save UTC in BBDD
-        $gameboard->starttime = $gameboard->getUTCStarttime();
+        $gameboard->startgame = $gameboard->getUTCStartgame();
         $gameboard->endgame = $gameboard->getUTCEndgame();
         $gameboard->deadline = $gameboard->getUTCDeadline();
         $gameboard->save();
-
-        if ($currentstatus != $gameboard->status && $gameboard->status == Status::OFFICIAL )
-        {
-            $gameboard->publish();
-        }
 
         return redirect()->route($this->indexPage("gameboards"));
     }
@@ -185,7 +177,7 @@ class GameboardsController extends Controller {
     {
         $gameboard = Gameboard::findOrFail($id);
 
-        File::deleteDirectory(storage_path('app/public/').$gameboard->path);
+        Storage::disk('s3')->deleteDirectory($gameboard->path);
 
         $gameboard->delete();
         $message = $gameboard->name. ' deleted';
@@ -228,12 +220,6 @@ class GameboardsController extends Controller {
         {
             $gameboard->$column_name = $column_value;
             $gameboard->save();
-
-            // Dependiendo del campo modificado tenemos que hacer diferentes acciones
-            if ($column_name == 'status' && $column_value == Status::OFFICIAL)
-                $gameboard->calculateRankings();
-
-
         }
     }
 }

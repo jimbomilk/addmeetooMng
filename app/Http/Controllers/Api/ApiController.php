@@ -195,13 +195,13 @@ class ApiController extends Controller
         $gameviews = array();
         foreach($gameboards as $gameboard)
         {
-            $start = Carbon::parse($gameboard->starttime); //en UTC
-            $end = Carbon::parse($gameboard->starttime)->addMinutes($gameboard->duration);
-            //if ($now>$start && $now<$end){
+            $start = Carbon::parse($gameboard->startgame); //en UTC
+            $end = Carbon::parse($gameboard->endgame);
+            if ($now>$start && $now<$end){
                 $gameview = $gameboard->getGameView();
                 if (isset($gameview))
                     $gameviews[] = $gameview;
-            //}
+            }
         }
         return json_encode($gameviews);
 

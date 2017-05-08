@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 
 class ActivityOptionsController extends Controller {
 
@@ -151,7 +152,7 @@ class ActivityOptionsController extends Controller {
 	{
         $activityOption = ActivityOption::findOrFail($id);
 
-        File::deleteDirectory(storage_path('app/public/').$activityOption->path);
+        Storage::disk('s3')->deleteDirectory($activityOption->path);
 
         $activityOption->delete();
         $message = $activityOption->name. ' deleted';

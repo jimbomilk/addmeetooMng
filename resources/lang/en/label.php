@@ -23,7 +23,12 @@ return [
     'users.type'=>'Tipo de usuario',
 
 
-
+    'userprofiles.avatar' => 'Foto',
+    'userprofiles.gender' => 'Sexo',
+    'userprofiles.points' => 'Puntos',
+    'userprofiles.rank' => 'Ranking',
+    'userprofiles.bio' => 'Biografia',
+    'userprofiles.phone' => 'Teléfono',
 
 
 
@@ -44,9 +49,6 @@ return [
     /*ACTIVITIES*/
     'activities.name' => 'Nombre de la actividad',
     'activities.description' => 'Descripción',
-    'activities.starttime' => 'Hora de inicio (UTC)',
-    'activities.duration' => 'Duración(en minutos)',
-    'activities.deadline' => 'Fecha/hora tope de participación ',
     'activities.type' => 'Tipo de actividad',
     'activities.category' => 'Categoría',
     'activities.head2head' => 'Enfrentamiento entre 2',
@@ -74,8 +76,8 @@ return [
     'gameboards.name' =>'Nombre del Juego',
     'gameboards.description' =>'Descripción',
     'gameboards.auto' =>'Gestión diferida?. Si es una actividad propia debes desmarcarlo(porque tú decides cuando termina)',
-    'gameboards.starttime' =>'Hora de Inicio',
-    'gameboards.duration' =>'Duración',
+    'gameboards.startgame' =>'Inicio del Juego',
+    'gameboards.endgame' =>'Fin del Juego',
     'gameboards.status' =>'Estado',
     'gameboards.options' =>'Opciones',
     'gameboards.deadline' =>'Fecha tope de participación(si está vacio significa que no hay tope): ',

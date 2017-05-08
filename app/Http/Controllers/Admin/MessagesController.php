@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use App\Events\MessageEvent;
+use Illuminate\Support\Facades\Storage;
 
 class MessagesController extends Controller {
 
@@ -60,7 +61,7 @@ class MessagesController extends Controller {
         $message = new Message($request->all());
         $message->save();
 
-        $filename = $request->saveFile('image','message'.$message->id);
+        $filename = $request->saveFile('image',$message->path);
         if (isset($filename) && $filename != $message->image) {
             $message->image = $filename;
             $message->save();
@@ -140,9 +141,8 @@ class MessagesController extends Controller {
 	 */
     public function destroy($id,Request $request)
 	{
-        $message = Activity::findOrFail($id);
-
-        File::deleteDirectory(storage_path().'/app/public/message'.$message->id);
+        $message = Message::findOrFail($id);
+        Storage::disk('s3')->deleteDirectory($message->path);
 
         $message->delete();
         $message = $message->id. ' deleted';

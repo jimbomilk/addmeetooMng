@@ -74,7 +74,7 @@ class LocationsController extends Controller {
         $location->owner_id = Auth::user()->id;
         $location->save();
 
-        $filename = $request->saveFile('logo','location'.$location->id);
+        $filename = $request->saveFile('logo',$location->path);
         if ($filename != $location->logo) {
             $location->logo = $filename;
             $location->save();
@@ -121,7 +121,7 @@ class LocationsController extends Controller {
         $location = Location::findOrFail($id);
         $location->fill($request->all());
 
-        $filename = $request->saveFile('logo','location'.$location->id);
+        $filename = $request->saveFile('logo',$location->path);
         if(isset($filename))
             $location->logo = $filename;
 
@@ -140,7 +140,7 @@ class LocationsController extends Controller {
     {
         $location = Location::findOrFail($id);
 
-        File::deleteDirectory(storage_path().'/app/public/location'.$location->id);
+        Storage::disk('s3')->deleteDirectory($location->path);
 
         $location->delete();
         $message = $location->name. ' deleted';

@@ -6,6 +6,8 @@ class location extends Model {
 
     protected $table = 'locations';
     protected $guarded = ['id'];
+    protected $path = 'location';
+
 
     public function getImagesPathAttribute()
     {
@@ -32,6 +34,9 @@ class location extends Model {
         return $this->hasmany('App\Message');
     }
 
-
+    public function getPathAttribute()
+    {
+        return $this->table.'/'.$this->path.$this->id;
+    }
 
 }

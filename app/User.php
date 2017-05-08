@@ -24,7 +24,7 @@ class User extends Authenticatable
 
     public function getPathAttribute()
     {
-        return 'user'.$this->id;
+        return 'users'.'/user'.$this->id;
     }
     
     public function setPasswordAttribute($value)

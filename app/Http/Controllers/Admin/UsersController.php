@@ -121,9 +121,13 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id,Request $request)
 	{
-        $this->user = User::findOrFail($id);
-        $this->user->delete();
-        $message = $this->user->name. ' deleted';
+        $user = User::findOrFail($id);
+
+
+        Storage::disk('s3')->deleteDirectory($user->path);
+
+        $user->delete();
+        $message = $user->name. ' deleted';
         if ($request->ajax())
         {
             return response()->json([

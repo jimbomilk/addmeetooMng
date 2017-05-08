@@ -5,12 +5,6 @@
     @include("admin.common.input_text",array('var'=>'name'))
     @include("admin.common.input_text",array('var'=>'description'))
 
-    <h3>Activación</h3>
-    <hr class="separator">
-    @include("admin.common.input_time",array('var'=>'starttime'))
-    @include("admin.common.input_number",array('var'=>'duration'))
-
-
     <h3>Características</h3>
     <hr class="separator">
     @include("admin.common.input_select",array('var'=>'type','col'=>$types))

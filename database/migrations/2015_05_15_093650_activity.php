@@ -17,9 +17,6 @@ class Activity extends Migration {
 			$table->increments('id');
             $table->string('name',100);
             $table->longText('description');
-
-            $table->time('starttime')->nullable(); //siempre guardamos en UTC
-            $table->integer('duration')->default(60); // en minutos
             $table->enum('type',['vote','bet','game']); // tipo de actividad
             $table->enum('category',['deporte','fiesta','encuesta']); // category
             $table->boolean('head2head')->default(false);

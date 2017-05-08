@@ -2,8 +2,6 @@
     <tr>
         <th>{{Lang::get('label.activities.name')}}</th>
         <th>{{Lang::get('label.activities.description')}}</th>
-        <th>{{Lang::get('label.activities.starttime')}}</th>
-        <th>{{Lang::get('label.activities.duration')}}</th>
         <th>{{Lang::get('label.activities.edit')}}</th>
         <th>{{Lang::get('label.activities.options')}}</th>
         <th></th>
@@ -12,8 +10,6 @@
         <tr data-id="{{$activity->id}}">
             <td>{{$activity->name}}</td>
             <td>{{$activity->description}}</td>
-            <td>{{$activity->starttime}}</td>
-            <td>{{$activity->duration}}</td>
             <td>
                 @include("admin.common.btn_edit",array('var'=>$activity))
             </td>
