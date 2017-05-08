@@ -1,6 +1,5 @@
 <div class="form-group">
-
-    @include("admin.common.input_file",array('var'=>'avatar'))
+    @include("admin.common.input_file",array('var'=>'avatar','width'=>70,'height'=>70))
     @include("admin.common.input_select",array('var'=>'gender','col'=>$genders))
     @include("admin.common.input_number",array('var'=>'points'))
     @include("admin.common.input_number",array('var'=>'rank'))

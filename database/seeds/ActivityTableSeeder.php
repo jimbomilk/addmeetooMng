@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Carbon\Carbon as Carbon;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Created by PhpStorm.
@@ -38,7 +39,7 @@ class ActivityTableSeeder extends Seeder {
         ) );
 
         //Recogemos las opciones
-        $source = storage_path().'/app/private/activities/'.$name;
+        $source = storage_path().'/app/private/activities/'.$category;
         $dir = opendir($source);
         $files = array();
         while ($current = readdir($dir)){
@@ -61,15 +62,9 @@ class ActivityTableSeeder extends Seeder {
             if (isset($option))
             {
                 $sourcefile= $source.'/'.$files[$i];
-                $target = storage_path('app/public/').$option->path.'/';
-                //Creamos el directorio si no existiese
-                if (!file_exists($target)) {
-                    mkdir($target, 0777, true);
-                };
-
-
-                copy($sourcefile, $target.utf8_encode($files[$i]));
-                $option->image=$option->path.'/'.utf8_encode($files[$i]);
+                $imagename = $option->path.'/'.utf8_encode($files[$i]);
+                Storage::disk('s3')->put($imagename, file_get_contents($sourcefile), 'public');
+                $option->image = Storage::disk('s3')->url($imagename);
                 $option->save();
             }
         }
@@ -143,22 +138,21 @@ class ActivityTableSeeder extends Seeder {
 
             $idowner = $faker->randomElement($owners->lists('id'));
             $idlocation = \DB::table('locations')->insertGetId( array(
-                'name'          => 'Lugar',
+                'name'          => 'Yuncos',
                 'owner_id'      => $idowner,
                 'countries_id'    => 724,
-                'logo'          => $target_name.($i+1).'/'.$files[$i]
             ));
 
-            $target .= $idlocation;
-            //Creamos el directorio si no existiese
-            if (!file_exists($target)) {
-                mkdir($target, 0777, true);
-            };
+            $sourcefile= $source.'/'.$files[$i];
+            $imagename = 'location'.$idlocation.'/'.utf8_encode($files[$i]);
+            Storage::disk('s3')->put($imagename, file_get_contents($sourcefile), 'public');
+            $location = \App\Location::find($idlocation);
+            if(isset($location))
+            {
+                $location->logo = Storage::disk('s3')->url($imagename);
+                $location->save();
+            }
 
-            $source = $source . '/' . $files[$i];
-            $target = $target . '/' . $files[$i];
-            //Cogemos la imagen y la guardamos en su carpeta correspondiente
-            copy($source, $target);
 
         }
 
@@ -167,13 +161,17 @@ class ActivityTableSeeder extends Seeder {
         //***********************************************************************************
         //Activity
 
-        $start = Carbon::createFromTime(9,0,0,'UTC');
-        $oneday = Carbon::createFromTime(9,0,0,'UTC');
-        $oneday->addDay(1);
+        $duration = 360; // 6 horas
 
-
-
-        $duration = 30;
+        //6:00
+        $start1 = Carbon::createFromTime(4,0,0,'UTC');
+        $activity_id1 = $this->newActivity($start1, $duration,'¿QUE CURSO TE GUSTARÍA HACER?','ORDENALOS SEGUN TUS PREFERENCIAS','vote','encuesta',false,0);
+        //12:00
+        $start2 = $start1->addMinutes($duration);
+        $activity_id2 = $this->newActivity($start2, $duration,'EL PARTIDAZO','ENVIA TU PRONOSTICO','bet','deporte',true,0);
+        //18:00
+        $start3 = $start2->addMinutes($duration);
+        $activity_id3 = $this->newActivity($start3, $duration,'QUE CANTANTE TE GUSTARIA PARA LAS FIESTAS?','ORDENALOS SEGUN TUS PREFERENCIAS','vote','fiesta',false,0);
 
 
 
@@ -181,21 +179,12 @@ class ActivityTableSeeder extends Seeder {
         $locations = \App\Location::all();
         foreach($locations as $location){
 
-            while ($start < $oneday) {
-                // Tenemos 3 activities diferentes
-                $start = $start->addMinutes($duration);
-                $activity_id1 = $this->newActivity($start, $duration,'partido','ENVIA TUS PRONOSTICOS','bet','sports',true,0);
-                $this->newGame($activity_id1, $location->id, $start, $duration);
+            // Tenemos 4 juegos diferentes
+            $this->newGame($activity_id1, $location->id, $start1, $duration);
+            $this->newGame($activity_id2, $location->id, $start2, $duration);
+            $this->newGame($activity_id3, $location->id, $start3, $duration);
 
-                $start = $start->addMinutes($duration);
-                $activity_id2 = $this->newActivity($start, $duration,'encuesta','¿QUE CURSO TE GUSTARÍA HACER?','vote','party',false,0);
-                $this->newGame($activity_id2, $location->id, $start, $duration);
 
-                $start = $start->addMinutes($duration);
-                $activity_id3 = $this->newActivity($start, $duration,'musica','¿QUE GRUPO TE GUSTARÍA QUE TOCASE EN LAS FIESTAS?','vote','party',false,0);
-                $this->newGame($activity_id3, $location->id, $start, $duration);
-
-            }
         }
 
 

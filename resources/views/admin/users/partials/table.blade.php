@@ -1,8 +1,12 @@
 <table class="table table-striped">
     <tr>
         <th>#</th>
-        <th>Name</th>
-        <th>Actions</th>
+        <th>{{Lang::get('label.users.name')}}</th>
+        <th>{{Lang::get('label.users.email')}}</th>
+        <th>{{Lang::get('label.users.edit')}}</th>
+        <th>{{Lang::get('label.users.profile')}}</th>
+        <th></th>
+
     </tr>
     @foreach($set as $user)
         <tr data-id="{{$user->id}}">

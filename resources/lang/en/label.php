@@ -13,6 +13,20 @@ return [
     |
     */
 
+    /*USER*/
+    'users.name'=>'Nombre',
+    'users.email'=>'Email',
+    'users.edit'=>'Editar',
+    'users.profile'=>'Detalles',
+    'users.password'=>'Password',
+    'users.password2'=>'Reintroduce la password',
+    'users.type'=>'Tipo de usuario',
+
+
+
+
+
+
     /* LOCATIONS */
     'locations' => 'Lugares',
     'loc_name' => 'Nombre',
@@ -31,7 +45,7 @@ return [
     'activities.name' => 'Nombre de la actividad',
     'activities.description' => 'Descripción',
     'activities.starttime' => 'Hora de inicio (UTC)',
-    'activities.duration' => 'Duración',
+    'activities.duration' => 'Duración(en minutos)',
     'activities.deadline' => 'Fecha/hora tope de participación ',
     'activities.type' => 'Tipo de actividad',
     'activities.category' => 'Categoría',
@@ -42,6 +56,8 @@ return [
     'activities.reward_first' => 'Puntos por ganar el juego',
     'activities.reward_second' => 'Puntos por quedar segundo',
     'activities.reward_third' => 'Puntos por quedar tercero',
+    'activities.edit' => 'Editar',
+    'activities.options' => 'Opciones',
 
 
     'activity_options' => 'Opctiones de la actividad',
@@ -54,11 +70,14 @@ return [
     'gameboards' => 'Juegos',
     'gameboards.activity_id' => 'Tipo de actividad que deseas crear',
     'gameboards.location_id' => 'Lugar',
+
     'gameboards.name' =>'Nombre del Juego',
     'gameboards.description' =>'Descripción',
     'gameboards.auto' =>'Gestión diferida?. Si es una actividad propia debes desmarcarlo(porque tú decides cuando termina)',
     'gameboards.starttime' =>'Hora de Inicio',
     'gameboards.duration' =>'Duración',
+    'gameboards.status' =>'Estado',
+    'gameboards.options' =>'Opciones',
     'gameboards.deadline' =>'Fecha tope de participación(si está vacio significa que no hay tope): ',
     'gameboards.selection' =>'Cuantas opciones hay que elegir? . En caso de partidos poner 0',
     'gameboards.progression_type' =>'Tipo de progresión',
@@ -78,9 +97,13 @@ return [
     'advertisements.imagesmall' => 'Imagen pequeño formato',
     'advertisements.adscategory_id' => 'Categoria',
     'advertisements.name' => 'Nombre del anuncio',
+    'advertisements.textbig' => 'Texto anuncio gran formato',
+    'advertisements.textsmall' => 'Texto anuncio pequeño formato',
     'advertisements.textsmall1' => 'Cabecera de anuncio',
     'advertisements.textsmall2' => 'Texto de anuncio',
     'advertisements.textbig1' => 'Cabecera de anuncio',
     'advertisements.textbig2' => 'Texto del anuncio',
+    'advertisements.edit' => 'Editar',
+    'advertisements.packs' => 'Impactos',
 
 ];

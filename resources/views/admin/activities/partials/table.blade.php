@@ -1,11 +1,11 @@
 <table class="table table-striped">
     <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Start Time</th>
-        <th>Duration</th>
-        <th></th>
-        <th></th>
+        <th>{{Lang::get('label.activities.name')}}</th>
+        <th>{{Lang::get('label.activities.description')}}</th>
+        <th>{{Lang::get('label.activities.starttime')}}</th>
+        <th>{{Lang::get('label.activities.duration')}}</th>
+        <th>{{Lang::get('label.activities.edit')}}</th>
+        <th>{{Lang::get('label.activities.options')}}</th>
         <th></th>
     </tr>
     @foreach($set as $activity)

@@ -26,8 +26,8 @@ class Gameboard extends Migration
 
             $table->time('starttime')->nullable(); //fecha y hora de comienzo de la actividad
             $table->integer('duration')->nullable();    // en minutos
-            $table->dateTime('deadline')->nullable(); // si n es 0 significa que se puede participar todo el tiempo
-            //                          Si es n>0  significa que desde q empieza la actividad hay n minutos para participar
+
+            $table->dateTime('deadline')->nullable(); // fecha y hora de fin de participación
             $table->dateTime('endgame')->nullable(); // cuando termina el juego.
             $table->integer('selection')->nullable();; // Cuantos hay q elegir
 

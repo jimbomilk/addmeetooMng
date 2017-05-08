@@ -10,7 +10,7 @@
     </tr>
     @foreach($set as $location)
         <tr data-id="{{$location->id}}">
-            <td>{!! HTML::image($login_user->type.'/images/'.$location->logo, 'location photo',array( 'width' => 70, 'height' => 70 )) !!}</td>
+            <td>{!! HTML::image($location->logo, 'location photo',array( 'width' => 140, 'height' => 70 )) !!}</td>
             <td>{{$location->name}}</td>
             <td>{{$location->country->name}}</td>
             <td>{{$location->address}}</td>

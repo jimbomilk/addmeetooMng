@@ -1,6 +1,6 @@
 <div class="form-group">
     @if(isset($element))
-        {!! HTML::image($login_user->type.'/images/'.$element->$var, 'location photo',array( 'width' => 70, 'height' => 70 )) !!}
+        {!! HTML::image($element->$var, $var,array('id'=>$var.'-image-tag', 'width' => $width, 'height' => $height )) !!}
     @endif
 </div>
 
@@ -9,3 +9,11 @@
     {!! Form::file($var, null,array('class'=>'file')) !!}
 </div>
 <br>
+
+@section('scripts')
+    <script type="text/javascript">
+        $('#{{$var}}').change(function(){
+            readURL(this,'#{{$var}}-image-tag');
+        });
+    </script>
+@append

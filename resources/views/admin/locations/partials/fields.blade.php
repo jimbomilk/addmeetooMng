@@ -1,4 +1,4 @@
-@include("admin.common.input_file",array('var'=>'logo'))
+@include("admin.common.input_file",array('var'=>'logo','width'=>300,'height'=>150))
 @include("admin.common.input_select",array('var'=>'category','col'=>$categories))
 @include("admin.common.input_select",array('var'=>'owner_id','col'=>$owners))
 @include("admin.common.input_text",array('var'=>'name'))

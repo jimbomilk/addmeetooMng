@@ -4,6 +4,7 @@ use Faker\Factory as Faker;
 use Carbon\Carbon as Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Created by PhpStorm.
@@ -133,8 +134,6 @@ class AdsTableSeeder extends Seeder
                     'name'      => 'ad'.$i,
                     'textsmall1' => $faker->text(15),
                     'textsmall2' => $faker->text(10),
-                    //'textbig1' => $faker->text(25),
-                    //'textbig2' => $faker->text(20),
                     'created_at' => \Carbon\Carbon::now()->toDateTimeString()
                 ));
 
@@ -153,27 +152,15 @@ class AdsTableSeeder extends Seeder
 
                 }
 
-                $target .= $ads;
                 $target_name .= $ads;
-
-                //Creamos el directorio si no existiese
-                if (!file_exists($target)) {
-                    mkdir($target, 0777, true);
-                };
-
-                $source = $path . '/' . $files[$i];
-                $target = $target . '/' . $files[$i];
-                $target_name = $target_name . '/' . $files[$i];
-
-
-                //Cogemos la imagen y la guardamos en su carpeta correspondiente
-
-                if (copy($source, $target)) {
-
-                    \DB::table('advertisements')
-                        ->where('id', '=', $ads)
-                        ->update(['imagebig' => $target_name, 'imagesmall' => $target_name]);
-                }
+                $sourcefile= $path.'/'.$files[$i];
+                $imagename = $target_name.'/'.utf8_encode($files[$i]);
+                $t = Storage::disk('s3')->put($imagename, file_get_contents($sourcefile), 'public');
+                $target_name = Storage::disk('s3')->url($imagename);
+                \DB::table('advertisements')
+                    ->where('id', '=', $ads)
+                    ->update(['imagebig' => $target_name, 'imagesmall' => $target_name]);
+                Log::info('ADS'.$ads. ", T:".print_r($t));
             }
         }
 

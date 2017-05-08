@@ -35,7 +35,7 @@ class GameboardOptionsController extends Controller {
         if (isset($gameboard)) {
             $gameboard_options = GameboardOption::where('gameboard_id', '=', $id)->paginate();
 
-            return view('admin.common.index', ['name' => 'gameboard_options', 'set' => $gameboard_options, 'hide_new' => $gameboard->auto]);
+            return view('admin.common.index', ['name' => 'gameboard_options','game' => $gameboard, 'set' => $gameboard_options, 'hide_new' => $gameboard->auto]);
         }
 	}
 

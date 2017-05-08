@@ -2,15 +2,14 @@
 <table class="table table-striped">
     <tr>
         @if($login_user->type=='admin')
-            <th>Location</th>
-            <th>Owner</th>
+            <th>{{Lang::get('label.locations.name')}}</th>
         @endif
-        <th>Name</th>
-        <th>Start Time</th>
-        <th>Duration</th>
-        <th>Status</th>
+        <th>{{Lang::get('label.gameboards.name')}}</th>
+        <th>{{Lang::get('label.gameboards.starttime')}}</th>
+        <th>{{Lang::get('label.gameboards.duration')}}</th>
+        <th>{{Lang::get('label.gameboards.status')}}</th>
 
-        <th></th>
+        <th>{{Lang::get('label.gameboards.options')}}</th>
         <th></th>
         <th></th>
             <th></th>
@@ -19,7 +18,6 @@
         <tr data-id="{{$game->id}}">
             @if($login_user->type=='admin')
                 <td>{{$game->location->name}}</td>
-                <td>{{$game->location->owner->name}}</td>
             @endif
             <td>{{$game->name}}</td>
             <td>{{$game->localStarttime}}</td>
