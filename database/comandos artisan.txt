@@ -37,3 +37,9 @@ php artisan make:model User
 
 Lanzar las QUEUES:
 php artisan queue:listen --queue=SCREENS,smallpack,bigpack,default
+
+
+Comando GIT para hacer un refresh
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
