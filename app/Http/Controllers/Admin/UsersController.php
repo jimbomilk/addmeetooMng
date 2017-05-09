@@ -124,7 +124,7 @@ class UsersController extends Controller {
         $user = User::findOrFail($id);
 
 
-        Storage::disk('s3')->deleteDirectory($user->path);
+        Storage::disk('s3')->delete($user->path);
 
         $user->delete();
         $message = $user->name. ' deleted';

@@ -37,11 +37,9 @@ class Kernel extends ConsoleKernel
             {
                 $schedule->command('location_schedule '.$location->id)
                     ->everyMinute();
+
                 $schedule->command('screen '.$location->id)
                     ->everyMinute();
-
-
-
             }
         }
 

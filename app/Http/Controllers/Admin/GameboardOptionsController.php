@@ -158,7 +158,8 @@ class GameboardOptionsController extends Controller {
 	{
         $gameboardOption = GameboardOption::findOrFail($id);
 
-        Storage::disk('s3')->deleteDirectory($gameboardOption->path);
+        Storage::disk('s3')->delete($gameboardOption->path);
+
 
         $gameboardOption->delete();
         $message = $gameboardOption->name. ' deleted';

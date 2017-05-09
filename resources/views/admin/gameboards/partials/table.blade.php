@@ -1,27 +1,35 @@
 <div id="_token" class="hidden" data-token="{{ csrf_token() }}"></div>
-<table class="table table-striped">
-    <tr>
+<table class="table borderless">
+    <tr style="background-color: #dddddd">
+        <th>{{Lang::get('label.gameboards.dates')}}</th>
+        <th>{{Lang::get('label.gameboards.deadline')}}</th>
         @if($login_user->type=='admin')
             <th>{{Lang::get('label.locations.name')}}</th>
         @endif
         <th>{{Lang::get('label.gameboards.name')}}</th>
-        <th>{{Lang::get('label.gameboards.startgame')}}</th>
-        <th>{{Lang::get('label.gameboards.endgame')}}</th>
+        <th>{{Lang::get('label.gameboards.category')}}</th>
         <th>{{Lang::get('label.gameboards.status')}}</th>
 
+        <th>{{Lang::get('label.gameboards.edit')}}</th>
         <th>{{Lang::get('label.gameboards.options')}}</th>
         <th></th>
         <th></th>
-            <th></th>
     </tr>
-    @foreach($set as $game)
-        <tr data-id="{{$game->id}}">
+    @foreach($set as $key=>$game)
+        @php $key%2==0?$bck='#ddeeff':$bck='#fffff' @endphp
+
+        <tr data-id="{{$game->id}}" style="background-color:{{$bck}}">
+            <td>
+                Del {{$game->visibleStartgame}} al {{$game->visibleEndgame}}
+            </td>
+            <td>{{$game->visibleDeadline}}</td>
+
             @if($login_user->type=='admin')
                 <td>{{$game->location->name}}</td>
             @endif
             <td>{{$game->name}}</td>
-            <td>{{$game->localStartgame}}</td>
-            <td>{{$game->localEndgame}} min</td>
+            <td>{{$game->activity->category}}</td>
+
             <td>
                <div class="btn-group">
                    <button type="button" class="btn btn-{{$colours[$game->status]}} dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
@@ -40,9 +48,9 @@
 
 
             <td>
-                @if(!$game->auto)
-                    @include("admin.common.btn_edit",array('var'=>$game))
-                @endif
+               @if($game->status < \App\Status::SCHEDULED)
+                @include("admin.common.btn_edit",array('var'=>$game))
+               @endif
             </td>
 
             <td>
@@ -87,3 +95,4 @@
 
     </script>
 @endsection
+

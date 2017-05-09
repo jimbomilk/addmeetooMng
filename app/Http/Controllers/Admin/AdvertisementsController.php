@@ -9,8 +9,9 @@ use App\Http\Requests\AdvertisementRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class AdvertisementsController extends Controller {
@@ -144,26 +145,38 @@ class AdvertisementsController extends Controller {
 	 */
     public function destroy($id,Request $request)
 	{
-        $ads = Advertisement::findOrFail($id);
+        $ads = Advertisement::find($id);
+
+        if(isset($ads)) {
+            Storage::disk('s3')->delete($ads->path);
+            Log::info('path:' . $ads->path);
+
+            $ads->delete();
 
 
-        Storage::disk('s3')->deleteDirectory($ads->path);
+            $message = $ads->name . ' deleted';
+            if ($request->ajax()) {
+                return response()->json([
+                    'id' => $id,
+                    'message' => $message,
+                    'total' => Advertisement::All()->count()
+                ]);
+            }
 
-        $ads->delete();
-
-
-
-        $message = $ads->name. ' deleted';
-        if ($request->ajax())
+            Session::flash('message', $message);
+        }else
         {
-            return response()->json([
-                'id' => $id,
-                'message' =>$message,
-                'total' => Advertisement::All()->count()
-            ]);
-        }
+            $message = $ads->name . ' no se pudo borrar';
+            if ($request->ajax()) {
+                return response()->json([
+                    'id' => $id,
+                    'message' => $message,
+                    'total' => Advertisement::All()->count()
+                ]);
+            }
 
-        Session::flash('message',$message);
+            Session::flash('message', $message);
+        }
         return redirect()->route($this->indexPage("advertisements"));
 	}
 

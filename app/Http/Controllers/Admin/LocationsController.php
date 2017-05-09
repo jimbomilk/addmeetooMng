@@ -140,7 +140,7 @@ class LocationsController extends Controller {
     {
         $location = Location::findOrFail($id);
 
-        Storage::disk('s3')->deleteDirectory($location->path);
+        Storage::disk('s3')->delete($location->path);
 
         $location->delete();
         $message = $location->name. ' deleted';

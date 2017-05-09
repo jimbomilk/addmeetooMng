@@ -18,7 +18,7 @@ class Activity extends Migration {
             $table->string('name',100);
             $table->longText('description');
             $table->enum('type',['vote','bet','game']); // tipo de actividad
-            $table->enum('category',['deporte','fiesta','encuesta']); // category
+            $table->enum('category',['calidad de vida','orgullo','deporte','niños','fiesta','cultura','salud','trabajo']); // category
             $table->boolean('head2head')->default(false);
             $table->integer('selection')->default(3);
             $table->integer('reward_participation')->default(50);

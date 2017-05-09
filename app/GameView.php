@@ -25,13 +25,13 @@ class GameView extends Model
         $this->gameboard_id = $gameboard->id;
         $this->code = $gameboard->getGameCode();
         $this->logo1 = $gameboard->location->logo;
-        $this->logo2 = $gameboard->activity->name;
-        $this->headerMain = $gameboard->description;
+        $this->logo2 = $gameboard->activity->category;
+        $this->headerMain = $gameboard->name;
         $this->status = $status;
 
 
         if ($status <= Status::SCHEDULED) {
-            $this->headerSub = 'Descárgate Yuncos Participa en tu móvil y participa';
+            $this->headerSub = $gameboard->description;
             $this->body = $this->scheduleBody($gameboard);
         }
         elseif ($status == Status::STARTLIST) {
@@ -39,7 +39,7 @@ class GameView extends Model
             $this->body = $this->startlistBody($gameboard);
         }
         elseif ($status >= Status::RUNNING && $status<Status::FINISHED) {
-            $this->headerSub = 'EN VIVO';
+            $this->headerSub = $gameboard->description;
             $this->body = $this->runningBody($gameboard);
         }
         elseif ($status == Status::FINISHED) {

@@ -115,7 +115,7 @@ class GameboardsController extends Controller {
 
             if (isset($gameview)) {
 
-                $job = (new GameEngine($game, $game->location_id))
+                $job = (new GameEngine($gameview, $game->location_id))
                     ->onQueue('SCREENS');
                 $this->dispatch($job);
 

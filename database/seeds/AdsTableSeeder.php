@@ -153,12 +153,12 @@ class AdsTableSeeder extends Seeder
                 $sourcefile= $path.'/'.$files[$i];
                 $adv = \App\Advertisement::find($ads);
                 if (isset($adv)) {
-                    $t = Storage::disk('s3')->put($adv->path, file_get_contents($sourcefile), 'public');
-                    $target_name = Storage::disk('s3')->url($adv->path);
+                    //$t = Storage::disk('s3')->put($adv->path, file_get_contents($sourcefile), 'public');
+                    $target_name = $faker->imageUrl(1200, 600);//Storage::disk('s3')->url($adv->path);
                     \DB::table('advertisements')
                         ->where('id', '=', $ads)
                         ->update(['imagebig' => $target_name, 'imagesmall' => $target_name]);
-                    Log::info('ADS' . $ads . ", T:" . print_r($t));
+                    //Log::info('ADS' . $ads . ", T:" . print_r($t));
                 }
             }
         }

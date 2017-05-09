@@ -60,9 +60,8 @@ class ActivityTableSeeder extends Seeder {
             if (isset($option))
             {
                 $sourcefile= $source.'/'.$files[$i];
-                $imagename = $option->path.'/'.utf8_encode($files[$i]);
-                Storage::disk('s3')->put($imagename, file_get_contents($sourcefile), 'public');
-                $option->image = Storage::disk('s3')->url($imagename);
+                Storage::disk('s3')->put($option->path, file_get_contents($sourcefile), 'public');
+                $option->image = Storage::disk('s3')->url($option->path);
                 $option->save();
             }
         }
@@ -72,7 +71,7 @@ class ActivityTableSeeder extends Seeder {
     }
 
 
-    public function newGame($activity_id,$location)
+    public function newGame($activity_id,$name,$location)
     {
 
         $faker = Faker::create();
@@ -85,6 +84,7 @@ class ActivityTableSeeder extends Seeder {
             'startgame'             => $startgame,
             'deadline'              => $deadline,
             'endgame'               => $endgame,
+            'name'                  => $name,
             'activity_id'           => $activity_id,
             'location_id'           => $location,
             'status'                => Status::DISABLED
@@ -161,9 +161,9 @@ class ActivityTableSeeder extends Seeder {
         //Activity
 
 
-        $activity_id1 = $this->newActivity('¿QUE CURSO TE GUSTARÍA HACER?','ORDENALOS SEGUN TUS PREFERENCIAS','vote','encuesta',false,0);
-        $activity_id2 = $this->newActivity('EL PARTIDAZO','ENVIA TU PRONOSTICO','bet','deporte',true,0);
-        $activity_id3 = $this->newActivity('QUE CANTANTE TE GUSTARIA PARA LAS FIESTAS?','ORDENALOS SEGUN TUS PREFERENCIAS','vote','fiesta',false,0);
+        $activity_id1 = $this->newActivity('OPINION - 5 OPCIONES','ORDENALOS SEGUN TUS PREFERENCIAS','vote','trabajo',false,0);
+        $activity_id2 = $this->newActivity('PARTIDO - APUESTA','ENVIA TU PRONOSTICO','bet','deporte',true,0);
+        $activity_id3 = $this->newActivity('OPINION FIESTA- 6 OPCIONES','ORDENALOS SEGUN TUS PREFERENCIAS','vote','fiesta',false,0);
 
 
 
@@ -172,9 +172,9 @@ class ActivityTableSeeder extends Seeder {
         foreach($locations as $location){
 
             // Tenemos 3 juegos diferentes
-            $this->newGame($activity_id1, $location->id);
-            $this->newGame($activity_id2, $location->id);
-            $this->newGame($activity_id3, $location->id);
+            $this->newGame($activity_id1,'¿QUÉ TIPO de CURSO TE GUSTARIA HACER?', $location->id);
+            $this->newGame($activity_id2,'EL PARTIDAZO: APOYA A TU EQUIPO', $location->id);
+            $this->newGame($activity_id3,'¿QUÉ GRUPO TE GUSTARÍA QUE TOCASE EN LAS FIESTAS?',$location->id);
 
         }
 

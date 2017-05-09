@@ -124,6 +124,37 @@ class Gameboard extends Model
         return $ret;
     }
 
+
+
+    //Recogemos el valor UTC de la BBDD y devolvemos el valor local.
+    public function getVisibleStartgameAttribute()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $startgame = Carbon::parse($this->startgame);
+        $ret = $startgame->addHours($localoffset)->format('d-M');
+        return $ret;
+    }
+
+    //Recogemos el valor UTC de la BBDD y devolvemos el valor local.
+    public function getVisibleEndgameAttribute()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $endgame = Carbon::parse($this->endgame);
+        $ret = $endgame->addHours($localoffset)->format('d-M');
+
+        return $ret;
+    }
+
+    public function getVisibleDeadlineAttribute()
+    {
+        $localoffset = Carbon::now($this->location->timezone)->offsetHours;
+        $deadline = Carbon::parse($this->deadline);
+        $ret = $deadline->addHours($localoffset)->format('d-M H:i'); // 1975-12-25T14:15
+
+        return $ret;
+    }
+
+
     // Dado un valor local devolvemos su UTC
     public function getUTCStartgame()
     {

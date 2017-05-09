@@ -2,7 +2,7 @@
 
     <h3>Actividad padre <small>Todo juego deriva de una actividad principal</small></h3>
     <hr class="separator">
-    @include("admin.common.input_check",array('var'=>'auto','default'=>1))
+    @include("admin.common.input_check",array('var'=>'auto','default'=>0))
     @include("admin.common.input_select",array('var'=>'activity_id','col'=>$activities))
 
     <h3>Descripción y localización</h3>
