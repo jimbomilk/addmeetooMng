@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\location;
+use App\Location;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Schema;
