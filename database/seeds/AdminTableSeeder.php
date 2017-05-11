@@ -30,7 +30,7 @@ class AdminTableSeeder extends Seeder {
             'gender'    => 'male',
             'bio'       => $faker->paragraph(rand(1,4)),
             'phone'     => $faker->phoneNumber,
-            'avatar'    => $faker->imageUrl(64, 48)
+            'avatar'    => str_replace('http','https',$faker->imageUrl(64, 48)),
 
         ));
 

@@ -35,7 +35,7 @@ class MessageTableSeeder extends Seeder
             $iditem = \DB::table('messages')->insertGetId( array(
                 'stext'         => $faker->text(25),
                 'ltext'         => $faker->text(50),
-                'image'         => $faker->imageUrl(64, 48),
+                'image'         => str_replace('http','https',$faker->imageUrl(64, 48)),
                 'type'          => $faker->randomElement(['user','advertisement']),
 
                 'location_id'   => $idlocation,

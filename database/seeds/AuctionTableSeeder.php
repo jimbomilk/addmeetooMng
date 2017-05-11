@@ -32,7 +32,7 @@ class AuctionTableSeeder extends Seeder
                 'description'   => $faker->text(200),
                 'initial_price' => $faker->numberBetween(5,25),
                 'max_price'     => $faker->numberBetween(50,100),
-                'photo'         => $faker->imageUrl(64,48),
+                'photo'         => str_replace('http','https',$faker->imageUrl(64, 48)),
 
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString()
             ));
