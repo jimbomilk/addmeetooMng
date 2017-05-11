@@ -61,7 +61,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{ Storage::url($login_user->profile->avatar) }}" class="img-circle" alt="User Image" />
+                            <img src="{{ $login_user->profile->avatar }}" class="img-circle" alt="User Image" />
                             <p>
                                 {{$login_user->name}}
                                 <small>{{$login_user->email}}</small>
