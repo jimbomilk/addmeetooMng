@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\SendScreen::class,
-        Commands\LocationSchedule::class
+        Commands\LocationSchedule::class,
+        Commands\SendMessage::class
     ];
 
     /**

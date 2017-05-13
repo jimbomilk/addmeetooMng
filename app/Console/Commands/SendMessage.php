@@ -4,15 +4,10 @@ namespace App\Console\Commands;
 
 use App\Adspack;
 use App\Advertisement;
-use App\Gameboard;
 use App\Jobs\AdsEngine;
-use App\Jobs\GameEngine;
 use App\location;
-use App\Status;
-use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 
 class SendMessage extends Command
