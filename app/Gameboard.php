@@ -252,9 +252,11 @@ class Gameboard extends Model
 
     }
 
-    public function getGameView($status)
+    public function getGameView($status=null)
     {
         //Log::info('Game View:'.$this->gameViews->where('status',$this->status+0) . ' status:'.$this->status);
+        if(!isset($status))
+            return $this->gameViews->where('status', $this->status)->first();
         return $this->gameViews->where('status', $status)->first();
 
     }
