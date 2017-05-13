@@ -61,7 +61,6 @@ class SendScreen extends Command
 
         if (isset($location)) {
             // En 10 minutos hay que meter 30 anuncios y 30 pantallas
-            $nScreens = 0;
             $delay = 0;
             while ( $delay < 600 ) {
 
@@ -70,11 +69,6 @@ class SendScreen extends Command
 
                 if($this->screenAds('bigpack',$location->id,$delay))
                     $delay += 10;
-
-                Log::info('Delay smallADS:'.$delay);
-
-                if($this->screenAds('smallpack',$location->id,$delay))
-
 
                 $nScreens = $this->screenGame($location->id,$delay);
                 $delay = $delay + ($nScreens*15); // Las pantallas de actividad duran 30 segundos
@@ -101,11 +95,7 @@ class SendScreen extends Command
 
             // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
             // pantalla.
-            if ($adstype == 'bigpack')
-                $adsPack->bigdisplayed++;
-            else
-                $adsPack->smalldisplayed++;
-
+            $adsPack->bigdisplayed++;
             $adsPack->save();
             return true;
         }

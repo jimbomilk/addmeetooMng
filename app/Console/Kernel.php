@@ -40,6 +40,9 @@ class Kernel extends ConsoleKernel
 
                 $schedule->command('screen '.$location->id)
                     ->everyMinute();
+
+                $schedule->command('message '.$location->id)
+                    ->everyMinute();
             }
         }
 
