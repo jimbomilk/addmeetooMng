@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Adspack;
 use App\Events\Envelope;
 use App\Events\MessageEvent;
 use App\Gameboard;
@@ -279,6 +280,20 @@ class ApiController extends Controller
         }
 
         return response()->json($user->profile);
+    }
+
+    public function lastOffers($request)
+    {
+        $input = $request->all();
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+        $offers = Adspack::all()->sortBy('updated_at')->take(5);
+        Log::info('Offers:'.$offers);
+        return response()->json($offers);
+
     }
 
 }
