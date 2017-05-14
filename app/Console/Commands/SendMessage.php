@@ -64,7 +64,7 @@ class SendMessage extends Command
 
                 $this->screenAds('smallpack',$location->id,$delay);
 
-                $delay = $delay + 5; // Los mensajes duran 5 segundos
+                $delay = $delay + 10; // Los mensajes duran 5 segundos
 
             }
         }
