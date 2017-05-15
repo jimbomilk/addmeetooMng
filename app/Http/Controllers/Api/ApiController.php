@@ -175,8 +175,8 @@ class ApiController extends Controller
 
         // A pantalla
         $message = new Envelope();
-        $message->stext = $gameboard->name;
-        $message->ltext = strtoupper('Gracias '.$user->name." por participar");
+        $message->stext = strtoupper('Gracias '.$user->name." por participar");
+        $message->ltext = $gameboard->name;
         $message->image = $user->profile->avatar;
         event(new MessageEvent($message, 'location'.$gameboard->location_id));
 
