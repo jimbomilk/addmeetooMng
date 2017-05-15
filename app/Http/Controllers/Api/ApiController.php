@@ -175,7 +175,7 @@ class ApiController extends Controller
 
         // A pantalla
         $message = new Envelope();
-        $message->stext = $user->name;
+        $message->stext = strtoupper($user->name);
         $message->ltext = $gameboard->name;
         $message->type = 'message';
         $message->image = $user->profile->avatar;
