@@ -31,13 +31,13 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37535015" vertical-offset="2892" max-vertical-offset="5474">
-              <caret line="178" column="76" selection-start-line="178" selection-start-column="76" selection-end-line="178" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.47058824" vertical-offset="2892" max-vertical-offset="5372">
+              <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1494860822851" expanded="true" signature="8313:8497" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1494860822851" expanded="true" signature="8313:8631" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1494860822851" expanded="true" signature="8313:8792" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1494861263860" expanded="true" signature="8286:8470" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1494861263860" expanded="true" signature="8286:8604" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1494861263860" expanded="true" signature="8286:8765" placeholder="SELECT * fro..advertisements..." />
               </folding>
             </state>
           </provider>
@@ -599,12 +599,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00005" summary="ok">
-      <created>1488932510004</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1488932510004</updated>
-    </task>
     <task id="LOCAL-00006" summary="ok">
       <created>1489935510288</created>
       <option name="number" value="00006" />
@@ -893,7 +887,13 @@
       <option name="project" value="LOCAL" />
       <updated>1494752045176</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="ok">
+      <created>1494860846319</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1494860846319</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1423,13 +1423,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37535015" vertical-offset="2892" max-vertical-offset="5474">
-          <caret line="178" column="76" selection-start-line="178" selection-start-column="76" selection-end-line="178" selection-end-column="76" />
+        <state vertical-scroll-proportion="0.47058824" vertical-offset="2892" max-vertical-offset="5372">
+          <caret line="180" column="43" selection-start-line="180" selection-start-column="43" selection-end-line="180" selection-end-column="43" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1494860822851" expanded="true" signature="8313:8497" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1494860822851" expanded="true" signature="8313:8631" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1494860822851" expanded="true" signature="8313:8792" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1494861263860" expanded="true" signature="8286:8470" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1494861263860" expanded="true" signature="8286:8604" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1494861263860" expanded="true" signature="8286:8765" placeholder="SELECT * fro..advertisements..." />
           </folding>
         </state>
       </provider>

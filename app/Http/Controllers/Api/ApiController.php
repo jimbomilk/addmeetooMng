@@ -178,17 +178,11 @@ class ApiController extends Controller
         $message->stext = $gameboard->name;
         $message->ltext = strtoupper('Gracias '.$user->name." por participar");
         $message->image = $user->profile->avatar;
-        event(new MessageEvent($message, 'Location'.$gameboard->location_id));
+        event(new MessageEvent($message, 'location'.$gameboard->location_id));
 
-        // Para movil
+        // A movil
         $message->setText($user->name, $values);
         $message->reward = $gameboard->activity->reward_participation;
-
-
-
-
-        // Mensaje
-
         return json_encode($message);
     }
 
