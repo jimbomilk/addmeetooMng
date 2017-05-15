@@ -14,6 +14,7 @@ use Illuminate\Http\Response as HttpResponse;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -172,14 +173,19 @@ class ApiController extends Controller
 
         $result->save();
 
+        // A pantalla
         $message = new Envelope();
-        $message->setText($user->name, $values);
+        $message->stext = $gameboard->name;
+        $message->ltext = strtoupper('Gracias '.$user->name." por participar");
         $message->image = $user->profile->avatar;
+        event(new MessageEvent($message, 'Location'.$gameboard->location_id));
+
+        // Para movil
+        $message->setText($user->name, $values);
         $message->reward = $gameboard->activity->reward_participation;
 
 
-        // A pantalla
-        event(new MessageEvent($message, $gameboard->location_id));
+
 
         // Mensaje
 
@@ -282,16 +288,27 @@ class ApiController extends Controller
         return response()->json($user->profile);
     }
 
-    public function lastOffers($request)
+    public function lastOffers(Request $request)
     {
         $input = $request->all();
+        $latitude = $input['latitude'];
+        $longitude = $input['longitude'];
         try {
             JWTAuth::toUser($input['token']);
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
         }
-        $offers = Adspack::all()->sortBy('updated_at')->take(5);
-        Log::info('Offers:'.$offers);
+
+        $query = 'SELECT * from advertisements ads
+                    JOIN adspacks packs ON
+                        packs.advertisement_id = ads.id AND
+                        packs.latitude BETWEEN ('.$latitude.' - (packs.radio*0.0117)) AND ('.$latitude.' + (packs.radio*0.0117)) AND
+                        packs.longitude BETWEEN ('.$longitude.' - (packs.radio*0.0117)) AND ('.$longitude.' + (packs.radio*0.0117))
+                    ORDER BY packs.updated_at DESC
+                    LIMIT 5';
+
+        $offers = DB::select($query);
+        Log::info('Offers:'.$query);
         return response()->json($offers);
 
     }
