@@ -12,6 +12,7 @@ use App\Message;
 use App\UserGameboard;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class SendMessage extends Command
@@ -83,7 +84,16 @@ class SendMessage extends Command
 
     public function screenMsg($location_id, $delay)
     {
-        $usergame = UserGameboard::where('location','=',$location_id)->inRandomOrder()->first();
+        //$usergame = UserGameboard::where('location','=',$location_id)->inRandomOrder()->first();
+
+        $usergame = DB::table('user_gameboards')
+            ->join('gameboards',function($join) {
+                global $location_id;
+                $join->on('user_gameboards.gameboard_id', '=', 'gameboards.id')
+                    ->where ('gameboards.location_id','=',$location_id);
+            })
+            ->inRandomOrder()->first();
+
         if (!isset($usergame))
             return false;
 
@@ -106,6 +116,7 @@ class SendMessage extends Command
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
         $adsPack = Adspack::where('smallpack','>',0)->inRandomOrder()->first();
 
+        Log::info('screenADS entrando');
         // recogemos el ads
         if (!isset($adsPack))
             return false;
