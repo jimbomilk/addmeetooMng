@@ -78,13 +78,13 @@ class LocationSchedule extends Command
 
 
             // END GAME
-            /*$later = $end->addMinutes(60);
+            $later = $end->addMinutes(60);
             if ($now > $later) {
                 $location->country->calculateRankings();
                 // Se limpian los valores de los participantes en el juego...OJO en el futuro habrá que almacenarlos
                 // en algun histórico para BIG DATA. En este paso los puntos se acumulan en su profile.
                 $gameboard->destroyGame();
-            }*/
+            }
 
 
         }
