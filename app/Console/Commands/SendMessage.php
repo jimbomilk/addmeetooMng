@@ -91,7 +91,7 @@ class SendMessage extends Command
                 $join->on('gameboards.id', '=', 'user_gameboards.gameboard_id')
                     ->where ('gameboards.location_id','=',$location_id);
             })
-            ->first();
+            ->inRandomOrder()->first();
 
         if (!isset($usergame))
             return false;
