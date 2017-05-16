@@ -8,6 +8,7 @@ use App\Events\MessageEvent;
 use App\Gameboard;
 use App\User;
 use App\UserGameboard;
+use App\UserProfile;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
@@ -242,8 +243,13 @@ class ApiController extends Controller
 
         if (isset($user)) {
             $token = JWTAuth::fromUser($user);
+
             $user->type = 'user';
             $user->save();
+
+            $profile = new UserProfile();
+            $profile->user_id = $user->id;
+            $profile->save();
         }
 
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
