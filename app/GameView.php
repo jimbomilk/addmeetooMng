@@ -158,7 +158,7 @@ class GameView extends Model
             $chart->dataSeries[] = $serie;
             $chart->dataSeries[] = $values;
 
-            Log::info('Serie:'.print_r($chart->dataSeries,true));
+            //Log::info('Serie:'.print_r($chart->dataSeries,true));
 
 
         }

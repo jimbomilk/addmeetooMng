@@ -5,10 +5,12 @@ namespace App\Console\Commands;
 use App\Adspack;
 use App\Advertisement;
 use App\Events\Envelope;
+use App\Gameboard;
 use App\Jobs\AdsEngine;
 use App\Jobs\MsgEngine;
 use App\location;
 use App\Message;
+use App\User;
 use App\UserGameboard;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -84,23 +86,21 @@ class SendMessage extends Command
 
     public function screenMsg($location_id, $delay)
     {
-        //$usergame = UserGameboard::where('location','=',$location_id)->inRandomOrder()->first();
-
         $usergame = DB::table('user_gameboards')
-            ->join('gameboards',function($join) {
-                global $location_id;
-                $join->on('user_gameboards.gameboard_id', '=', 'gameboards.id')
+            ->join('gameboards',function($join) use($location_id) {
+                $join->on('gameboards.id', '=', 'user_gameboards.gameboard_id')
                     ->where ('gameboards.location_id','=',$location_id);
             })
-            ->inRandomOrder()->first();
+            ->first();
 
         if (!isset($usergame))
             return false;
 
         $msg = new Envelope();
-        $user = $usergame->user;
+        $user = User::find($usergame->user_id);
+        $gameboard = Gameboard::find($usergame->gameboard_id);
         $msg->stext = strtoupper($user->name);
-        $msg->ltext = $usergame->gameboard->name;
+        $msg->ltext = $gameboard->name;
         $msg->image = $user->avatar;
         $msg->type = 'message';
 
