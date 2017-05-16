@@ -19,4 +19,9 @@ class UserGameboard extends Model
     {
         return $this->belongsTo('App\Gameboard');
     }
+
+    public function getLocationAttribute()
+    {
+        return $this->gameboard->location_id;
+    }
 }

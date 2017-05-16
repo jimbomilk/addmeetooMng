@@ -4,8 +4,12 @@ namespace App\Console\Commands;
 
 use App\Adspack;
 use App\Advertisement;
+use App\Events\Envelope;
 use App\Jobs\AdsEngine;
+use App\Jobs\MsgEngine;
 use App\location;
+use App\Message;
+use App\UserGameboard;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Log;
@@ -58,11 +62,17 @@ class SendMessage extends Command
             // En 10 minutos hay que meter n anuncios
             $nScreens = 0;
             $delay = 0;
+            $alternate = true;
             while ( $delay < 600 ) {
 
                 Log::info('Delay smallADS:'.$delay);
 
-                $this->screenAds('smallpack',$location->id,$delay);
+                if($alternate)
+                    $this->screenAds($location->id,$delay);
+                else
+                    $this->screenMsg($location->id,$delay);
+
+                $alternate = !$alternate;
 
                 $delay = $delay + 10; // Los mensajes duran 5 segundos
 
@@ -71,29 +81,51 @@ class SendMessage extends Command
 
     }
 
-    public function screenAds($adstype, $location_id,$delay)
+    public function screenMsg($location_id, $delay)
+    {
+        $usergame = UserGameboard::where('location','=',$location_id)->inRandomOrder()->first();
+        if (!isset($usergame))
+            return false;
+
+        $msg = new Envelope();
+        $user = $usergame->user;
+        $msg->stext = strtoupper($user->name);
+        $msg->ltext = $usergame->gameboard->name;
+        $msg->image = $user->avatar;
+        $msg->type = 'message';
+
+        $job = (new MsgEngine($msg, $location_id))
+            ->delay($delay)
+            ->onQueue('smallpack');
+
+        $this->dispatch($job);
+    }
+
+    public function screenAds($location_id,$delay)
     {
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
-        $adsPack = Adspack::where($adstype,'>',0)->inRandomOrder()->first();
+        $adsPack = Adspack::where('smallpack','>',0)->inRandomOrder()->first();
 
         // recogemos el ads
-        $ads = Advertisement::find($adsPack ->advertisement_id);
-        if (isset($ads)) {
-            //2 se lo enviamos a la cola de procesado
-            $job = (new AdsEngine($ads, $location_id,$adstype))
-                ->delay($delay)
-                ->onQueue($adstype);
+        if (!isset($adsPack))
+            return false;
 
-            $this->dispatch($job);
 
-            // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
-            // pantalla.
-            $adsPack->smalldisplayed++;
+        //2 se lo enviamos a la cola de procesado
+        $job = (new AdsEngine($adsPack->advertisement, $location_id,'smallpack'))
+            ->delay($delay)
+            ->onQueue('smallpack');
 
-            $adsPack->save();
-            return true;
-        }
-        return false;
+        $this->dispatch($job);
+
+        // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
+        // pantalla.
+        $adsPack->smalldisplayed++;
+
+        $adsPack->save();
+        return true;
+
+
     }
 
 
