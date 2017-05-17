@@ -193,11 +193,11 @@ class ApiController extends Controller
     // Devuelve todos los gameboards activos para el día de hoy
     public function gameboards(Request $request)
     {
-        $input = $request->all();
-        $location_id = $input['location'];
+        $location_id = $request->get('location');
 
-        if(isset($location_id))
-            $gameboards = Gameboard::where('location_id',$location_id);
+        if(isset($location_id)) {
+            $gameboards = Gameboard::where('location_id', $location_id);
+        }
         else
             $gameboards = Gameboard::all();
         $now = Carbon::now(Config::get('app.timezone'));
