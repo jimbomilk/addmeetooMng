@@ -6,6 +6,7 @@ use App\Adspack;
 use App\Events\Envelope;
 use App\Events\MessageEvent;
 use App\Gameboard;
+use App\Status;
 use App\User;
 use App\UserGameboard;
 use App\UserProfile;
@@ -190,17 +191,21 @@ class ApiController extends Controller
 
 
     // Devuelve todos los gameboards activos para el día de hoy
-    public function gameboards()
+    public function gameboards(Request $request)
     {
-        $gameboards = Gameboard::all();
-        $now = Carbon::now(Config::get('app.timezone'));
+        $input = $request->all();
+        $location_id = $input['location'];
 
+        if(isset($location_id))
+            $gameboards = Gameboard::where('location_id',$location_id);
+        else
+            $gameboards = Gameboard::all();
+        $now = Carbon::now(Config::get('app.timezone'));
         $gameviews = array();
         foreach($gameboards as $gameboard)
         {
             $start = Carbon::parse($gameboard->startgame); //en UTC
             $end = Carbon::parse($gameboard->endgame);
-
             if ($now>$start && $now<$end){
                 Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
                 $gameview = $gameboard->getGameView();
@@ -209,6 +214,8 @@ class ApiController extends Controller
             }
         }
         return json_encode($gameviews);
+
+
 
     }
 
@@ -234,7 +241,7 @@ class ApiController extends Controller
 
 
         // Vemos si existe en la base de datos. Si existe , damos error
-        if ($token = JWTAuth::attempt($credentials)) {
+        if ($token = JWTAuth::attempt($credentials) ||  User::where('email',$credentials['email'])->first()!= null) {
             return response()->json(['result' => 'El usuario ya existe.']);
         }
 
@@ -309,7 +316,6 @@ class ApiController extends Controller
                     LIMIT 5';
 
         $offers = DB::select($query);
-        Log::info('Offers:'.$query);
         return response()->json($offers);
 
     }
