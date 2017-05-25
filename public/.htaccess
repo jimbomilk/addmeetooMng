@@ -18,5 +18,4 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    redirect 301 ^(.*)$ http://www.addmeetoo.es
 </IfModule>

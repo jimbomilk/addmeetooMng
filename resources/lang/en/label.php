@@ -108,4 +108,14 @@ return [
     'advertisements.edit' => 'Editar',
     'advertisements.packs' => 'Impactos',
 
+    /* MESSAGES */
+    'messages.start' => 'Inicio del Aviso',
+    'messages.end' => 'Fin del Aviso',
+    'messages.type'=> 'Tipo de Aviso',
+    'messages.stext' => 'Descripción corta',
+    'messages.ltext' => 'Descripción larga',
+    'messages.image' => 'Imagen',
+    'messages.location_id' => 'Lugar de publicación'
+
+
 ];

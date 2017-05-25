@@ -16,20 +16,22 @@ class Message extends Migration {
         Schema::create('messages', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->text('stext');
-            $table->text('ltext');
+            $table->text('stext')->nullable();
+            $table->text('ltext')->nullable();
             $table->text('image');
+            $table->dateTime('start');
+            $table->dateTime('end');
 
-            $table->enum('type',['user','advertisement']);
 
-            $table->integer('location_id')->unsigned();
+            $table->enum('type',['trabajo','ocio niños','ocio joven','ocio mayores']);
+
+            $table->integer('location_id')->unsigned()->nullable(); // Si no tiene location son avisos generales
             $table->foreign('location_id')
                 ->references('id')
                 ->on('locations')
                 ->onDelete('cascade');
 
             $table->timestamps();
-            $table->softDeletes();
         });
 	}
 
