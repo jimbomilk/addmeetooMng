@@ -1,10 +1,12 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Events\Envelope;
+use App\General;
 use App\Http\Requests\MessageRequest;
 use App\Http\Controllers\Controller;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use App\Events\MessageEvent;
@@ -36,10 +38,16 @@ class MessagesController extends Controller {
 
     public function sendView($element=null)
     {
-        if (isset($element))
-            return view('admin.common.edit',['name'=>'messages','element' => $element]);
+        $types = General::getEnumValues('messages','type') ;
+        $locations = Auth::user()->locations()->pluck('name','id');
+        if (isset($element)) {
+
+            $element->start = $element->localStart;
+            $element->end = $element->localEnd;
+            return view('admin.common.edit', ['name' => 'messages','types'=>$types,'locations'=>$locations, 'element' => $element]);
+        }
         else
-            return view('admin.common.create',['name'=>'messages']);
+            return view('admin.common.create',['name'=>'messages','types'=>$types,'locations'=>$locations]);
     }
 	/**
 	 * Show the form for creating a new resource.
@@ -59,6 +67,8 @@ class MessagesController extends Controller {
 	public function store(MessageRequest $request)
 	{
         $message = new Message($request->all());
+        $message->start = $message->getUTCStart();
+        $message->end = $message->getUTCEnd();
         $message->save();
 
         $filename = $request->saveFile('image',$message->path);
@@ -121,6 +131,8 @@ class MessagesController extends Controller {
 	{
         $message = Message::findOrFail($id);
         $message->fill($request->all());
+        $message->start = $message->getUTCStart();
+        $message->end = $message->getUTCEnd();
         $message->save();
 
 

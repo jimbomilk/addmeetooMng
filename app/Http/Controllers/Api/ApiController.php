@@ -320,4 +320,27 @@ class ApiController extends Controller
 
     }
 
+
+    public function messages(Request $request)
+    {
+        $input = $request->all();
+        $location = $input['location'];
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+
+        $now = Carbon::now()->toDateTimeString();
+
+        $messages = DB::table('messages')
+                        ->where('end','>',$now)
+                        ->orWhere('location_id',$location)
+                        ->orderBy('created_at','desc')
+                        ->get();
+
+        return response()->json($messages);
+
+    }
+
 }

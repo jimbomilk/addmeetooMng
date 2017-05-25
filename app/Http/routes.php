@@ -86,14 +86,6 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('bids', 'BidsController');
 
 
-    Route::get('images/{folder}/{filename}', function ($folder,$filename)
-    {
-        return imageFile($folder,$filename);
-    });
-    Route::get('images/{folder1}/{folder2}/{folder3}/{filename}', function ($folder1,$folder2,$folder3,$filename)
-    {
-        return imageFile($folder1.'/'.$folder2.'/'.$folder3,$filename);
-    });
 
 
 
@@ -132,9 +124,9 @@ Route::group(['prefix'=>'user','middleware' => ['auth','is_user'],'namespace'=>'
 });
 
 
-Route::get ('home', function()
+Route::get ('/', function()
 {
-    return "Welcome to ADDMEETOO";
+    return redirect()->away('http://www.addmeetoo.es');
 })->name('home');
 
 
@@ -150,6 +142,7 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     Route::post('fileupload','ApiController@fileUpload');
     Route::post('userUpdate','ApiController@userUpdate');
     Route::post('lastOffers','ApiController@lastOffers');
+    Route::post('messages','ApiController@messages');
 
     //Route::get('auctions', 'ApiController@indexAuctions');
     //Route::get('auction/{id}', 'ApiController@indexAuction');
