@@ -24,9 +24,17 @@ class ActivitiesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-        $activities = Activity::paginate();
+        $search = $request->get('search');
+
+        if (isset($search) and $search != ""){
+            $where = General::getRawWhere(Activity::$searchable,$search);
+            $activities = User::whereRaw($where)
+                ->paginate();
+        }
+        else
+            $activities = Activity::paginate();
         return view ('admin.common.index',['name'=>'activities','set'=>$activities]);
 	}
 

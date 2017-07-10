@@ -3,8 +3,6 @@
         <th>#</th>
         <th>{{Lang::get('label.users.name')}}</th>
         <th>{{Lang::get('label.users.email')}}</th>
-        <th>{{Lang::get('label.users.edit')}}</th>
-        <th>{{Lang::get('label.users.profile')}}</th>
         <th></th>
 
     </tr>
@@ -16,13 +14,9 @@
 
             <td>
                 @include("admin.common.btn_edit",array('var'=>$user))
-            </td>
 
-            <td>
                 @include("admin.common.btn_show",array('var'=>$user))
-            </td>
 
-            <td>
                 @include("admin.common.btn_delete",array('var'=>$user))
             </td>
         </tr>

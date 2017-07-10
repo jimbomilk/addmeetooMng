@@ -17,8 +17,8 @@ class UserProfile extends Migration {
 			$table->increments('id');
             $table->mediumText('bio')->nullable();
             $table->string('phone')->nullable();
-            $table->date('birth_date');
-            $table->enum('gender', ['male','female']);
+            $table->date('birth_date')->nullable();
+            $table->enum('gender', ['male','female'])->nullable();
             $table->string('avatar')->nullable();
             $table->integer('points')->default(0);
             $table->integer('rank')->default(0);
@@ -29,6 +29,10 @@ class UserProfile extends Migration {
 			            ->references('id')
 			            ->on('users')
 			            ->onDelete('cascade');
+
+            //Preferred location
+            $table->integer('location_id')->unsigned();
+
 			$table->timestamps();
 		});
 	}

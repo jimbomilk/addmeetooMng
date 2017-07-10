@@ -23,8 +23,21 @@ class MessageRequest extends Request {
 	public function rules()
 	{
 		return [
+            'start'  => 'required',
+            'end'  => 'required|after:start',
+            'image' => 'mimes:jpeg,bmp,png'
 
 		];
 	}
+
+    public function messages()
+    {
+        return [
+            'start.required' => 'La hora de inicio del mensaje es obligatoria',
+            'end.required'  => 'La hora de inicio del mensaje es obligatoria',
+            'start.date_format' => 'El formato de la fecha de inicio es incorrecto',
+            'end.date_format' => 'El formato de la fecha de fin es incorrecto',
+        ];
+    }
 
 }

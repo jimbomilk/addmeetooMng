@@ -37,9 +37,31 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
+    <!-- WYSIWYG Editor -->
+    <script src="{{ asset('/plugins/tinymce/js/tinymce/tinymce.min.js') }}" type="text/javascript"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            menubar: false,
+            language: 'es',
+            branding: false,
+            statusbar: false,
+            plugins: 'lists,link,image,preview',
+            toolbar: 'undo redo | fontselect fontsizeselect | subscript superscript | ' +
+            'bold italic underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | preview',
+            font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n'
+
+
+        });
+    </script>
 
 </head>
+@if ($login_user->is('admin'))
 <body class="skin-blue">
+@else
+<body class="skin-red">
+@endif
+
 
 
 
@@ -56,6 +78,8 @@
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+
 
 @yield('scripts')
 

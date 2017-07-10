@@ -1,12 +1,12 @@
 <table class="table table-striped">
     <tr>
-        <th>Ads name</th>
-        <th>Big packs</th>
-        <th>Small packs</th>
-        <th>Total Ads</th>
-        <th>Total Cost</th>
-        <th>Big displayed</th>
-        <th>Small displayed</th>
+        <th>{{trans('labels.packid')}}</th>
+        <th>{{trans('labels.bigpacks')}}</th>
+        <th>{{trans('labels.smallpacks')}}</th>
+        <th>{{trans('labels.totalads')}}</th>
+        <th>{{trans('labels.totalcost')}}</th>
+        <th>{{trans('labels.bigdisplayed')}}</th>
+        <th>{{trans('labels.smalldisplayed')}}</th>
         <th></th>
         <th></th>
 

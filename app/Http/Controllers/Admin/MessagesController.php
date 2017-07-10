@@ -8,6 +8,7 @@ use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Events\MessageEvent;
 use Illuminate\Support\Facades\Storage;
@@ -29,10 +30,25 @@ class MessagesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-        $messages = Message::paginate();
-        return view ('admin.common.index',['name'=>'messages','set'=>$messages]);
+        $search = $request->get('search');
+        $where = General::getRawWhere(Message::$searchable,$search);
+        if(!Auth::user()->is('admin') ) {
+            $where .= ' and location_id in ( -1';
+            if(Auth::user()->locations()->count()>0)
+                $where .= ',';
+            $where .= Auth::user()->locations()->pluck('id')->implode(',');
+            $where .= ')';
+        }
+
+        Log::info('Msg where:' . $where);
+
+        $messages = Message::whereRaw($where)
+                ->paginate();
+
+
+        return view ('admin.common.index',['searchable'=>'1','name'=>'messages','set'=>$messages]);
 	}
 
 

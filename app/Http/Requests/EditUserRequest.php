@@ -32,7 +32,7 @@ class EditUserRequest extends Request {
             'name'      => 'required',
             'email'     => 'required|unique:users,email,'. $this->route->getParameter('users'), //busca en la tabla users el campo email pero excluyendo el del propio usuario.
             'password'  => '',
-            'type'      => 'required|in:user,admin',
+            'type'      => 'required|in:user,owner,admin',
 		];
 	}
 

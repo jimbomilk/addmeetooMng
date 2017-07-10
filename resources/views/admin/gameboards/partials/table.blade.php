@@ -10,8 +10,8 @@
         <th>{{Lang::get('label.gameboards.category')}}</th>
         <th>{{Lang::get('label.gameboards.status')}}</th>
 
-        <th>{{Lang::get('label.gameboards.edit')}}</th>
-        <th>{{Lang::get('label.gameboards.options')}}</th>
+        <th></th>
+        <th></th>
         <th></th>
         <th></th>
     </tr>
@@ -58,7 +58,9 @@
             </td>
 
             <td>
+                @if ($login_user->is('admin'))
                 @include("admin.common.btn_other",array('route'=> 'gameboards_preview','var'=>$game,'label'=>'preview'))
+                @endif
             </td>
 
             <td>

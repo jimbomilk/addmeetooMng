@@ -57,6 +57,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('users', 'UsersController');
     Route::resource('userprofiles', 'UserProfilesController');
     Route::resource('locations', 'LocationsController');
+    Route::resource('messages', 'MessagesController');
 
 
 
@@ -74,7 +75,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('gameboard_options', 'GameboardOptionsController');
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
     Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
-    Route::resource('messages', 'MessagesController');
+
     Route::resource('usergameboards','UserGameboardsController');
 
     Route::post('gameboards/preview/{id}',['as'=>'gameboards_preview', 'uses' => 'GameboardsController@preview']);
@@ -96,19 +97,24 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 
     Route::resource('/', 'AdminController');
 
-    // ** LOCATIONS**
+    // ** GESTION**
     Route::resource('locations', 'LocationsController');
-    Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
+    Route::resource('messages', 'MessagesController');
 
     // ** GAMES  **
     Route::resource('gameboards', 'GameboardsController');
+    Route::post('gameboards/fastUpdate/{id}', ['as' => 'gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
+    Route::resource('gameboard_options', 'GameboardOptionsController');
+    Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
+
+    // ** RANKING **
     Route::resource('usergameboards','UserGameboardsController');
 
+    // ** ADS **
+    Route::resource('advertisements', 'AdvertisementsController');
+    Route::resource('adspacks', 'AdsPacksController');
 
-    // ** AUCTIONS **
 
-
-    // ** SCREENS **
 
 
 });
@@ -126,7 +132,7 @@ Route::group(['prefix'=>'user','middleware' => ['auth','is_user'],'namespace'=>'
 
 Route::get ('/', function()
 {
-    return redirect()->away('http://www.addmeetoo.es');
+    return redirect()->away('http://www.addmeetoo.dev/auth/login');
 })->name('home');
 
 
@@ -143,6 +149,9 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     Route::post('userUpdate','ApiController@userUpdate');
     Route::post('lastOffers','ApiController@lastOffers');
     Route::post('messages','ApiController@messages');
+
+    Route::post('globalRanking','ApiController@globalRanking');
+    Route::post('gamesRanking','ApiController@userGameboards');
 
     //Route::get('auctions', 'ApiController@indexAuctions');
     //Route::get('auction/{id}', 'ApiController@indexAuction');

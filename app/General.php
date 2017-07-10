@@ -75,5 +75,20 @@ class General {
         return Gmaps::create_map();
     }
 
+    public static function getRawWhere($searchable,$search)
+    {
+        $where = " (1 = 2 ";
+        foreach($searchable as $searchfield)
+        {
+            $where .= " or ";
+            $where .= $searchfield;
+            $where .= " like '%";
+            $where .= $search;
+            $where .= "%'";
+        }
+        $where .= ")";
+        return $where;
+    }
+
 }
 

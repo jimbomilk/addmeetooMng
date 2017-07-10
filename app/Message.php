@@ -9,6 +9,8 @@ class Message extends Model {
 
     protected $table = 'messages';
     protected $guarded = ['id'];
+    static $searchable = ['stext','ltext'];
+    protected $path = 'message';
 
     /**
      * The attributes that should be mutated to dates for softdeleting
@@ -40,8 +42,8 @@ class Message extends Model {
     public function getLocalEndAttribute()
     {
         $localoffset = Carbon::now($this->location->timezone)->offsetHours;
-        $start = Carbon::parse($this->start);
-        $ret = $start->addHours($localoffset)->format('Y-m-d\TH:i');
+        $end = Carbon::parse($this->end);
+        $ret = $end->addHours($localoffset)->format('Y-m-d\TH:i');
         return $ret;
     }
     //Recogemos el valor UTC de la BBDD y devolvemos el valor local.
@@ -69,4 +71,8 @@ class Message extends Model {
         return $ret;
     }
 
+    public function getPathAttribute()
+    {
+        return $this->table.'/'.$this->path.$this->id;
+    }
 }

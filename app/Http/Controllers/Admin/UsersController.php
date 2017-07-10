@@ -10,7 +10,9 @@ use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 
 class UsersController extends Controller {
@@ -33,9 +35,17 @@ class UsersController extends Controller {
 	 * @return Response
 	 */
 	public function index(Request $request)
-	{
-		$users = User::paginate();
-        return view ('admin.common.index',['name'=>'users','set'=>$users]);
+    {
+        $search = $request->get('search');
+
+        if (isset($search) and $search != ""){
+            $where = General::getRawWhere(User::$searchable,$search);
+            $users = User::whereRaw($where)
+                ->paginate();
+        }
+		else
+            $users = User::paginate();
+        return view ('admin.common.index',['searchable'=>'1','name'=>'users','set'=>$users]);
 	}
 
 
@@ -67,6 +77,11 @@ class UsersController extends Controller {
 	{
 		$user = new User($request->all());
         $user->save();
+
+        // Además del usuario hay que crear su profile
+        $profile = new UserProfile();
+        $profile->user_id = $user->id;
+        $profile->save();
 
         return redirect()->route('admin.users.index');
 	}

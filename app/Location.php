@@ -39,4 +39,9 @@ class location extends Model {
         return $this->table.'/'.$this->path.$this->id;
     }
 
+    public function parent(){
+
+        return $this->hasOne('App\Location','id','parent_id');
+    }
+
 }

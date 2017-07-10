@@ -4,12 +4,13 @@
 @section ('dashboard_header')
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            <i class="fa {{trans('design.main')}}"></i>
+            {{trans('labels.main')}}
+
         </h1>
         <ol class="breadcrumb">
-            <li><a href="admin"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="admin"><i class="fa fa-dashboard"></i> {{trans('labels.home')}}</a></li>
+            <li class="active">{{trans('labels.main')}}</li>
         </ol>
     </section>
 @endsection

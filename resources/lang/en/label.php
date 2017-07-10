@@ -12,8 +12,27 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'create_new' => 'Nuevo',
+
+
+    /* LOGIN */
+    'login' => 'Inicio',
+    'login.email' => 'Email',
+    'login.register' => 'Inscribirse',
+    'login.name' => 'Nombre',
+    'login.password' => 'Contraseña',
+    'login.forgot' => '¿Olvidaste tu contraseña?',
+    'login.recuerda' => 'Recuérdame',
+    'login.social_login' => 'O con tu cuenta de google...',
+    'login.login' => 'Adelante',
+    'login.reset' => 'Reiniciar contraseña',
+    'login.whops' => 'Ups!',
+    'login.problems' => 'Parece que hubo algún problema',
+    'login.confirm_password' => 'Confirmar contraseña',
+    'login.reset_link' => 'Enviar enlace para reiniciar contraseña',
 
     /*USER*/
+    'users' => ' Usuario',
     'users.name'=>'Nombre',
     'users.email'=>'Email',
     'users.edit'=>'Editar',
@@ -33,20 +52,22 @@ return [
 
 
     /* LOCATIONS */
-    'locations' => 'Lugares',
+    'locations' => 'Lugar',
     'loc_name' => 'Nombre',
     'loc_desc_name' => 'Please enter the name of the Place',
     'locations.logo' => 'Logo del establecimiento',
     'locations.category' => 'Tipo de establecimiento',
     'locations.owner_id' => 'Nombre del responsable',
-    'locations.name' => 'Nombre del lugar',
+    'locations.name' => 'Nombre lugar',
     'locations.phone' => 'Número de teléfono',
     'locations.countries_id' => 'Pais',
+    'locations.parent' => 'Localidad Padre',
     'locations.timezone' => 'Zona horaria',
     'locations.website' => 'Página web',
     'locations.address' => 'Dirección del establecimiento',
 
     /*ACTIVITIES*/
+    'activities' => 'Actividad',
     'activities.name' => 'Nombre de la actividad',
     'activities.description' => 'Descripción',
     'activities.type' => 'Tipo de actividad',
@@ -69,7 +90,7 @@ return [
     'activity_options.result'=>'Resultado de la actividad',
 
     /* GAMEBOARDS */
-    'gameboards' => 'Juegos',
+    'gameboards' => 'Juego',
     'gameboards.activity_id' => 'Tipo de actividad que deseas crear',
     'gameboards.location_id' => 'Lugar',
     'gameboards.dates' =>'Fechas de juego',
@@ -80,6 +101,7 @@ return [
     'gameboards.endgame' =>'Fin Juego',
     'gameboards.status' =>'Estado',
     'gameboards.options' =>'Opciones',
+    'gameboards.category' => 'Categoria',
     'gameboards.deadline' =>'Participación hasta',
     'gameboards.selection' =>'Cuantas opciones hay que elegir? . En caso de partidos poner 0',
     'gameboards.progression_type' =>'Tipo de progresión',
@@ -95,27 +117,38 @@ return [
 
 
     /*ADVERTISEMENTS*/
+    'advertisements' => 'Anuncio',
     'advertisements.imagebig' => 'Imagen gran formato(1800x600)',
     'advertisements.imagesmall' => 'Imagen pequeño formato',
     'advertisements.adscategory_id' => 'Categoria',
-    'advertisements.name' => 'Nombre del anuncio',
-    'advertisements.textbig' => 'Texto anuncio gran formato',
-    'advertisements.textsmall' => 'Texto anuncio pequeño formato',
+    'advertisements.name' => 'Nombre',
+    'advertisements.textbig' => 'Texto gran formato',
+    'advertisements.textsmall' => 'Texto pequeño formato',
     'advertisements.textsmall1' => 'Cabecera de anuncio',
-    'advertisements.textsmall2' => 'Texto de anuncio',
-    'advertisements.textbig1' => 'Cabecera de anuncio',
-    'advertisements.textbig2' => 'Texto del anuncio',
+    'advertisements.textsmall2' => 'Texto',
+    'advertisements.textbig1' => 'Cabecera',
+    'advertisements.textbig2' => 'Texto',
     'advertisements.edit' => 'Editar',
     'advertisements.packs' => 'Impactos',
 
+    'adspacks' => 'pack de anuncios',
+    'adspacks.bigpack' => 'Repeticiones de anuncio gran formato',
+    'adspacks.smallpack'=>'Repeticiones de anuncio pequeño formato',
+    'adspacks.address'=> 'Dirección de la zona',
+    'adspacks.radio'=> 'Kilómetros a la redonda',
+
     /* MESSAGES */
+    'messages'=> 'Mensaje',
+    'messages.date' => 'Fechas',
     'messages.start' => 'Inicio del Aviso',
     'messages.end' => 'Fin del Aviso',
     'messages.type'=> 'Tipo de Aviso',
-    'messages.stext' => 'Descripción corta',
-    'messages.ltext' => 'Descripción larga',
+    'messages.stext' => 'Titulo',
+    'messages.ltext' => 'Descripción',
     'messages.image' => 'Imagen',
-    'messages.location_id' => 'Lugar de publicación'
+    'messages.location_id' => 'Lugar de publicación',
 
+    /* ITEMS */
+    'items' => 'Item'
 
 ];

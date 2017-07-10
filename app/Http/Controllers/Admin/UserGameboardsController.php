@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Location;
 use App\Http\Requests\UserGameboardRequest;
 use App\UserGameboard;
+use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -30,11 +31,10 @@ class UserGameBoardsController extends Controller {
     public function index()
 	{
         if (Auth::user()->is('admin'))
-            $usergameboards = UserGameboard::orderby('points','desc')->paginate();
+            $usergameboards = UserProfile::orderby('points','desc')->paginate();
         else
-            $usergameboards = UserGameboard::where('locations.owner_id','=',Auth::user()->id)
-                ->join('gameboards','user_gameboards.gameboard_id','=', 'gameboards.id')
-                ->join('locations', 'gameboards.location_id', '=' , 'locations.id')
+            $usergameboards = UserProfile::where('locations.owner_id','=',Auth::user()->id)
+                ->join('locations', 'user_profiles.location_id', '=' , 'locations.id')
                 ->orderby('points','desc')
                 ->paginate();
 
@@ -130,6 +130,7 @@ class UserGameBoardsController extends Controller {
         Session::flash('message',$message);
         return redirect()->route($this->indexPage("usergameboards"));
     }
+
 
 
 

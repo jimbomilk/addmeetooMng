@@ -43,6 +43,7 @@ class UserTableSeeder extends Seeder {
                 'avatar'    => str_replace('http','https',$faker->imageUrl(64, 48)),
                 'points'    => $faker->numberBetween(50,2000),
                 'rank'    => $faker->randomNumber(2),
+                'location_id' =>$faker->numberBetween(1,2)
 
 
             ));

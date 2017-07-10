@@ -6,6 +6,7 @@ class Item extends Model {
 
     protected $table = 'items';
     protected $guarded = ['id'];
+    static $searchable = ['name','description'];
 
 
     public function auction()

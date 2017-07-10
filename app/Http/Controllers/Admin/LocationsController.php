@@ -33,12 +33,17 @@ class LocationsController extends Controller {
 
     public function index()
 	{
-        if (Auth::user()->is('admin'))
+        $hideNew = true;
+        if (Auth::user()->is('admin')) {
             $locations = Location::paginate();
-        else
-            $locations = Location::where('owner_id','=',Auth::user()->id) ->paginate();
+            $hideNew = false;
+        }
+        else {
+            $locations = Location::where('owner_id', '=', Auth::user()->id)->paginate();
+            $hideNew = true;
+        }
 
-        return view ('admin.common.index',['name'=>'locations','set'=>$locations]);
+        return view ('admin.common.index',['name'=>'locations','set'=>$locations,'hide_new'=>$hideNew]);
 	}
 
 
@@ -48,12 +53,15 @@ class LocationsController extends Controller {
         $categories = General::getEnumValues('locations','category');
         $countries = Country::all()->pluck('name','id');
 
+        $locations = Location::all()->pluck('name','id');
+        $locations->prepend(null);
+
         $map = General::createMap($element);
 
         if (isset($element))
-            return view('admin.common.edit',['name'=>'locations','element' => $element,'owners' =>$owners,'categories'=>$categories,'countries'=>$countries,'map'=>$map]);
+            return view('admin.common.edit',['name'=>'locations','element' => $element,'owners' =>$owners,'categories'=>$categories,'countries'=>$countries,'map'=>$map,'locations'=>$locations]);
         else
-            return view('admin.common.create',['name'=>'locations','owners' =>$owners,'categories'=>$categories,'countries'=>$countries,'map'=>$map]);
+            return view('admin.common.create',['name'=>'locations','owners' =>$owners,'categories'=>$categories,'countries'=>$countries,'map'=>$map,'locations'=>$locations]);
     }
 
 	/**

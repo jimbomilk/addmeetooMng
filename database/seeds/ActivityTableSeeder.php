@@ -141,6 +141,24 @@ class ActivityTableSeeder extends Seeder {
                 'countries_id'    => 724,
             ));
 
+            //Creamos 2 comercios de Yuncos
+            $idowner = $faker->randomElement($owners->lists('id'));
+            \DB::table('locations')->insertGetId( array(
+                'name'          => 'Comercio1',
+                'owner_id'      => $idowner,
+                'countries_id'  => 724,
+                'parent_id'     => $idlocation
+            ));
+
+            $idowner = $faker->randomElement($owners->lists('id'));
+            \DB::table('locations')->insertGetId( array(
+                'name'          => 'Comercio2',
+                'owner_id'      => $idowner,
+                'countries_id'  => 724,
+                'parent_id'     => $idlocation
+            ));
+
+
             $sourcefile= $source.'/'.$files[$i];
 
 

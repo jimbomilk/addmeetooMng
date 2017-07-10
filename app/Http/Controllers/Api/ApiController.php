@@ -256,6 +256,7 @@ class ApiController extends Controller
 
             $profile = new UserProfile();
             $profile->user_id = $user->id;
+            $profile->location_id = $request->get('location');
             $profile->save();
         }
 
@@ -340,6 +341,50 @@ class ApiController extends Controller
                         ->get();
 
         return response()->json($messages);
+
+    }
+
+
+    public function globalRanking(Request $request)
+    {
+        $input = $request->all();
+        $location = $input['location'];
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+
+        $user_profiles =  UserProfile::where('location_id','=',$location)
+            ->select('users.name as us_name','user_profiles.*')
+            ->join('users','user_profiles.user_id','=','users.id')
+            ->orderBy('points', 'desc')
+            ->take(10)->get();
+
+        return response()->json($user_profiles);
+
+    }
+
+    public function userGameboards(Request $request)
+    {
+        $input = $request->all();
+        $location = $input['location'];
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+
+        $usergameboards = DB::table('user_gameboards')
+            ->select('gameboards.name as gb_name', 'users.name as us_name','user_gameboards.*')
+            ->join('gameboards', 'user_gameboards.gameboard_id', '=', 'gameboards.id')
+            ->join('users','user_gameboards.user_id','=','users.id')
+            ->where('gameboards.location_id','=',$location)
+            ->orderBy('user_gameboards.gameboard_id', 'asc')
+            ->orderBy('user_gameboards.points', 'desc')
+            ->get();
+
+        return response()->json($usergameboards);
 
     }
 

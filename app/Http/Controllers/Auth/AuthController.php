@@ -150,6 +150,6 @@ class AuthController extends Controller
     {
         auth()->logout();
         \Session::flush();
-        return redirect('home');
+        return redirect('/');
     }
 }

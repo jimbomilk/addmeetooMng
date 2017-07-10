@@ -13,9 +13,7 @@ use App\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
-
-
+use Illuminate\Support\Facades\Storage;
 
 
 class GameboardsController extends Controller {
@@ -51,6 +49,7 @@ class GameboardsController extends Controller {
 
     public function index()
 	{
+
         if (Auth::user()->is('admin'))
             $gameboards = Gameboard::paginate();
         else
@@ -180,7 +179,7 @@ class GameboardsController extends Controller {
         Storage::disk('s3')->deleteDirectory($gameboard->path);
 
         $gameboard->delete();
-        $message = $gameboard->name. ' deleted';
+        $message = $gameboard->name. ' borrado';
         if ($request->ajax())
         {
             return response()->json([

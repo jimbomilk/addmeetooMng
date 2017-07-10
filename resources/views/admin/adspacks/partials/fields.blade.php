@@ -8,7 +8,7 @@
 
 @include("admin.common.input_text",array('var'=>'address'))
 @include("admin.common.input_number",array('var'=>'radio'))
-<div style="height:100%;width: 100%">
+<div style="height:100%;width: 100%;margin-bottom: 20px">
     {!!  $map['html'] !!}
 </div>
 

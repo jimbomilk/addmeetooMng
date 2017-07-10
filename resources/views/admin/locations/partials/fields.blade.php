@@ -1,6 +1,7 @@
 @include("admin.common.input_file",array('var'=>'logo','width'=>300,'height'=>150))
 @include("admin.common.input_select",array('var'=>'category','col'=>$categories))
 @include("admin.common.input_select",array('var'=>'owner_id','col'=>$owners))
+@include("admin.common.input_select",array('var'=>'parent_id','col'=>$locations))
 @include("admin.common.input_text",array('var'=>'name'))
 @include("admin.common.input_text",array('var'=>'phone'))
 @include("admin.common.input_hidden",array('var'=>'latitude'))

@@ -9,6 +9,7 @@ class Activity extends Model {
     protected $table = 'activities';
     protected $guarded = ['id'];
     protected $path = 'activity';
+    static $searchable = ['name','description'];
 
     public function activityOptions()
     {

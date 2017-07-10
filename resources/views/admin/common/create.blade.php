@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ trans('create_new')}} {{ trans('label.'.$name)}} </div>
+                    <div class="panel-heading">{{ trans('label.create_new')}} {{ trans('label.'.$name)}} </div>
 
                     <div class="panel-body">
 
@@ -29,7 +29,7 @@
 
                         {!! Form::open(array('route' => "$login_user->type.$name.store", 'method' => 'POST', 'enctype' => 'multipart/form-data')) !!}
                             @include("admin.$name.partials.fields")
-                            <button type="submit" class="btn btn-default">Create</button>
+                            <button type="submit" class="btn btn-default">{{ trans('labels.create')}} {{ trans('label.'.$name)}} </button>
 
                         {!! Form::close() !!}
                     </div>

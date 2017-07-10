@@ -124,7 +124,7 @@ class AdsPacksController extends Controller {
 	{
         $ads = Adspack::findOrFail($id);
         $ads->delete();
-        $message = $ads->name. ' deleted';
+        $message = 'ad'.$ads->id. ' deleted';
         if ($request->ajax())
         {
             return response()->json([

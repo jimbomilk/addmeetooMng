@@ -1,9 +1,11 @@
 <div class="form-group">
 
-    <h3>Actividad padre <small>Todo juego deriva de una actividad principal</small></h3>
+    <h3>Actividad <small>¿Qué tipo de juego deseas poner en marcha?</small></h3>
     <hr class="separator">
-    @include("admin.common.input_check",array('var'=>'auto','default'=>0))
+    <!-- @include("admin.common.input_check",array('var'=>'auto','default'=>0))-->
     @include("admin.common.input_select",array('var'=>'activity_id','col'=>$activities))
+    @include("admin.common.input_number",array('var'=>'selection'))
+
 
     <h3>Descripción y localización</h3>
     <hr class="separator">
@@ -11,11 +13,7 @@
     @include("admin.common.input_text",array('var'=>'name'))
     @include("admin.common.input_text",array('var'=>'description'))
 
-    <div id="diferida">
-    <h3>Ejecución <small>Si deseas que sea gestionado por la actividad padre, marcar gestión diferida</small></h3>
-    <hr class="separator">
-    @include("admin.common.input_number",array('var'=>'selection'))
-    </div>
+
 
     <h3>Inicio y fin del juego</h3>
     <hr class="separator">

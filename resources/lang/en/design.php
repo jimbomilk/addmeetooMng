@@ -13,7 +13,16 @@ return [
     |
     */
 
+    'main' => 'fa fa-dashboard',
+    'users' => 'fa fa-users',
+    'advertisements' => 'fa fa-adn',
+    'messages' => 'fa fa-paper-plane-o',
+    'gameboards' => 'fa fa-delicious',
+    'activities' => 'fa fa-universal-access',
+    'usergameboards' => 'fa fa-line-chart',
+    'items' => 'fa fa-diamond',
     'locations' => 'fa fa-building-o',
+    'auctions'=>'fa fa-clock-o'
 
 
 ];

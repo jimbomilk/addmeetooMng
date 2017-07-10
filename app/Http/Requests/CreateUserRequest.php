@@ -25,7 +25,7 @@ class CreateUserRequest extends Request {
             'name'      => 'required',
             'email'     => 'required|unique:users,email', //busca en la tabla users el campo email
             'password'  => 'required',
-            'type'      => 'required|in:user,admin',
+            'type'      => 'required|in:user,owner,admin',
 		];
 	}
 
