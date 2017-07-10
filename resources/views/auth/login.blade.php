@@ -14,7 +14,7 @@
                             <label for="email" class="col-md-4 control-label">{{Lang::get('label.login.email')}}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="jmgarciacarrasco@gmail.com">
+                                <input id="email" type="email" class="form-control" name="email" value="">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">

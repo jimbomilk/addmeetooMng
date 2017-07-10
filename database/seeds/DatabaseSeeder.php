@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder {
         $this->truncateTables();
         $this->call('CountriesSeeder');
 		$this->call('AdminTableSeeder');
-		$this->call('UserTableSeeder');
+		/*$this->call('UserTableSeeder');
         $this->call('ActivityTableSeeder');
         $this->call('AuctionTableSeeder');
         $this->call('MessageTableSeeder');
-        $this->call('AdsTableSeeder');
+        $this->call('AdsTableSeeder');*/
 
 
     }
