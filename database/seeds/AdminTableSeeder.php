@@ -24,7 +24,7 @@ class AdminTableSeeder extends Seeder {
             'type'=> 'admin'
         ) );
 
-        /*\DB::table('user_profiles')->insert( array (
+        \DB::table('user_profiles')->insert( array (
             'user_id'   => $id,
             'birth_date'=> $faker->dateTimeBetween('-65 years','-15 years')->format('Y-m-d'),
             'gender'    => 'male',
@@ -32,7 +32,7 @@ class AdminTableSeeder extends Seeder {
             'phone'     => $faker->phoneNumber,
             'avatar'    => str_replace('http','https',$faker->imageUrl(64, 48)),
 
-        ));*/
+        ));
 
         
     }

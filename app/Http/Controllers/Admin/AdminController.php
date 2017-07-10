@@ -26,6 +26,7 @@ class AdminController extends Controller
     public function index()
     {
         if (Auth::user()->is('admin'))
+
             $activityNumber = Activity::all()->count();
         else
             $activityNumber = Auth::user()->gameboards()->count();
