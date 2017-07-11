@@ -31,12 +31,15 @@ class UserGameBoardsController extends Controller {
     public function index()
 	{
         if (Auth::user()->is('admin'))
-            $usergameboards = UserProfile::orderby('points','desc')->paginate();
+            $usergameboards = UserProfile::where('users.type','=','user')
+                ->join('users', 'user_profiles.user_id', '=' , 'users.id')
+                ->orderby('points','desc')->paginate();
         else
             $usergameboards = UserProfile::where('locations.owner_id','=',Auth::user()->id)
+                ->where('users.type','=','user')
                 ->join('locations', 'user_profiles.location_id', '=' , 'locations.id')
                 ->join('users', 'user_profiles.user_id', '=' , 'users.id')
-                ->where('users.type','=','user')
+
                 ->orderby('points','desc')
                 ->paginate();
 
