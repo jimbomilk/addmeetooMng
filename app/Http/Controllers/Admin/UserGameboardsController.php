@@ -35,6 +35,8 @@ class UserGameBoardsController extends Controller {
         else
             $usergameboards = UserProfile::where('locations.owner_id','=',Auth::user()->id)
                 ->join('locations', 'user_profiles.location_id', '=' , 'locations.id')
+                ->join('users', 'user_profiles.user_id', '=' , 'users.id')
+                ->where('users.type','=','user')
                 ->orderby('points','desc')
                 ->paginate();
 
