@@ -337,7 +337,7 @@ class ApiController extends Controller
         $messages = DB::table('messages')
                         ->where('end','>',$now)
                         ->orWhere('location_id',$location)
-                        ->orderBy('stext','desc')
+                        ->orderBy('stext','asc')
                         ->get();
 
         return response()->json($messages);
