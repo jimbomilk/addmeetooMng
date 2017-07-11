@@ -47,6 +47,10 @@
             branding: false,
             statusbar: false,
             plugins: 'lists,link,image,preview',
+            relative_urls: true,
+            remove_script_host: true,
+            document_base_url: baseurl,
+            protocol: 'https',
             toolbar: 'undo redo | fontselect fontsizeselect | subscript superscript | ' +
             'bold italic underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | preview',
             font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n'
