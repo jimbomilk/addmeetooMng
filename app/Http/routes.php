@@ -71,9 +71,9 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('activity_options', 'ActivityOptionsController');
     Route::post('activity_options/fastUpdate/{id}', ['as' => 'activity_option_fast', 'uses' => 'ActivityOptionsController@fastUpdate']);
     Route::resource('gameboards', 'GameboardsController');
-    Route::post('gameboards/fastUpdate/{id}', ['as' => 'gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
+    Route::post('gameboards/fastUpdate/{id}', ['as' => 'admin.gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
     Route::resource('gameboard_options', 'GameboardOptionsController');
-    Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
+    Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'admin.gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
     Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
 
     Route::resource('usergameboards','UserGameboardsController');
@@ -103,9 +103,9 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 
     // ** GAMES  **
     Route::resource('gameboards', 'GameboardsController');
-    Route::post('gameboards/fastUpdate/{id}', ['as' => 'gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
+    Route::post('gameboards/fastUpdate/{id}', ['as' => 'owner.gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
     Route::resource('gameboard_options', 'GameboardOptionsController');
-    Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
+    Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'owner.gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
 
     // ** RANKING **
     Route::resource('usergameboards','UserGameboardsController');

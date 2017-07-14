@@ -16,7 +16,7 @@
             <td>{!! HTML::image($gameboard_option->image, 'photo',array( 'width' => 170, 'height' => 170 )) !!}</td>
             <td>{{$gameboard_option->description}}</td>
             @if($game->type=='bet')
-            <td><a href="#" class="fastEdit" data-type="number" data-column="result" data-url="{{route('gameboard_option_fast',['id'=>$gameboard_option->id])}}" data-pk="{{$gameboard_option->id}}" data-name="result"> {{$gameboard_option->result}} </a> </td>
+            <td><a href="#" class="fastEdit" data-type="number" data-column="result" data-url="{{route($login_user->type.'.gameboard_option_fast',['id'=>$gameboard_option->id])}}" data-pk="{{$gameboard_option->id}}" data-name="result"> {{$gameboard_option->result}} </a> </td>
             @endif
             <td>
                 @if(!$gameboard_option->gameboard->auto)

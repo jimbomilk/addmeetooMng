@@ -39,7 +39,7 @@
                     <ul class="dropdown-menu">
                         @foreach($statuses as $key=>$status)
                                 <li>
-                                   <a href="#" class="fastUpdate" data-url="{{route('gameboard_fast',['id'=>$game->id])}}" data-value="{{$key}}" data-name="status"> {{$status}} </a>
+                                   <a href="#" class="fastUpdate" data-url="{{route($login_user->type.'.gameboard_fast',['id'=>$game->id])}}" data-value="{{$key}}" data-name="status"> {{$status}} </a>
                                 </li>
                         @endforeach
                     </ul>
