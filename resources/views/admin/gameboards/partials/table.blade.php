@@ -1,4 +1,6 @@
 <div id="_token" class="hidden" data-token="{{ csrf_token() }}"></div>
+
+
 <table class="table borderless">
     <tr style="background-color: #dddddd">
         <th>{{Lang::get('label.gameboards.dates')}}</th>
@@ -15,6 +17,7 @@
         <th></th>
         <th></th>
     </tr>
+
     @foreach($set as $key=>$game)
         @php $key%2==0?$bck='#ddeeff':$bck='#fffff' @endphp
 
@@ -70,6 +73,8 @@
 
         </tr>
     @endforeach
+
+    <tr style="background-color: #bbffbb"><th colspan="11"> Recuerda que para editar un juego , el juego no puede haber comenzado </th></tr>
     <div class="pagination"> {{ $set->links() }} </div>
 </table>
 

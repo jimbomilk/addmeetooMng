@@ -2,7 +2,7 @@
 
     <h3>Actividad <small>¿Qué tipo de juego deseas poner en marcha?</small></h3>
     <hr class="separator">
-    <!-- @include("admin.common.input_check",array('var'=>'auto','default'=>0))-->
+    @include("admin.common.input_check",array('var'=>'auto','default'=>0))
     @include("admin.common.input_select",array('var'=>'activity_id','col'=>$activities))
     @include("admin.common.input_number",array('var'=>'selection'))
 

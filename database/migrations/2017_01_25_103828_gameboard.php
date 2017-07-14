@@ -20,7 +20,7 @@ class Gameboard extends Migration
             $table->string('name', 100)->nullable();
             $table->longText('description')->nullable();
 
-            $table->boolean('auto')->default(true); // Si es true significa que el juego no tiene opciones propias sino que son las propias de la actividad
+            $table->boolean('auto')->default(false); // Si es true significa que el juego no tiene opciones propias sino que son las propias de la actividad
             $table->dateTime('deadline')->nullable();   // fecha y hora de fin de participación
             $table->dateTime('startgame')->nullable();  // cuando empieza el juego.
             $table->dateTime('endgame')->nullable();    // cuando termina el juego.

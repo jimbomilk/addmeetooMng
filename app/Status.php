@@ -19,12 +19,12 @@ class Status {
     const FINISHED  = 50;
     const OFFICIAL  = 100;
 
-    public static $desc = array(0   =>'disabled' ,
-                                10  =>'scheduled',
-                                20  =>'startlist',
-                                30  =>'running',
-                                50  =>'finished',
-                                100 =>'official');
+    public static $desc = array(0   =>'no iniciado' ,
+                                10  =>'configurado',
+                                20  =>'listo',
+                                30  =>'en marcha',
+                                50  =>'finalizado',
+                                100 =>'oficial');
 
     public static $colors = array(  0   =>'default' ,
                                     10  =>'primary',
