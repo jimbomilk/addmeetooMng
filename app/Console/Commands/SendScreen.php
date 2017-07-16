@@ -161,6 +161,7 @@ class SendScreen extends Command
     public function screenAgenda($location_id,$delay)
     {
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
+        Log::info('SCREEN AGENDA , now:'.$now);
         $message = Message::where('location_id', '=', $location_id)
                             ->where('type','<>','util')
                             ->where($now,'>=','start')
