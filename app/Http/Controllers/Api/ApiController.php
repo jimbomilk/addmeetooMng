@@ -175,9 +175,14 @@ class ApiController extends Controller
 
         $second = $result->values != "";
 
+
+        // GUARDAMOS PUNTOS y RECALCULAMOS TOP RANK
         if (!$second) {
+            $result->points = $result->points + + $gameboard->activity->reward_participation;
             $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
             $user->profile->save();
+            $user->profile->recalculateTopRank();
+
         }
         $result->values = json_encode($values);
 
@@ -414,14 +419,6 @@ class ApiController extends Controller
 
     }
 
-    public function recalculateTopRank()
-    {
-        $userprofiles = DB::select( DB::raw("select users.name as us_name, a.points, count(b.gameboard_id)+1 as ranking
-                    from user_profiles a
-                    left join user_profiles b on a.points < b.points
-                    inner join users on a.user_id = users.id
-                    where user_profiles.location_id = :location
-                    order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
-    }
+
 
 }
