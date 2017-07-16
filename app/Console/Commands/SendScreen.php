@@ -8,6 +8,7 @@ use App\Gameboard;
 use App\Jobs\AdsEngine;
 use App\Jobs\GameEngine;
 use App\location;
+use App\Message;
 use App\Status;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -64,10 +65,10 @@ class SendScreen extends Command
             $delay = 0;
             while ( $delay < 600 ) {
 
-
-                Log::info('Delay bigADS:'.$delay);
-
                 if($this->screenAds('bigpack',$location->id,$delay))
+                    $delay += 10;
+
+                if($this->screenAgenda($location->id,$delay))
                     $delay += 10;
 
                 $nScreens = $this->screenGame($location->id,$delay);
@@ -77,6 +78,8 @@ class SendScreen extends Command
         }
 
     }
+
+
 
     public function screenAds($adstype, $location_id,$delay)
     {
@@ -153,6 +156,24 @@ class SendScreen extends Command
         return $nscreens;
 
 
+    }
+
+    public function screenAgenda($location_id,$delay)
+    {
+        $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
+        $message = Message::where('location_id', '=', $location_id)
+                            ->where('type','<>','util')
+                            ->where($now,'>=','start')
+                            ->where($now,'<','end')
+                            ->inRandomOrder()->first();
+        if(isset($message)){
+            $job = (new MsgEngine($message, $location_id))
+                    ->delay($delay)
+                    ->onQueue('bigpack');
+            $this->dispatch($job);
+            return true;
+        }
+        return false;
     }
 
 

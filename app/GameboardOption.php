@@ -41,4 +41,6 @@ class GameboardOption extends Model
     {
         return $this->belongsTo('App\ActivityOption','activity_option_id','id');
     }
+
+
 }

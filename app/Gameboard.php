@@ -189,7 +189,7 @@ class Gameboard extends Model
 
     public function getGameCode()
     {
-        return sprintf('%04d', $this->id);
+        return sprintf('%d', $this->id);
     }
 
     public function destroyGame()

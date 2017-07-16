@@ -24,7 +24,17 @@ class GameboardOptionsRequest extends Request {
 	{
 		return [
             'description'                      => 'required',
+            'image' => 'required | mimes:jpeg,jpg,png | max:1000'
 		];
 	}
+
+    public  function messages()
+    {
+        return [
+            'image.required' => 'La imagen es obligatoria y debe cumplir los requisitos',
+            'image.max' => 'La imagen debe ser menor de 1 MB',
+            'image.mimes' => 'La imagen debe ser jpg o png'
+        ];
+    }
 
 }

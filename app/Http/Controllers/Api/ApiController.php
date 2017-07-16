@@ -170,7 +170,11 @@ class ApiController extends Controller
         $values = $input['values'];
         // Guardar las opciones, generar un mensaje para la pantalla y responder OK
 
+
         $result = UserGameboard::firstOrNew(['gameboard_id' => $gameboard_id, 'user_id' => $user->id]);
+
+        $ya_participo = $result->values != "";
+
         $result->values = json_encode($values);
 
         $result->save();
@@ -184,8 +188,9 @@ class ApiController extends Controller
         event(new MessageEvent($message, 'location'.$gameboard->location_id));
 
         // A movil
+        $message->ltext = $gameboard->name . ":";
         $message->setText($user->name, $values);
-        $message->reward = $gameboard->activity->reward_participation;
+        $message->reward = $ya_participo? 0 : $gameboard->activity->reward_participation;
         return json_encode($message);
     }
 
@@ -195,8 +200,9 @@ class ApiController extends Controller
     {
         $location_id = $request->get('location');
 
+
         if(isset($location_id)) {
-            $gameboards = Gameboard::where('location_id', $location_id);
+            $gameboards = Gameboard::where('location_id', $location_id)->get();
         }
         else
             $gameboards = Gameboard::all();
@@ -206,8 +212,10 @@ class ApiController extends Controller
         {
             $start = Carbon::parse($gameboard->startgame); //en UTC
             $end = Carbon::parse($gameboard->endgame);
+
+            Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
             if ($now>$start && $now<$end){
-                Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
+
                 $gameview = $gameboard->getGameView();
                 if (isset($gameview))
                     $gameviews[] = $gameview;
@@ -375,14 +383,28 @@ class ApiController extends Controller
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
         }
 
-        $usergameboards = DB::table('user_gameboards')
-            ->select('gameboards.name as gb_name', 'users.name as us_name','user_gameboards.*')
-            ->join('gameboards', 'user_gameboards.gameboard_id', '=', 'gameboards.id')
-            ->join('users','user_gameboards.user_id','=','users.id')
+        /*$usergameboards = DB::table('user_gameboards a')
+            ->select('gameboards.name as gb_name', 'users.name as us_name','a.*','count (b.gameboard_id)+1 as ranking' )
+            ->leftJoin('user_gameboards b','a.points', '>','b.points')
+            ->join('gameboards', 'a.gameboard_id', '=', 'gameboards.id')
+            ->join('users','a.user_id','=','users.id')
             ->where('gameboards.location_id','=',$location)
-            ->orderBy('user_gameboards.gameboard_id', 'asc')
-            ->orderBy('user_gameboards.points', 'desc')
-            ->get();
+            ->orderBy('a.gameboard_id', 'asc')
+            ->orderBy('a.points', 'desc')
+            ->groupBy('a.gameboard_id')
+            ->toSql();*/
+
+
+
+
+        $usergameboards = DB::select( DB::raw("select gameboards.name as gb_name,users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
+                    from user_gameboards a
+                    left join user_gameboards b on a.points < b.points and b.gameboard_id = a.gameboard_id
+                    inner join gameboards on a.gameboard_id = gameboards.id
+                    inner join users on a.user_id = users.id
+                    where gameboards.location_id = :location
+                    group by a.gameboard_id ,a.id
+                    order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
 
         return response()->json($usergameboards);
 

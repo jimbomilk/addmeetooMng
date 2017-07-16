@@ -15,8 +15,9 @@ class Envelope
         $this->stext = $short;
         foreach($options as $key=>$option){
             if ($key>0)
-                $this->ltext.="\n";
-            $this->ltext .= implode('-',$option);
+                $this->ltext.=",";
+            $this->ltext .= implode(' - ',$option);
+
 
         }
     }
