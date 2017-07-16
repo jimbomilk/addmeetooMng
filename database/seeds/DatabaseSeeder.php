@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-        $this->truncateTables();
-        $this->call('CountriesSeeder');
-		$this->call('AdminTableSeeder');
+        //$this->truncateTables();
+        //$this->call('CountriesSeeder');
+		//$this->call('AdminTableSeeder');
 		/*$this->call('UserTableSeeder');
         $this->call('ActivityTableSeeder');
         $this->call('AuctionTableSeeder');
-        $this->call('MessageTableSeeder');
-        $this->call('AdsTableSeeder');*/
+        $this->call('MessageTableSeeder');*/
+        $this->call('AdsTableSeeder');
 
 
     }

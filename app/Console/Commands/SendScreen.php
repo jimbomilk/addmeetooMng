@@ -4,9 +4,11 @@ namespace App\Console\Commands;
 
 use App\Adspack;
 use App\Advertisement;
+use App\Events\Envelope;
 use App\Gameboard;
 use App\Jobs\AdsEngine;
 use App\Jobs\GameEngine;
+use App\Jobs\MsgEngine;
 use App\location;
 use App\Message;
 use App\Status;
@@ -65,7 +67,7 @@ class SendScreen extends Command
             $delay = 0;
             while ( $delay < 600 ) {
 
-                if($this->screenAds('bigpack',$location->id,$delay))
+                if($this->screenAds($location->id,$delay))
                     $delay += 10;
 
                 if($this->screenAgenda($location->id,$delay))
@@ -81,18 +83,26 @@ class SendScreen extends Command
 
 
 
-    public function screenAds($adstype, $location_id,$delay)
+    public function screenAds( $location_id,$delay)
     {
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
-        $adsPack = Adspack::where($adstype,'>',0)->inRandomOrder()->first();
+        $adsPack = Adspack::where('bigpack','>',0)->inRandomOrder()->first();
 
         // recogemos el ads
+        if (!isset($adsPack))
+            return false;
         $ads = Advertisement::find($adsPack ->advertisement_id);
         if (isset($ads)) {
             //2 se lo enviamos a la cola de procesado
-            $job = (new AdsEngine($ads, $location_id,$adstype))
+
+            $message = new Envelope();
+            $message->ltext    = $ads->textbig1;
+            $message->stext    = $ads->textbig2;
+            $message->image    = $ads->imagebig;
+            $message->type     = 'bigpack';
+            $job = (new AdsEngine($message, $location_id))
                 ->delay($delay)
-                ->onQueue($adstype);
+                ->onQueue('bigpack');
 
             $this->dispatch($job);
 
@@ -121,8 +131,6 @@ class SendScreen extends Command
             //Log::info('*** GAME: '. $gameboard->id. ', NOW:'. $now .' START:' .$start. ', END: ' . $end);
 
             if ($now >= $start && $now <= $end) {
-
-
 
                 $gameview = $gameboard->getGameView($gameboard->status);
                 if(isset($gameview)) {
@@ -161,14 +169,20 @@ class SendScreen extends Command
     public function screenAgenda($location_id,$delay)
     {
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
-        Log::info('SCREEN AGENDA , now:'.$now);
+
         $message = Message::where('location_id', '=', $location_id)
                             ->where('type','<>','util')
-                            ->where($now,'>=','start')
-                            ->where($now,'<','end')
+                            ->where('start','<=',$now)
+                            ->where('end' , '>' , $now)
                             ->inRandomOrder()->first();
         if(isset($message)){
-            $job = (new MsgEngine($message, $location_id))
+            //Log::info('SCREEN AGENDA , now:'.$now);
+            $envelope = new Envelope();
+            $envelope->stext = $message->stext;
+            $envelope->ltext = $message->ltext;
+            $envelope->image = $message->image;
+            $envelope->type = 'info';
+            $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');
             $this->dispatch($job);

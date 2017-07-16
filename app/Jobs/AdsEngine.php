@@ -14,20 +14,18 @@ class AdsEngine extends Job implements ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
-    protected $ads;
+    protected $msg;
     protected $location;
-    protected $type;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Advertisement $ads,$location,$type)
+    public function __construct(Envelope $msg,$location)
     {
-        $this->ads = $ads;
+        $this->msg = $msg;
         $this->location = $location;
-        $this->type = $type;
     }
 
     /**
@@ -37,16 +35,9 @@ class AdsEngine extends Job implements ShouldQueue
      */
     public function handle()
     {
-
-        $message = new Envelope();
-        $message->ltext    = $this->ads->textsmall1;
-        $message->stext    = $this->ads->textsmall2;
-        $message->image    = $this->ads->imagesmall;
-        $message->type     = $this->type;
-
         //Log::info('Job running, ADS'.$this->ads->textsmall1. ', LOCATION : '.$this->location);
 
         // A pantalla
-        event(new AdsEvent($message, 'location'. $this->location));
+        event(new AdsEvent($this->msg, 'location'. $this->location));
     }
 }

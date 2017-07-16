@@ -123,7 +123,13 @@ class SendMessage extends Command
 
 
         //2 se lo enviamos a la cola de procesado
-        $job = (new AdsEngine($adsPack->advertisement, $location_id,'smallpack'))
+        $message = new Envelope();
+        $message->ltext    = $adsPack->advertisement->textsmall1;
+        $message->stext    = $adsPack->advertisement->textsmall2;
+        $message->image    = $adsPack->advertisement->imagesmall;
+        $message->type     = 'smallpack';
+
+        $job = (new AdsEngine($message, $location_id))
             ->delay($delay)
             ->onQueue('smallpack');
 
