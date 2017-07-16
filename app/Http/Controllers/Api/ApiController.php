@@ -222,7 +222,7 @@ class ApiController extends Controller
             $start = Carbon::parse($gameboard->startgame); //en UTC
             $end = Carbon::parse($gameboard->endgame);
 
-            Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
+            //Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
             if ($now>$start && $now<$end){
 
                 $gameview = $gameboard->getGameView();
@@ -304,7 +304,7 @@ class ApiController extends Controller
             $user = JWTAuth::toUser($request->input('token'));
             $user->profile->phone = $request->input('phone');
             $user->profile->birth_date = $request->input('birthdate');
-            Log::info('Birth:'.$user->profile->birth_date);
+            //Log::info('Birth:'.$user->profile->birth_date);
             $user->profile->save();
 
         } catch (Exception $e) {

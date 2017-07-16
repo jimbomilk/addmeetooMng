@@ -79,7 +79,7 @@ class GameView extends Model
         foreach($results as $result){
             $chart->dataSeries[] = ['',$result->participacion];
         }
-        Log::info('Datas:'.json_encode($chart));
+        //Log::info('Datas:'.json_encode($chart));
         return json_encode($chart);
     }
 

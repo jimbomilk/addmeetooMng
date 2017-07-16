@@ -20,7 +20,7 @@ class Request extends FormRequest
         if (isset($file)) {
 
             $filename = $folder . '/' . $field .Carbon::now(). '.' . $file->getClientOriginalExtension();
-            Log::info('Filename:'.$filename);
+            //Log::info('Filename:'.$filename);
             if (Storage::disk('s3')->put($filename, File::get($file),'public'))
                 return Storage::disk('s3')->url($filename);
 

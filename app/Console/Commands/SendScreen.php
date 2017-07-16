@@ -55,7 +55,7 @@ class SendScreen extends Command
     {
         $location_id = $this->argument('location');
         $location = Location::findorfail($location_id);
-        Log::info('Location:'.$location);
+        //Log::info('Location:'.$location);
 
         //Recoger las categorias que admite el local y crear query para
         //filtra los ads : la query debe tener en cuanta las preferencias del local y su geolocalizacion
@@ -118,7 +118,7 @@ class SendScreen extends Command
         {
             $start = Carbon::parse($gameboard->startgame);
             $end = Carbon::parse($gameboard->endgame);
-            Log::info('*** GAME: '. $gameboard->id. ', NOW:'. $now .' START:' .$start. ', END: ' . $end);
+            //Log::info('*** GAME: '. $gameboard->id. ', NOW:'. $now .' START:' .$start. ', END: ' . $end);
 
             if ($now >= $start && $now <= $end) {
 
@@ -126,7 +126,7 @@ class SendScreen extends Command
 
                 $gameview = $gameboard->getGameView($gameboard->status);
                 if(isset($gameview)) {
-                    Log::info('Delay GAME:'.$d);
+                    //Log::info('Delay GAME:'.$d);
                     $job = (new GameEngine($gameview, $location_id))
                         ->delay($d)
                         ->onQueue('bigpack');
@@ -139,7 +139,7 @@ class SendScreen extends Command
                 // Pantalla de participación
                 $gameview = $gameboard->getGameView(Status::STARTLIST);
                 if(isset($gameview)) {
-                    Log::info('Delay GAME:'.$d);
+                    //Log::info('Delay GAME:'.$d);
                     $job = (new GameEngine($gameview, $location_id))
                         ->delay($d)
                         ->onQueue('bigpack');

@@ -56,7 +56,7 @@ class SendMessage extends Command
     {
         $location_id = $this->argument('location');
         $location = Location::findorfail($location_id);
-        Log::info('Location:'.$location);
+        //Log::info('Location:'.$location);
 
         //Recoger las categorias que admite el local y crear query para
         //filtra los ads : la query debe tener en cuanta las preferencias del local y su geolocalizacion
@@ -68,7 +68,7 @@ class SendMessage extends Command
             $alternate = true;
             while ( $delay < 600 ) {
 
-                Log::info('Delay smallADS:'.$delay);
+                //Log::info('Delay smallADS:'.$delay);
 
                 if($alternate)
                     $this->screenAds($location->id,$delay);
@@ -116,7 +116,7 @@ class SendMessage extends Command
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
         $adsPack = Adspack::where('smallpack','>',0)->inRandomOrder()->first();
 
-        Log::info('screenADS entrando');
+        //Log::info('screenADS entrando');
         // recogemos el ads
         if (!isset($adsPack))
             return false;

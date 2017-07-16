@@ -34,7 +34,7 @@ class LocationSchedule extends Command
     {
         $now = Carbon::now(Config::get('app.timezone'));
         $location_id = $this->argument('location');
-        Log::info('--- Starting location'.$location_id .' time:'. $now . ' ---');
+        //Log::info('--- Starting location'.$location_id .' time:'. $now . ' ---');
         //sleep(10);
 
         $location = Location::findorfail($location_id);
@@ -65,8 +65,8 @@ class LocationSchedule extends Command
 
             // Si hay algún cambio se guarda en BBDD y se envia a pantalla
             if ($newstatus != $gameboard->status) {
-                Log::info('Gameboard :'.$gameboard->name. ' GAME_ID:'.$gameboard->id);
-                Log::info('Status change from ' . $gameboard->status . ' to ' . $newstatus);
+                //Log::info('Gameboard :'.$gameboard->name. ' GAME_ID:'.$gameboard->id);
+                //Log::info('Status change from ' . $gameboard->status . ' to ' . $newstatus);
 
                 $gameboard->status = $newstatus;
 

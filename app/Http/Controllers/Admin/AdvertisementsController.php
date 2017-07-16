@@ -149,7 +149,7 @@ class AdvertisementsController extends Controller {
 
         if(isset($ads)) {
             Storage::disk('s3')->delete($ads->path);
-            Log::info('path:' . $ads->path);
+            //Log::info('path:' . $ads->path);
 
             $ads->delete();
 

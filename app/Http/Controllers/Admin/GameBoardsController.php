@@ -138,7 +138,7 @@ class GameboardsController extends Controller {
 	public function edit($id)
 	{
         $gameboard = Gameboard::findOrFail($id);
-        Log::info('end:'. $gameboard->endgame==0);
+        //Log::info('end:'. $gameboard->endgame==0);
 
         if (isset($gameboard))
         {
@@ -199,7 +199,7 @@ class GameboardsController extends Controller {
 
         $column_name = Input::get('name');
         $column_value = Input::get('value');
-        Log::info('col:'.$column_name.' , val:'.$column_value);
+        //Log::info('col:'.$column_name.' , val:'.$column_value);
 
         if( Input::has('name') && Input::has('value')) {
             /*$game = Gameboard::select()

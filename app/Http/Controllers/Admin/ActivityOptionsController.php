@@ -154,7 +154,7 @@ class ActivityOptionsController extends Controller {
         $activityOption = ActivityOption::findOrFail($id);
 
         Storage::disk('s3')->delete($activityOption->path);
-        Log::info('path:'.$activityOption->path);
+        //Log::info('path:'.$activityOption->path);
         $activityOption->delete();
         $message = $activityOption->name. ' deleted';
         if ($request->ajax())

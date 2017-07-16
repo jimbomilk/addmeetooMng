@@ -44,7 +44,7 @@ class AdsEngine extends Job implements ShouldQueue
         $message->image    = $this->ads->imagesmall;
         $message->type     = $this->type;
 
-        Log::info('Job running, ADS'.$this->ads->textsmall1. ', LOCATION : '.$this->location);
+        //Log::info('Job running, ADS'.$this->ads->textsmall1. ', LOCATION : '.$this->location);
 
         // A pantalla
         event(new AdsEvent($message, 'location'. $this->location));

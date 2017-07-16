@@ -42,7 +42,7 @@ class MessagesController extends Controller {
             $where .= ')';
         }
 
-        Log::info('Msg where:' . $where);
+        //Log::info('Msg where:' . $where);
 
         $messages = Message::whereRaw($where)
                 ->paginate();
