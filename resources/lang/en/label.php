@@ -42,12 +42,14 @@ return [
     'users.type'=>'Tipo de usuario',
 
 
+    'userprofiles' => ' Perfil',
     'userprofiles.avatar' => 'Foto',
     'userprofiles.gender' => 'Sexo',
     'userprofiles.points' => 'Puntos',
     'userprofiles.rank' => 'Ranking',
     'userprofiles.bio' => 'Biografia',
     'userprofiles.phone' => 'Teléfono',
+    'userprofiles.location_id' => 'Lugar de inscripción',
 
 
 
@@ -65,6 +67,7 @@ return [
     'locations.timezone' => 'Zona horaria',
     'locations.website' => 'Página web',
     'locations.address' => 'Dirección del establecimiento',
+    'locations.parent_id' => 'Zona donde está el establecimiento',
 
     /*ACTIVITIES*/
     'activities' => 'Actividad',
@@ -149,6 +152,32 @@ return [
     'messages.location_id' => 'Lugar de publicación',
 
     /* ITEMS */
-    'items' => 'Item'
+    'items' => 'Item',
+
+    /* GENERAL */
+    'male' => 'masculino',
+    'female' => 'femenino',
+
+    'admin' => 'administrador',
+    'owner'=> 'gerente',
+    'user' => 'usuario',
+
+    'restaurant' => 'hosteleria',
+    'bar' => 'bar',
+    'cinema' => 'cine y teatro',
+    'shopping' => 'compras',
+    'sports' => 'centro deportivo',
+    'karaoke' => 'karaoke',
+    'museum' => 'museo',
+    'party' => 'zona de ocio',
+
+    'trabajo' => 'anuncio de trabajo',
+    'ocio' => 'agenda de ocio y cultura',
+    'util' => 'información de utilidad',
+
+    'vote' => 'votación',
+    'bet' => 'apuesta',
+    'game' => 'juego'
+
 
 ];

@@ -32,10 +32,10 @@ class UserProfilesController extends Controller {
 	public function edit($id)
 	{
         $userprofile = UserGameboard::findOrFail($id);
-        $locations = Auth::user()->locations()->lists('name','id');
+
         if (isset($userprofile))
         {
-            return view('admin.common.edit',['name'=>'userprofiles','element' => $userprofile,'locations' => $locations]);
+            return view('admin.common.edit',['name'=>'userprofiles','element' => $userprofile]);
         }
 	}
 

@@ -10,6 +10,7 @@ use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -96,7 +97,8 @@ class UsersController extends Controller {
 	{
         $profile = UserProfile::findOrFail($id);
         $genders = General::getEnumValues('user_profiles','gender');
-        return view('admin.common.edit',['name'=>'userprofiles','element'=>$profile,'genders'=>$genders]);
+        $locations = Auth::user()->locations()->lists('name','id');
+        return view('admin.common.edit',['name'=>'userprofiles','element'=>$profile,'genders'=>$genders,'locations'=>$locations]);
 	}
 
 	/**

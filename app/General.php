@@ -21,7 +21,7 @@ class General {
         foreach( explode(',', $matches[1]) as $value )
         {
             $v = trim( $value, "'" );
-            $enum = array_add($enum, $v, $v);
+            $enum = array_add($enum, $v, trans('label.'.$v));
         }
         return $enum;
     }
