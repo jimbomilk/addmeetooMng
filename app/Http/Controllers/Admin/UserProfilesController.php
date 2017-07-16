@@ -5,6 +5,7 @@ use App\location;
 use App\UserGameboard;
 use App\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
@@ -31,9 +32,10 @@ class UserProfilesController extends Controller {
 	public function edit($id)
 	{
         $userprofile = UserGameboard::findOrFail($id);
+        $locations = Auth::user()->locations()->lists('name','id');
         if (isset($userprofile))
         {
-            return view('admin.common.edit',['name'=>'userprofiles','element' => $userprofile]);
+            return view('admin.common.edit',['name'=>'userprofiles','element' => $userprofile,'locations' => $locations]);
         }
 	}
 

@@ -48,6 +48,7 @@ return [
     'totalcost' => 'Coste Total',
     'bigdisplayed' => 'Grandes vistos',
     'smalldisplayed' => 'Pequeños vistos',
+    'userprofiles' => 'Perfil de usuario'
 
 
 ];

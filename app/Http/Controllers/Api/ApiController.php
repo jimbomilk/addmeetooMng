@@ -173,8 +173,12 @@ class ApiController extends Controller
 
         $result = UserGameboard::firstOrNew(['gameboard_id' => $gameboard_id, 'user_id' => $user->id]);
 
-        $ya_participo = $result->values != "";
+        $second = $result->values != "";
 
+        if (!$second) {
+            $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
+            $user->profile->save();
+        }
         $result->values = json_encode($values);
 
         $result->save();
@@ -190,7 +194,7 @@ class ApiController extends Controller
         // A movil
         $message->ltext = $gameboard->name . ":";
         $message->setText($user->name, $values);
-        $message->reward = $ya_participo? 0 : $gameboard->activity->reward_participation;
+        $message->reward = $second? 0 : $gameboard->activity->reward_participation;
         return json_encode($message);
     }
 
@@ -408,6 +412,16 @@ class ApiController extends Controller
 
         return response()->json($usergameboards);
 
+    }
+
+    public function recalculateTopRank()
+    {
+        $userprofiles = DB::select( DB::raw("select users.name as us_name, a.points, count(b.gameboard_id)+1 as ranking
+                    from user_profiles a
+                    left join user_profiles b on a.points < b.points
+                    inner join users on a.user_id = users.id
+                    where user_profiles.location_id = :location
+                    order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
     }
 
 }

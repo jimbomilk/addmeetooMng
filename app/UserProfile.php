@@ -22,4 +22,6 @@ class UserProfile extends Model {
     {
         return $this->hasOne('App\Location');
     }
+
+
 }
