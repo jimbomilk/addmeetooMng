@@ -179,7 +179,7 @@ class SendScreen extends Command
             ->inRandomOrder()->first();
 
         if(isset($message)){
-            //Log::info('SCREEN AGENDA , now:'.$now);
+            Log::info('SCREEN AGENDA , logo:'.$message->logo);
             $envelope = new Envelope();
             $envelope->stext = $message->stext;
             $envelope->ltext = $message->ltext;
