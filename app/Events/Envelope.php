@@ -9,7 +9,7 @@ class Envelope
     public $image;
     public $type;
     public $reward;
-    public $logo2;
+    public $logo1;
 
     public function setText($short, $options)
     {
