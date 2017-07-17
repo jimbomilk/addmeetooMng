@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Events/Envelope.php" afterPath="$PROJECT_DIR$/app/Events/Envelope.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" afterPath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -35,10 +33,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.538462" vertical-offset="2581" max-vertical-offset="3213">
+            <state vertical-scroll-proportion="0.5451505" vertical-offset="2581" max-vertical-offset="3213">
               <caret line="186" column="28" selection-start-line="186" selection-start-column="28" selection-end-line="186" selection-end-column="28" />
               <folding />
             </state>
@@ -55,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Envelope.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Envelope.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Events/Envelope.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31270903" vertical-offset="0" max-vertical-offset="598">
+            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="527">
               <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
               <folding />
             </state>
@@ -576,12 +574,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00049" summary="ok">
-      <created>1494697416935</created>
-      <option name="number" value="00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1494697416935</updated>
-    </task>
     <task id="LOCAL-00050" summary="ok">
       <created>1494697554900</created>
       <option name="number" value="00050" />
@@ -870,7 +862,13 @@
       <option name="project" value="LOCAL" />
       <updated>1500299423963</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="ok">
+      <created>1500299646980</created>
+      <option name="number" value="00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1500299646980</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1359,18 +1357,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
+    <entry file="file://$PROJECT_DIR$/app/Events/Envelope.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.538462" vertical-offset="2581" max-vertical-offset="3213">
-          <caret line="186" column="28" selection-start-line="186" selection-start-column="28" selection-end-line="186" selection-end-column="28" />
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="527">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Events/Envelope.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31270903" vertical-offset="0" max-vertical-offset="598">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.5451505" vertical-offset="2581" max-vertical-offset="3213">
+          <caret line="186" column="28" selection-start-line="186" selection-start-column="28" selection-end-line="186" selection-end-column="28" />
           <folding />
         </state>
       </provider>
