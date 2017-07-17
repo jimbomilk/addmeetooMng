@@ -171,7 +171,7 @@ class SendScreen extends Command
     {
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
-        $message = DB::select('location_id,location.logo', '=', $location_id)
+        $message = DB::select('message.*,location.logo', '=', $location_id)
                             ->join('locations', 'id','=',$location_id)
                             ->where('type','<>','util')
                             ->where('start','<=',$now)
