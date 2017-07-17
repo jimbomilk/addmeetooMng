@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class SendScreen extends Command
@@ -170,7 +171,8 @@ class SendScreen extends Command
     {
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
-        $message = Message::where('location_id', '=', $location_id)
+        $message = DB::select('location_id,location.logo', '=', $location_id)
+                            ->join('locations', 'id','=',$location_id)
                             ->where('type','<>','util')
                             ->where('start','<=',$now)
                             ->where('end' , '>' , $now)
@@ -182,6 +184,7 @@ class SendScreen extends Command
             $envelope->ltext = $message->ltext;
             $envelope->image = $message->image;
             $envelope->type = 'info';
+            $envelope->location_img = $message->logo;
             $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');
