@@ -179,13 +179,12 @@ class SendScreen extends Command
             ->inRandomOrder()->first();
 
         if(isset($message)){
-            Log::info('SCREEN AGENDA , logo:'.$message->logo);
             $envelope = new Envelope();
             $envelope->stext = $message->stext;
             $envelope->ltext = $message->ltext;
             $envelope->image = $message->image;
             $envelope->type = 'info';
-            $envelope->location_img = $message->logo;
+            $envelope->$logo2 = $message->logo;
             $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');
