@@ -171,12 +171,13 @@ class SendScreen extends Command
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
         $message = Message::where('location_id', '=', $location_id)
-                            ->select('locations.logo','messages.*')
-                            ->join('locations', 'id','=',$location_id)
-                            ->where('type','<>','util')
-                            ->where('start','<=',$now)
-                            ->where('end' , '>' , $now)
-                            ->inRandomOrder()->first();
+            ->select('locations.logo','messages.*')
+            ->join('locations', 'locations.id','=','location_id')
+            ->where('type','<>','util')
+            ->where('start','<=',$now)
+            ->where('end'  ,'>', $now)
+            ->inRandomOrder()->first();
+
         if(isset($message)){
             //Log::info('SCREEN AGENDA , now:'.$now);
             $envelope = new Envelope();

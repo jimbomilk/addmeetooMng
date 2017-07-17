@@ -1,12 +1,15 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Console\Commands\SendScreen;
 use App\Events\Envelope;
 use App\General;
 use App\Http\Requests\MessageRequest;
 use App\Http\Controllers\Controller;
 use App\Message;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -104,13 +107,26 @@ class MessagesController extends Controller {
 	 */
 	public function show($id)
 	{
-        $message = Message::findOrFail($id);
+        //$message = Message::findOrFail($id);
+        $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
+
+        $message = Message::where('location_id', '=', '1')
+            ->select('locations.logo','messages.*')
+            ->join('locations', 'locations.id','=','location_id')
+            ->where('type','<>','util')
+            ->where('start','<=',$now)
+            ->where('end' , '>' , $now)
+            ->inRandomOrder()->first();
 
         $env = new Envelope();
         $env->stext = $message->stext;
         $env->ltext = $message->ltext;
         $env->image = $message->image;
+        $env->type = 'info';
+        $env->location_img = $message->logo;
 
+
+        //SendScreen ss = new SendScreen();
 
         //Publicamos
         event(new MessageEvent($env, 'location1'));
