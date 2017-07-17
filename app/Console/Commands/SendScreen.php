@@ -171,8 +171,6 @@ class SendScreen extends Command
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
         $message = Message::where('location_id', '=', $location_id)
-            ->select('locations.logo','messages.*')
-            ->join('locations', 'locations.id','=','location_id')
             ->where('type','<>','util')
             ->where('start','<=',$now)
             ->where('end'  ,'>', $now)
@@ -184,7 +182,7 @@ class SendScreen extends Command
             $envelope->ltext = $message->ltext;
             $envelope->image = $message->image;
             $envelope->type = 'info';
-            $envelope->$logo2 = $message->logo;
+            $envelope->$logo2 = isset($message->location)?$message->location->logo:"";
             $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');
