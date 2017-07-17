@@ -182,7 +182,7 @@ class SendScreen extends Command
             $envelope->ltext = $message->ltext;
             $envelope->image = $message->image;
             $envelope->type = 'info';
-            $envelope->$logo2 = isset($message->location)?$message->location->logo:"";
+            $envelope->logo2 = isset($message->location)?$message->location->logo:"";
             $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');

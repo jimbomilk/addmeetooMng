@@ -38,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.69574946" vertical-offset="2817" max-vertical-offset="3434">
-              <caret line="184" column="85" selection-start-line="184" selection-start-column="85" selection-end-line="184" selection-end-column="85" />
+              <caret line="184" column="23" selection-start-line="184" selection-start-column="23" selection-end-line="184" selection-end-column="23" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
@@ -621,12 +621,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00055" summary="ok">
-      <created>1494861283039</created>
-      <option name="number" value="00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1494861283039</updated>
-    </task>
     <task id="LOCAL-00056" summary="ok">
       <created>1494861398328</created>
       <option name="number" value="00056" />
@@ -915,7 +909,13 @@
       <option name="project" value="LOCAL" />
       <updated>1500329847365</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="ok">
+      <created>1500330756255</created>
+      <option name="number" value="00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1500330756255</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1421,7 +1421,7 @@
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.69574946" vertical-offset="2817" max-vertical-offset="3434">
-          <caret line="184" column="85" selection-start-line="184" selection-start-column="85" selection-end-line="184" selection-end-column="85" />
+          <caret line="184" column="23" selection-start-line="184" selection-start-column="23" selection-end-line="184" selection-end-column="23" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
           </folding>
