@@ -325,13 +325,20 @@ class ApiController extends Controller
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
         }
 
-        $query = 'SELECT * from advertisements ads
+        if ($latitude != -1 && $longitude != -1) {
+            $query = 'SELECT * from advertisements ads
                     JOIN adspacks packs ON
                         packs.advertisement_id = ads.id AND
-                        packs.latitude BETWEEN ('.$latitude.' - (packs.radio*0.0117)) AND ('.$latitude.' + (packs.radio*0.0117)) AND
-                        packs.longitude BETWEEN ('.$longitude.' - (packs.radio*0.0117)) AND ('.$longitude.' + (packs.radio*0.0117))
+                        packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
+                        packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
                     ORDER BY packs.updated_at DESC
                     LIMIT 5';
+        }
+        else{
+            $query = 'SELECT * from advertisements ads
+                      ORDER BY RAND()
+                      LIMIT 5';
+        }
 
         $offers = DB::select($query);
         return response()->json($offers);
