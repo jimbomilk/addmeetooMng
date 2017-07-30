@@ -170,7 +170,7 @@ class AdsTableSeeder extends Seeder
     public function run()
     {
         $this->createCategories();
-        $this->createAds();
+        //$this->createAds();
 
     }
 };
