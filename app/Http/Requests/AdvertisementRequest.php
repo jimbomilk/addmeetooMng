@@ -24,8 +24,8 @@ class AdvertisementRequest extends Request {
 	{
 		return [
             'name'                      => 'required',
-            'imagebig' => 'required | mimes:jpeg,jpg,png | max:1000',
-            'imagesmall' => 'required | mimes:jpeg,jpg,png | max:1000'
+            'imagebig' => 'required|mimes:jpeg,jpg,png|max:1000',
+            'imagesmall' => 'required|mimes:jpeg,jpg,png|max:1000'
 		];
 	}
 
