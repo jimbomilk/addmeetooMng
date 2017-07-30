@@ -117,7 +117,7 @@ return [
     'gameboard_options.description' =>'Descripción',
     'gameboard_options.image' =>'Imagen',
     'gameboard_options.result' =>'Resultado (no rellenar al inicio)',
-
+    'gameboard_options.results' => 'Resultados',
 
     /*ADVERTISEMENTS*/
     'advertisements' => 'Anuncio',
