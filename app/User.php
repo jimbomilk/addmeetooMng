@@ -56,8 +56,6 @@ class User extends Authenticatable
     }
 
 
-
-
     public function gameboards()
     {
         return $this->hasManyThrough('App\Gameboard', 'App\Location','owner_id','location_id','id');

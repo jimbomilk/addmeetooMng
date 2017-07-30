@@ -132,8 +132,8 @@ Route::group(['prefix'=>'user','middleware' => ['auth','is_user'],'namespace'=>'
 
 Route::get ('/', function()
 {
-    return redirect()->away('https://www.addmeetoo.com/auth/login');
-})->name('home');
+    return redirect()->away('https://www.addmeetoo.com/home');
+});
 
 
 
