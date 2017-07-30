@@ -32,7 +32,7 @@ class AdminController extends Controller
         }
         else {
             $activityNumber = Auth::user()->gameboards()->count();
-            $participantNumber = UserGameboard::where(Auth::user()->
+            //$participantNumber = UserGameboard::where(Auth::user()->
         }
 
 
