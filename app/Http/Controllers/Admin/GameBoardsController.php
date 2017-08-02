@@ -196,7 +196,6 @@ class GameboardsController extends Controller {
 
     public function fastUpdate($id)
     {
-
         $column_name = Input::get('name');
         $column_value = Input::get('value');
         //Log::info('col:'.$column_name.' , val:'.$column_value);
