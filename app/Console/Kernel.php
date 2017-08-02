@@ -33,7 +33,6 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         //Limpiamos la tabla de jobs
-        DB::table('jobs')->truncate();
 
         // Creamos una tarea para cada location
         if (Schema::hasTable('locations')) {
