@@ -22,10 +22,25 @@ class AdvertisementRequest extends Request {
 	 */
 	public function rules()
 	{
-		return [
-            'name'                      => 'required',
-            'imagebig' => 'required|mimes:jpeg,jpg,png|max:1000',
-            'imagesmall' => 'required|mimes:jpeg,jpg,png|max:1000'
+
+        if ($this->method() == 'PUT')
+        {
+            // Update operation, exclude the required
+            $imgBig = 'mimes:jpeg,jpg,png|max:1000';
+            $imgSml = 'mimes:jpeg,jpg,png|max:1000';
+        }
+        else
+        {
+            // Create operation. There is no id yet.
+            $imgBig = 'required|mimes:jpeg,jpg,png|max:1000';
+            $imgSml = 'required|mimes:jpeg,jpg,png|max:1000';
+        }
+
+
+        return [
+            'name'          => 'required',
+            'imagebig'      => $imgBig,
+            'imagesmall'    => $imgSml
 		];
 	}
 

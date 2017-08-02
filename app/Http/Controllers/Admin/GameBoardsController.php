@@ -202,9 +202,6 @@ class GameboardsController extends Controller {
         //Log::info('col:'.$column_name.' , val:'.$column_value);
 
         if( Input::has('name') && Input::has('value')) {
-            /*$game = Gameboard::select()
-                ->where('id', '=', $id)
-                ->update([$column_name => $column_value]);*/
             $this->updateGame($id,$column_name,$column_value);
             return response()->json([ 'code'=>200], 200);
         }
@@ -219,6 +216,10 @@ class GameboardsController extends Controller {
         {
             $gameboard->$column_name = $column_value;
             $gameboard->save();
+
+            // Cambio manual de status
+            if ($column_name == 'status')
+                $gameboard->updateGameView();
         }
     }
 }

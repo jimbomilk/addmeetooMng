@@ -34,7 +34,7 @@ class GameboardOptionsController extends Controller {
 
         $gameboard = Gameboard::findOrFail($id);
         if (isset($gameboard)) {
-            $gameboard_options = GameboardOption::where('gameboard_id', '=', $id)->paginate();
+            $gameboard_options = GameboardOption::where('gameboard_id', '=', $id)->orderBy('order')->paginate();
 
             return view('admin.common.index', ['name' => 'gameboard_options','game' => $gameboard, 'set' => $gameboard_options, 'hide_new' => $gameboard->auto]);
         }
@@ -105,9 +105,7 @@ class GameboardOptionsController extends Controller {
         if (isset ($gameboardOption))
         {
             return $this->sendView($gameboardOption);
-
         }
-
 	}
 
 
@@ -121,10 +119,8 @@ class GameboardOptionsController extends Controller {
             $option = GameboardOption::select()
                 ->where('id', '=', $id)
                 ->update([$column_name => $column_value]);
-
             return response()->json([ 'code'=>200], 200);
         }
-
         return response()->json([ 'error'=> 400, 'message'=> 'Not enought params' ], 400);
     }
 
@@ -138,7 +134,6 @@ class GameboardOptionsController extends Controller {
 	{
         $gameboardoption = GameboardOption::findOrFail($id);
         $gameboardoption->fill($request->all());
-
 
         $filename = $request->saveFile('image',$gameboardoption->path);
         if(isset($filename))
@@ -160,8 +155,6 @@ class GameboardOptionsController extends Controller {
         $gameboardOption = GameboardOption::findOrFail($id);
 
         Storage::disk('s3')->delete($gameboardOption->path);
-
-
         $gameboardOption->delete();
         $message = $gameboardOption->name. ' deleted';
         if ($request->ajax())
@@ -176,5 +169,4 @@ class GameboardOptionsController extends Controller {
         Session::flash('message',$message);
         return redirect()->route($this->indexPage("gameboard_options"));
 	}
-
 }

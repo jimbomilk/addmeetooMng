@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserGameboardRequest;
+use App\Http\Requests\UserProfileRequest;
 use App\location;
 use App\UserGameboard;
 use App\UserProfile;
@@ -45,7 +45,7 @@ class UserProfilesController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-    public function update(UserGameboardRequest $request, $id)
+    public function update(UserProfileRequest $request, $id)
     {
         $userprofile = UserProfile::findOrFail($id);
         $userprofile->fill($request->all());

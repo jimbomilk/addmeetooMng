@@ -22,9 +22,20 @@ class GameboardOptionsRequest extends Request {
 	 */
 	public function rules()
 	{
+
+        if ($this->method() == 'PUT')
+        {
+            $image = 'mimes:jpeg,jpg,png|max:1000';
+        }
+        else
+        {
+            $image = 'required|mimes:jpeg,jpg,png|max:1000';
+        }
+
 		return [
             'description'                      => 'required',
-            'image' => 'required | mimes:jpeg,jpg,png | max:1000'
+            'image' => $image,
+            'order' => 'required|min:1'
 		];
 	}
 

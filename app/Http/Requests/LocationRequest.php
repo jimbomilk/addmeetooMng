@@ -22,9 +22,18 @@ class LocationRequest extends Request {
 	 */
 	public function rules()
 	{
+
+        if ($this->method() == 'PUT')
+        {
+            $image = 'mimes:jpeg,jpg,png|max:1000';
+        }
+        else
+        {
+            $image = 'required|mimes:jpeg,jpg,png|max:1000';
+        }
 		return [
             'name' => 'required',
-            'logo' => 'required|mimes:jpeg,bmp,png'
+            'logo' => $image
         ];
 	}
 

@@ -23,6 +23,7 @@ class AdsTableSeeder extends Seeder
     public function createCategories()
     {
         // ADSCATEGORIES
+
         $iditem = \DB::table('adscategories')->insertGetId( array(
             'description'         => 'motor',
             'created_at' => \Carbon\Carbon::now()->toDateTimeString()
@@ -90,6 +91,11 @@ class AdsTableSeeder extends Seeder
 
         $iditem = \DB::table('adscategories')->insertGetId( array(
             'description'         => 'mascotas',
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString()
+        ));
+
+        $iditem = \DB::table('adscategories')->insertGetId( array(
+            'description'         => 'otros',
             'created_at' => \Carbon\Carbon::now()->toDateTimeString()
         ));
     }

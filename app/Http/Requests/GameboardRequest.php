@@ -23,9 +23,13 @@ class GameboardRequest extends Request {
 	public function rules()
 	{
 		return [
-            'name'                      => 'required',
-            'activity_id'               => 'required',
-            'location_id'               => 'required'
+            'name'              => 'required',
+            'activity_id'       => 'required',
+            'location_id'       => 'required',
+            'endgame'           => 'after:startgame',
+            'startgame'         => 'before:endgame',
+            'deadline'          => 'after:startgame',
+            'deadline'          => 'before:endgame',
         ];
 	}
 

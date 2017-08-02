@@ -4,7 +4,6 @@ use App\Country;
 use App\General;
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\LocationUpdateRequest;
 use App\Location;
 use App\Http\Requests\LocationRequest;
 use App\User;
@@ -124,7 +123,7 @@ class LocationsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-    public function update(LocationUpdateRequest $request, $id)
+    public function update(LocationRequest $request, $id)
     {
         $location = Location::findOrFail($id);
         $location->fill($request->all());

@@ -57,7 +57,7 @@ class GameView extends Model
         $this->type='options';
         $body = array();
 
-        foreach ($gameboard->gameboardOptions as $option) {
+        foreach ($gameboard->gameboardOptions->sortBy('order') as $option) {
             $body[] = [ 'order'=>$option->order,
                         'description'=>$option->description,
                         'image'=>$option->image,
