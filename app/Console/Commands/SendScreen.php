@@ -64,14 +64,14 @@ class SendScreen extends Command
 
         if (isset($location)) {
             // En 10 minutos hay que meter 30 anuncios y 30 pantallas
-            $delay = 0;
+            $delay = 15;
             while ( $delay < 600 ) {
 
                 if($this->screenAds($location->id,$delay))
-                    $delay += 10;
+                    $delay += 15;
 
                 if($this->screenAgenda($location->id,$delay))
-                    $delay += 10;
+                    $delay += 15;
 
                 $nScreens = $this->screenGame($location->id,$delay);
                 $delay = $delay + ($nScreens*15); // Las pantallas de actividad duran 30 segundos
