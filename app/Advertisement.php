@@ -30,7 +30,7 @@ class Advertisement extends Model
 
     public function getPathAttribute()
     {
-        return $this->table.'/'.$this->path.$this->id;
+        return 'anu/'.$this->path.$this->id;
     }
 
 }
