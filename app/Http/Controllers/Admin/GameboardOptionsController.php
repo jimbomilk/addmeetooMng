@@ -33,10 +33,10 @@ class GameboardOptionsController extends Controller {
         $id = $request->session()->get('gameboard_id');
 
         $gameboard = Gameboard::findOrFail($id);
+
         if (isset($gameboard)) {
             $gameboard_options = GameboardOption::where('gameboard_id', '=', $id)->orderBy('order')->paginate();
-
-            return view('admin.common.index', ['name' => 'gameboard_options','game' => $gameboard, 'set' => $gameboard_options, 'hide_new' => $gameboard->auto]);
+            return view('admin.common.index', ['name' => 'gameboard_options','game' => $gameboard, 'set' => $gameboard_options, 'hide_new' => $gameboard->auto||$gameboard_options->count<8 ]);
         }
 	}
 
