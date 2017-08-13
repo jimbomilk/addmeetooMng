@@ -319,11 +319,11 @@ class ApiController extends Controller
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
-        try {
+        /*try {
             JWTAuth::toUser($input['token']);
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }
+        }*/
 
         if ($latitude != -1 && $longitude != -1) {
             $query = 'SELECT * from advertisements ads
@@ -350,11 +350,11 @@ class ApiController extends Controller
     {
         $input = $request->all();
         $location = $input['location'];
-        try {
+       /* try {
             JWTAuth::toUser($input['token']);
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }
+        }*/
 
         $now = Carbon::now()->toDateTimeString();
 
