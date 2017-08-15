@@ -267,18 +267,14 @@ class ApiController extends Controller
 
         if (isset($user)) {
             $token = JWTAuth::fromUser($user);
-
             $user->type = 'user';
             $user->save();
-
             $profile = new UserProfile();
             $profile->user_id = $user->id;
             $profile->location_id = $request->get('location');
             $profile->save();
         }
-
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
-
     }
 
 
@@ -286,7 +282,7 @@ class ApiController extends Controller
     {
         try {
             $user = JWTAuth::toUser($request->input('token'));
-            $filename = $this->saveFile($request->file('file'),$request->input('filename'), $user->path);
+            $filename = $request->saveFile('profile', $user->path);
             if ($filename != $user->profile->avatar) {
                 $user->profile->avatar = $filename;
                 $user->profile->save();
