@@ -356,7 +356,7 @@ class ApiController extends Controller
 
         $messages = DB::table('messages')
                         ->where('start','>',$now)
-                        ->where('end','<',$now)
+                        ->where($now,'<','end')
                         ->orWhere('location_id',$location)
                         ->orderBy('stext','asc')
                         ->get();
