@@ -354,12 +354,11 @@ class ApiController extends Controller
 
         $now = Carbon::now()->toDateTimeString();
 
-        $messages = DB::table('messages')
-                        ->where('start','>',$now)
-                        ->where($now,'<','end')
-                        ->orWhere('location_id',$location)
-                        ->orderBy('stext','asc')
-                        ->get();
+        $messages = DB::table('messages')->where([
+                            ['start', '>', $now],
+                            [$now, '<', 'end']])
+                            ->orderBy('stext','asc')
+                            ->get();
 
         return response()->json($messages);
 
