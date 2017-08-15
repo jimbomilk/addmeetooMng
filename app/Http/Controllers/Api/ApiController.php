@@ -356,9 +356,7 @@ class ApiController extends Controller
 
         $messages = DB::table('messages')->where([
                             ['start', '>', $now],
-                            [$now, '<', 'end']])
-                            ->orderBy('stext','asc')
-                            ->get();
+                            [$now, '<', 'end']])->get();
 
         return response()->json($messages);
 
