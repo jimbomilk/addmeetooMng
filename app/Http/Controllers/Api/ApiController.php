@@ -355,7 +355,7 @@ class ApiController extends Controller
         $now = Carbon::now()->toDateTimeString();
 
         $messages = DB::table('messages')
-                        ->where('end','>',$now)
+                        ->where('end','<',$now)
                         ->orWhere('location_id',$location)
                         ->orderBy('stext','asc')
                         ->get();
