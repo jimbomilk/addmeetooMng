@@ -10,8 +10,9 @@ use App\User;
 use App\UserGameboard;
 use App\UserProfile;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
-use App\Http\Requests\Request;
+use App\Http\Requests\UserProfileRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -275,7 +276,7 @@ class ApiController extends Controller
     }
 
 
-    public function fileUpload(Request $request)
+    public function fileUpload(UserProfileRequest $request)
     {
         try {
             $user = JWTAuth::toUser($request->input('token'));
