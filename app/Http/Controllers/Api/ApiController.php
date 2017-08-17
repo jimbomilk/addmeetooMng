@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Log;
 
 
 class ApiController extends Controller
@@ -280,7 +281,9 @@ class ApiController extends Controller
     {
         try {
             $user = JWTAuth::toUser($request->input('token'));
+            Log::info('user:'.$user);
             $filename = $request->saveFile('profile', $user->path);
+            Log::info('$filename:'.$filename);
             if ($filename != $user->profile->avatar) {
                 $user->profile->avatar = $filename;
                 $user->profile->save();
