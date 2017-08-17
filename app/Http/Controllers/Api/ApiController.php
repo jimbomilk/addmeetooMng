@@ -277,7 +277,7 @@ class ApiController extends Controller
     }
 
 
-    public function fileUpload(UserProfileRequest $request)
+    public function fileUpload(Request $request)
     {
         Log::info('entrando fileupload');
         try {
