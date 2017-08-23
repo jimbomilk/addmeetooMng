@@ -50,6 +50,7 @@ class LocationSchedule extends Command
             $start = Carbon::parse($gameboard->startgame); //en UTC
             $end = Carbon::parse($gameboard->endgame);
 
+
             $newstatus = $gameboard->status;
 
 
@@ -58,6 +59,7 @@ class LocationSchedule extends Command
             }
             elseif ($now > $end && $gameboard->status > Status::SCHEDULED){
                 $newstatus = Status::FINISHED;
+
             }
 
             // Si hay algún cambio se guarda en BBDD y se envia a pantalla
@@ -67,20 +69,23 @@ class LocationSchedule extends Command
 
                 $gameboard->status = $newstatus;
 
-                if (/*$gameboard->activity->type == 'bet' &&*/ $newstatus == Status::FINISHED)
+                if ($gameboard->activity->type == 'bet' && $newstatus == Status::FINISHED) {
                     $gameboard->calculateRankings();
+                    $location->country->calculateRankings();
+                }
                 $gameboard->save();
                 $gameboard->updateGameView();
             }
 
 
             // END GAME
-            $later = $end->addMinutes(60);
+            $later = $end->addMinutes(1200); // 20 horas
             if ($now > $later) {
-                $location->country->calculateRankings();
+                $gameboard->status = Status::OFFICIAL;
+                $gameboard->save();
                 // Se limpian los valores de los participantes en el juego...OJO en el futuro habrá que almacenarlos
                 // en algun histórico para BIG DATA. En este paso los puntos se acumulan en su profile.
-                $gameboard->destroyGame();
+                //$gameboard->destroyGame();
             }
 
 
