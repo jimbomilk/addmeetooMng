@@ -60,11 +60,7 @@
                 @include("admin.common.btn_show",array('var'=>$game))
             </td>
 
-            <td>
-                @if ($login_user->is('admin'))
-                @include("admin.common.btn_other",array('route'=> 'gameboards_preview','var'=>$game,'label'=>'preview'))
-                @endif
-            </td>
+
 
             <td>
                 @include("admin.common.btn_delete",array('var'=>$game))
