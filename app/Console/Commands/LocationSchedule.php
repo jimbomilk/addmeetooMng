@@ -67,7 +67,7 @@ class LocationSchedule extends Command
 
                 $gameboard->status = $newstatus;
 
-                if ($gameboard->activity->type == 'bet' && $newstatus == Status::FINISHED)
+                if (/*$gameboard->activity->type == 'bet' &&*/ $newstatus == Status::FINISHED)
                     $gameboard->calculateRankings();
                 $gameboard->save();
                 $gameboard->updateGameView();
