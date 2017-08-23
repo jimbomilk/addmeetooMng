@@ -44,7 +44,7 @@ class GameView extends Model
         }
         elseif ($status == Status::FINISHED) {
             $this->headerSub = 'ACTIVIDAD FINALIZADA';
-            if($gameboard->activity->type == 'vote')
+            if($gameboard->activity->type == 'vote' || (!$gameboard->getHasResults() && $gameboard->activity->type == 'bet'))
                 $this->body = $this->finishedBody($gameboard);
             else
                 $this->body = $this->officialBody($gameboard);
