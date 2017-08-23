@@ -153,7 +153,7 @@ class GameView extends Model
                 if($k==0)
                     $values[]='';
                 else
-                    $values[] = 100/$v[$s];
+                    $values[] = $v[$s];
 
             $chart->dataSeries[] = $serie;
             $chart->dataSeries[] = $values;
