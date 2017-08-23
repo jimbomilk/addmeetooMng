@@ -108,7 +108,7 @@ class GameboardsController extends Controller {
     {
         $game = Gameboard::findOrFail($id);
 
-        if (isset ($game)) {
+        if (isset ($game) && $game->status > Status::SCHEDULED) {
             //Reiniciamos sus vistas
             $gameview = $game->updateGameView();
 
