@@ -145,7 +145,7 @@ class SendScreen extends Command
 
 
                 // Pantalla de participación
-                $gameview = $gameboard->getGameView(Status::STARTLIST);
+                /*$gameview = $gameboard->getGameView(Status::STARTLIST);
                 if(isset($gameview)) {
                     //Log::info('Delay GAME:'.$d);
                     $job = (new GameEngine($gameview, $location_id))
@@ -154,7 +154,7 @@ class SendScreen extends Command
                     $this->dispatch($job);
                     $nscreens ++;
                     $d = $d + 15;
-                }
+                }*/
 
 
 

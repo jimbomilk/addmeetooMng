@@ -82,4 +82,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Social');
     }
+
+    public function getActivationCode()
+    {
+        $this->activationCode = str_random(60);
+        $this->save();
+    }
 }

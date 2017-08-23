@@ -13,6 +13,7 @@ class Request extends FormRequest
 
     public function saveFile($field,$folder)
     {
+
         if (!isset($field) || $field == '')
             return null;
         $file = $this->file($field);

@@ -34,10 +34,10 @@ class GameView extends Model
             $this->headerSub = $gameboard->description;
             $this->body = $this->scheduleBody($gameboard);
         }
-        elseif ($status == Status::STARTLIST) {
+        /*elseif ($status == Status::STARTLIST) {
             $this->headerSub = 'DATOS de PARTICIPACIÓN';
             $this->body = $this->startlistBody($gameboard);
-        }
+        }*/
         elseif ($status >= Status::RUNNING && $status<Status::FINISHED) {
             $this->headerSub = $gameboard->description;
             $this->body = $this->runningBody($gameboard);

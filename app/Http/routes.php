@@ -142,6 +142,9 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     //Route::get('login', 'LoginController@loginWithTwitter');
     Route::post('authenticate','ApiController@authenticate');
     Route::post('newAccount','ApiController@newAccount');
+    Route::post('forgot', 'Auth\AuthController@forgot');
+    Route::post('reset', 'Auth\AuthController@reset');
+
     Route::post('gameboard/{gameboard_id}','ApiController@gameboard');
     Route::post('gameboard/useroptions/{gameboard_id}','ApiController@useroptions');
     Route::post('gameboards','ApiController@gameboards'); // Pantalla eventos de los moviles
@@ -152,6 +155,8 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
 
     Route::post('globalRanking','ApiController@globalRanking');
     Route::post('gamesRanking','ApiController@userGameboards');
+
+
 
     //Route::get('auctions', 'ApiController@indexAuctions');
     //Route::get('auction/{id}', 'ApiController@indexAuction');

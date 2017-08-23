@@ -235,12 +235,12 @@ class Gameboard extends Model
     public function updateGameView()
     {
         // La participación siempre se actualiza
-        $gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',Status::STARTLIST)->first();
+        /*$gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',Status::STARTLIST)->first();
         if (!isset($gameview)) {
             $gameview = new GameView();
         }
         $gameview->createX($this,Status::STARTLIST);
-        $gameview->save();
+        $gameview->save();*/
 
         $gameview = GameView::where('gameboard_id','=',$this->id,'and','status','=',$this->status)->first();
         if (!isset($gameview)) {

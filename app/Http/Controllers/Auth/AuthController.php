@@ -152,4 +152,42 @@ class AuthController extends Controller
         \Session::flush();
         return redirect('/');
     }
+
+    public function forgot(Request $request)
+    {
+        $input = $request->all();
+        $email = $input['email'];
+        $userCheck = User::where('email', '=', $email)->first();
+        if(!empty($userCheck))
+        {
+            $user = $userCheck;
+            $user->getActivationCode();
+        }
+        else return false;
+
+        $data = array(
+            'name' => $user->name,
+            'code' => $user->activationCode
+        );
+        \Mail::queue('emails.activateAccount', $data, function($message) use ($user) {
+            $message->subject( \Lang::get('auth.pleaseActivate') );
+            $message->to($user->email);
+        });
+    }
+
+    public function reset(Request $request)
+    {
+        $input = $request->all();
+        $email = $input['email'];
+        $code = $input['code'];
+
+        $userCheck = User::where('email', '=', $email)->first();
+        if(!empty($userCheck) && !empty($code) && $code == $userCheck->activationCode)
+        {
+            $user = $userCheck;
+            $user->password = bcrypt($input['code']);
+            $user->save();
+        }
+        else return false;
+    }
 }

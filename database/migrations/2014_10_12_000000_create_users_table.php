@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('active')->default(true);
 			$table->enum('type',['admin','owner','user']);
+            $table->string('activationCode')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
