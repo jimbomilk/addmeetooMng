@@ -61,7 +61,7 @@ class SendMessage extends Command
         //Recoger las categorias que admite el local y crear query para
         //filtra los ads : la query debe tener en cuanta las preferencias del local y su geolocalizacion
 
-        if (isset($location)) {
+        /*if (isset($location)) {
             // En 10 minutos hay que meter n anuncios
             $nScreens = 0;
             $delay = 0;
@@ -80,7 +80,7 @@ class SendMessage extends Command
                 $delay = $delay + 10; // Los mensajes duran 5 segundos
 
             }
-        }
+        }*/
 
     }
 
