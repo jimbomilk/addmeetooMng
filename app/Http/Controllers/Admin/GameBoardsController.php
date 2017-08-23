@@ -108,7 +108,14 @@ class GameboardsController extends Controller {
     {
         $game = Gameboard::findOrFail($id);
 
-        if (isset ($game) && $game->status > Status::SCHEDULED) {
+        if (isset ($game))
+        {
+
+            if ($game->status < Status::SCHEDULED){
+                $message = 'ERROR: '.$game->name . ' no está configurado!';
+                Session::flash('message', $message);
+                return false;
+            }
             //Reiniciamos sus vistas
             $gameview = $game->updateGameView();
 
@@ -127,6 +134,7 @@ class GameboardsController extends Controller {
                 Session::flash('message', $message);
             }
         }
+
         return redirect()->route($this->indexPage("gameboards"));
     }
 	/**
