@@ -61,7 +61,7 @@ class SendScreen extends Command
 
         //Recoger las categorias que admite el local y crear query para
         //filtra los ads : la query debe tener en cuanta las preferencias del local y su geolocalizacion
-/*
+
         if (isset($location)) {
             // En 10 minutos hay que meter 30 anuncios y 30 pantallas
             $delay = 15;
@@ -77,7 +77,7 @@ class SendScreen extends Command
                 $delay = $delay + ($nScreens*15); // Las pantallas de actividad duran 30 segundos
 
             }
-        }*/
+        }
 
     }
 
