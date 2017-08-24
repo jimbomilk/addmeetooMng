@@ -51,9 +51,9 @@ class GameboardsController extends Controller {
 	{
 
         if (Auth::user()->is('admin'))
-            $gameboards = Gameboard::where('status','<',Status::OFFICIAL)->paginate();
+            $gameboards = Gameboard::where('status','<',Status::HIDDEN)->paginate();
         else
-            $gameboards = Auth::user()->gameboards()->where('status','<',Status::OFFICIAL)->paginate();
+            $gameboards = Auth::user()->gameboards()->where('status','<',Status::HIDDEN)->paginate();
 
         return view ('admin.common.index',['name'=>'gameboards','set'=>$gameboards,'statuses'=>Status::$desc,'colours'=>Status::$colors]);
 	}

@@ -61,6 +61,9 @@ class LocationSchedule extends Command
                 $newstatus = Status::FINISHED;
 
             }
+            else if ( $gameboard->status > Status::FINISHED && $gameboard->getHasResults()) {
+                $newstatus = Status::OFFICIAL;
+            }
 
             // Si hay algún cambio se guarda en BBDD y se envia a pantalla
             if ($newstatus != $gameboard->status) {
@@ -69,7 +72,7 @@ class LocationSchedule extends Command
 
                 $gameboard->status = $newstatus;
 
-                if ($gameboard->activity->type != 'vote' && $newstatus == Status::FINISHED) {
+                if ($gameboard->activity->type != 'vote' && $newstatus == Status::OFFICIAL) {
                     $gameboard->calculateRankings();
                     $location->country->calculateRankings();
                 }

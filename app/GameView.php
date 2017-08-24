@@ -44,10 +44,14 @@ class GameView extends Model
         }
         elseif ($status == Status::FINISHED) {
             $this->headerSub = 'ACTIVIDAD FINALIZADA';
-            if(!$gameboard->getHasResults())
-                $this->body = $this->finishedBody($gameboard); // Estadísticas
-            else
+            $this->body = $this->finishedBody($gameboard); // Estadísticas
+        }
+        elseif ($status == Status::OFFICIAL){
+            $this->headerSub = 'RESULTADOS';
+            if($gameboard->getHasResults())
                 $this->body = $this->scheduleBody($gameboard); // Resultados
+            else
+                $this->body = $this->finishedBody($gameboard);
         }
         else
             $this->headerSub = Status::$desc[$status];
