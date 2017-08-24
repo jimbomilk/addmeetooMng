@@ -215,12 +215,12 @@ class ApiController extends Controller
         }
         else
             $gameboards = Gameboard::all();
-        $now = Carbon::now(Config::get('app.timezone'));
+        //$now = Carbon::now(Config::get('app.timezone'));
         $gameviews = array();
         foreach($gameboards as $gameboard)
         {
-            $start = Carbon::parse($gameboard->startgame); //en UTC
-            $end = Carbon::parse($gameboard->endgame);
+            //$start = Carbon::parse($gameboard->startgame); //en UTC
+            //$end = Carbon::parse($gameboard->endgame);
 
             //Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
             if ($gameboard->status>=Status::RUNNING && $gameboard->status<Status::HIDDEN){
