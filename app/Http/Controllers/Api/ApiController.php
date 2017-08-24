@@ -6,6 +6,7 @@ use App\Adspack;
 use App\Events\Envelope;
 use App\Events\MessageEvent;
 use App\Gameboard;
+use App\Status;
 use App\User;
 use App\UserGameboard;
 use App\UserProfile;
@@ -222,7 +223,7 @@ class ApiController extends Controller
             $end = Carbon::parse($gameboard->endgame);
 
             //Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
-            if ($now>$start && $now<$end){
+            if ($now>$start && $now<$end && $gameboard->status >= Status::SCHEDULED){
 
                 $gameview = $gameboard->getGameView();
                 if (isset($gameview))

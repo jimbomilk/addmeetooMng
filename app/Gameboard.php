@@ -69,7 +69,7 @@ class Gameboard extends Model
 
         foreach($this->gameboardOptions as $option)
         {
-            if (!isset($option->result))
+            if (!isset($option->result)||(isset($option->result)&&$option->result<0))
                 return false;
         }
         return true;
