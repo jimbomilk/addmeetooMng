@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Gameboard.php" afterPath="$PROJECT_DIR$/app/Gameboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" afterPath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -61,8 +63,8 @@
       <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20823245" vertical-offset="781" max-vertical-offset="1683">
-              <caret line="56" column="71" selection-start-line="56" selection-start-column="71" selection-end-line="56" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.49636805" vertical-offset="781" max-vertical-offset="1683">
+              <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -71,8 +73,8 @@
       <file leaf-file-name="Gameboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Gameboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.3272727" vertical-offset="892" max-vertical-offset="5899">
-              <caret line="63" column="26" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="26" />
+            <state vertical-scroll-proportion="-5.7272725" vertical-offset="892" max-vertical-offset="5933">
+              <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -238,13 +240,13 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/gameboards/partials/table.blade.php" />
-        <option value="$PROJECT_DIR$/app/Gameboard.php" />
         <option value="$PROJECT_DIR$/app/Status.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php" />
         <option value="$PROJECT_DIR$/app/GameView.php" />
+        <option value="$PROJECT_DIR$/app/Gameboard.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
       </list>
     </option>
   </component>
@@ -667,12 +669,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00121" summary="ok">
-      <created>1502006901817</created>
-      <option name="number" value="00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1502006901817</updated>
-    </task>
     <task id="LOCAL-00122" summary="ok">
       <created>1502008261551</created>
       <option name="number" value="00122" />
@@ -961,7 +957,13 @@
       <option name="project" value="LOCAL" />
       <updated>1503571321017</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="ok">
+      <created>1503571621408</created>
+      <option name="number" value="00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1503571621408</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1468,16 +1470,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Gameboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3272727" vertical-offset="892" max-vertical-offset="5899">
-          <caret line="63" column="26" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="26" />
+        <state vertical-scroll-proportion="-5.7272725" vertical-offset="892" max-vertical-offset="5933">
+          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20823245" vertical-offset="781" max-vertical-offset="1683">
-          <caret line="56" column="71" selection-start-line="56" selection-start-column="71" selection-end-line="56" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.49636805" vertical-offset="781" max-vertical-offset="1683">
+          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
           <folding />
         </state>
       </provider>
