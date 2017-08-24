@@ -223,7 +223,7 @@ class ApiController extends Controller
             $end = Carbon::parse($gameboard->endgame);
 
             //Log::info('now1:'.$now.' start:'.$start.' end:'.$end);
-            if ($now>$start && $now<$end){
+            if ($gameboard->status>=Status::RUNNING && $gameboard->status<Status::HIDDEN){
 
                 $gameview = $gameboard->getGameView();
                 if (isset($gameview))
