@@ -61,7 +61,7 @@ class LocationSchedule extends Command
                 $newstatus = Status::FINISHED;
 
             }
-            else if ( $gameboard->status >= Status::FINISHED && !$gameboard->getHasResults()) {
+            else if ( $gameboard->status >= Status::FINISHED && $gameboard->getHasResults()) {
                 $newstatus = Status::OFFICIAL;
             }
 
