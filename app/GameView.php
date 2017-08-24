@@ -130,9 +130,9 @@ class GameView extends Model
 
 
                 if ($i == 0) {
-                    $serie[] = $options[0]['option'];
+                    $serie[] = 'Gana ' + $options[0]['option'];
                     $serie[] = 'Empate';
-                    $serie[] = $options[1]['option'];
+                    $serie[] = 'Gana ' + $options[1]['option'];
                 }
 
                 if ($options[0]['value'] + 0 > $options[1]['value'] + 0)
