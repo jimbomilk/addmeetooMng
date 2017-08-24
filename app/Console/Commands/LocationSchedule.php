@@ -84,7 +84,7 @@ class LocationSchedule extends Command
             // END GAME
             $later = $end->addMinutes(1200); // 20 horas
             if ($now > $later) {
-                $gameboard->status = Status::OFFICIAL;
+                $gameboard->status = Status::HIDDEN;
                 $gameboard->save();
 
             }
