@@ -20,7 +20,7 @@ class GameViews extends Migration
             $table->string('headerSub')->nullable();
             $table->string('logo2')->nullable();
             $table->longText('body')->nullable();
-            $table->integer('next')->nullable();
+            $table->longText('stats')->nullable();
             $table->string('type')->nullable();
             $table->string('code')->nullable();
             $table->dateTime('startgame')->nullable(); //fecha y hora de comienzo de la actividad

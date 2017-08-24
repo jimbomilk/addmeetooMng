@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" afterPath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php" afterPath="$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/GameView.php" afterPath="$PROJECT_DIR$/app/GameView.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -34,16 +35,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.645" vertical-offset="3584" max-vertical-offset="7429">
-              <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.923077" vertical-offset="3431" max-vertical-offset="7429">
+              <caret line="217" column="10" selection-start-line="217" selection-start-column="10" selection-end-line="217" selection-end-column="10" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1503564721440" expanded="true" signature="9439:9934" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1503564721440" expanded="true" signature="9983:10083" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1503564721440" expanded="true" signature="12559:13149" placeholder="select gameb..user_gameboards..." />
+                <marker date="1503569148193" expanded="true" signature="9493:9988" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1503569148193" expanded="true" signature="10037:10137" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1503569148193" expanded="true" signature="12613:13203" placeholder="select gameb..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -62,8 +63,8 @@
       <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.153846" vertical-offset="1087" max-vertical-offset="1683">
-              <caret line="86" column="51" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
+            <state vertical-scroll-proportion="-3.3076923" vertical-offset="781" max-vertical-offset="1683">
+              <caret line="56" column="71" selection-start-line="56" selection-start-column="71" selection-end-line="56" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -99,14 +100,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameView.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameView.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/GameView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.0" vertical-offset="148" max-vertical-offset="3655">
-              <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.30024213" vertical-offset="607" max-vertical-offset="3638">
+              <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
               <folding>
-                <marker date="1503565492703" expanded="true" signature="2500:2612" placeholder="SELECT COUNT..user_gameboards..." />
-                <marker date="1503565492703" expanded="true" signature="3603:3759" placeholder="SELECT user_..user_gameboards..." />
+                <marker date="1503569958619" expanded="true" signature="2447:2559" placeholder="SELECT COUNT..user_gameboards..." />
+                <marker date="1503569958619" expanded="true" signature="3550:3706" placeholder="SELECT user_..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -115,8 +116,8 @@
       <file leaf-file-name="2017_02_17_081026_game_views.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923" vertical-offset="102" max-vertical-offset="884">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="22" />
+            <state vertical-scroll-proportion="-9.807693" vertical-offset="102" max-vertical-offset="884">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -195,7 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/storage/logs/laravel-2017-07-15.log" />
         <option value="$PROJECT_DIR$/resources/views/admin/activity_options/partials/fields.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/userprofiles/partials/fields.blade.php" />
@@ -241,11 +241,12 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/gameboards/partials/table.blade.php" />
         <option value="$PROJECT_DIR$/app/Gameboard.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/app/Status.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" />
-        <option value="$PROJECT_DIR$/app/GameView.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php" />
+        <option value="$PROJECT_DIR$/app/GameView.php" />
       </list>
     </option>
   </component>
@@ -668,42 +669,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00111" summary="ok">
-      <created>1501410460831</created>
-      <option name="number" value="00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1501410460831</updated>
-    </task>
-    <task id="LOCAL-00112" summary="ok">
-      <created>1501415313719</created>
-      <option name="number" value="00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1501415313719</updated>
-    </task>
-    <task id="LOCAL-00113" summary="ok">
-      <created>1501415405129</created>
-      <option name="number" value="00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1501415405129</updated>
-    </task>
-    <task id="LOCAL-00114" summary="ok">
-      <created>1501416544705</created>
-      <option name="number" value="00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1501416544705</updated>
-    </task>
-    <task id="LOCAL-00115" summary="ok">
-      <created>1501416756733</created>
-      <option name="number" value="00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1501416756733</updated>
-    </task>
-    <task id="LOCAL-00116" summary="ok">
-      <created>1501418213910</created>
-      <option name="number" value="00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1501418213910</updated>
-    </task>
     <task id="LOCAL-00117" summary="ok">
       <created>1501423241678</created>
       <option name="number" value="00117" />
@@ -962,7 +927,43 @@
       <option name="project" value="LOCAL" />
       <updated>1503565526370</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="ok">
+      <created>1503568407145</created>
+      <option name="number" value="00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1503568407145</updated>
+    </task>
+    <task id="LOCAL-00161" summary="ok">
+      <created>1503568770852</created>
+      <option name="number" value="00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1503568770852</updated>
+    </task>
+    <task id="LOCAL-00162" summary="ok">
+      <created>1503568877566</created>
+      <option name="number" value="00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1503568877566</updated>
+    </task>
+    <task id="LOCAL-00163" summary="ok">
+      <created>1503568887926</created>
+      <option name="number" value="00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1503568887926</updated>
+    </task>
+    <task id="LOCAL-00164" summary="ok">
+      <created>1503569125889</created>
+      <option name="number" value="00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1503569125889</updated>
+    </task>
+    <task id="LOCAL-00165" summary="ok">
+      <created>1503569158378</created>
+      <option name="number" value="00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1503569158378</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1409,14 +1410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923" vertical-offset="102" max-vertical-offset="884">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_103828_gameboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9230769" vertical-offset="255" max-vertical-offset="1105">
@@ -1443,17 +1436,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/GameView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.0" vertical-offset="148" max-vertical-offset="3655">
-          <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
-          <folding>
-            <marker date="1503565492703" expanded="true" signature="2500:2612" placeholder="SELECT COUNT..user_gameboards..." />
-            <marker date="1503565492703" expanded="true" signature="3603:3759" placeholder="SELECT user_..user_gameboards..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Status.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5" vertical-offset="190" max-vertical-offset="680">
@@ -1462,23 +1444,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.153846" vertical-offset="1087" max-vertical-offset="1683">
-          <caret line="86" column="51" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
+        <state vertical-scroll-proportion="-9.923077" vertical-offset="3431" max-vertical-offset="7429">
+          <caret line="217" column="10" selection-start-line="217" selection-start-column="10" selection-end-line="217" selection-end-column="10" />
+          <folding>
+            <element signature="e#44#60#0#PHP" expanded="true" />
+            <marker date="1503569148193" expanded="true" signature="9493:9988" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1503569148193" expanded="true" signature="10037:10137" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1503569148193" expanded="true" signature="12613:13203" placeholder="select gameb..user_gameboards..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="102" max-vertical-offset="884">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.645" vertical-offset="3584" max-vertical-offset="7429">
-          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="226" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.3076923" vertical-offset="781" max-vertical-offset="1683">
+          <caret line="56" column="71" selection-start-line="56" selection-start-column="71" selection-end-line="56" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/GameView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30024213" vertical-offset="607" max-vertical-offset="3638">
+          <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
           <folding>
-            <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1503564721440" expanded="true" signature="9439:9934" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1503564721440" expanded="true" signature="9983:10083" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1503564721440" expanded="true" signature="12559:13149" placeholder="select gameb..user_gameboards..." />
+            <marker date="1503569958619" expanded="true" signature="2447:2559" placeholder="SELECT COUNT..user_gameboards..." />
+            <marker date="1503569958619" expanded="true" signature="3550:3706" placeholder="SELECT user_..user_gameboards..." />
           </folding>
         </state>
       </provider>
