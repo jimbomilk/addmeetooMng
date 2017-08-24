@@ -57,11 +57,13 @@ class LocationSchedule extends Command
             if ($now >= $start  && $now <= $end && $gameboard->status == Status::SCHEDULED){
                 $newstatus = Status::RUNNING;
             }
-            elseif ($now > $end && $gameboard->status >= Status::SCHEDULED){
+
+            if ($now > $end && $gameboard->status >= Status::SCHEDULED){
                 $newstatus = Status::FINISHED;
 
             }
-            else if ( $gameboard->status >= Status::FINISHED && $gameboard->getHasResults()) {
+
+            if ( $gameboard->status >= Status::FINISHED && $gameboard->getHasResults()) {
                 $newstatus = Status::OFFICIAL;
             }
 
