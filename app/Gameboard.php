@@ -60,8 +60,13 @@ class Gameboard extends Model
         return $this->hasMany('App\GameView');
     }
 
+
     public function getHasResults()
     {
+        // Una votación siempre tiene resultados por eso devolvemos true
+        if ($this->activity->type == 'vote')
+            return true;
+
         foreach($this->gameboardOptions as $option)
         {
             if (!isset($option->result))
@@ -181,7 +186,7 @@ class Gameboard extends Model
     }
 
 
-    public function getTypeAttribute($value)
+    public function getTypeAttribute()
     {
         return $this->activity->type;
     }

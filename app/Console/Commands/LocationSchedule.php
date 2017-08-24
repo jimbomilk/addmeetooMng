@@ -57,7 +57,7 @@ class LocationSchedule extends Command
             if ($now >= $start  && $now <= $end && $gameboard->status >= Status::SCHEDULED){
                 $newstatus = Status::RUNNING;
             }
-            elseif ($now > $end && $gameboard->status > Status::SCHEDULED){
+            elseif ($now > $end && $gameboard->status > Status::SCHEDULED && $gameboard->getHasResults()){
                 $newstatus = Status::FINISHED;
 
             }
@@ -69,7 +69,7 @@ class LocationSchedule extends Command
 
                 $gameboard->status = $newstatus;
 
-                if ($gameboard->activity->type == 'bet' && $newstatus == Status::FINISHED) {
+                if ($gameboard->activity->type != 'vote' && $newstatus == Status::FINISHED) {
                     $gameboard->calculateRankings();
                     $location->country->calculateRankings();
                 }
@@ -83,9 +83,7 @@ class LocationSchedule extends Command
             if ($now > $later) {
                 $gameboard->status = Status::OFFICIAL;
                 $gameboard->save();
-                // Se limpian los valores de los participantes en el juego...OJO en el futuro habrá que almacenarlos
-                // en algun histórico para BIG DATA. En este paso los puntos se acumulan en su profile.
-                //$gameboard->destroyGame();
+
             }
 
 
