@@ -115,16 +115,26 @@ class GameView extends Model
         // En head2head cada result es un array de 2 objetos {option,value}
         // En el resto sera un array de n objetos(uno por opcion)
         // En head2head hay que comparar los dos objetos para ver si es 1 X 2.
+        $serie = array(); // headers
+        $values = array();
+        $serie[]='';
         if ($gameboard->head2head) {
-            $chart->dataSeries[] = ['', '1', 'X', '2'];
-            $val1 = 0;$valx = 0;$val2 = 0;
-            $options = [];
 
-            foreach ($results as $result)
+            $val1 = 0;$valx = 0;$val2 = 0;
+
+            foreach ($results as $i=>$result)
             {
                 $options = json_decode($result->values,true);
                 //var_dump($options[0]);
                 // $options es un array de 2 dimensiones: la primera dimension es la opcion y el segundo el valor/descripcion
+
+
+                if ($i == 0) {
+                    $serie[] = $options[0]['option'];
+                    $serie[] = 'Empate';
+                    $serie[] = $options[1]['option'];
+                }
+
                 if ($options[0]['value'] + 0 > $options[1]['value'] + 0)
                     $val1++;
                 elseif ($options[0]['value'] + 0 == $options[1]['value'] + 0)
@@ -132,14 +142,10 @@ class GameView extends Model
                 elseif ($options[0]['value'] + 0 < $options[1]['value'] + 0)
                     $val2++;
             }
-
+            $chart->dataSeries[] = $serie;
             $chart->dataSeries[] = ['', $val1, $valx, $val2];
         }
         else{
-            $serie = array(); // headers
-            $values = array();
-            $serie[]='';
-
             $v = array(); // values
             foreach ($results as $i=>$result) {
                 $options = json_decode($result->values, true);
