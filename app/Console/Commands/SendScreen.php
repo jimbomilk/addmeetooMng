@@ -126,11 +126,11 @@ class SendScreen extends Command
                      ->where('status' , '<=', Status::OFFICIAL)
                      ->cursor() as $gameboard)
         {
-            $start = Carbon::parse($gameboard->startgame);
-            $end = Carbon::parse($gameboard->endgame);
+            //$start = Carbon::parse($gameboard->startgame);
+            //$end = Carbon::parse($gameboard->endgame);
             //Log::info('*** GAME: '. $gameboard->id. ', NOW:'. $now .' START:' .$start. ', END: ' . $end);
 
-            if ($now >= $start && $now <= $end) {
+            //if ($now >= $start && $now <= $end) {
 
                 $gameview = $gameboard->getGameView($gameboard->status);
                 if(isset($gameview)) {
@@ -158,7 +158,7 @@ class SendScreen extends Command
 
 
 
-            }
+            //}
         }
 
         return $nscreens;
