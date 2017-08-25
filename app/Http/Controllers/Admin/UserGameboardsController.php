@@ -31,14 +31,15 @@ class UserGameBoardsController extends Controller {
     public function index()
 	{
         if (Auth::user()->is('admin'))
-            $usergameboards = UserProfile::where('users.type','=','user')
-                ->join('users', 'user_profiles.user_id', '=' , 'users.id')
+            $usergameboards = UserGameboard::where('users.type','=','user')
+                ->join('users', 'user_gameboards.user_id', '=' , 'users.id')
                 ->orderby('points','desc')->paginate();
         else
-            $usergameboards = UserProfile::where('locations.owner_id','=',Auth::user()->id)
+            $usergameboards = UserGameboard::where('locations.owner_id','=',Auth::user()->id)
                 ->where('users.type','=','user')
-                ->join('locations', 'user_profiles.location_id', '=' , 'locations.id')
-                ->join('users', 'user_profiles.user_id', '=' , 'users.id')
+                ->join ('user_profiles','user_gameboards.user_id','=','user_profiles.user_id')
+                ->join ('locations', 'user_profiles.location_id', '=' , 'locations.id')
+                ->join ('users', 'user_gameboards.user_id', '=' , 'users.id')
 
                 ->orderby('points','desc')
                 ->paginate();
@@ -89,7 +90,9 @@ class UserGameBoardsController extends Controller {
 	 */
 	public function edit($id)
 	{
+        Log::info('entrando '.$id);
         $usergameboard = UserGameboard::findOrFail($id);
+        Log::info('user: '.$usergameboard);
         if (isset($usergameboard))
         {
             return $this->sendView($usergameboard);
