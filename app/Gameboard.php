@@ -325,7 +325,10 @@ class Gameboard extends Model
             $user_game->save();
 
             // Además de acumular los puntos en el user_game se guardan en el user profile
-            $user_game->user->profile->points += $user_game->points;
+            $user_profile = $user_game->user->profile;
+            $user_profile->points += $user_game->points;
+            $user_profile->save();
+
         }
 
 
