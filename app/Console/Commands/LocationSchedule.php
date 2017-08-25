@@ -47,50 +47,52 @@ class LocationSchedule extends Command
 
         foreach($location->gameboards as $gameboard)
         {
-            $start = Carbon::parse($gameboard->startgame); //en UTC
-            $end = Carbon::parse($gameboard->endgame);
+            if ($gameboard->status != Status::DISABLED && $gameboard->status != Status::HIDDEN)
+            {
+                $start = Carbon::parse($gameboard->startgame); //en UTC
+                $end = Carbon::parse($gameboard->endgame);
 
 
-            $newstatus = $gameboard->status;
+                $newstatus = $gameboard->status;
 
 
-            if ($now >= $start  && $now <= $end && $gameboard->status == Status::SCHEDULED){
-                $newstatus = Status::RUNNING;
-            }
-
-            if ($now > $end && $gameboard->status >= Status::SCHEDULED){
-                $newstatus = Status::FINISHED;
-
-            }
-
-            if ( $gameboard->status >= Status::FINISHED && $gameboard->getHasResults()) {
-                $newstatus = Status::OFFICIAL;
-            }
-
-            // Si hay algún cambio se guarda en BBDD y se envia a pantalla
-            if ($newstatus != $gameboard->status) {
-                //Log::info('Gameboard :'.$gameboard->name. ' GAME_ID:'.$gameboard->id);
-                //Log::info('Status change from ' . $gameboard->status . ' to ' . $newstatus);
-
-                $gameboard->status = $newstatus;
-
-                if ($gameboard->activity->type != 'vote' && $newstatus == Status::OFFICIAL) {
-                    $gameboard->calculateRankings();
-                    $location->country->calculateRankings();
+                if ($now >= $start && $now <= $end && $gameboard->status == Status::SCHEDULED) {
+                    $newstatus = Status::RUNNING;
                 }
-                $gameboard->save();
-                $gameboard->updateGameView();
+
+                if ($now > $end && $gameboard->status >= Status::SCHEDULED) {
+                    $newstatus = Status::FINISHED;
+
+                }
+
+                if ($gameboard->status >= Status::FINISHED && $gameboard->getHasResults()) {
+                    $newstatus = Status::OFFICIAL;
+                }
+
+                // Si hay algún cambio se guarda en BBDD y se envia a pantalla
+                if ($newstatus != $gameboard->status) {
+                    //Log::info('Gameboard :'.$gameboard->name. ' GAME_ID:'.$gameboard->id);
+                    //Log::info('Status change from ' . $gameboard->status . ' to ' . $newstatus);
+
+                    $gameboard->status = $newstatus;
+
+                    if ($gameboard->activity->type != 'vote' && $newstatus == Status::OFFICIAL) {
+                        $gameboard->calculateRankings();
+                        $location->country->calculateRankings();
+                    }
+                    $gameboard->save();
+                    $gameboard->updateGameView();
+                }
+
+
+                // END GAME
+                $later = $end->addMinutes(1200); // 20 horas
+                if ($now > $later) {
+                    $gameboard->status = Status::HIDDEN;
+                    $gameboard->save();
+
+                }
             }
-
-
-            // END GAME
-            $later = $end->addMinutes(1200); // 20 horas
-            if ($now > $later) {
-                $gameboard->status = Status::HIDDEN;
-                $gameboard->save();
-
-            }
-
 
         }
 
