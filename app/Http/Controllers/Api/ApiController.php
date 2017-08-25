@@ -418,7 +418,7 @@ class ApiController extends Controller
                     left join user_gameboards b on a.points < b.points and b.gameboard_id = a.gameboard_id
                     inner join gameboards on a.gameboard_id = gameboards.id
                     inner join users on a.user_id = users.id
-                    where gameboards.location_id = :location
+                    where gameboards.location_id = :location and a.points>0
                     group by a.gameboard_id ,a.id
                     order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
 
