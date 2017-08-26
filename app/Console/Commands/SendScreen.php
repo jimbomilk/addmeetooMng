@@ -122,7 +122,7 @@ class SendScreen extends Command
         $nscreens=0;
         $d = $delay;
         foreach (Gameboard::where('location_id', '=', $location_id)
-                     ->where('status', '>=', Status::SCHEDULED)
+                     ->where('status', '>', Status::SCHEDULED)
                      ->where('status' , '<=', Status::OFFICIAL)
                      ->cursor() as $gameboard)
         {
