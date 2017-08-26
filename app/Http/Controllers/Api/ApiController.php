@@ -106,16 +106,7 @@ class ApiController extends Controller
 
     }
 
-    public function saveFile($file,$name,$folder)
-    {
-        $filename = null;
-        if (isset($file)) {
-            $filename = $folder . '/' . $name ;
-            Storage::disk('local')->put($filename, File::get($file));
-        }
 
-        return $filename;
-    }
 
 
     public function gameboard($gameboard_id, Request $request)
@@ -277,14 +268,25 @@ class ApiController extends Controller
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
     }
 
-
-    public function fileUpload(UserProfileRequest $request)
+    public function saveFile($file,$name,$folder)
     {
-        Log::info('entrando fileupload');
+        $filename = null;
+        if (isset($file)) {
+            $filename = $folder . '/' . $name .Carbon::now(). '.' . $file->getClientOriginalExtension();
+            if (Storage::disk('s3')->put($filename, File::get($file),'public'))
+                return Storage::disk('s3')->url($filename);
+        }
+
+        return $filename;
+    }
+
+    public function fileUpload(Request $request)
+    {
+        //Log::info('entrando fileupload');
         try {
             $user = JWTAuth::toUser($request->input('token'));
             Log::info('user:'.$user);
-            $filename = $request->saveFile('profile', $user->path);
+            $filename = $this->saveFile($request->file('file'),'profile', $user->path);
             Log::info('$filename:'.$filename);
             if ($filename != $user->profile->avatar) {
                 $user->profile->avatar = $filename;
@@ -296,6 +298,8 @@ class ApiController extends Controller
 
         return response()->json($user->profile->avatar);
     }
+
+
 
     public function userUpdate(Request $request)
     {
