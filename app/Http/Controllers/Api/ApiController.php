@@ -334,7 +334,7 @@ class ApiController extends Controller
                         packs.advertisement_id = ads.id AND
                         packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
                         packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
-                    ORDER BY packs.updated_at DESC
+                    ORDER BY RAND()
                     LIMIT 5';
         }
         else{
