@@ -421,7 +421,7 @@ class ApiController extends Controller
 
 
 
-        $usergameboards = DB::select( DB::raw("select concat(gameboards.name,' Reglas: si aciertas un resultado parcial ganas un minipunto, el que tenga más minipuntos gana el juego ') as gb_name,users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
+        $usergameboards = DB::select( DB::raw("select concat(gameboards.name,' (Reglas: se suman los aciertos parciales y el que más tenga, gana) ') as gb_name,users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
                     from user_gameboards a
                     left join user_gameboards b on a.points < b.points and b.gameboard_id = a.gameboard_id
                     inner join gameboards on a.gameboard_id = gameboards.id
