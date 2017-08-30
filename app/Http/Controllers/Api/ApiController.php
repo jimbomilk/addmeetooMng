@@ -332,7 +332,7 @@ class ApiController extends Controller
             $query = 'SELECT * from advertisements ads
                     JOIN adspacks packs ON
                         packs.advertisement_id = ads.id AND
-                        packs.smallpacks >0 AND
+                        packs.smallpack >0 AND
                         packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
                         packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
                     ORDER BY RAND()
@@ -342,7 +342,7 @@ class ApiController extends Controller
             $query = 'SELECT * from advertisements ads
                       JOIN adspacks packs ON
                       packs.advertisement_id = ads.id AND
-                      packs.smallpacks >0
+                      packs.smallpack >0
                       ORDER BY RAND()
                       LIMIT 10';
         }
