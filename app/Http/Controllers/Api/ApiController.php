@@ -120,7 +120,7 @@ class ApiController extends Controller
 
         try {
             $gameboard = Gameboard::findOrFail($gameboard_id);
-            if (!$gameboard->participation_status)
+            if (!isset($gameboard))
                 return response()->json(['error' => "SORRY, ACTIVITY CLOSED"], HttpResponse::HTTP_UNAUTHORIZED);
         } catch (Exception $e) {
             return response()->json(['error' => "ACTIVITY NOT FOUND"], HttpResponse::HTTP_NOT_FOUND);
@@ -146,7 +146,7 @@ class ApiController extends Controller
         $input = $request->all();
         try {
             $gameboard = Gameboard::findOrFail($gameboard_id);
-            if (!$gameboard->participation_status)
+            if (!isset($gameboard))
                 return response()->json(['error' => "GAME CLOSED: $gameboard_id"], HttpResponse::HTTP_UNAUTHORIZED);
         } catch (Exception $e) {
             return response()->json(['error' => "GAME NOT FOUND: $gameboard_id"], HttpResponse::HTTP_NOT_FOUND);
@@ -169,7 +169,7 @@ class ApiController extends Controller
 
         // GUARDAMOS PUNTOS y RECALCULAMOS TOP RANK
         if (!$second) {
-            $result->points = $result->points + + $gameboard->activity->reward_participation;
+            $result->points = $result->points + $gameboard->activity->reward_participation;
             $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
             $user->profile->save();
             $user->profile->recalculateTopRank();
@@ -257,9 +257,9 @@ class ApiController extends Controller
         $user = new User($request->all());
 
         if (isset($user)) {
-            $token = JWTAuth::fromUser($user);
             $user->type = 'user';
             $user->save();
+            $token = JWTAuth::fromUser($user);
             $profile = new UserProfile();
             $profile->user_id = $user->id;
             $profile->location_id = $request->get('location');
