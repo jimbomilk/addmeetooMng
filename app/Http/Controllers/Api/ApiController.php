@@ -323,13 +323,17 @@ class ApiController extends Controller
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
 
-        $query = 'SELECT * from advertisements ads
-                    JOIN adspacks packs ON
-                        packs.advertisement_id = ads.id AND
-                        packs.smallpack >0';
+        $query = 'SELECT * from advertisements ads  JOIN adspacks packs ON packs.advertisement_id = ads.id AND packs.smallpack >0';
         if ($latitude != -1 && $longitude != -1) {
-             $query .= ' AND packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
-                        packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117)';
+            $query .= ' AND packs.latitude BETWEEN (';
+            $query .= $latitude;
+            $query .= ' - (packs.radio*0.0117)) AND (';
+            $query .= $latitude;
+            $query .= ' + (packs.radio*0.0117)) AND packs.longitude BETWEEN (';
+            $query .= $longitude;
+            $query .= ' - (packs.radio*0.0117)) AND (';
+            $query .= $longitude;
+            $query .= ' + (packs.radio*0.0117)';
         }
 
         $query .= ' ORDER BY RAND() LIMIT 10';
