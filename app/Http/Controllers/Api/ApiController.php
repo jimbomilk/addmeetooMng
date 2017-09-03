@@ -322,30 +322,17 @@ class ApiController extends Controller
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
-        /*try {
-            JWTAuth::toUser($input['token']);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }*/
 
-        if ($latitude != -1 && $longitude != -1) {
-            $query = 'SELECT * from advertisements ads
+        $query = 'SELECT * from advertisements ads
                     JOIN adspacks packs ON
                         packs.advertisement_id = ads.id AND
-                        packs.smallpack >0 AND
-                        packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
-                        packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
-                    ORDER BY RAND()
-                    LIMIT 10';
+                        packs.smallpack >0';
+        if ($latitude != -1 && $longitude != -1) {
+             $query .= ' AND packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
+                        packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117)';
         }
-        else{
-            $query = 'SELECT * from advertisements ads
-                      JOIN adspacks packs ON
-                      packs.advertisement_id = ads.id AND
-                      packs.smallpack >0
-                      ORDER BY RAND()
-                      LIMIT 10';
-        }
+
+        $query .= ' ORDER BY CASE advertisements.id WHEN 16 THEN 0 ELSE RAND() END LIMIT 10';
 
         $offers = DB::select($query);
         return response()->json($offers);
