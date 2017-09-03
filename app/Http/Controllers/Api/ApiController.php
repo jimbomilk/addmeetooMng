@@ -332,7 +332,7 @@ class ApiController extends Controller
                         packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117)';
         }
 
-        $query .= ' ORDER BY CASE advertisements.id WHEN 16 THEN 0 ELSE RAND() END LIMIT 10';
+        $query .= ' ORDER BY RAND() LIMIT 10';
 
         $offers = DB::select($query);
         return response()->json($offers);
