@@ -334,7 +334,7 @@ class ApiController extends Controller
                 packs.smallpack >0 AND
                 packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
                 packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
-                ORDER BY CASE ads.id WHEN 16 THEN 0 ELSE RAND() END
+                ORDER BY CASE ads.id WHEN 16 THEN 0 ELSE RAND()+10 END
                 LIMIT 10';
         }
         else{
@@ -342,7 +342,7 @@ class ApiController extends Controller
                       JOIN adspacks packs ON
                       packs.advertisement_id = ads.id AND
                       packs.smallpack >0
-                      ORDER BY CASE ads.id WHEN 16 THEN 0 ELSE RAND() END
+                      ORDER BY CASE ads.id WHEN 16 THEN 0 ELSE RAND()+10 END
                       LIMIT 10';
         }
 
