@@ -462,7 +462,7 @@ class ApiController extends Controller
         $prev = DB::select(DB::raw($query));
 
 
-        return response()->json(['ranking'=>$current, 'month'=>Carbon::now()->subMonth()->formatLocalized('%B'),'preRanking'=>$current, 'preMonth'=>Carbon::now()->subMonth()->formatLocalized('%B')]);
+        return response()->json(['ranking'=>$current, 'month'=>Carbon::now()->formatLocalized('%B'),'preRanking'=>$current, 'preMonth'=>Carbon::now()->subMonth()->formatLocalized('%B')]);
 
     }
 
