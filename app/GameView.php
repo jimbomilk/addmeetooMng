@@ -210,8 +210,5 @@ class GameView extends Model
         return $this->gameboard->deadline;
     }
 
-    public function getParticipationStatusAttribute()
-    {
-        return $this->gameboard->participation_status;
-    }
+
 }

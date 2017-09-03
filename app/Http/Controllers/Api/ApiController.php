@@ -202,10 +202,10 @@ class ApiController extends Controller
 
 
         if(isset($location_id)) {
-            $gameboards = Gameboard::where('location_id', $location_id)->get();
+            $gameboards = Gameboard::where('location_id', $location_id)->orderby('startgame')->get();
         }
         else
-            $gameboards = Gameboard::all();
+            $gameboards = Gameboard::all()->orderby('startgame');
         //$now = Carbon::now(Config::get('app.timezone'));
         $gameviews = array();
         foreach($gameboards as $gameboard)
