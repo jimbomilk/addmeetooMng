@@ -427,7 +427,6 @@ class ApiController extends Controller
     public function monthlyRanking(Request $request)
     {
         $input = $request->all();
-        setLocale(LC_TIME,config('app.locale'));
         $location = $input['location'];
         $startcurrentmonth = Carbon::now()->startofMonth();
         $endcurrentmonth = Carbon::now()->endofMonth();
@@ -449,7 +448,7 @@ class ApiController extends Controller
 
         $usergameboards = DB::select(DB::raw($query));
 
-        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now()->format('F')]);
+        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::setLocale('es')->now()->format('F')]);
 
     }
 
