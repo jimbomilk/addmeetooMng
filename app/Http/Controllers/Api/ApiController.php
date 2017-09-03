@@ -429,7 +429,6 @@ class ApiController extends Controller
         $input = $request->all();
         $location = $input['location'];
         setlocale(LC_TIME, 'es_ES');
-        Carbon::setLocale('es');
         $startcurrentmonth = Carbon::now()->startofMonth();
         $endcurrentmonth = Carbon::now()->endofMonth();
 
