@@ -397,6 +397,7 @@ class ApiController extends Controller
 
     }
 
+
     public function userGameboards(Request $request)
     {
         $input = $request->all();
@@ -434,6 +435,32 @@ class ApiController extends Controller
 
     }
 
+    public function monthlyRanking(Request $request)
+    {
+        $input = $request->all();
+        $location = $input['location'];
+        $startcurrentmonth = Carbon::now()->startofMonth();
+        $endcurrentmonth = Carbon::now()->endofMonth();
 
+        try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }
+
+
+        $usergameboards = DB::select( DB::raw("select users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
+                    from user_gameboards a
+                    left join user_gameboards b on a.points < b.points and b.gameboard_id = a.gameboard_id
+                    inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = :location
+                    inner join users on a.user_id = users.id
+                    where a.points>0 and gameboards.status < " .Status::HIDDEN.
+            " and gameboards".
+            " group by a.gameboard_id ,a.id
+                    order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
+
+        return response()->json($usergameboards);
+
+    }
 
 }

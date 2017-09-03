@@ -315,11 +315,11 @@ class Gameboard extends Model
             //Asignación de recompensas
             if ($user_game->temp_points>0) {
                 if ($user_game->rank == 1)
-                    $user_game->points = $this->activity->reward_first;
+                    $user_game->points = $this->activity->reward_participation +$this->activity->reward_first;
                 if ($user_game->rank == 2)
-                    $user_game->points = $this->activity->reward_second;
+                    $user_game->points = $this->activity->reward_participation +$this->activity->reward_second;
                 if ($user_game->rank == 3)
-                    $user_game->points = $this->activity->reward_third;
+                    $user_game->points = $this->activity->reward_participation +$this->activity->reward_third;
             }
 
             $user_game->save();
