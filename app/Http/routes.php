@@ -155,7 +155,7 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
 
     Route::post('globalRanking','ApiController@globalRanking');
     Route::post('gamesRanking','ApiController@userGameboards');
-
+    Route::post('monthlyRanking','ApiController@monthlyRanking');
 
 
     //Route::get('auctions', 'ApiController@indexAuctions');

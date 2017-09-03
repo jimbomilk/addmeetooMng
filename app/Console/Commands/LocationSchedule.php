@@ -60,12 +60,12 @@ class LocationSchedule extends Command
                     $newstatus = Status::RUNNING;
                 }
 
-                if ($now > $end && $gameboard->status >= Status::SCHEDULED) {
+                if ($now > $end && $gameboard->status == Status::RUNNING) {
                     $newstatus = Status::FINISHED;
 
                 }
 
-                if ($gameboard->status >= Status::FINISHED && $gameboard->getHasResults()) {
+                if ($gameboard->status == Status::FINISHED && $gameboard->getHasResults()) {
                     $newstatus = Status::OFFICIAL;
                 }
 
@@ -84,13 +84,11 @@ class LocationSchedule extends Command
                     $gameboard->updateGameView();
                 }
 
-
                 // END GAME
-                $later = $end->addMinutes(1200); // 20 horas
-                if ($now > $later) {
+                $later = $end->addMinutes(1440); // 24 horas
+                if ($now > $later && $gameboard->status == Status::OFFICIAL) {
                     $gameboard->status = Status::HIDDEN;
                     $gameboard->save();
-
                 }
             }
 

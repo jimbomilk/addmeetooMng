@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" afterPath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -37,23 +38,49 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84313726" vertical-offset="5495" max-vertical-offset="7990">
-              <caret line="346" column="0" selection-start-line="346" selection-start-column="0" selection-end-line="346" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.962963" vertical-offset="7157" max-vertical-offset="7820">
+              <caret line="447" column="31" selection-start-line="447" selection-start-column="31" selection-end-line="447" selection-end-column="31" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1504458520906" expanded="true" signature="9572:10072" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="9646:9804" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="9646:10072" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="10162:10338" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="10162:10361" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="10162:10385" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504458520906" expanded="true" signature="10422:10436" placeholder="select(${$qu..." />
-                <marker date="1504458520906" expanded="true" signature="12861:13511" placeholder="select gameb..user_gameboards..." />
-                <marker date="1504458520906" expanded="true" signature="14111:14636" placeholder="select gameb..user_gameboards..." />
-                <marker date="1504458520906" expanded="true" signature="14111:14757" placeholder="select gameb..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="9572:10072" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="9646:9804" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="9646:10072" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="10216:10392" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="10216:10392" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="10216:10392" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="10216:10498" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504464472970" expanded="true" signature="10536:10550" placeholder="select(${$qu..." />
+                <marker date="1504464472970" expanded="true" signature="12379:13029" placeholder="select gameb..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="13599:13839" placeholder="select users..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="13599:14070" placeholder="select users..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="13599:14071" placeholder="select users..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="13599:14116" placeholder="select users..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="13599:14117" placeholder="select users..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="13599:14139" placeholder="select users..user_gameboards..." />
+                <marker date="1504464472970" expanded="true" signature="13599:14204" placeholder="select users..user_gameboards..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2017_01_25_112954_user_gameboard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_112954_user_gameboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="9.807693" vertical-offset="255" max-vertical-offset="952">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2017_01_25_103828_gameboard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_103828_gameboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.5384617" vertical-offset="204" max-vertical-offset="1105">
+              <caret line="24" column="39" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,8 +88,8 @@
       <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8846154" vertical-offset="1079" max-vertical-offset="1751">
-              <caret line="79" column="53" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="53" />
+            <state vertical-scroll-proportion="-7.0384617" vertical-offset="1177" max-vertical-offset="1717">
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,32 +148,9 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2151" max-vertical-offset="2856">
-              <caret line="143" column="54" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="54" />
+            <state vertical-scroll-proportion="-14.038462" vertical-offset="2151" max-vertical-offset="2856">
+              <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2017_02_17_081026_game_views.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="884">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameView.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/GameView.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3072" max-vertical-offset="3689">
-              <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
-              <folding>
-                <marker date="1504114648025" expanded="true" signature="2479:2591" placeholder="SELECT COUNT..user_gameboards..." />
-                <marker date="1504114648025" expanded="true" signature="3582:3738" placeholder="SELECT user_..user_gameboards..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -237,7 +241,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Request.php" />
         <option value="$PROJECT_DIR$/app/General.php" />
@@ -245,7 +248,6 @@
         <option value="$PROJECT_DIR$/app/Status.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
@@ -253,6 +255,8 @@
         <option value="$PROJECT_DIR$/resources/lang/en/validation.php" />
         <option value="$PROJECT_DIR$/app/Gameboard.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -445,7 +449,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Console" />
+              <option name="myItemId" value="Http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -463,11 +467,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Console" />
+              <option name="myItemId" value="Http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Commands" />
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -580,54 +610,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00158" summary="ok">
-      <created>1503564731282</created>
-      <option name="number" value="00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1503564731282</updated>
-    </task>
-    <task id="LOCAL-00159" summary="ok">
-      <created>1503565526370</created>
-      <option name="number" value="00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1503565526370</updated>
-    </task>
-    <task id="LOCAL-00160" summary="ok">
-      <created>1503568407145</created>
-      <option name="number" value="00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1503568407145</updated>
-    </task>
-    <task id="LOCAL-00161" summary="ok">
-      <created>1503568770852</created>
-      <option name="number" value="00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1503568770852</updated>
-    </task>
-    <task id="LOCAL-00162" summary="ok">
-      <created>1503568877566</created>
-      <option name="number" value="00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1503568877566</updated>
-    </task>
-    <task id="LOCAL-00163" summary="ok">
-      <created>1503568887926</created>
-      <option name="number" value="00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1503568887926</updated>
-    </task>
-    <task id="LOCAL-00164" summary="ok">
-      <created>1503569125889</created>
-      <option name="number" value="00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1503569125889</updated>
-    </task>
-    <task id="LOCAL-00165" summary="ok">
-      <created>1503569158378</created>
-      <option name="number" value="00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1503569158378</updated>
     </task>
     <task id="LOCAL-00166" summary="ok">
       <created>1503570129686</created>
@@ -875,7 +857,55 @@
       <option name="project" value="LOCAL" />
       <updated>1504458441817</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="ok">
+      <created>1504458534594</created>
+      <option name="number" value="00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1504458534594</updated>
+    </task>
+    <task id="LOCAL-00208" summary="ok">
+      <created>1504459064960</created>
+      <option name="number" value="00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1504459064960</updated>
+    </task>
+    <task id="LOCAL-00209" summary="ok">
+      <created>1504459246224</created>
+      <option name="number" value="00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1504459246224</updated>
+    </task>
+    <task id="LOCAL-00210" summary="ok">
+      <created>1504459502820</created>
+      <option name="number" value="00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1504459502820</updated>
+    </task>
+    <task id="LOCAL-00211" summary="ok">
+      <created>1504459749674</created>
+      <option name="number" value="00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1504459749674</updated>
+    </task>
+    <task id="LOCAL-00212" summary="ok">
+      <created>1504459904329</created>
+      <option name="number" value="00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1504459904329</updated>
+    </task>
+    <task id="LOCAL-00213" summary="ok">
+      <created>1504460090640</created>
+      <option name="number" value="00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1504460090640</updated>
+    </task>
+    <task id="LOCAL-00214" summary="ok">
+      <created>1504467901994</created>
+      <option name="number" value="00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1504467901994</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1163,13 +1193,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_112954_user_gameboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.25585285" vertical-offset="153" max-vertical-offset="952">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3979933" vertical-offset="459" max-vertical-offset="2567">
@@ -1271,13 +1294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_103828_gameboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="357" max-vertical-offset="1105">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.699187" vertical-offset="1409" max-vertical-offset="3196">
@@ -1298,17 +1314,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3072" max-vertical-offset="3689">
           <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
           <folding>
-            <marker date="1504114648025" expanded="true" signature="2479:2591" placeholder="SELECT COUNT..user_gameboards..." />
-            <marker date="1504114648025" expanded="true" signature="3582:3738" placeholder="SELECT user_..user_gameboards..." />
+            <marker date="1504114648025" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..user_gameboards..." />
+            <marker date="1504114648025" expanded="true" signature="-1:-1" placeholder="SELECT user_..user_gameboards..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2151" max-vertical-offset="2856">
-          <caret line="143" column="54" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1336,14 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8846154" vertical-offset="1079" max-vertical-offset="1751">
-          <caret line="79" column="53" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_05_15_093650_activity.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.576923" vertical-offset="203" max-vertical-offset="850">
@@ -1360,24 +1360,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_103828_gameboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="204" max-vertical-offset="1105">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_112954_user_gameboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="9.807693" vertical-offset="255" max-vertical-offset="952">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.038462" vertical-offset="2151" max-vertical-offset="2856">
+          <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0384617" vertical-offset="1177" max-vertical-offset="1717">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84313726" vertical-offset="5495" max-vertical-offset="7990">
-          <caret line="346" column="0" selection-start-line="346" selection-start-column="0" selection-end-line="346" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.962963" vertical-offset="7157" max-vertical-offset="7820">
+          <caret line="447" column="31" selection-start-line="447" selection-start-column="31" selection-end-line="447" selection-end-column="31" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1504458520906" expanded="true" signature="9572:10072" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="9646:9804" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="9646:10072" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="10162:10338" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="10162:10361" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="10162:10385" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504458520906" expanded="true" signature="10422:10436" placeholder="select(${$qu..." />
-            <marker date="1504458520906" expanded="true" signature="12861:13511" placeholder="select gameb..user_gameboards..." />
-            <marker date="1504458520906" expanded="true" signature="14111:14636" placeholder="select gameb..user_gameboards..." />
-            <marker date="1504458520906" expanded="true" signature="14111:14757" placeholder="select gameb..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="9572:10072" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="9636:10072" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="9646:9804" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="9646:10072" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="10216:10392" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="10216:10392" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="10216:10392" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="10216:10498" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504464472970" expanded="true" signature="10536:10550" placeholder="select(${$qu..." />
+            <marker date="1504464472970" expanded="true" signature="12379:13029" placeholder="select gameb..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="13599:13839" placeholder="select users..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="13599:14070" placeholder="select users..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="13599:14071" placeholder="select users..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="13599:14116" placeholder="select users..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="13599:14117" placeholder="select users..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="13599:14139" placeholder="select users..user_gameboards..." />
+            <marker date="1504464472970" expanded="true" signature="13599:14204" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
