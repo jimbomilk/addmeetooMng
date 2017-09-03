@@ -409,19 +409,6 @@ class ApiController extends Controller
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
         }
 
-        /*$usergameboards = DB::table('user_gameboards a')
-            ->select('gameboards.name as gb_name', 'users.name as us_name','a.*','count (b.gameboard_id)+1 as ranking' )
-            ->leftJoin('user_gameboards b','a.points', '>','b.points')
-            ->join('gameboards', 'a.gameboard_id', '=', 'gameboards.id')
-            ->join('users','a.user_id','=','users.id')
-            ->where('gameboards.location_id','=',$location)
-            ->orderBy('a.gameboard_id', 'asc')
-            ->orderBy('a.points', 'desc')
-            ->groupBy('a.gameboard_id')
-            ->toSql();*/
-
-
-
 
         $usergameboards = DB::select( DB::raw("select gameboards.name as gb_name,users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
                     from user_gameboards a
@@ -449,16 +436,16 @@ class ApiController extends Controller
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
         }
 
+        $query = "select users.name as name , sum(a.points) as points from
+                                        user_gameboards a
+                                        inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
+                                        . " inner join users on a.user_id = users.id
+                                        where a.points>0 and gameboards.status < " .Status::HIDDEN.
+            " and a.updated_at >= ". $startcurrentmonth . " and a.updated_at <= " . $endcurrentmonth .
+            " group by users.name order by points desc, name asc";
+        Log::info('Monthly query:'.$query);
 
-        $usergameboards = DB::select( DB::raw("select users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
-                    from user_gameboards a
-                    left join user_gameboards b on a.points < b.points and b.gameboard_id = a.gameboard_id
-                    inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = :location
-                    inner join users on a.user_id = users.id
-                    where a.points>0 and gameboards.status < " .Status::HIDDEN.
-            " and gameboards".
-            " group by a.gameboard_id ,a.id
-                    order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
+        $usergameboards = DB::select(DB::raw($query));
 
         return response()->json($usergameboards);
 
