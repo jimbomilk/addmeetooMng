@@ -6,6 +6,7 @@ use App\Adspack;
 use App\Events\Envelope;
 use App\Events\MessageEvent;
 use App\Gameboard;
+use App\location;
 use App\Status;
 use App\User;
 use App\UserGameboard;
@@ -427,8 +428,12 @@ class ApiController extends Controller
     {
         $input = $request->all();
         $location = $input['location'];
-        $startcurrentmonth = Carbon::now()->startofMonth();
-        $endcurrentmonth = Carbon::now()->endofMonth();
+        $l = Location::findOrFail($location);
+        if (!isset($l))
+           return response()->json(['error' => 'Error inesperado'], HttpResponse::HTTP_UNAUTHORIZED);
+
+        $startcurrentmonth = Carbon::now($l->timezone)->startofMonth();
+        $endcurrentmonth = Carbon::now($l->timezone)->endofMonth();
 
         try {
             JWTAuth::toUser($input['token']);
@@ -447,7 +452,7 @@ class ApiController extends Controller
 
         $usergameboards = DB::select(DB::raw($query));
 
-        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now()->format('F')]);
+        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now($l->timezone)->format('F')]);
 
     }
 
