@@ -447,7 +447,7 @@ class ApiController extends Controller
 
         $usergameboards = DB::select(DB::raw($query));
 
-        return response()->json($usergameboards);
+        return response()->json($usergameboards,Carbon::now()->month);
 
     }
 
