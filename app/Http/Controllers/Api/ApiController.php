@@ -428,12 +428,8 @@ class ApiController extends Controller
     {
         $input = $request->all();
         $location = $input['location'];
-        $l = Location::findOrFail($location);
-        if (!isset($l))
-           return response()->json(['error' => 'Error inesperado'], HttpResponse::HTTP_UNAUTHORIZED);
-
-        $startcurrentmonth = Carbon::now($l->timezone)->startofMonth();
-        $endcurrentmonth = Carbon::now($l->timezone)->endofMonth();
+        $startcurrentmonth = Carbon::now()->startofMonth();
+        $endcurrentmonth = Carbon::now()->endofMonth();
 
         try {
             JWTAuth::toUser($input['token']);
@@ -452,7 +448,7 @@ class ApiController extends Controller
 
         $usergameboards = DB::select(DB::raw($query));
 
-        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now($l->timezone)->format('F')]);
+        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now()->format('F')]);
 
     }
 
