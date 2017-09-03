@@ -322,18 +322,24 @@ class ApiController extends Controller
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
-
-        $query = 'SELECT * from advertisements ads  JOIN adspacks packs ON packs.advertisement_id = ads.id AND packs.smallpack >0';
+        /*try {
+            JWTAuth::toUser($input['token']);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
+        }*/
         if ($latitude != -1 && $longitude != -1) {
-            $query .= ' AND packs.latitude BETWEEN (';
-            $query .= $latitude;
-            $query .= ' - (packs.radio*0.0117)) AND (';
-            $query .= $latitude;
-            $query .= ' + (packs.radio*0.0117)) AND packs.longitude BETWEEN (';
-            $query .= $longitude;
-            $query .= ' - (packs.radio*0.0117)) AND (';
-            $query .= $longitude;
-            $query .= ' + (packs.radio*0.0117)';
+             $query = 'SELECT * from advertisements ads
+                JOIN adspacks packs ON
+                packs.advertisement_id = ads.id AND
+                packs.smallpack >0 AND
+                packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
+                packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117)';
+        }
+        else{
+            $query = 'SELECT * from advertisements ads
+                      JOIN adspacks packs ON
+                      packs.advertisement_id = ads.id AND
+                      packs.smallpack >0';
         }
 
         $query .= ' ORDER BY RAND() LIMIT 10';
