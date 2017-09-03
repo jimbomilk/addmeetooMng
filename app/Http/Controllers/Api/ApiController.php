@@ -441,8 +441,8 @@ class ApiController extends Controller
                                         inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
                                         . " inner join users on a.user_id = users.id
                                         where a.points>0 and gameboards.status < " .Status::HIDDEN.
-            " and a.updated_at >= ". $startcurrentmonth . " and a.updated_at <= " . $endcurrentmonth .
-            " group by users.name order by points desc, name asc";
+            " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
+            "' group by users.name order by points desc, name asc";
         Log::info('Monthly query:'.$query);
 
         $usergameboards = DB::select(DB::raw($query));
