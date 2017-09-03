@@ -286,9 +286,9 @@ class ApiController extends Controller
         //Log::info('entrando fileupload');
         try {
             $user = JWTAuth::toUser($request->input('token'));
-            Log::info('user:'.$user);
+            //Log::info('user:'.$user);
             $filename = $this->saveFile($request->file('file'),'profile', $user->path);
-            Log::info('$filename:'.$filename);
+            //Log::info('$filename:'.$filename);
             if ($filename != $user->profile->avatar) {
                 $user->profile->avatar = $filename;
                 $user->profile->save();
@@ -445,11 +445,24 @@ class ApiController extends Controller
                                         where a.points>0 and gameboards.status < " .Status::HIDDEN.
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
             "' group by users.name order by points desc, name asc";
-        Log::info('Monthly query:'.$query);
+        //Log::info('Monthly query:'.$query);
 
-        $usergameboards = DB::select(DB::raw($query));
+        $current = DB::select(DB::raw($query));
 
-        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now()->formatLocalized('%B')]);
+        // Previous month
+        $startcurrentmonth = Carbon::now()->subMonth()->startofMonth();
+        $endcurrentmonth = Carbon::now()->subMonth()->endofMonth();
+        $query = "select users.name as name , sum(a.points) as points from
+                                        user_gameboards a
+                                        inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
+            . " inner join users on a.user_id = users.id
+                                        where a.points>0 and gameboards.status < " .Status::HIDDEN.
+            " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
+            "' group by users.name order by points desc, name asc";
+        $prev = DB::select(DB::raw($query));
+
+
+        return response()->json(['ranking'=>$current, 'month'=>Carbon::now()->subMonth()->formatLocalized('%B'),'preRanking'=>$current, 'preMonth'=>Carbon::now()->subMonth()->formatLocalized('%B')]);
 
     }
 
