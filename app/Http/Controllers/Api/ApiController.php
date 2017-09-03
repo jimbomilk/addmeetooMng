@@ -369,7 +369,7 @@ class ApiController extends Controller
                         ->where('start','<',$now)
                         ->where('end','>',$now)
                         ->where('location_id',$location)
-                        ->orderBy('start','desc')
+                        ->orderBy('end','asc')
                         ->get();
 
         return response()->json($messages);
