@@ -450,7 +450,7 @@ class ApiController extends Controller
 
         $usergameboards = DB::select(DB::raw($query));
 
-        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now()->formatLocalized('F')]);
+        return response()->json(['ranking'=>$usergameboards,'month'=>Carbon::now()->formatLocalized('%B')]);
 
     }
 
