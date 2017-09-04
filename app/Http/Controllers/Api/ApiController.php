@@ -415,7 +415,7 @@ class ApiController extends Controller
                     left join user_gameboards b on a.points < b.points and b.gameboard_id = a.gameboard_id
                     inner join gameboards on a.gameboard_id = gameboards.id
                     inner join users on a.user_id = users.id
-                    where gameboards.location_id = :location and a.points>0 and gameboards.status < " .Status::HIDDEN.
+                    where gameboards.location_id = :location and a.points>0 and gameboards.status <> " .Status::DISABLED.
                     " group by a.gameboard_id ,a.id
                     order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
 
@@ -441,7 +441,7 @@ class ApiController extends Controller
                                         user_gameboards a
                                         inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
                                         . " inner join users on a.user_id = users.id
-                                        where a.points>0 and gameboards.status < " .Status::HIDDEN.
+                                        where a.points>0 and gameboards.status <> " .Status::DISABLED.
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
             "' group by users.id order by points desc, name asc LIMIT 10";
         Log::info('Monthly query:'.$query);
@@ -455,7 +455,7 @@ class ApiController extends Controller
                                         user_gameboards a
                                         inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
             . " inner join users on a.user_id = users.id
-                                        where a.points>0 and gameboards.status < " .Status::HIDDEN.
+                                        where a.points>0 and gameboards.status <> " .Status::DISABLED.
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
             "' group by users.id order by points desc, name asc LIMIT 10";
         $prev = DB::select(DB::raw($query));
