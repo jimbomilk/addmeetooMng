@@ -416,6 +416,7 @@ class ApiController extends Controller
                     inner join gameboards on a.gameboard_id = gameboards.id
                     inner join users on a.user_id = users.id
                     where gameboards.location_id = :location and a.points>0 and gameboards.status <> " .Status::DISABLED.
+                    " and gameboards.status < ".Status::HIDDEN.
                     " group by a.gameboard_id ,a.id
                     order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
 
@@ -442,6 +443,7 @@ class ApiController extends Controller
                                         inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
                                         . " inner join users on a.user_id = users.id
                                         where a.points>0 and gameboards.status <> " .Status::DISABLED.
+
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
             "' group by users.id order by points desc, name asc LIMIT 10";
         Log::info('Monthly query:'.$query);

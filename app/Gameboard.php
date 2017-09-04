@@ -284,7 +284,7 @@ class Gameboard extends Model
             $user_game->rank = 0;
             $user_game->rankpo = 0;
             $user_game->temp_points = 0;
-            $user_game->points=0;
+            //$user_game->points=0;
             //recogemos su array de values
             $user_values = json_decode($user_game->values,true);
 
