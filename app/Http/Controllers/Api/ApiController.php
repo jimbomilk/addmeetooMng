@@ -390,7 +390,7 @@ class ApiController extends Controller
         }
 
         $user_profiles =  UserProfile::where('location_id','=',$location)
-            ->select('users.name as us_name','user_profiles.*')
+            ->select('users.id','users.name as us_name','user_profiles.*')
             ->join('users','user_profiles.user_id','=','users.id')
             ->orderBy('points', 'desc')
             ->orderBy('name', 'asc')
@@ -411,14 +411,14 @@ class ApiController extends Controller
         }
 
 
-        $usergameboards = DB::select( DB::raw("select gameboards.name as gb_name,users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
+        $usergameboards = DB::select( DB::raw("select a.user_id as id,gameboards.name as gb_name,users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
                     from user_gameboards a
                     left join user_gameboards b on a.points < b.points and b.gameboard_id = a.gameboard_id
                     inner join gameboards on a.gameboard_id = gameboards.id
                     inner join users on a.user_id = users.id
                     where gameboards.location_id = :location and a.points>0 and gameboards.status <> " .Status::DISABLED.
                     " and gameboards.status < ".Status::HIDDEN.
-                    " group by a.gameboard_id ,a.id
+                    " group by a.gameboard_id ,a.id,a.user_id
                     order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
 
         return response()->json($usergameboards);
