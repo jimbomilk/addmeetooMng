@@ -23,7 +23,7 @@ class Message extends Migration {
             $table->dateTime('end');
 
 
-            $table->enum('type',['trabajo','ocio','util']);
+            $table->enum('type',['trabajo','ocio','util','premio']);
 
             $table->integer('location_id')->unsigned()->nullable(); // Si no tiene location son avisos generales
             $table->foreign('location_id')

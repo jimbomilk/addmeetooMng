@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php" afterPath="$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -39,29 +39,36 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0" vertical-offset="7225" max-vertical-offset="7871">
-              <caret line="452" column="77" selection-start-line="452" selection-start-column="77" selection-end-line="452" selection-end-column="77" />
+            <state vertical-scroll-proportion="4.440594" vertical-offset="6026" max-vertical-offset="8075">
+              <caret line="460" column="50" selection-start-line="460" selection-start-column="50" selection-end-line="460" selection-end-column="50" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1504480060089" expanded="true" signature="9590:10090" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="9654:10090" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="9654:10090" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="9664:9822" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="9664:10090" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="10234:10410" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="10234:10410" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="10234:10410" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="10234:10516" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504480060089" expanded="true" signature="10554:10568" placeholder="select(${$qu..." />
-                <marker date="1504480060089" expanded="true" signature="12397:13047" placeholder="select gameb..user_gameboards..." />
-                <marker date="1504480060089" expanded="true" signature="13700:13940" placeholder="select users..user_gameboards..." />
-                <marker date="1504480060089" expanded="true" signature="13700:14171" placeholder="select users..user_gameboards..." />
-                <marker date="1504480060089" expanded="true" signature="13700:14172" placeholder="select users..user_gameboards..." />
-                <marker date="1504480060089" expanded="true" signature="13700:14219" placeholder="select users..user_gameboards..." />
-                <marker date="1504480060089" expanded="true" signature="13700:14220" placeholder="select users..user_gameboards..." />
-                <marker date="1504480060089" expanded="true" signature="13700:14243" placeholder="select users..user_gameboards..." />
-                <marker date="1504480060089" expanded="true" signature="13700:14309" placeholder="select users..user_gameboards..." />
+                <marker date="1504505525723" expanded="true" signature="9668:10189" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504505525723" expanded="true" signature="10238:10520" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504505525723" expanded="true" signature="12401:13051" placeholder="select gameb..user_gameboards..." />
+                <marker date="1504505525723" expanded="true" signature="13658:14274" placeholder="select users..user_gameboards..." />
+                <marker date="1504505525723" expanded="true" signature="14557:15145" placeholder="select users..user_gameboards..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2015_08_25_190040_message.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.807693" vertical-offset="153" max-vertical-offset="901">
+              <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserGameboardsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1308" max-vertical-offset="2380">
+              <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,7 +76,7 @@
       <file leaf-file-name="AppServiceProvider.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.923077" vertical-offset="106" max-vertical-offset="595">
+            <state vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="595">
               <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
@@ -79,7 +86,7 @@
       <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385" vertical-offset="918" max-vertical-offset="3842">
+            <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="3842">
               <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
               <folding />
             </state>
@@ -89,7 +96,7 @@
       <file leaf-file-name="Location.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Location.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="16.5" vertical-offset="429" max-vertical-offset="901">
+            <state vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="901">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -99,7 +106,7 @@
       <file leaf-file-name="2015_05_01_170431_location.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2015_05_01_170431_location.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="357" max-vertical-offset="1105">
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1105">
               <caret line="40" column="36" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="36" />
               <folding />
             </state>
@@ -109,18 +116,8 @@
       <file leaf-file-name="2017_01_25_112954_user_gameboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_112954_user_gameboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="9.807693" vertical-offset="255" max-vertical-offset="952">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="952">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2017_01_25_103828_gameboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_103828_gameboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617" vertical-offset="204" max-vertical-offset="1105">
-              <caret line="24" column="39" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -129,18 +126,8 @@
       <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0384617" vertical-offset="1177" max-vertical-offset="1717">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1177" max-vertical-offset="1717">
               <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gameboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Gameboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.509091" vertical-offset="5192" max-vertical-offset="5984">
-              <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,7 +136,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.038462" vertical-offset="2151" max-vertical-offset="2856">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2151" max-vertical-offset="2856">
               <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
               <folding />
             </state>
@@ -207,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/UserProfile.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ActivityOptionsController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdvertisementsController.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel-2017-07-16.log" />
@@ -247,7 +233,6 @@
         <option value="$PROJECT_DIR$/app/Status.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_02_17_081026_game_views.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
         <option value="$PROJECT_DIR$/app/GameView.php" />
@@ -257,6 +242,8 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       </list>
     </option>
@@ -321,7 +308,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -401,6 +387,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -518,6 +522,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -572,10 +577,10 @@
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="local" start_url="/admin">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -591,6 +596,9 @@
     <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP">
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="0ba6e8b7-fbcf-4fa6-9c69-b4ef28512acf" server_name="Xampp local server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -598,9 +606,6 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="0ba6e8b7-fbcf-4fa6-9c69-b4ef28512acf" server_name="Xampp local server">
       <method />
     </configuration>
     <list size="2">
@@ -625,60 +630,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00178" summary="ok">
-      <created>1503645944725</created>
-      <option name="number" value="00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1503645944725</updated>
-    </task>
-    <task id="LOCAL-00179" summary="ok">
-      <created>1503646263819</created>
-      <option name="number" value="00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1503646263819</updated>
-    </task>
-    <task id="LOCAL-00180" summary="ok">
-      <created>1503648183380</created>
-      <option name="number" value="00180" />
-      <option name="project" value="LOCAL" />
-      <updated>1503648183380</updated>
-    </task>
-    <task id="LOCAL-00181" summary="ok">
-      <created>1503651140491</created>
-      <option name="number" value="00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1503651140491</updated>
-    </task>
-    <task id="LOCAL-00182" summary="ok">
-      <created>1503728300144</created>
-      <option name="number" value="00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1503728300145</updated>
-    </task>
-    <task id="LOCAL-00183" summary="ok">
-      <created>1503730204170</created>
-      <option name="number" value="00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1503730204170</updated>
-    </task>
-    <task id="LOCAL-00184" summary="ok">
-      <created>1503754425382</created>
-      <option name="number" value="00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1503754425382</updated>
-    </task>
-    <task id="LOCAL-00185" summary="ok">
-      <created>1504025445284</created>
-      <option name="number" value="00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1504025445285</updated>
-    </task>
-    <task id="LOCAL-00186" summary="ok">
-      <created>1504081987020</created>
-      <option name="number" value="00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1504081987020</updated>
     </task>
     <task id="LOCAL-00187" summary="ok">
       <created>1504111108470</created>
@@ -920,7 +871,61 @@
       <option name="project" value="LOCAL" />
       <updated>1504479907855</updated>
     </task>
-    <option name="localTasksCounter" value="227" />
+    <task id="LOCAL-00227" summary="ok">
+      <created>1504480073092</created>
+      <option name="number" value="00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1504480073092</updated>
+    </task>
+    <task id="LOCAL-00228" summary="ok">
+      <created>1504480285462</created>
+      <option name="number" value="00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1504480285462</updated>
+    </task>
+    <task id="LOCAL-00229" summary="ok">
+      <created>1504480420465</created>
+      <option name="number" value="00229" />
+      <option name="project" value="LOCAL" />
+      <updated>1504480420465</updated>
+    </task>
+    <task id="LOCAL-00230" summary="ok">
+      <created>1504480495198</created>
+      <option name="number" value="00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1504480495198</updated>
+    </task>
+    <task id="LOCAL-00231" summary="ok">
+      <created>1504480720681</created>
+      <option name="number" value="00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1504480720681</updated>
+    </task>
+    <task id="LOCAL-00232" summary="ok">
+      <created>1504481827947</created>
+      <option name="number" value="00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1504481827948</updated>
+    </task>
+    <task id="LOCAL-00233" summary="ok">
+      <created>1504482255321</created>
+      <option name="number" value="00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1504482255321</updated>
+    </task>
+    <task id="LOCAL-00234" summary="ok">
+      <created>1504482381622</created>
+      <option name="number" value="00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1504482381622</updated>
+    </task>
+    <task id="LOCAL-00235" summary="ok">
+      <created>1504482608464</created>
+      <option name="number" value="00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1504482608464</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -947,16 +952,15 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27682737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23124042" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19325154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27760735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22239032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2193646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3353566" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271605" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -965,10 +969,11 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32511556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32511556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4417178" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -984,16 +989,16 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3353566" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271605" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18070363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32511556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32511556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4417178" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1100,13 +1105,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="867">
@@ -1177,13 +1175,6 @@
         <state vertical-scroll-proportion="0.17056856" vertical-offset="0" max-vertical-offset="598">
           <caret line="6" column="19" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3979933" vertical-offset="459" max-vertical-offset="2567">
-          <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1292,7 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="884">
           <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1300,10 +1290,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3072" max-vertical-offset="3689">
           <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
-          <folding>
-            <marker date="1504114648025" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..user_gameboards..." />
-            <marker date="1504114648025" expanded="true" signature="-1:-1" placeholder="SELECT user_..user_gameboards..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1311,7 +1297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="18.346153" vertical-offset="477" max-vertical-offset="1071">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,7 +1312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.576923" vertical-offset="1445" max-vertical-offset="2023">
           <caret line="78" column="78" selection-start-line="78" selection-start-column="78" selection-end-line="78" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1349,7 +1333,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_103828_gameboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="204" max-vertical-offset="1105">
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1105">
           <caret line="24" column="39" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="39" />
           <folding />
         </state>
@@ -1357,7 +1341,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_01_25_112954_user_gameboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.807693" vertical-offset="255" max-vertical-offset="952">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="952">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1365,7 +1349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0384617" vertical-offset="1177" max-vertical-offset="1717">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1177" max-vertical-offset="1717">
           <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
@@ -1373,7 +1357,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.038462" vertical-offset="2151" max-vertical-offset="2856">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2151" max-vertical-offset="2856">
           <caret line="157" column="24" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="24" />
           <folding />
         </state>
@@ -1381,7 +1365,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_05_01_170431_location.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="357" max-vertical-offset="1105">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1105">
           <caret line="40" column="36" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="36" />
           <folding />
         </state>
@@ -1389,7 +1373,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Location.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="16.5" vertical-offset="429" max-vertical-offset="901">
+        <state vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="901">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1397,7 +1381,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.923077" vertical-offset="106" max-vertical-offset="595">
+        <state vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="595">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
@@ -1405,36 +1389,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385" vertical-offset="918" max-vertical-offset="3842">
+        <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="3842">
           <caret line="71" column="76" selection-start-line="71" selection-start-column="76" selection-end-line="71" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1308" max-vertical-offset="2380">
+          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="153" max-vertical-offset="901">
+          <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0" vertical-offset="7225" max-vertical-offset="7871">
-          <caret line="452" column="77" selection-start-line="452" selection-start-column="77" selection-end-line="452" selection-end-column="77" />
+        <state vertical-scroll-proportion="4.440594" vertical-offset="6026" max-vertical-offset="8075">
+          <caret line="460" column="50" selection-start-line="460" selection-start-column="50" selection-end-line="460" selection-end-column="50" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1504480060089" expanded="true" signature="9590:10090" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="9654:10090" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="9654:10090" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="9664:9822" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="9664:10090" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="10234:10410" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="10234:10410" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="10234:10410" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="10234:10516" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504480060089" expanded="true" signature="10554:10568" placeholder="select(${$qu..." />
-            <marker date="1504480060089" expanded="true" signature="12397:13047" placeholder="select gameb..user_gameboards..." />
-            <marker date="1504480060089" expanded="true" signature="13700:13940" placeholder="select users..user_gameboards..." />
-            <marker date="1504480060089" expanded="true" signature="13700:14171" placeholder="select users..user_gameboards..." />
-            <marker date="1504480060089" expanded="true" signature="13700:14172" placeholder="select users..user_gameboards..." />
-            <marker date="1504480060089" expanded="true" signature="13700:14219" placeholder="select users..user_gameboards..." />
-            <marker date="1504480060089" expanded="true" signature="13700:14220" placeholder="select users..user_gameboards..." />
-            <marker date="1504480060089" expanded="true" signature="13700:14243" placeholder="select users..user_gameboards..." />
-            <marker date="1504480060089" expanded="true" signature="13700:14309" placeholder="select users..user_gameboards..." />
+            <marker date="1504505525723" expanded="true" signature="9668:10189" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504505525723" expanded="true" signature="10238:10520" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504505525723" expanded="true" signature="12401:13051" placeholder="select gameb..user_gameboards..." />
+            <marker date="1504505525723" expanded="true" signature="13658:14274" placeholder="select users..user_gameboards..." />
+            <marker date="1504505525723" expanded="true" signature="14557:15145" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>

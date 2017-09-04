@@ -90,9 +90,9 @@ class UserGameBoardsController extends Controller {
 	 */
 	public function edit($id)
 	{
-        Log::info('entrando '.$id);
+        //Log::info('entrando '.$id);
         $usergameboard = UserGameboard::findOrFail($id);
-        Log::info('user: '.$usergameboard);
+        //Log::info('user: '.$usergameboard);
         if (isset($usergameboard))
         {
             return $this->sendView($usergameboard);

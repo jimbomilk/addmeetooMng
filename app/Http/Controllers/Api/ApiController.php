@@ -444,7 +444,7 @@ class ApiController extends Controller
                                         . " inner join users on a.user_id = users.id
                                         where a.points>0 and gameboards.status < " .Status::HIDDEN.
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
-            "' group by users.name order by points desc, name asc LIMIT 10";
+            "' group by users.id order by points desc, name asc LIMIT 10";
         //Log::info('Monthly query:'.$query);
 
         $current = DB::select(DB::raw($query));
@@ -458,7 +458,7 @@ class ApiController extends Controller
             . " inner join users on a.user_id = users.id
                                         where a.points>0 and gameboards.status < " .Status::HIDDEN.
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
-            "' group by users.name order by points desc, name asc LIMIT 10";
+            "' group by users.id order by points desc, name asc LIMIT 10";
         $prev = DB::select(DB::raw($query));
 
 
