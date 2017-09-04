@@ -396,7 +396,6 @@ class ApiController extends Controller
             ->take(10)->get();
 
         return response()->json($user_profiles);
-
     }
 
 
@@ -445,7 +444,7 @@ class ApiController extends Controller
                                         where a.points>0 and gameboards.status < " .Status::HIDDEN.
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
             "' group by users.id order by points desc, name asc LIMIT 10";
-        //Log::info('Monthly query:'.$query);
+        Log::info('Monthly query:'.$query);
 
         $current = DB::select(DB::raw($query));
 
