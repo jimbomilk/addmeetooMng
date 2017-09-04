@@ -107,7 +107,31 @@ class ApiController extends Controller
 
     }
 
+    public function gameinfo($gameboard_id)
+    {
 
+        try {
+            $gameboard = Gameboard::findOrFail($gameboard_id);
+            if (!isset($gameboard))
+                return response()->json(['error' => "SORRY, ACTIVITY CLOSED"], HttpResponse::HTTP_UNAUTHORIZED);
+        } catch (Exception $e) {
+            return response()->json(['error' => "ACTIVITY NOT FOUND"], HttpResponse::HTTP_NOT_FOUND);
+        }
+
+
+
+        // Ademas del game queremos enviar las opciones
+
+        $options = $gameboard->gameboardOptions()->get();
+        $activity = $gameboard->activity()->get();
+        $data = array();
+        $data['gameboard'] = $gameboard;
+        $data['activity'] = $activity;
+        $data['options'] = $options;
+
+
+        return json_encode($data);
+    }
 
 
     public function gameboard($gameboard_id, Request $request)

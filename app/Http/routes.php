@@ -146,6 +146,7 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     Route::post('reset', 'Auth\AuthController@reset');
 
     Route::post('gameboard/{gameboard_id}','ApiController@gameboard');
+    Route::post('gameinfo/{gameboard_id}','ApiController@gameinfo');
     Route::post('gameboard/useroptions/{gameboard_id}','ApiController@useroptions');
     Route::post('gameboards','ApiController@gameboards'); // Pantalla eventos de los moviles
     Route::post('fileupload','ApiController@fileUpload');
