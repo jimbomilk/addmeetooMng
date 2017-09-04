@@ -393,7 +393,7 @@ class ApiController extends Controller
             ->select('users.name as us_name','user_profiles.*')
             ->join('users','user_profiles.user_id','=','users.id')
             ->orderBy('points', 'desc')
-            ->orderBy('names', 'asc')
+            ->orderBy('name', 'asc')
             ->take(10)->get();
 
         return response()->json($user_profiles);
