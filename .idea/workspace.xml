@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -672,12 +671,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00191" summary="ok">
-      <created>1504112449081</created>
-      <option name="number" value="00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1504112449081</updated>
-    </task>
     <task id="LOCAL-00192" summary="ok">
       <created>1504112568461</created>
       <option name="number" value="00192" />
@@ -966,7 +959,13 @@
       <option name="project" value="LOCAL" />
       <updated>1504508772141</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="ok">
+      <created>1504508990011</created>
+      <option name="number" value="00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1504508990011</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
