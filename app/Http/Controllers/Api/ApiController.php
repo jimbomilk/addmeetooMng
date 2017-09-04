@@ -425,6 +425,19 @@ class ApiController extends Controller
 
     }
 
+    private function monthlyQuery($location,$startcurrentmonth,$endcurrentmonth){
+        return "select users.id, users.name as name , sum(a.points) as points from
+                                        user_gameboards a
+                                        inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
+            . " inner join users on a.user_id = users.id
+                                        where a.points>0 and gameboards.status <> " .Status::DISABLED.
+
+            " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
+            "' group by users.id order by points desc, name asc LIMIT 10";
+
+
+    }
+
     public function monthlyRanking(Request $request)
     {
         $input = $request->all();
@@ -439,28 +452,15 @@ class ApiController extends Controller
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
         }
 
-        $query = "select users.name as name , sum(a.points) as points from
-                                        user_gameboards a
-                                        inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
-                                        . " inner join users on a.user_id = users.id
-                                        where a.points>0 and gameboards.status <> " .Status::DISABLED.
-
-            " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
-            "' group by users.id order by points desc, name asc LIMIT 10";
-        Log::info('Monthly query:'.$query);
+        $query = $this->monthlyQuery($location,$startcurrentmonth,$endcurrentmonth);
+        //Log::info('Monthly query:'.$query);
 
         $current = DB::select(DB::raw($query));
 
         // Previous month
         $startcurrentmonth = Carbon::now()->subMonth()->startofMonth();
         $endcurrentmonth = Carbon::now()->subMonth()->endofMonth();
-        $query = "select users.name as name , sum(a.points) as points from
-                                        user_gameboards a
-                                        inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
-            . " inner join users on a.user_id = users.id
-                                        where a.points>0 and gameboards.status <> " .Status::DISABLED.
-            " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
-            "' group by users.id order by points desc, name asc LIMIT 10";
+        $query = $this->monthlyQuery($location,$startcurrentmonth,$endcurrentmonth);
         $prev = DB::select(DB::raw($query));
 
 

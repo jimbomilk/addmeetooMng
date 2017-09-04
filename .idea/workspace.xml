@@ -37,18 +37,15 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3782235" vertical-offset="6583" max-vertical-offset="8109">
-              <caret line="395" column="23" selection-start-line="395" selection-start-column="23" selection-end-line="395" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.3667622" vertical-offset="7148" max-vertical-offset="8109">
+              <caret line="428" column="32" selection-start-line="428" selection-start-column="32" selection-end-line="428" selection-end-column="32" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1504510800785" expanded="true" signature="9691:10212" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504510800785" expanded="true" signature="10261:10543" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1504510800785" expanded="true" signature="12460:12965" placeholder="select gameb..user_gameboards..." />
-                <marker date="1504510800785" expanded="true" signature="12460:13177" placeholder="select gameb..user_gameboards..." />
-                <marker date="1504510800785" expanded="true" signature="13784:14225" placeholder="select users..user_gameboards..." />
-                <marker date="1504510800785" expanded="true" signature="13784:14225" placeholder="select users..user_gameboards..." />
-                <marker date="1504510800785" expanded="true" signature="13784:14404" placeholder="select users..user_gameboards..." />
-                <marker date="1504510800785" expanded="true" signature="14685:15276" placeholder="select users..user_gameboards..." />
+                <marker date="1504512429651" expanded="true" signature="9691:10212" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504512429651" expanded="true" signature="10261:10543" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1504512429651" expanded="true" signature="12460:12965" placeholder="select gameb..user_gameboards..." />
+                <marker date="1504512429651" expanded="true" signature="12460:13177" placeholder="select gameb..user_gameboards..." />
+                <marker date="1504512429651" expanded="true" signature="13372:13974" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -675,12 +672,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00194" summary="ok">
-      <created>1504112820093</created>
-      <option name="number" value="00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1504112820093</updated>
-    </task>
     <task id="LOCAL-00195" summary="ok">
       <created>1504112925652</created>
       <option name="number" value="00195" />
@@ -969,7 +960,13 @@
       <option name="project" value="LOCAL" />
       <updated>1504510639160</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="ok">
+      <created>1504510809764</created>
+      <option name="number" value="00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1504510809764</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1460,18 +1457,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3782235" vertical-offset="6583" max-vertical-offset="8109">
-          <caret line="395" column="23" selection-start-line="395" selection-start-column="23" selection-end-line="395" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.3667622" vertical-offset="7148" max-vertical-offset="8109">
+          <caret line="428" column="32" selection-start-line="428" selection-start-column="32" selection-end-line="428" selection-end-column="32" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1504510800785" expanded="true" signature="9691:10212" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504510800785" expanded="true" signature="10261:10543" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1504510800785" expanded="true" signature="12460:12965" placeholder="select gameb..user_gameboards..." />
-            <marker date="1504510800785" expanded="true" signature="12460:13177" placeholder="select gameb..user_gameboards..." />
-            <marker date="1504510800785" expanded="true" signature="13784:14225" placeholder="select users..user_gameboards..." />
-            <marker date="1504510800785" expanded="true" signature="13784:14225" placeholder="select users..user_gameboards..." />
-            <marker date="1504510800785" expanded="true" signature="13784:14404" placeholder="select users..user_gameboards..." />
-            <marker date="1504510800785" expanded="true" signature="14685:15276" placeholder="select users..user_gameboards..." />
+            <marker date="1504512429651" expanded="true" signature="9691:10212" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504512429651" expanded="true" signature="10261:10543" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1504512429651" expanded="true" signature="12460:12965" placeholder="select gameb..user_gameboards..." />
+            <marker date="1504512429651" expanded="true" signature="12460:13177" placeholder="select gameb..user_gameboards..." />
+            <marker date="1504512429651" expanded="true" signature="13372:13974" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
