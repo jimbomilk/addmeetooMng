@@ -173,7 +173,7 @@ class ApiController extends Controller
             $result->points = $result->points + $gameboard->activity->reward_participation;
             $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
             $user->profile->save();
-            $user->profile->recalculateTopRank();
+            $user->profile->recalculateTopRank($gameboard->location_id);
 
         }
         $result->values = json_encode($values);

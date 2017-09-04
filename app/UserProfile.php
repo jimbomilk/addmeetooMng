@@ -24,12 +24,13 @@ class UserProfile extends Model {
         return $this->hasOne('App\Location');
     }
 
-    public function recalculateTopRank()
+    public function recalculateTopRank($location)
     {
         $userprofiles = DB::select( DB::raw("select users.name as us_name,a.user_id, a.points, count(b.id)+1 as ranking
                     from user_profiles a
                     left join user_profiles b on a.points < b.points
                     inner join users on a.user_id = users.id
+                    where a.location_id=".$location."
                     group by a.user_id
                     order by a.points desc, us_name asc") );
 

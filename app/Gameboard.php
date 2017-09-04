@@ -320,6 +320,7 @@ class Gameboard extends Model
                     $user_game->points = $this->activity->reward_participation +$this->activity->reward_second;
                 if ($user_game->rank == 3)
                     $user_game->points = $this->activity->reward_participation +$this->activity->reward_third;
+
             }
 
             $user_game->save();
