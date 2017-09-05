@@ -132,7 +132,7 @@ Route::group(['prefix'=>'user','middleware' => ['auth','is_user'],'namespace'=>'
 
 Route::get ('/', function()
 {
-    return redirect()->away('https://www.addmeetoo.com/home');
+    return redirect()->away('http://www.addmeetoo.es');
 });
 
 
