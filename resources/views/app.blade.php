@@ -42,18 +42,18 @@
     <script>
         tinymce.init({
             selector: '#mytextarea',
-            menubar: false,
+            menubar: 'insert',
             language: 'es',
             branding: false,
             statusbar: false,
-            plugins: 'lists,link,image,preview',
+            plugins: 'lists,link,image,preview,media',
             relative_urls: true,
             remove_script_host: true,
             protocol: 'https',
-            toolbar: 'undo redo | fontselect fontsizeselect | subscript superscript | ' +
+            toolbar: 'undo redo | fontselect fontsizeselect | subscript superscript | media ' +
             'bold italic underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | preview',
-            font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n'
-
+            font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n',
+            media_live_embeds: true
 
         });
     </script>
