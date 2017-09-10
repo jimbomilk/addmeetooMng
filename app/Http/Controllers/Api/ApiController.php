@@ -443,7 +443,7 @@ class ApiController extends Controller
                     where gameboards.location_id = :location and a.points>0 and gameboards.status <> " .Status::DISABLED.
                     " and gameboards.status < ".Status::HIDDEN.
                     " group by a.gameboard_id ,a.id,a.user_id
-                    order by a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
+                    order by gameboards.deadline,a.gameboard_id asc, a.points desc, us_name asc"), array('location' => $location) );
 
         return response()->json($usergameboards);
 
