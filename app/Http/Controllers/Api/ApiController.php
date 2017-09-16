@@ -267,6 +267,17 @@ class ApiController extends Controller
     }
 
 
+    public function registerDeviceGral(Request $request)
+    {
+        Log::info('entrando registerDevice');
+        $input = $request->all();
+        Log::info('registerDevice:'.$input['userId'].' '.$input['pushToken']);
+
+        return response()->json(['result' => 'Device registrado.']);
+
+    }
+
+
     public function newAccount(Request $request)
     {
         // Recogemos las credenciales
