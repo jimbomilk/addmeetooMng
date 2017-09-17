@@ -281,6 +281,8 @@ class ApiController extends Controller
         $push_user = UserPush::firstOrNew(['id' => $input['userId']]);
         if (isset($push_user) )
         {
+            $push_user->id = $input['userId'];
+            $push_user->token = $input['pushToken'];
             $push_user->location_id = $input['location'];
             // Guardar usuario si viene
             if (isset($input['token'])) {
