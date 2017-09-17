@@ -1,34 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="ok">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2014_04_05_051340_setup_countries_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2014_04_05_051341_charify_countries_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2014_10_12_000000_create_users_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2014_10_12_100000_create_password_resets_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_03_15_095756_user_profile.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_05_01_163047_language.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_05_01_170431_location.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_05_15_093650_activity.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_05_26_174424_bidder.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_05_27_174458_item.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_05_28_174433_bid.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_05_28_174446_auction.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_06_21_170940_screen.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2015_08_25_190040_message.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2016_08_10_172240_social_login.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_01_25_102527_activity_option.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_01_25_103828_gameboard.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_01_25_111813_gameboard_option.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_01_25_112954_user_gameboard.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_02_17_081026_game_views.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_04_02_082050_adscategory.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_04_02_082057_advertisement.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_04_02_082632_adscategorylocation.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_04_02_083619_adspack.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_04_02_084155_adslocation.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_04_07_145507_create_jobs_table.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\MISCOSAS\ADDMEETOO\addmeetooMng\database\migrations\2017_04_08_062728_create_failed_jobs_table.php" afterPath="" />
+    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -60,18 +35,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0545454" vertical-offset="4592" max-vertical-offset="9180">
-              <caret line="280" column="0" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.25974026" vertical-offset="4490" max-vertical-offset="9180">
+              <caret line="270" column="38" selection-start-line="270" selection-start-column="38" selection-end-line="270" selection-end-column="38" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1505660390647" expanded="true" signature="11770:12291" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1505660390647" expanded="true" signature="12340:12622" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1505660390647" expanded="true" signature="14550:15313" placeholder="select a.use..user_gameboards..." />
-                <marker date="1505660390647" expanded="true" signature="15508:16110" placeholder="select users..user_gameboards..." />
+                <marker date="1505665386578" expanded="true" signature="11770:12291" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1505665386578" expanded="true" signature="12340:12622" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1505665386578" expanded="true" signature="14550:15313" placeholder="select a.use..user_gameboards..." />
+                <marker date="1505665386578" expanded="true" signature="15508:16110" placeholder="select users..user_gameboards..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.1923075" vertical-offset="2142" max-vertical-offset="2890">
+              <caret line="146" column="71" selection-start-line="146" selection-start-column="53" selection-end-line="146" selection-end-column="71" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,10 +121,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2014_04_05_051340_setup_countries_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2014_04_05_051340_setup_countries_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2014_04_05_051340_setup_countries_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+            <state vertical-scroll-proportion="3.9230769" vertical-offset="102" max-vertical-offset="952">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -242,12 +227,12 @@
         <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" />
         <option value="$PROJECT_DIR$/app/Gameboard.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_01_25_112954_user_gameboard.php" />
         <option value="$PROJECT_DIR$/app/UserPush.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_09_17_091814_user_push.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       </list>
     </option>
   </component>
@@ -400,56 +385,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="factories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -469,6 +404,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -581,18 +564,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00208" summary="ok">
-      <created>1504459064960</created>
-      <option name="number" value="00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1504459064960</updated>
-    </task>
-    <task id="LOCAL-00209" summary="ok">
-      <created>1504459246224</created>
-      <option name="number" value="00209" />
-      <option name="project" value="LOCAL" />
-      <updated>1504459246224</updated>
     </task>
     <task id="LOCAL-00210" summary="ok">
       <created>1504459502820</created>
@@ -876,7 +847,19 @@
       <option name="project" value="LOCAL" />
       <updated>1505661201002</updated>
     </task>
-    <option name="localTasksCounter" value="257" />
+    <task id="LOCAL-00257" summary="ok">
+      <created>1505664979908</created>
+      <option name="number" value="00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1505664979908</updated>
+    </task>
+    <task id="LOCAL-00258" summary="ok">
+      <created>1505664992379</created>
+      <option name="number" value="00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1505664992379</updated>
+    </task>
+    <option name="localTasksCounter" value="259" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -915,7 +898,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2322239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2322239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1181,16 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.192307" vertical-offset="2303" max-vertical-offset="3043">
-          <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
-          <folding>
-            <element signature="e#9#394#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.423077" vertical-offset="113" max-vertical-offset="884">
@@ -1257,20 +1230,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0545454" vertical-offset="4592" max-vertical-offset="9180">
-          <caret line="280" column="0" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1505660390647" expanded="true" signature="11770:12291" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1505660390647" expanded="true" signature="12340:12622" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1505660390647" expanded="true" signature="14550:15313" placeholder="select a.use..user_gameboards..." />
-            <marker date="1505660390647" expanded="true" signature="15508:16110" placeholder="select users..user_gameboards..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_09_17_091814_user_push.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="663">
@@ -1281,9 +1240,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_04_05_051340_setup_countries_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+        <state vertical-scroll-proportion="3.9230769" vertical-offset="102" max-vertical-offset="952">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="2142" max-vertical-offset="2890">
+          <caret line="146" column="71" selection-start-line="146" selection-start-column="53" selection-end-line="146" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25974026" vertical-offset="4490" max-vertical-offset="9180">
+          <caret line="270" column="38" selection-start-line="270" selection-start-column="38" selection-end-line="270" selection-end-column="38" />
+          <folding>
+            <element signature="e#44#60#0#PHP" expanded="true" />
+            <marker date="1505665386578" expanded="true" signature="11770:12291" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1505665386578" expanded="true" signature="12340:12622" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1505665386578" expanded="true" signature="14550:15313" placeholder="select a.use..user_gameboards..." />
+            <marker date="1505665386578" expanded="true" signature="15508:16110" placeholder="select users..user_gameboards..." />
+          </folding>
         </state>
       </provider>
     </entry>

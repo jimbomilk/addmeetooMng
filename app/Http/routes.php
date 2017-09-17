@@ -144,7 +144,7 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     Route::post('newAccount','ApiController@newAccount');
     Route::post('forgot', 'Auth\AuthController@forgot');
     Route::post('reset', 'Auth\AuthController@reset');
-    Route::post('registerDeviceGral', 'ApiController@registerDeviceGral');
+    Route::post('registerDevicePush', 'ApiController@registerDevicePush');
 
     Route::post('gameboard/{gameboard_id}','ApiController@gameboard');
     Route::post('gameinfo/{gameboard_id}','ApiController@gameinfo');

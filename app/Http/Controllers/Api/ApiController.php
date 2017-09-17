@@ -268,7 +268,7 @@ class ApiController extends Controller
     }
 
 
-    public function registerDeviceGral(Request $request)
+    public function registerDevicePush(Request $request)
     {
         Log::info('ENTRANDO registerDevice');
         $input = $request->all();
