@@ -21,6 +21,9 @@
     @include("admin.common.input_datetime",array('var'=>'deadline'))
     @include("admin.common.input_datetime",array('var'=>'endgame'))
 
+    <h3>Imagen</h3>
+    @include("admin.common.input_file",array('var'=>'image','width'=>300,'height'=>200))
+
 </div>
 
 @section('scripts')
