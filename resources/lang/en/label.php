@@ -110,7 +110,7 @@ return [
     'gameboards.progression_type' =>'Tipo de progresión',
     'gameboards.multiscreen' =>'Multipantalla? Dejalo desmarcado.',
     'gameboards.edit' =>'Editar',
-    'gameboards.image' =>'Imagen del juego(Opcional)',
+    'gameboards.image' =>'Cabecera de la actividad(sólo para móviles)',
 
     /*GAMEBOARD OPTIONS*/
     'gameboard_options' => 'opcion de juego',

@@ -19,6 +19,7 @@ class GameViews extends Migration
             $table->string('headerMain')->nullable();
             $table->string('headerSub')->nullable();
             $table->string('logo2')->nullable();
+            $table->string('image')->nullable();
             $table->longText('body')->nullable();
             $table->longText('stats')->nullable();
             $table->string('type')->nullable();
