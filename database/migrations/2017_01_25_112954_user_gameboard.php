@@ -19,6 +19,8 @@ class UserGameboard extends Migration
             $table->integer('temp_points')->default(0);
             $table->integer('rank')->default(0);
             $table->integer('rankpo')->default(0);
+            $table->string('pushId')->nullable();
+            $table->string('pushToken')->nullable();
 
             $table->integer('gameboard_id')->unsigned();
             $table->foreign('gameboard_id')

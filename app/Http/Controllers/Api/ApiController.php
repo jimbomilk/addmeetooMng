@@ -11,6 +11,7 @@ use App\Status;
 use App\User;
 use App\UserGameboard;
 use App\UserProfile;
+use App\UserPush;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
@@ -269,9 +270,37 @@ class ApiController extends Controller
 
     public function registerDeviceGral(Request $request)
     {
-        Log::info('entrando registerDevice');
+        Log::info('ENTRANDO registerDevice');
         $input = $request->all();
-        Log::info('registerDevice:'.$input['userId'].' '.$input['pushToken']);
+        Log::info('pushId:'.$input['userId']);
+        Log::info('pushToken:'.$input['pushToken']);
+        Log::info('gameboardId:'.$input['gameboardId']);
+        Log::info('token:'.$input['token']);
+        Log::info('location:'.$input['location']);
+
+
+        $push_user = UserPush::firstOrNew(['id' => $input['userId']]);
+        if (isset($push_user) )
+        {
+            $push_user->location_id = $input['location'];
+            $user = JWTAuth::toUser($input['token']);
+            if (isset($user))
+            {
+                $push_user->user_id = $user->id;
+
+                if (isset($input['gameboardId'])) {
+                    $gameUser = UserGameboard::firstOrNew(['gameboard_id' => $input['gameboardId'], 'user_id' => $user->id]);
+
+                    if (isset($gameUser)) {
+                        $gameUser->pushId = $input['userId'];
+                        $gameUser->pushToken = $input['pushToken'];
+                        $gameUser->save();
+                    }
+                }
+
+            }
+            $push_user->save();
+        }
 
         return response()->json(['result' => 'Device registrado.']);
 
