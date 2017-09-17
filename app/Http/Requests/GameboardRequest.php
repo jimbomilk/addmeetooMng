@@ -22,6 +22,7 @@ class GameboardRequest extends Request {
 	 */
 	public function rules()
 	{
+
 		return [
             'name'              => 'required',
             'activity_id'       => 'required',
@@ -30,9 +31,18 @@ class GameboardRequest extends Request {
             'startgame'         => 'before:endgame',
             'deadline'          => 'after:startgame',
             'deadline'          => 'before:endgame',
+            'image'             => 'mimes:jpeg,jpg,png|max:500'
         ];
 	}
 
+
+    public  function messages()
+    {
+        return [
+            'image.max' => 'La imagen debe ser menor de 500KB',
+            'image.mimes' => 'La imagen debe ser jpg o png'
+        ];
+    }
 
 
 }

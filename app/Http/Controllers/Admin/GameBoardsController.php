@@ -77,6 +77,12 @@ class GameboardsController extends Controller {
         $gameboard->startgame = $gameboard->getUTCStartgame();
         $gameboard->endgame = $gameboard->getUTCEndgame();
         $gameboard->deadline = $gameboard->getUTCDeadline();
+
+        $filename = $request->saveFile('image',$gameboard->path);
+        if ($filename != $gameboard->image) {
+            $gameboard->image = $filename;
+        }
+
         $gameboard->createGame();
 
         return redirect()->route($this->indexPage("gameboards"));
