@@ -282,21 +282,23 @@ class ApiController extends Controller
         if (isset($push_user) )
         {
             $push_user->location_id = $input['location'];
-            $user = JWTAuth::toUser($input['token']);
-            if (isset($user))
-            {
-                $push_user->user_id = $user->id;
+            // Guardar usuario si viene
+            if (isset($input['token'])) {
+                $user = JWTAuth::toUser($input['token']);
+                if (isset($user)) {
+                    $push_user->user_id = $user->id;
 
-                if (isset($input['gameboardId'])) {
-                    $gameUser = UserGameboard::firstOrNew(['gameboard_id' => $input['gameboardId'], 'user_id' => $user->id]);
+                    // Guardar en game_user si viene
+                    if (isset($input['gameboardId'])) {
+                        $gameUser = UserGameboard::firstOrNew(['gameboard_id' => $input['gameboardId'], 'user_id' => $user->id]);
 
-                    if (isset($gameUser)) {
-                        $gameUser->pushId = $input['userId'];
-                        $gameUser->pushToken = $input['pushToken'];
-                        $gameUser->save();
+                        if (isset($gameUser)) {
+                            $gameUser->pushId = $input['userId'];
+                            $gameUser->pushToken = $input['pushToken'];
+                            $gameUser->save();
+                        }
                     }
                 }
-
             }
             $push_user->save();
         }
