@@ -278,7 +278,6 @@ class ApiController extends Controller
         Log::info('token:'.$input['token']);
         Log::info('location:'.$input['location']);
 
-
         $push_user = UserPush::firstOrNew(['id' => $input['userId']]);
         if (isset($push_user) )
         {
