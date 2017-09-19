@@ -114,7 +114,7 @@ class SendMessage extends Command
     public function screenAds($location_id,$delay)
     {
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
-        $adsPack = Adspack::where('smallpack','>=0',0)->inRandomOrder()->first();
+        $adsPack = Adspack::where('smallpack','>=',0)->inRandomOrder()->first();
 
         //Log::info('screenADS entrando');
         // recogemos el ads
