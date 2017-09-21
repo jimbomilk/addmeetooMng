@@ -33,7 +33,7 @@ class UserGameboard extends Model
                     from user_gameboards a
                     left join gameboards b on b.id = a.gameboard_id
                     where b.location_id = :location
-                    group by a.id
+                    group by date(created_at)
                     order by date(created_at)"), array('location' => $location_id) );
 
         Log::info('participation json:'.json_encode($participationByDate));
