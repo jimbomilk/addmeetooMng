@@ -111,7 +111,7 @@ $(function () {
 
   /* Morris.js Charts */
   // Sales chart
-  var data = "<?php echo json_encode($participationChart) ?>";
+  var data = <?php echo json_encode($participationChart) ?>;
   var area = new Morris.Area({
     element: 'revenue-chart',
     resize: true,
@@ -127,8 +127,8 @@ $(function () {
       {y: '2013 Q1', participacion: 10687},
       {y: '2013 Q2', participacion: 8432}
     ],*/
-    xkey: 'y',
-    ykeys: ['participacion'],
+    xkey: 'participation_date',
+    ykeys: ['participations'],
     labels: ['Participación'],
     lineColors: ['#a0d0e0'],
     hideHover: 'auto'
