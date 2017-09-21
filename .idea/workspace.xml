@@ -63,8 +63,8 @@
       <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/dist/js/pages/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3756906" vertical-offset="1853" max-vertical-offset="3434">
-              <caret line="117" column="10" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.32872927" vertical-offset="1853" max-vertical-offset="3434">
+              <caret line="116" column="17" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -662,12 +662,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00234" summary="ok">
-      <created>1504482381622</created>
-      <option name="number" value="00234" />
-      <option name="project" value="LOCAL" />
-      <updated>1504482381622</updated>
-    </task>
     <task id="LOCAL-00235" summary="ok">
       <created>1504482608464</created>
       <option name="number" value="00235" />
@@ -956,7 +950,13 @@
       <option name="project" value="LOCAL" />
       <updated>1505983540443</updated>
     </task>
-    <option name="localTasksCounter" value="283" />
+    <task id="LOCAL-00283" summary="ok">
+      <created>1505983734861</created>
+      <option name="number" value="00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1505983734861</updated>
+    </task>
+    <option name="localTasksCounter" value="284" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1189,6 +1189,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1715" max-vertical-offset="3230">
           <caret line="112" column="69" selection-start-line="112" selection-start-column="69" selection-end-line="112" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1548,8 +1549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/js/pages/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3756906" vertical-offset="1853" max-vertical-offset="3434">
-          <caret line="117" column="10" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.32872927" vertical-offset="1853" max-vertical-offset="3434">
+          <caret line="116" column="17" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
