@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Gameboard;
+use App\User;
 use App\UserGameboard;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,7 @@ class AdminController extends Controller
         if (Auth::user()->is('admin')) {
             $activityNumber = Activity::all()->count();
             $participantNumber = UserGameboard::All()->count();
+            $users = User::All()->count();
         }
         else {
             $activityNumber = Auth::user()->gameboards()->count();
@@ -36,7 +38,7 @@ class AdminController extends Controller
         }
 
 
-		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber]);
+		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users]);
     }
 
     /**
