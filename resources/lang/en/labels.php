@@ -50,7 +50,7 @@ return [
     'smalldisplayed' => 'Pequeños vistos',
     'userprofiles' => 'Perfil de usuario',
     'activitiesRunning' => 'Actividades en ejecución',
-    'participants' => 'Participantes',
+    'participants' => 'Participaciones',
     'moreInfo'=> 'Más información',
 
 
