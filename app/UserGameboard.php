@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class UserGameboard extends Model
 {
@@ -23,5 +25,19 @@ class UserGameboard extends Model
     public function getLocationAttribute()
     {
         return $this->gameboard->location_id;
+    }
+
+    public function getParticipationByDate($location_id)
+    {
+        $participationByDate =  DB::select( DB::raw("select date(a.created_at) as participation_date,count(a.id) as participations
+                    from user_gameboards a
+                    left join gameboards b on b.id = a.gameboard_id
+                    where gameboards.location_id = :location
+                    group by a.id
+                    order by date(created_at)"), array('location' => $location_id) );
+
+        Log::info('participation json:'.json_encode($participationByDate));
+
+        return $participationByDate;
     }
 }

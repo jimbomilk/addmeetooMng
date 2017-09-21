@@ -34,11 +34,11 @@ class AdminController extends Controller
         }
         else {
             $activityNumber = Auth::user()->gameboards()->count();
-            //$participantNumber = UserGameboard::where(Auth::user()->
+            $participationChart = UserGameboard::getParticipationByDate('1');
         }
 
 
-		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users]);
+		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart]);
     }
 
     /**

@@ -111,10 +111,11 @@ $(function () {
 
   /* Morris.js Charts */
   // Sales chart
+  var data = <?php echo json_encode($participationChart) ?>;
   var area = new Morris.Area({
     element: 'revenue-chart',
     resize: true,
-    data: [
+    data: data, /*[
       {y: '2011 Q1', participacion: 2666},
       {y: '2011 Q2', participacion: 2778},
       {y: '2011 Q3', participacion: 4912},
@@ -125,7 +126,7 @@ $(function () {
       {y: '2012 Q4', participacion: 15073},
       {y: '2013 Q1', participacion: 10687},
       {y: '2013 Q2', participacion: 8432}
-    ],
+    ],*/
     xkey: 'y',
     ykeys: ['participacion'],
     labels: ['Participación'],
@@ -182,30 +183,6 @@ $(function () {
   });
 
 
-  /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts)
-  $("#loading-example").boxRefresh({
-    source: "ajax/dashboard-boxrefresh-demo.php",
-    onLoadDone: function (box) {
-      bar = new Morris.Bar({
-        element: 'bar-chart',
-        resize: true,
-        data: [
-          {y: '2006', a: 100, b: 90},
-          {y: '2007', a: 75, b: 65},
-          {y: '2008', a: 50, b: 40},
-          {y: '2009', a: 75, b: 65},
-          {y: '2010', a: 50, b: 40},
-          {y: '2011', a: 75, b: 65},
-          {y: '2012', a: 100, b: 90}
-        ],
-        barColors: ['#00a65a', '#f56954'],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['CPU', 'DISK'],
-        hideHover: 'auto'
-      });
-    }
-  });*/
 
   /* The todo list plugin */
   $(".todo-list").todolist({
