@@ -32,7 +32,7 @@ class UserGameboard extends Model
         $participationByDate =  DB::select( DB::raw("select date(a.created_at) as participation_date,count(a.id) as participations
                     from user_gameboards a
                     left join gameboards b on b.id = a.gameboard_id
-                    where gameboards.location_id = :location
+                    where b.location_id = :location
                     group by a.id
                     order by date(created_at)"), array('location' => $location_id) );
 
