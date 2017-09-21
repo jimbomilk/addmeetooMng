@@ -44,3 +44,7 @@
         </section><!-- right col -->
     </div><!-- /.row (main row) -->
 @endsection
+
+@section('scripts')
+    var participationChart = <?php echo json_encode($participationChart) ?>;
+@endsection
