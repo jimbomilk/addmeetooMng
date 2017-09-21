@@ -111,7 +111,7 @@ $(function () {
 
   /* Morris.js Charts */
   // Sales chart
-  var data = <?php echo json_encode($participationChart) ?>;
+  var data = "<?php echo json_encode($participationChart) ?>";
   var area = new Morris.Area({
     element: 'revenue-chart',
     resize: true,
