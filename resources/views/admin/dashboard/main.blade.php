@@ -46,5 +46,7 @@
 @endsection
 
 @section('scripts')
-    var participationChart = <?php echo json_encode($participationChart) ?>;
+    <script>
+        var participationChart = <?php echo json_encode($participationChart) ?>
+    </script>
 @endsection
