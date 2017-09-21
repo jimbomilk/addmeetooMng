@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/UserGameboard.php" afterPath="$PROJECT_DIR$/app/UserGameboard.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4659091" vertical-offset="261" max-vertical-offset="1836">
+            <state vertical-scroll-proportion="-6.3076925" vertical-offset="261" max-vertical-offset="1836">
               <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
               <folding />
             </state>
@@ -102,17 +102,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserGameboard.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserGameboard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.961538" vertical-offset="447" max-vertical-offset="833">
-              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.42045453" vertical-offset="345" max-vertical-offset="833">
+              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
               <folding>
                 <element signature="e#23#62#0#PHP" expanded="true" />
-                <marker date="1505982943076" expanded="true" signature="646:895" placeholder="select date(..." />
-                <marker date="1505982943076" expanded="true" signature="646:964" placeholder="select date(..." />
-                <marker date="1505982943076" expanded="true" signature="646:975" placeholder="select date(..." />
-                <marker date="1505982943076" expanded="true" signature="646:1014" placeholder="select date(..." />
+                <marker date="1505983281401" expanded="true" signature="653:902" placeholder="select date(..." />
+                <marker date="1505983281401" expanded="true" signature="653:971" placeholder="select date(..." />
+                <marker date="1505983281401" expanded="true" signature="653:982" placeholder="select date(..." />
+                <marker date="1505983281401" expanded="true" signature="653:1021" placeholder="select date(..." />
               </folding>
             </state>
           </provider>
@@ -227,9 +227,9 @@
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/boxes.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/labels.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/participationGraph.blade.php" />
-        <option value="$PROJECT_DIR$/app/UserGameboard.php" />
         <option value="$PROJECT_DIR$/public/dist/js/pages/dashboard.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/UserGameboard.php" />
       </list>
     </option>
   </component>
@@ -662,12 +662,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00230" summary="ok">
-      <created>1504480495198</created>
-      <option name="number" value="00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1504480495198</updated>
-    </task>
     <task id="LOCAL-00231" summary="ok">
       <created>1504480720681</created>
       <option name="number" value="00231" />
@@ -956,7 +950,13 @@
       <option name="project" value="LOCAL" />
       <updated>1505983090852</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="ok">
+      <created>1505983202792</created>
+      <option name="number" value="00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1505983202792</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1421,20 +1421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.961538" vertical-offset="447" max-vertical-offset="833">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-            <marker date="1505982943076" expanded="true" signature="646:895" placeholder="select date(..." />
-            <marker date="1505982943076" expanded="true" signature="646:964" placeholder="select date(..." />
-            <marker date="1505982943076" expanded="true" signature="646:975" placeholder="select date(..." />
-            <marker date="1505982943076" expanded="true" signature="646:1014" placeholder="select date(..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/dist/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3314917" vertical-offset="10097" max-vertical-offset="12036">
@@ -1550,9 +1536,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4659091" vertical-offset="261" max-vertical-offset="1836">
+        <state vertical-scroll-proportion="-6.3076925" vertical-offset="261" max-vertical-offset="1836">
           <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42045453" vertical-offset="345" max-vertical-offset="833">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+            <marker date="1505983281401" expanded="true" signature="653:902" placeholder="select date(..." />
+            <marker date="1505983281401" expanded="true" signature="653:971" placeholder="select date(..." />
+            <marker date="1505983281401" expanded="true" signature="653:982" placeholder="select date(..." />
+            <marker date="1505983281401" expanded="true" signature="653:1021" placeholder="select date(..." />
+          </folding>
         </state>
       </provider>
     </entry>

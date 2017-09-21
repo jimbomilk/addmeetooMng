@@ -27,7 +27,7 @@ class UserGameboard extends Model
         return $this->gameboard->location_id;
     }
 
-    public function getParticipationByDate($location_id)
+    public static function getParticipationByDate($location_id)
     {
         $participationByDate =  DB::select( DB::raw("select date(a.created_at) as participation_date,count(a.id) as participations
                     from user_gameboards a
