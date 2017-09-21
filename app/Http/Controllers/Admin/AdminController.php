@@ -31,6 +31,7 @@ class AdminController extends Controller
             $activityNumber = Activity::all()->count();
             $participantNumber = UserGameboard::All()->count();
             $users = User::All()->count();
+            $participationChart = UserGameboard::getParticipationByDate('1');
         }
         else {
             $activityNumber = Auth::user()->gameboards()->count();
