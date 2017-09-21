@@ -123,14 +123,13 @@
         <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.66096866" vertical-offset="380" max-vertical-offset="833">
-              <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+              <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
               <folding>
                 <element signature="e#23#62#0#PHP" expanded="true" />
-                <marker date="1505997813512" expanded="true" signature="653:893" placeholder="select date(..." />
-                <marker date="1505997813512" expanded="true" signature="653:974" placeholder="select date(..." />
-                <marker date="1505997813512" expanded="true" signature="653:985" placeholder="select date(..." />
-                <marker date="1505997813512" expanded="true" signature="653:993" placeholder="select date(..." />
-                <marker date="1505997813512" expanded="true" signature="653:1032" placeholder="select date(..." />
+                <marker date="1505997882356" expanded="true" signature="653:893" placeholder="select date(..." />
+                <marker date="1505997882356" expanded="true" signature="653:974" placeholder="select date(..." />
+                <marker date="1505997882356" expanded="true" signature="653:985" placeholder="select date(..." />
+                <marker date="1505997882356" expanded="true" signature="653:1024" placeholder="select date(..." />
               </folding>
             </state>
           </provider>
@@ -704,12 +703,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00244" summary="ok">
-      <created>1504512437897</created>
-      <option name="number" value="00244" />
-      <option name="project" value="LOCAL" />
-      <updated>1504512437897</updated>
-    </task>
     <task id="LOCAL-00245" summary="ok">
       <created>1504513240251</created>
       <option name="number" value="00245" />
@@ -998,7 +991,13 @@
       <option name="project" value="LOCAL" />
       <updated>1505997742477</updated>
     </task>
-    <option name="localTasksCounter" value="293" />
+    <task id="LOCAL-00293" summary="ok">
+      <created>1505997837297</created>
+      <option name="number" value="00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1505997837297</updated>
+    </task>
+    <option name="localTasksCounter" value="294" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1587,14 +1586,13 @@
     <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.66096866" vertical-offset="380" max-vertical-offset="833">
-          <caret line="36" column="53" selection-start-line="36" selection-start-column="53" selection-end-line="36" selection-end-column="53" />
+          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
           <folding>
             <element signature="e#23#62#0#PHP" expanded="true" />
-            <marker date="1505997813512" expanded="true" signature="653:893" placeholder="select date(..." />
-            <marker date="1505997813512" expanded="true" signature="653:974" placeholder="select date(..." />
-            <marker date="1505997813512" expanded="true" signature="653:985" placeholder="select date(..." />
-            <marker date="1505997813512" expanded="true" signature="653:993" placeholder="select date(..." />
-            <marker date="1505997813512" expanded="true" signature="653:1032" placeholder="select date(..." />
+            <marker date="1505997882356" expanded="true" signature="653:893" placeholder="select date(..." />
+            <marker date="1505997882356" expanded="true" signature="653:974" placeholder="select date(..." />
+            <marker date="1505997882356" expanded="true" signature="653:985" placeholder="select date(..." />
+            <marker date="1505997882356" expanded="true" signature="653:1024" placeholder="select date(..." />
           </folding>
         </state>
       </provider>
