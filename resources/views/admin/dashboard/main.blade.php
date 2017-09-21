@@ -25,7 +25,7 @@
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
 
-            @include('admin.dashboard.partials.participationGraph',['participationChart'=>participationChart])
+            @include('admin.dashboard.partials.participationGraph',['participationChart'=>$participationChart])
 
             @include('admin.dashboard.partials.chat')
 
