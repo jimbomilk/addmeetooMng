@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -570,12 +569,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00237" summary="ok">
-      <created>1504506794033</created>
-      <option name="number" value="00237" />
-      <option name="project" value="LOCAL" />
-      <updated>1504506794033</updated>
-    </task>
     <task id="LOCAL-00238" summary="ok">
       <created>1504507773454</created>
       <option name="number" value="00238" />
@@ -864,7 +857,13 @@
       <option name="project" value="LOCAL" />
       <updated>1505984292294</updated>
     </task>
-    <option name="localTasksCounter" value="286" />
+    <task id="LOCAL-00286" summary="ok">
+      <created>1505984588535</created>
+      <option name="number" value="00286" />
+      <option name="project" value="LOCAL" />
+      <updated>1505984588535</updated>
+    </task>
+    <option name="localTasksCounter" value="287" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
