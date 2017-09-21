@@ -115,18 +115,7 @@ $(function () {
   var area = new Morris.Area({
     element: 'revenue-chart',
     resize: true,
-    data: participationChart, /*[
-      {y: '2011 Q1', participacion: 2666},
-      {y: '2011 Q2', participacion: 2778},
-      {y: '2011 Q3', participacion: 4912},
-      {y: '2011 Q4', participacion: 3767},
-      {y: '2012 Q1', participacion: 6810},
-      {y: '2012 Q2', participacion: 5670},
-      {y: '2012 Q3', participacion: 4820},
-      {y: '2012 Q4', participacion: 15073},
-      {y: '2013 Q1', participacion: 10687},
-      {y: '2013 Q2', participacion: 8432}
-    ],*/
+    data: participationChart,
     xkey: 'participation_date',
     ykeys: ['participations'],
     labels: ['Participación'],

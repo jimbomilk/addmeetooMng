@@ -23,7 +23,7 @@
     <!-- Main row -->
     <div class="row">
         <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
+        <section class="col-lg-12 connectedSortable">
 
             @include('admin.dashboard.partials.participationGraph')
 
@@ -33,15 +33,7 @@
 
         </section><!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
 
-            @include ('admin.dashboard.partials.visitors')
-
-            @include('admin.dashboard.partials.auctionChart')
-
-            @include('admin.dashboard.partials.votingChart')
-
-        </section><!-- right col -->
     </div><!-- /.row (main row) -->
 @endsection
 
