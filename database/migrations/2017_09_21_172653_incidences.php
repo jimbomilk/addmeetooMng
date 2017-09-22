@@ -24,7 +24,7 @@ class Incidences extends Migration
                 ->on('locations')
                 ->onDelete('cascade');
 
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->string('user_email');
 
             $table->timestamps();
         });
