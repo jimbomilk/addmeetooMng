@@ -154,6 +154,7 @@ Route::group(['prefix'=>'api','middleware'=>['api','cors'], 'namespace' => '\Api
     Route::post('userUpdate','ApiController@userUpdate');
     Route::post('lastOffers','ApiController@lastOffers');
     Route::post('messages','ApiController@messages');
+    Route::post('newIncidence','ApiController@newIncidence');
 
     Route::post('globalRanking','ApiController@globalRanking');
     Route::post('gamesRanking','ApiController@userGameboards');

@@ -6,6 +6,7 @@ use App\Adspack;
 use App\Events\Envelope;
 use App\Events\MessageEvent;
 use App\Gameboard;
+use App\Incidence;
 use App\location;
 use App\Status;
 use App\User;
@@ -334,6 +335,20 @@ class ApiController extends Controller
             $profile->save();
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
+    }
+
+    public function newIncidence(Request $request)
+    {
+        $incidence = new Incidence();
+
+        if (isset($incidence)) {
+            $incidence->status = false;
+            $incidence->location_id=$request->get('location');
+            $incidence->location_id=$request->get('location');
+            $incidence->attachment = $this->saveFile($request->file('file'),'attachment', $incidence->path);
+            $incidence->save();
+        }
+        return response()->json($incidence);
     }
 
     public function saveFile($file,$name,$folder)
