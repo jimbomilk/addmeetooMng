@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database/migrations/2017_09_21_172653_incidences.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Incidence.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/IncidencesController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/UserProfileRequest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -40,27 +34,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0" vertical-offset="5730" max-vertical-offset="9469">
-              <caret line="350" column="42" selection-start-line="350" selection-start-column="42" selection-end-line="350" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.44615385" vertical-offset="5679" max-vertical-offset="9469">
+              <caret line="346" column="52" selection-start-line="346" selection-start-column="52" selection-end-line="346" selection-end-column="52" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1506075357108" expanded="true" signature="12575:13071" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1506075357108" expanded="true" signature="13120:13371" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1506075357108" expanded="true" signature="15299:16062" placeholder="select a.use..user_gameboards..." />
-                <marker date="1506075357108" expanded="true" signature="16257:16859" placeholder="select users..user_gameboards..." />
+                <marker date="1506081869322" expanded="true" signature="12568:13064" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1506081869322" expanded="true" signature="13113:13364" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1506081869322" expanded="true" signature="15292:16055" placeholder="select a.use..user_gameboards..." />
+                <marker date="1506081869322" expanded="true" signature="16250:16852" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81978023" vertical-offset="2126" max-vertical-offset="2907">
-              <caret line="156" column="58" selection-start-line="156" selection-start-column="58" selection-end-line="156" selection-end-column="58" />
+            <state vertical-scroll-proportion="-5.8545456" vertical-offset="2177" max-vertical-offset="2907">
+              <caret line="156" column="58" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -248,8 +242,8 @@
         <option value="$PROJECT_DIR$/app/Incidence.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/IncidencesController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_09_21_172653_incidences.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       </list>
     </option>
   </component>
@@ -487,12 +481,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00248" summary="ok">
-      <created>1504811889654</created>
-      <option name="number" value="00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1504811889654</updated>
     </task>
     <task id="LOCAL-00249" summary="ok">
       <created>1504979932193</created>
@@ -782,7 +770,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506081302899</updated>
     </task>
-    <option name="localTasksCounter" value="297" />
+    <task id="LOCAL-00297" summary="ok">
+      <created>1506081506878</created>
+      <option name="number" value="00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1506081506878</updated>
+    </task>
+    <option name="localTasksCounter" value="298" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -817,7 +811,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31316188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31316188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3353566" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271605" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32515338" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1254,25 +1248,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0" vertical-offset="5730" max-vertical-offset="9469">
-          <caret line="350" column="42" selection-start-line="350" selection-start-column="42" selection-end-line="350" selection-end-column="42" />
-          <folding>
-            <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1506075357108" expanded="true" signature="12575:13071" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1506075357108" expanded="true" signature="13120:13371" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1506075357108" expanded="true" signature="15299:16062" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506075357108" expanded="true" signature="16257:16859" placeholder="select users..user_gameboards..." />
-          </folding>
+        <state vertical-scroll-proportion="-5.8545456" vertical-offset="2177" max-vertical-offset="2907">
+          <caret line="156" column="58" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81978023" vertical-offset="2126" max-vertical-offset="2907">
-          <caret line="156" column="58" selection-start-line="156" selection-start-column="58" selection-end-line="156" selection-end-column="58" />
-          <folding />
+        <state vertical-scroll-proportion="0.44615385" vertical-offset="5679" max-vertical-offset="9469">
+          <caret line="346" column="52" selection-start-line="346" selection-start-column="52" selection-end-line="346" selection-end-column="52" />
+          <folding>
+            <element signature="e#44#60#0#PHP" expanded="true" />
+            <marker date="1506081869322" expanded="true" signature="12568:13064" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1506081869322" expanded="true" signature="13113:13364" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1506081869322" expanded="true" signature="15292:16055" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506081869322" expanded="true" signature="16250:16852" placeholder="select users..user_gameboards..." />
+          </folding>
         </state>
       </provider>
     </entry>

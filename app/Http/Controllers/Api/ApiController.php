@@ -344,7 +344,7 @@ class ApiController extends Controller
         if (isset($incidence)) {
             $incidence->status = false;
             $incidence->location_id=$request->get('location');
-            $incidence->location_id=$request->get('location');
+            $incidence->coords=$request->get('coords');
             $incidence->attachment = $this->saveFile($request->file('file'),'attachment', $incidence->path);
             $incidence->save();
         }
