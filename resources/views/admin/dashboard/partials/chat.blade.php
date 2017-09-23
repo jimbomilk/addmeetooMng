@@ -6,7 +6,7 @@
         <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
             <div class="btn-group" data-toggle="btn-toggle" >
                 <button type="button" class="btn btn-default btn-sm active" onclick="$('.target0').show();$('.target1').hide()"><i class="fa fa-square text-green"></i></button>
-                <button type="button" class="btn btn-default btn-sm" onclick="$('.target1').show();$('.target0').hide();$('#titulo_incidencias').value('Incidencias cerradas')"><i class="fa fa-square text-red"></i></button>
+                <button type="button" class="btn btn-default btn-sm" onclick="$('.target1').show();$('.target0').hide();$('#titulo_incidencias').val('Incidencias cerradas')"><i class="fa fa-square text-red"></i></button>
             </div>
         </div>
     </div>
