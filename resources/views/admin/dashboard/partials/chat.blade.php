@@ -19,6 +19,12 @@
                 <p class="message">
                     <a href="#" class="name">
                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{$incidence->created_at}}</small>
+                        @if ($incidence->status)
+                            <button class="btn btn-primary btn-sm btn-flat">Open</button>
+                        @endif
+                        @if (!$incidence->status)
+                            <button class="btn btn-danger btn-sm btn-flat">Closed</button>
+                        @endif
                         @if ($incidence->user_email!="")
                             {{$incidence->user_email}}
                         @else
