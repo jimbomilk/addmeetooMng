@@ -58,8 +58,3 @@
 
 </div><!-- /.box (chat box) -->
 
-@section('scripts')
-    <script>
-        $('.target0').show();
-    </script>
-@endsection
