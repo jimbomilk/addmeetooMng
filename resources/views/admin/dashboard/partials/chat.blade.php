@@ -14,7 +14,7 @@
 
         @foreach($incidences as $incidence)
             <div class="item">
-                <img src="{{$incidence->attachement}}" alt="incidence image" class="online"/>
+                <img src="{{$incidence->attachment}}" alt="incidence image" class="online"/>
                 <p class="message">
                     <a href="#" class="name">
                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{$incidence->create_at}}</small>

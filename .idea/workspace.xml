@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -45,21 +44,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="1190">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.35123968" vertical-offset="102" max-vertical-offset="1190">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.338843" vertical-offset="210" max-vertical-offset="1836">
-              <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
+            <state vertical-scroll-proportion="-3.0384614" vertical-offset="210" max-vertical-offset="1836">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -118,7 +117,7 @@
       <file leaf-file-name="advertisements.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="43.0" vertical-offset="1186" max-vertical-offset="1887">
+            <state vertical-scroll-proportion="27.307692" vertical-offset="778" max-vertical-offset="1887">
               <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
               <folding />
             </state>
@@ -234,9 +233,9 @@
         <option value="$PROJECT_DIR$/resources/views/admin/gameboard_options/partials/table.blade.php" />
         <option value="$PROJECT_DIR$/app/GameView.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" />
       </list>
     </option>
   </component>
@@ -649,12 +648,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00274" summary="ok">
-      <created>1505978950482</created>
-      <option name="number" value="00274" />
-      <option name="project" value="LOCAL" />
-      <updated>1505978950482</updated>
-    </task>
     <task id="LOCAL-00275" summary="ok">
       <created>1505979056321</created>
       <option name="number" value="00275" />
@@ -943,7 +936,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506175950773</updated>
     </task>
-    <option name="localTasksCounter" value="323" />
+    <task id="LOCAL-00323" summary="ok">
+      <created>1506176388863</created>
+      <option name="number" value="00323" />
+      <option name="project" value="LOCAL" />
+      <updated>1506176388863</updated>
+    </task>
+    <option name="localTasksCounter" value="324" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1370,26 +1369,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="43.0" vertical-offset="1186" max-vertical-offset="1887">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/advertisements/partials/table.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="544">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="23" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="1190">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1444,8 +1427,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.338843" vertical-offset="210" max-vertical-offset="1836">
-          <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
+        <state vertical-scroll-proportion="-3.0384614" vertical-offset="210" max-vertical-offset="1836">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="27.307692" vertical-offset="778" max-vertical-offset="1887">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35123968" vertical-offset="102" max-vertical-offset="1190">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
           <folding />
         </state>
       </provider>
