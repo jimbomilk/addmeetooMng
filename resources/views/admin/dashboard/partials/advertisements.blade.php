@@ -4,7 +4,7 @@
         <i class="ion ion-clipboard"></i>
         <h3 class="box-title">Anuncios</h3>
         <div class="box-tools pull-right">
-            {{ $ads->links() }}
+            <div class="pagination pagination-sm inline">"> {{ $ads->links() }} </div>
         </div>
     </div><!-- /.box-header -->
     <div class="box-body">
