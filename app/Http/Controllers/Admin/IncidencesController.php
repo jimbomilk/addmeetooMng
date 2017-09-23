@@ -179,7 +179,7 @@ class IncidencesController extends Controller {
         //Log::info('col:'.$column_name.' , val:'.$column_value);
 
         if( Input::has('name') && Input::has('value')) {
-            $this->updateGame($id,$column_name,$column_value);
+            $this->updateIncidence($id,$column_name,$column_value);
             return response()->json([ 'code'=>200], 200);
         }
 
