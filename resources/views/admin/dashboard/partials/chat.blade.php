@@ -17,7 +17,7 @@
                 <img src="{{$incidence->attachment}}" alt="incidence image" class="online"/>
                 <p class="message">
                     <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{$incidence->create_at}}</small>
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{$incidence->created_at}}</small>
                         @if ($incidence->user_email!="")
                             {{$incidence->user_email}}
                         @else
