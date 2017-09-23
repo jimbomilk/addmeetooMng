@@ -2,11 +2,11 @@
 <div class="box box-success">
     <div class="box-header">
         <i class="fa fa-comments-o"></i>
-        <h3 class="box-title">Incidencias</h3>
+        <h3 id="titulo_incidencias" class="box-title">Incidencias</h3>
         <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
             <div class="btn-group" data-toggle="btn-toggle" >
                 <button type="button" class="btn btn-default btn-sm active" onclick="$('.target0').show();$('.target1').hide()"><i class="fa fa-square text-green"></i></button>
-                <button type="button" class="btn btn-default btn-sm" onclick="$('.target1').show();$('.target0').hide()"><i class="fa fa-square text-red"></i></button>
+                <button type="button" class="btn btn-default btn-sm" onclick="$('.target1').show();$('.target0').hide();$('#titulo_incidencias').value('Incidencias cerradas')"><i class="fa fa-square text-red"></i></button>
             </div>
         </div>
     </div>
@@ -28,11 +28,10 @@
                     </a>
                     Incidencia localizada en {{$incidence->coords}}. Para ver el mapa pulsar este <a href='https://www.google.es/maps/place/{{$incidence->coords}}'>enlace</a>
                     @if (!$incidence->status)
-                        <button class="btn btn-primary btn-sm btn-flat">Open</button>
+                        <button class="btn btn-primary btn-sm btn-flat pull-right">Cerrar</button>
+
                     @endif
-                    @if ($incidence->status)
-                        <button class="btn btn-danger btn-sm btn-flat">Closed</button>
-                    @endif
+
 
                 </p>
             </div>
