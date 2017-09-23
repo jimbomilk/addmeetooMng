@@ -68,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.37396693" vertical-offset="210" max-vertical-offset="1870">
-              <caret line="33" column="49" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="49" />
+              <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -648,12 +648,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00271" summary="ok">
-      <created>1505805003746</created>
-      <option name="number" value="00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1505805003747</updated>
-    </task>
     <task id="LOCAL-00272" summary="ok">
       <created>1505978807933</created>
       <option name="number" value="00272" />
@@ -942,7 +936,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506175765936</updated>
     </task>
-    <option name="localTasksCounter" value="320" />
+    <task id="LOCAL-00320" summary="ok">
+      <created>1506175805751</created>
+      <option name="number" value="00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1506175805751</updated>
+    </task>
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1443,7 +1443,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37396693" vertical-offset="210" max-vertical-offset="1870">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="49" />
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
           <folding />
         </state>
       </provider>
