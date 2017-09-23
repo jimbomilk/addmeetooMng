@@ -3,8 +3,8 @@
     <div class="box-header">
         <i class="ion ion-clipboard"></i>
         <h3 class="box-title">Anuncios</h3>
-        <div class="box-tools pull-right">
-            <div class="pagination pagination-sm inline">"> {{ $ads->links() }} </div>
+        <div class="box-tools pull-right inline">
+            {{ $ads->links() }}
         </div>
     </div><!-- /.box-header -->
     <div class="box-body">
