@@ -63,7 +63,7 @@ class User extends Authenticatable
 
     public function activeGameboards()
     {
-        $this->load(['gameboards'=>function ($q){
+        return $this->load(['gameboards'=>function ($q){
             $q->where('status','=',Status::RUNNING);
         }]);
     }
