@@ -31,7 +31,7 @@
         @endforeach
 
         <script>
-            $('.target0').show();$('.target1').hide();
+            $('.target1').hide();
         </script>
 
         <!--
