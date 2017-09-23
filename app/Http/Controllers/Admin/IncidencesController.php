@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Events\MessageEvent;
@@ -183,6 +184,17 @@ class IncidencesController extends Controller {
         }
 
         return response()->json([ 'error'=> 400, 'message'=> 'Not enought params' ], 400);
+    }
+
+    public function updateIncidence($id,$column_name,$column_value)
+    {
+        $in = Incidence::findOrFail($id);
+        if (isset($in))
+        {
+            $in->$column_name = $column_value;
+            $in->save();
+
+        }
     }
 
 }
