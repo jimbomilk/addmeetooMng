@@ -2463,11 +2463,15 @@ a:focus {
   color: #999;
 }
 /* PAGINATION */
+.pagination {
+    margin-top: 0px;
+}
 .pagination > li > a {
   background: #fafafa;
   color: #666;
   border-radius: 0 !important;
 }
+
 /*
  * Component: Products List
  * ------------------------
