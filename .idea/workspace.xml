@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -46,8 +47,8 @@
       <file leaf-file-name="chat.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35123968" vertical-offset="102" max-vertical-offset="1190">
-              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.4214876" vertical-offset="102" max-vertical-offset="1224">
+              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -647,12 +648,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00276" summary="ok">
-      <created>1505979494823</created>
-      <option name="number" value="00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1505979494823</updated>
-    </task>
     <task id="LOCAL-00277" summary="ok">
       <created>1505983051768</created>
       <option name="number" value="00277" />
@@ -941,7 +936,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506176647127</updated>
     </task>
-    <option name="localTasksCounter" value="325" />
+    <task id="LOCAL-00325" summary="ok">
+      <created>1506176653912</created>
+      <option name="number" value="00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1506176653912</updated>
+    </task>
+    <option name="localTasksCounter" value="326" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1442,8 +1443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35123968" vertical-offset="102" max-vertical-offset="1190">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.4214876" vertical-offset="102" max-vertical-offset="1224">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding />
         </state>
       </provider>
