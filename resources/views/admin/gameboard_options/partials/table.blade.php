@@ -17,7 +17,7 @@
             <td style="text-align: center">{{$gameboard_option->order}}</td>
             <td style="text-align: center">{!! HTML::image($gameboard_option->image, 'photo',array( 'width' => 50, 'height' => 50 )) !!}</td>
             <td>{{$gameboard_option->description}}</td>
-            @if($game->type=='bet')
+            @if($game->type=='bet'||$game->type=='game')
             <td><a href="#" class="fastEdit" data-type="number" data-column="result" data-url="{{route($login_user->type.'.gameboard_option_fast',['id'=>$gameboard_option->id])}}" data-pk="{{$gameboard_option->id}}" data-name="result"> {{$gameboard_option->result}} </a> </td>
             @endif
             <td>
