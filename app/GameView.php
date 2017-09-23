@@ -66,7 +66,7 @@ class GameView extends Model
             if ($gameboard->type == "game")
             {
                 if($option->result)
-                    $res = "¡correcto!";
+                    $res = "<ion-icon name='happy'></ion-icon>¡correcto!";
                 else
                     $res = "incorrecto";
             }

@@ -63,11 +63,11 @@
       <file leaf-file-name="GameView.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/GameView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6681319" vertical-offset="886" max-vertical-offset="3859">
-              <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.48131868" vertical-offset="886" max-vertical-offset="3859">
+              <caret line="68" column="72" selection-start-line="68" selection-start-column="72" selection-end-line="68" selection-end-column="72" />
               <folding>
-                <marker date="1506161765239" expanded="true" signature="2758:2870" placeholder="SELECT COUNT..user_gameboards..." />
-                <marker date="1506161765239" expanded="true" signature="3861:4017" placeholder="SELECT user_..user_gameboards..." />
+                <marker date="1506161963237" expanded="true" signature="2792:2904" placeholder="SELECT COUNT..user_gameboards..." />
+                <marker date="1506161963237" expanded="true" signature="3895:4051" placeholder="SELECT user_..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -603,12 +603,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00259" summary="ok">
-      <created>1505665413922</created>
-      <option name="number" value="00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1505665413923</updated>
-    </task>
     <task id="LOCAL-00260" summary="ok">
       <created>1505666442769</created>
       <option name="number" value="00260" />
@@ -897,7 +891,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506160251033</updated>
     </task>
-    <option name="localTasksCounter" value="308" />
+    <task id="LOCAL-00308" summary="ok">
+      <created>1506161774690</created>
+      <option name="number" value="00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1506161774690</updated>
+    </task>
+    <option name="localTasksCounter" value="309" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1387,11 +1387,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/GameView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6681319" vertical-offset="886" max-vertical-offset="3859">
-          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.48131868" vertical-offset="886" max-vertical-offset="3859">
+          <caret line="68" column="72" selection-start-line="68" selection-start-column="72" selection-end-line="68" selection-end-column="72" />
           <folding>
-            <marker date="1506161765239" expanded="true" signature="2758:2870" placeholder="SELECT COUNT..user_gameboards..." />
-            <marker date="1506161765239" expanded="true" signature="3861:4017" placeholder="SELECT user_..user_gameboards..." />
+            <marker date="1506161963237" expanded="true" signature="2792:2904" placeholder="SELECT COUNT..user_gameboards..." />
+            <marker date="1506161963237" expanded="true" signature="3895:4051" placeholder="SELECT user_..user_gameboards..." />
           </folding>
         </state>
       </provider>
