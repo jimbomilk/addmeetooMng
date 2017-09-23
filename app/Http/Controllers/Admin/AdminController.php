@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Gameboard;
+use App\Incidence;
 use App\User;
 use App\UserGameboard;
 use Illuminate\Http\Request;
@@ -27,19 +28,19 @@ class AdminController extends Controller
 
     public function index()
     {
+        $incidences = Auth::user()->incidences();
+        $activityNumber = Auth::user()->activeGameboards()->count();
         if (Auth::user()->is('admin')) {
-            $activityNumber = Activity::all()->count();
             $participantNumber = UserGameboard::All()->count();
             $users = User::All()->count();
             $participationChart = UserGameboard::getParticipationByDate('1');
         }
         else {
-            $activityNumber = Auth::user()->gameboards()->count();
             $participationChart = UserGameboard::getParticipationByDate('1');
         }
 
 
-		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart]);
+		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences]);
     }
 
     /**
