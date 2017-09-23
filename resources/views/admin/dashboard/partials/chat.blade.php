@@ -38,12 +38,12 @@
 
                     @endif
 
+                    @if ($incidence->status)
 
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o text-danger"></i> {{$incidence->updated_at}}</small>
+                    @endif
                 </p>
-                @if ($incidence->status)
 
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o text-danger"></i> {{$incidence->updated_at}}</small>
-                @endif
             </div>
         @endforeach
 
