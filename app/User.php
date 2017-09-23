@@ -72,13 +72,22 @@ class User extends Authenticatable
             ->where('status','=',Status::RUNNING)->get();
     }
 
-    public function incidences()
+
+
+    public function activeincidences()
     {
         if ($this->type == 'admin')
             return Incidence::all();
         return $this->hasManyThrough('App\Incidence', 'App\Location','owner_id','location_id','id');
     }
 
+    public function incidences($status)
+    {
+        if ($this->type == 'admin')
+            return Incidence::where('status','=',$status)->get();
+        return $this->hasManyThrough('App\Incidence', 'App\Location','owner_id','location_id','id')
+            ->where('status','=',$status)->get();
+    }
 
     public function scopeName($query,$name)
     {
