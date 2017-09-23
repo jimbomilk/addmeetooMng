@@ -171,4 +171,18 @@ class IncidencesController extends Controller {
         return redirect()->route($this->indexPage("incidences"));
 	}
 
+    public function fastUpdate($id)
+    {
+        $column_name = Input::get('name');
+        $column_value = Input::get('value');
+        //Log::info('col:'.$column_name.' , val:'.$column_value);
+
+        if( Input::has('name') && Input::has('value')) {
+            $this->updateGame($id,$column_name,$column_value);
+            return response()->json([ 'code'=>200], 200);
+        }
+
+        return response()->json([ 'error'=> 400, 'message'=> 'Not enought params' ], 400);
+    }
+
 }

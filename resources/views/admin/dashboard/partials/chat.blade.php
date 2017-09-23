@@ -28,7 +28,10 @@
                     </a>
                     Incidencia localizada en {{$incidence->coords}}. Para ver el mapa pulsar este <a href='https://www.google.es/maps/place/{{$incidence->coords}}'>enlace</a>
                     @if (!$incidence->status)
-                        <button class="btn btn-primary btn-sm btn-flat pull-right">Cerrar</button>
+
+                        <a href="#" class="fastUpdate" data-url="{{route($login_user->type.'.incidence_fast',['id'=>$incidence->id])}}" data-value="1" data-name="status">
+                            <small class="label label-primary"><i class="fa fa-clock-o"></i> Cerrar</small>
+                        </a>
 
                     @endif
 

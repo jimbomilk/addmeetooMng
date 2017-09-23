@@ -41,5 +41,23 @@
     <script>
         var participationChart = <?php echo json_encode($participationChart) ?>;
         $('.target1').hide();
+
+        $('.fastUpdate').on('click', function(e){
+            console.log(e);
+            var url = $(this).attr('data-url');
+            var name = $(this).attr('data-name');
+            var value = $(this).attr('data-value');
+            var token = $("#_token").data("token");
+
+            $.post(url, {name:name,value:value,_token:token} ,
+                    function(response){
+                        if(response.status === 500) {
+                            alert('Server error. Check entered data.');
+                        } else {
+                            location.reload();
+                            // return "Error.";
+                        }
+                    }, "json");
+        });
     </script>
 @endsection

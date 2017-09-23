@@ -87,6 +87,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('bids', 'BidsController');
 
 
+    // INCIDENCES
+    Route::post('incidences/fastUpdate/{id}', ['as' => 'admin.incidence_fast', 'uses' => 'IncidencesController@fastUpdate']);
 
 
 
@@ -114,6 +116,8 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
     Route::resource('advertisements', 'AdvertisementsController');
     Route::resource('adspacks', 'AdsPacksController');
 
+    // INCIDENCES
+    Route::post('./fastUpdate/{id}', ['as' => 'owner.incidence_fast', 'uses' => 'IncidencesController@fastUpdate']);
 
 
 
