@@ -66,7 +66,7 @@ class GameView extends Model
             if ($gameboard->type == "game")
             {
                 if($option->result)
-                    $res = "<¡CORRECTO!";
+                    $res = "¡CORRECTO!";
                 else
                     $res = "Incorrecto";
             }
