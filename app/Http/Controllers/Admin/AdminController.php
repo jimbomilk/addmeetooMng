@@ -31,7 +31,7 @@ class AdminController extends Controller
     {
         $incidences = Auth::user()->incidences();
         $activityNumber = Auth::user()->gameboards()
-            ->where('gameboard.status','=',Status::RUNNING)
+            ->where('gameboard.status','>',Status::RUNNING)
             ->count();
         if (Auth::user()->is('admin')) {
             $participantNumber = UserGameboard::All()->count();
