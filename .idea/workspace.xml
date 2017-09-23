@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -64,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.3076925" vertical-offset="210" max-vertical-offset="1836">
-              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.37396693" vertical-offset="210" max-vertical-offset="1870">
+              <caret line="33" column="49" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -94,10 +94,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82092553" vertical-offset="765" max-vertical-offset="1802">
+            <state vertical-scroll-proportion="-15.692307" vertical-offset="765" max-vertical-offset="1802">
               <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
               <folding />
             </state>
@@ -234,8 +234,8 @@
         <option value="$PROJECT_DIR$/app/GameView.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
       </list>
     </option>
   </component>
@@ -648,12 +648,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00270" summary="ok">
-      <created>1505685170845</created>
-      <option name="number" value="00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1505685170845</updated>
-    </task>
     <task id="LOCAL-00271" summary="ok">
       <created>1505805003746</created>
       <option name="number" value="00271" />
@@ -942,7 +936,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506175323914</updated>
     </task>
-    <option name="localTasksCounter" value="319" />
+    <task id="LOCAL-00319" summary="ok">
+      <created>1506175765936</created>
+      <option name="number" value="00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1506175765936</updated>
+    </task>
+    <option name="localTasksCounter" value="320" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1432,18 +1432,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
+    <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3076925" vertical-offset="210" max-vertical-offset="1836">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+        <state vertical-scroll-proportion="-15.692307" vertical-offset="765" max-vertical-offset="1802">
+          <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82092553" vertical-offset="765" max-vertical-offset="1802">
-          <caret line="69" column="28" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.37396693" vertical-offset="210" max-vertical-offset="1870">
+          <caret line="33" column="49" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="49" />
           <folding />
         </state>
       </provider>
