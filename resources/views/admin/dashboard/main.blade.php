@@ -40,7 +40,5 @@
 @section('scripts')
     <script>
         var participationChart = <?php echo json_encode($participationChart) ?>
-        $('.target0').show();
-        $('.target1').hide();
     </script>
 @endsection
