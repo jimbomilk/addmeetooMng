@@ -22,7 +22,7 @@
                     <a href="#" class="name">
                         <small class="text-muted pull-right"><i class="fa fa-clock-o text-success"></i> {{$incidence->created_at}}</small>
                         @if ($incidence->status)
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o text-danger"></i> {{$incidence->updated_at}}</small>
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o text-danger"></i> / {{$incidence->updated_at}}</small>
                         @endif
 
                         @if ($incidence->user_email!="")
