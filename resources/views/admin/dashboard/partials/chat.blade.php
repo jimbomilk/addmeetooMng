@@ -1,4 +1,6 @@
 <!-- Chat box -->
+<div id="_token" class="hidden" data-token="{{ csrf_token() }}"></div>
+
 <div class="box box-success">
     <div class="box-header">
         <i class="fa fa-comments-o"></i>

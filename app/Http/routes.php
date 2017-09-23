@@ -117,7 +117,7 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
     Route::resource('adspacks', 'AdsPacksController');
 
     // INCIDENCES
-    Route::post('fastUpdate/{id}', ['as' => 'owner.incidence_fast', 'uses' => 'IncidencesController@fastUpdate']);
+    Route::post('incidences/fastUpdate/{id}', ['as' => 'owner.incidence_fast', 'uses' => 'IncidencesController@fastUpdate']);
 
 
 
