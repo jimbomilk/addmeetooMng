@@ -37,7 +37,7 @@
       <file leaf-file-name="chat.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5095368" vertical-offset="255" max-vertical-offset="1428">
+            <state vertical-scroll-proportion="0.5095368" vertical-offset="255" max-vertical-offset="1394">
               <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
@@ -648,12 +648,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00310" summary="ok">
-      <created>1506162045155</created>
-      <option name="number" value="00310" />
-      <option name="project" value="LOCAL" />
-      <updated>1506162045155</updated>
-    </task>
     <task id="LOCAL-00311" summary="ok">
       <created>1506162058217</created>
       <option name="number" value="00311" />
@@ -942,7 +936,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506187816103</updated>
     </task>
-    <option name="localTasksCounter" value="359" />
+    <task id="LOCAL-00359" summary="ok">
+      <created>1506187911792</created>
+      <option name="number" value="00359" />
+      <option name="project" value="LOCAL" />
+      <updated>1506187911792</updated>
+    </task>
+    <option name="localTasksCounter" value="360" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
