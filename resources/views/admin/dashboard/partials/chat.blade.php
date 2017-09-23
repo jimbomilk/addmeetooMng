@@ -21,11 +21,11 @@
                 <p class="message">
                     <a href="#" class="name">
                         <div>
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o icon-green"></i> {{$incidence->created_at}}</small>
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o text-success"></i> {{$incidence->created_at}}</small>
                         </div>
                         @if ($incidence->status)
                         <div>
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o icon-red"></i> {{$incidence->updated_at}}</small>
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o text-danger"></i> {{$incidence->updated_at}}</small>
                         </div>
                         @endif
 
