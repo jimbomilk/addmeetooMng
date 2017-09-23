@@ -20,7 +20,10 @@
                 <img src="{{$incidence->attachment}}" alt="incidence image" class="online"/>
                 <p class="message">
                     <a href="#" class="name">
-                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{$incidence->created_at}}</small>
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o primary"></i> {{$incidence->created_at}}</small>
+                        @if ($incidence->status)
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o danger"></i> {{$incidence->updated_at}}</small>
+                        @endif
 
                         @if ($incidence->user_email!="")
                             {{$incidence->user_email}}
