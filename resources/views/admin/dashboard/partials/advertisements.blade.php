@@ -9,6 +9,7 @@
         <ul class="todo-list">
             @foreach($ads as $a)
             <li>
+                <img src="{{$a->imagesmall}}" alt="add image" class="online"/>
                 <!-- todo text -->
                 <span class="text">{{$a->name}}</span>
                 <!-- Emphasis label -->
