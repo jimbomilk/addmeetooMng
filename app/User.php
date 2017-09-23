@@ -61,12 +61,6 @@ class User extends Authenticatable
         return $this->hasManyThrough('App\Gameboard', 'App\Location','owner_id','location_id','id');
     }
 
-    public function activeGameboards()
-    {
-        return $this->load(['gameboards'=>function ($q){
-            $q->where('status','=',Status::RUNNING);
-        }]);
-    }
 
     public function incidences()
     {
