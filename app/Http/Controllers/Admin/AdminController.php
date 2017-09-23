@@ -29,9 +29,9 @@ class AdminController extends Controller
 
     public function index()
     {
-        $incidences = Auth::user()->incidences()->paginate();
+        $incidences = Auth::user()->incidences();
         $activityNumber = Auth::user()->activeGameboards()->count();
-        $ads = Auth::user()->advertisements();
+        $ads = Auth::user()->advertisements()->paginate();
         if (Auth::user()->is('admin')) {
             $participantNumber = UserGameboard::All()->count();
             $users = User::All()->count();
