@@ -64,6 +64,14 @@ class User extends Authenticatable
     }
 
 
+    public function activeGameboards()
+    {
+        if ($this->type == 'admin')
+            return Gameboard::where('status','=',Status::RUNNING)->get();
+        return $this->hasManyThrough('App\Gameboard', 'App\Location','owner_id','location_id','id')
+            ->where('status','=',Status::RUNNING)->get();
+    }
+
     public function incidences()
     {
         if ($this->type == 'admin')

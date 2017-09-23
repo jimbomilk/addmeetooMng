@@ -30,9 +30,7 @@ class AdminController extends Controller
     public function index()
     {
         $incidences = Auth::user()->incidences();
-        $activityNumber = Auth::user()->gameboards()
-            ->where('gameboard.status','>',Status::RUNNING)
-            ->count();
+        $activityNumber = Auth::user()->activeGameboards()->count();
         if (Auth::user()->is('admin')) {
             $participantNumber = UserGameboard::All()->count();
             $users = User::All()->count();
