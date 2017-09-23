@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Gameboard;
 use App\Incidence;
+use App\Status;
 use App\User;
 use App\UserGameboard;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class AdminController extends Controller
     {
         $incidences = Auth::user()->incidences();
         $activityNumber = Auth::user()->gameboards()
-            ->where('gameboard.status','=',Status::RUNNING)
+            ->where('status','=',Status::RUNNING)
             ->count();
         if (Auth::user()->is('admin')) {
             $participantNumber = UserGameboard::All()->count();
