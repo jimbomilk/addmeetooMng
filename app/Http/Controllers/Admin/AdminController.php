@@ -31,7 +31,7 @@ class AdminController extends Controller
     {
         $incidences = Auth::user()->incidences();
         $activityNumber = Auth::user()->activeGameboards()->count();
-        $ads = Auth::user()->advertisements()->paginate();
+        $ads = Auth::user()->advertisements();
         if (Auth::user()->is('admin')) {
             $participantNumber = UserGameboard::All()->count();
             $users = User::All()->count();
