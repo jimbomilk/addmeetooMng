@@ -340,14 +340,14 @@ class ApiController extends Controller
     public function newIncidence(Request $request)
     {
         $incidence = new Incidence();
-        Log::info('New incidence');
+        //Log::info('New incidence');
         if (isset($incidence)) {
             $incidence->status = false;
             $incidence->location_id=$request->get('location');
             $incidence->coords=$request->get('coords');
             $incidence->user_email=$request->get('user');
-            $incidence->attachment = $this->saveFile($request->file('attachment'),'attachment', $incidence->path);
-            Log::info('salvando:'.$incidence->path);
+            $incidence->attachment = $this->saveFile($request->file('file'),'attachment', $incidence->path);
+            Log::info('salvando:'.$request->file('file'));
             $incidence->save();
         }
         return response()->json($incidence);
