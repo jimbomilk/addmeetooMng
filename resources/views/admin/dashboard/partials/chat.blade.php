@@ -14,7 +14,7 @@
 
 
         @foreach($incidences as $incidence)
-            <div class="item target{{$incidence->status}}">
+            <div class="item target{{$incidence->status}}" >
                 <img src="{{$incidence->attachment}}" alt="incidence image" class="online"/>
                 <p class="message">
                     <a href="#" class="name">
@@ -30,6 +30,9 @@
             </div>
         @endforeach
 
+        <script>
+            $('.target0').show();$('.target1').hide();
+        </script>
 
         <!--
         <div class="item">
