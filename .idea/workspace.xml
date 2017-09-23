@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -44,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6948229" vertical-offset="306" max-vertical-offset="1173">
-              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+            <state vertical-scroll-proportion="-12.807693" vertical-offset="211" max-vertical-offset="1139">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -74,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.692307" vertical-offset="436" max-vertical-offset="833">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.73157895" vertical-offset="436" max-vertical-offset="850">
+              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -234,8 +235,8 @@
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php" />
       </list>
     </option>
   </component>
@@ -674,12 +675,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00293" summary="ok">
-      <created>1505997837297</created>
-      <option name="number" value="00293" />
-      <option name="project" value="LOCAL" />
-      <updated>1505997837297</updated>
-    </task>
     <task id="LOCAL-00294" summary="ok">
       <created>1505997891056</created>
       <option name="number" value="00294" />
@@ -968,7 +963,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506180133018</updated>
     </task>
-    <option name="localTasksCounter" value="342" />
+    <task id="LOCAL-00342" summary="ok">
+      <created>1506180241248</created>
+      <option name="number" value="00342" />
+      <option name="project" value="LOCAL" />
+      <updated>1506180241248</updated>
+    </task>
+    <option name="localTasksCounter" value="343" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1462,18 +1463,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.692307" vertical-offset="436" max-vertical-offset="833">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state vertical-scroll-proportion="-12.807693" vertical-offset="211" max-vertical-offset="1139">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/chat.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6948229" vertical-offset="306" max-vertical-offset="1173">
-          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.73157895" vertical-offset="436" max-vertical-offset="850">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding />
         </state>
       </provider>

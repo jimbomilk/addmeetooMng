@@ -39,6 +39,7 @@
 
 @section('scripts')
     <script>
-        var participationChart = <?php echo json_encode($participationChart) ?>
+        var participationChart = <?php echo json_encode($participationChart) ?>;
+        $('.target1').style="display:none";
     </script>
 @endsection

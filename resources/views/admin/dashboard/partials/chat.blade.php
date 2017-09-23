@@ -30,9 +30,7 @@
             </div>
         @endforeach
 
-        <script>
-            $('.target1').style="display:none";
-        </script>
+
 
         <!--
         <div class="item">
