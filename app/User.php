@@ -66,7 +66,7 @@ class User extends Authenticatable
     public function advertisements()
     {
         if ($this->type == 'admin')
-            return Advertisement::paginate();
+            return Advertisement::paginate(10);
         return $this->hasManyThrough('App\Advertisement', 'App\Location','owner_id','location_id','id');
     }
 
