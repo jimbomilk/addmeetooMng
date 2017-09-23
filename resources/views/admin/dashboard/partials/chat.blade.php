@@ -12,15 +12,13 @@
     </div>
     <div class="box-body chat" id="chat-box">
 
-        <button class="button" onclick="$('#target').toggle();">
+        <button class="button" onclick="$('#target0').hide();">
             Show/Hide
         </button>
-        <div id="target" style="display: none">
-            Hide show.....
-        </div>
+
 
         @foreach($incidences as $incidence)
-            <div class="item">
+            <div id="target{{$incidence->status}}" class="item">
                 <img src="{{$incidence->attachment}}" alt="incidence image" class="online"/>
                 <p class="message">
                     <a href="#" class="name">
