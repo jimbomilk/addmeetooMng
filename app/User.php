@@ -63,6 +63,12 @@ class User extends Authenticatable
         return $this->hasManyThrough('App\Gameboard', 'App\Location','owner_id','location_id','id');
     }
 
+    public function advertisements()
+    {
+        if ($this->type == 'admin')
+            return Advertisement::all();
+        return $this->hasManyThrough('App\Advertisement', 'App\Location','owner_id','location_id','id');
+    }
 
     public function activeGameboards()
     {

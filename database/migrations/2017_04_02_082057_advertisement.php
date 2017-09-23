@@ -34,6 +34,12 @@ class Advertisement extends Migration
                 ->on('users')
                 ->onDelete('cascade');
 
+            $table->integer('location_id')->unsigned();
+            $table->foreign('location_id')
+                ->references('id')
+                ->on('locations')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

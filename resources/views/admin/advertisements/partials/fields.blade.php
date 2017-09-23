@@ -1,6 +1,7 @@
 <div class="form-group">
     @include("admin.common.input_text",array('var'=>'name'))
     @include("admin.common.input_select",array('var'=>'adscategory_id','col'=>$adscategories))
+    @include("admin.common.input_select",array('var'=>'location_id','col'=>$locations))
 
     <h3>Gran formato<small>(Recomendado: 1800x600, jpg o png)</small></h3>
     <hr class="separator">

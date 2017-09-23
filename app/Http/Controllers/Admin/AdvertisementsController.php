@@ -31,18 +31,22 @@ class AdvertisementsController extends Controller {
 	 */
 	public function index()
 	{
-        $advertisements = Advertisement::paginate();
+        if (Auth::user()->is('admin'))
+            $advertisements = Advertisement::paginate();
+        else
+            $advertisements = Auth::user()->advertisements()->paginate();
         return view ('admin.common.index',['name'=>'advertisements','set'=>$advertisements]);
 	}
 
     public function sendView ($element=null)
     {
+        $locations = Auth::user()->locations()->lists('name','id');
         $adscategories = Adscategory::all()->pluck('description','id');
 
         if (isset($element))
-            return view('admin.common.edit',['name'=>'advertisements','element' => $element,'adscategories'=>$adscategories]);
+            return view('admin.common.edit',['name'=>'advertisements','element' => $element,'adscategories'=>$adscategories,'locations'=>$locations]);
         else
-            return view('admin.common.create',['name'=>'advertisements','adscategories'=>$adscategories]);
+            return view('admin.common.create',['name'=>'advertisements','adscategories'=>$adscategories,'locations'=>$locations]);
 
     }
 
