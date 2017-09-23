@@ -62,10 +62,19 @@ class GameView extends Model
         $body = array();
 
         foreach ($gameboard->gameboardOptions->sortBy('order') as $option) {
+            $res = $option->result;
+            if ($gameboard->type == "game")
+            {
+                if($option->result)
+                    $res = "¡correcto!";
+                else
+                    $res = "incorrecto";
+            }
+
             $body[] = [ 'order'=>$option->order,
                         'description'=>$option->description,
                         'image'=>$option->image,
-                        'result'=>$option->result];
+                        'result'=>$res];
         }
         return json_encode($body);
     }
