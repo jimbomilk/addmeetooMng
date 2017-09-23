@@ -134,6 +134,7 @@ return [
     'advertisements.textbig2' => 'Texto',
     'advertisements.edit' => 'Editar',
     'advertisements.packs' => 'Impactos',
+    'advertisements.location_id' => 'Localización',
 
     'adspacks' => 'pack de anuncios',
     'adspacks.bigpack' => 'Repeticiones de anuncio gran formato',
