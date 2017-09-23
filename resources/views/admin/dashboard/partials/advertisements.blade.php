@@ -3,7 +3,9 @@
     <div class="box-header">
         <i class="ion ion-clipboard"></i>
         <h3 class="box-title">Anuncios</h3>
-
+        <div class="box-tools pull-right">
+            <div class="pagination"> {{ $ads->links() }} </div>
+        </div>
     </div><!-- /.box-header -->
     <div class="box-body">
         <ul class="todo-list">
@@ -17,8 +19,8 @@
                 <div class="tools">
                     <i class="fa fa-edit"></i>
                 </div>
-            </li>
-            @endforeach
+
+            @endforeach   </li>
 
         </ul>
     </div><!-- /.box-body -->

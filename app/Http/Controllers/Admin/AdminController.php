@@ -29,7 +29,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $incidences = Auth::user()->incidences();
+        $incidences = Auth::user()->incidences()->paginate();
         $activityNumber = Auth::user()->activeGameboards()->count();
         $ads = Auth::user()->advertisements();
         if (Auth::user()->is('admin')) {
