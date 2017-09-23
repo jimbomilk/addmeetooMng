@@ -3,7 +3,7 @@
     <div class="box-header">
         <i class="ion ion-clipboard"></i>
         <h3 class="box-title">Anuncios</h3>
-        <span class="box-tools pull-right inline" style="margin: 0px">
+        <span class="box-tools pull-right inline" style="margin: 0px !important;">
             {{ $ads->links() }}
         </span>
     </div><!-- /.box-header -->
