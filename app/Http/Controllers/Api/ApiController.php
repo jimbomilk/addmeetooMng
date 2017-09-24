@@ -428,7 +428,7 @@ class ApiController extends Controller
         }
 
         $offers = DB::select($query);
-
+/*
         foreach ($offers as $offer) {
             $pack = Adspack::findOrFail($offer->packid);
             if (isset($pack)) {
@@ -436,7 +436,7 @@ class ApiController extends Controller
                 $pack->save();
             }
         }
-
+*/
         return response()->json($offers);
 
     }
