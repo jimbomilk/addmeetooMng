@@ -74,7 +74,7 @@ class SendScreen extends Command
                 if($this->screenAgenda($location->id,$delay))
                     $delay += $delay_inicial;
 
-                $nScreens = $this->screenGame($location->id,$delay);
+                $nScreens = $this->screenGame($location->id,$delay,$delay_inicial);
                 $delay = $delay + ($nScreens*$delay_inicial);
 
             }
@@ -119,7 +119,7 @@ class SendScreen extends Command
     }
 
 
-    public function screenGame($location_id,$delay)
+    public function screenGame($location_id,$delay,$delay_inicial)
     {
         $now = Carbon::now(Config::get('app.timezone'));
         $nscreens=0;
@@ -137,7 +137,7 @@ class SendScreen extends Command
                     ->onQueue('bigpack');
                 $this->dispatch($job);
                 $nscreens ++;
-                $d = $d + $delay;
+                $d = $d + $delay_inicial;
             }
         }
 
