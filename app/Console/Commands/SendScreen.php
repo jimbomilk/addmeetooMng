@@ -57,7 +57,7 @@ class SendScreen extends Command
     {
         $location_id = $this->argument('location');
         $location = Location::findorfail($location_id);
-        $delay_inicial=60;
+        $delay_inicial=30;
         //Log::info('Location:'.$location);
 
         //Recoger las categorias que admite el local y crear query para
@@ -75,7 +75,7 @@ class SendScreen extends Command
                     $delay += $delay_inicial;
 
                 $nScreens = $this->screenGame($location->id,$delay);
-                $delay = $delay + ($nScreens*$delay_inicial); // Las pantallas de actividad duran 30 segundos
+                $delay = $delay + ($nScreens*$delay_inicial);
 
             }
         }
@@ -129,39 +129,16 @@ class SendScreen extends Command
                      ->where('status' , '<=', Status::OFFICIAL)
                      ->cursor() as $gameboard)
         {
-            //$start = Carbon::parse($gameboard->startgame);
-            //$end = Carbon::parse($gameboard->endgame);
-            //Log::info('*** GAME: '. $gameboard->id. ', NOW:'. $now .' START:' .$start. ', END: ' . $end);
-
-            //if ($now >= $start && $now <= $end) {
-
-                $gameview = $gameboard->getGameView($gameboard->status);
-                if(isset($gameview)) {
-                    //Log::info('Delay GAME:'.$d);
-                    $job = (new GameEngine($gameview, $location_id))
-                        ->delay($d)
-                        ->onQueue('bigpack');
-                    $this->dispatch($job);
-                    $nscreens ++;
-                    $d = $d + $delay;
-                }
-
-
-                // Pantalla de participación
-                /*$gameview = $gameboard->getGameView(Status::STARTLIST);
-                if(isset($gameview)) {
-                    //Log::info('Delay GAME:'.$d);
-                    $job = (new GameEngine($gameview, $location_id))
-                        ->delay($d)
-                        ->onQueue('bigpack');
-                    $this->dispatch($job);
-                    $nscreens ++;
-                    $d = $d + 15;
-                }*/
-
-
-
-            //}
+            $gameview = $gameboard->getGameView($gameboard->status);
+            if(isset($gameview)) {
+                //Log::info('Delay GAME:'.$d);
+                $job = (new GameEngine($gameview, $location_id))
+                    ->delay($d)
+                    ->onQueue('bigpack');
+                $this->dispatch($job);
+                $nscreens ++;
+                $d = $d + $delay;
+            }
         }
 
         return $nscreens;
