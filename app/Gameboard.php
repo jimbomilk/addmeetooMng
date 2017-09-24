@@ -80,7 +80,7 @@ class Gameboard extends Model
     /* If the participation has finished, return false */
     public function getParticipationStatusAttribute()
     {
-
+        Log::info('Entrando');
         if(!isset($this->deadline))
             return true;
 
