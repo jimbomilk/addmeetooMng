@@ -11,6 +11,9 @@
 @include("admin.common.input_text",array('var'=>'website'))
 
 @include("admin.common.input_text",array('var'=>'address'))
+@include("admin.common.input_number",array('var'=>'screen_timer'))
+
+
 <div style="height:100%;width: 100%">
     {!!  $map['html'] !!}
 </div>

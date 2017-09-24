@@ -42,6 +42,7 @@ class Location extends Migration {
             $table->enum('category',array('restaurant','bar','cinema','shopping','sports','karaoke','museum','party'));
 
             $table->integer('parent_id')->nullable(); // Los hijos son los establecimientos de una localidad
+            $table->integer('screen_timer')->nullable()->unsigned();
 
 			$table->timestamps();
 		});
