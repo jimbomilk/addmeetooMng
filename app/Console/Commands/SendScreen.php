@@ -87,18 +87,14 @@ class SendScreen extends Command
     public function screenAds( $location_id,$delay)
     {
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
-        $adsPack = Adspack::where('bigpack','>=',0)
-            ->where('location_id', '=', $location_id)
-            ->inRandomOrder()->first();
-
-        $ads = Advertisement::where ('advertisements.location_id','=',$location_id)
-            ->join('adspacks',function($join){
+        $adspack = Adspack::where('adspacks.bigpack','>=',0)
+            ->join('advertisements',function($join) use ($location_id){
                 $join->on('advertisements.id', '=', 'adspacks.advertisement_id')
-                    ->where('adspacks.bigpack','>=',0);
+                    ->where ('advertisements.location_id','=',$location_id);
             })
             ->inRandomOrder()->first();
 
-
+        $ads = $adspack->advertisement;
         if (isset($ads)) {
             //2 se lo enviamos a la cola de procesado
 
@@ -115,8 +111,8 @@ class SendScreen extends Command
 
             // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
             // pantalla.
-            $adsPack->bigdisplayed++;
-            $adsPack->save();
+            $adspack->bigdisplayed++;
+            $adspack->save();
             return true;
         }
         return false;

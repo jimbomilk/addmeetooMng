@@ -34,16 +34,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="advertisements.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="595">
-              <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -133,8 +123,18 @@
       <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.20512821" vertical-offset="1207" max-vertical-offset="3315">
-              <caret line="77" column="59" selection-start-line="77" selection-start-column="59" selection-end-line="77" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.17948718" vertical-offset="1207" max-vertical-offset="3247">
+              <caret line="92" column="76" selection-start-line="92" selection-start-column="76" selection-end-line="92" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Advertisement.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Advertisement.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="714">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -792,12 +792,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00335" summary="ok">
-      <created>1506179575874</created>
-      <option name="number" value="00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1506179575874</updated>
-    </task>
     <task id="LOCAL-00336" summary="ok">
       <created>1506179675790</created>
       <option name="number" value="00336" />
@@ -1086,7 +1080,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506242820695</updated>
     </task>
-    <option name="localTasksCounter" value="384" />
+    <task id="LOCAL-00384" summary="ok">
+      <created>1506242999880</created>
+      <option name="number" value="00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1506242999880</updated>
+    </task>
+    <option name="localTasksCounter" value="385" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1200,13 +1200,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_04_05_051340_setup_countries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.8846154" vertical-offset="153" max-vertical-offset="952">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_05_01_170431_location.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
@@ -1577,10 +1570,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Advertisement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="714">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.20512821" vertical-offset="1207" max-vertical-offset="3315">
-          <caret line="77" column="59" selection-start-line="77" selection-start-column="59" selection-end-line="77" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.17948718" vertical-offset="1207" max-vertical-offset="3247">
+          <caret line="92" column="76" selection-start-line="92" selection-start-column="76" selection-end-line="92" selection-end-column="76" />
           <folding />
         </state>
       </provider>
