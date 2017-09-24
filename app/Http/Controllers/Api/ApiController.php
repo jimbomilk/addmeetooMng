@@ -407,13 +407,9 @@ class ApiController extends Controller
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
-        /*try {
-            JWTAuth::toUser($input['token']);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }*/
+
         if ($latitude != -1 && $longitude != -1) {
-             $query = 'SELECT * from advertisements ads
+             $query = 'SELECT ads.*,packs.id as packid  from advertisements ads
                 JOIN adspacks packs ON
                 packs.advertisement_id = ads.id AND
                 packs.smallpack >0 AND
@@ -422,16 +418,23 @@ class ApiController extends Controller
                 ORDER BY CASE ads.id WHEN 16 THEN -1 ELSE RAND() END LIMIT 20';
         }
         else{
-            $query = 'SELECT * from advertisements ads
+             $query = 'SELECT ads.*,packs.id as packid from advertisements ads
                       JOIN adspacks packs ON
                       packs.advertisement_id = ads.id AND
                       packs.smallpack >0
                       ORDER BY CASE ads.id WHEN 16 THEN -1 ELSE RAND() END LIMIT 20';
         }
 
-
-
         $offers = DB::select($query);
+
+        foreach ($offers as $offer) {
+            $pack = Adspack::findOrFail($offer->packid);
+            if (isset($pack)) {
+                $pack->smalldiaplayed++;
+                $pack->save();
+            }
+        }
+
         return response()->json($offers);
 
     }
