@@ -86,6 +86,7 @@ class Gameboard extends Model
 
         $now = Carbon::now();
         $deadline = Carbon::parse($this->deadline);
+        Log::info('now :'.$now.' deadline:'.$deadline);
         if ($now>=$deadline)
             return false;
         return true;
