@@ -81,7 +81,7 @@ class Gameboard extends Model
     public function getParticipationStatusAttribute()
     {
 
-        if(!isset($deadline))
+        if(!isset($this->deadline))
             return true;
 
         $now = Carbon::now();
