@@ -430,7 +430,7 @@ class ApiController extends Controller
         foreach ($offers as $offer) {
             $pack = Adspack::findOrFail($offer->packid);
             if (isset($pack)) {
-                $pack->smalldiaplayed++;
+                $pack->smalldisplayed++;
                 $pack->save();
             }
         }
