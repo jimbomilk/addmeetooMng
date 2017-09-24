@@ -94,7 +94,11 @@ class SendScreen extends Command
             })
             ->inRandomOrder()->first();
 
-        $ads = $adspack->advertisement;
+        // recogemos el ads
+        if (!isset($adsPack))
+            return false;
+
+        $ads = Advertisement::find($adspack ->advertisement_id);
         if (isset($ads)) {
             //2 se lo enviamos a la cola de procesado
 
