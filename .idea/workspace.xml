@@ -37,14 +37,14 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41025642" vertical-offset="2754" max-vertical-offset="9588">
-              <caret line="178" column="64" selection-start-line="178" selection-start-column="64" selection-end-line="178" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.46153846" vertical-offset="2703" max-vertical-offset="9588">
+              <caret line="177" column="17" selection-start-line="177" selection-start-column="17" selection-end-line="177" selection-end-column="17" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1506266676158" expanded="true" signature="12637:13166" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506266676158" expanded="true" signature="13216:13499" placeholder="SELECT * fro..advertisements..." />
-                <marker date="1506266676158" expanded="true" signature="15650:16413" placeholder="select a.use..user_gameboards..." />
-                <marker date="1506266676158" expanded="true" signature="16608:17210" placeholder="select users..user_gameboards..." />
+                <marker date="1506228653930" expanded="true" signature="12682:13211" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506228653930" expanded="true" signature="13261:13544" placeholder="SELECT * fro..advertisements..." />
+                <marker date="1506228653930" expanded="true" signature="15695:16458" placeholder="select a.use..user_gameboards..." />
+                <marker date="1506228653930" expanded="true" signature="16653:17255" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -55,6 +55,59 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-9.192307" vertical-offset="1716" max-vertical-offset="2856">
               <caret line="129" column="45" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.384615" vertical-offset="714" max-vertical-offset="1717">
+              <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gameboard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Gameboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.018182" vertical-offset="1088" max-vertical-offset="6426">
+              <caret line="80" column="36" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Status.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Status.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="680">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameView.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/GameView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.423077" vertical-offset="3141" max-vertical-offset="3859">
+              <caret line="219" column="33" selection-start-line="219" selection-start-column="33" selection-end-line="219" selection-end-column="33" />
+              <folding>
+                <marker date="1506162052692" expanded="true" signature="2758:2870" placeholder="SELECT COUNT..user_gameboards..." />
+                <marker date="1506162052692" expanded="true" signature="3861:4017" placeholder="SELECT user_..user_gameboards..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameBoardsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.692307" vertical-offset="267" max-vertical-offset="4012">
+              <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -243,6 +296,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Console" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Commands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -353,12 +460,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00344" summary="ok">
-      <created>1506180498660</created>
-      <option name="number" value="00344" />
-      <option name="project" value="LOCAL" />
-      <updated>1506180498660</updated>
     </task>
     <task id="LOCAL-00345" summary="ok">
       <created>1506180670162</created>
@@ -648,7 +749,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506266543992</updated>
     </task>
-    <option name="localTasksCounter" value="393" />
+    <task id="LOCAL-00393" summary="ok">
+      <created>1506266682536</created>
+      <option name="number" value="00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1506266682536</updated>
+    </task>
+    <option name="localTasksCounter" value="394" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -819,34 +926,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/GameView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3636363" vertical-offset="886" max-vertical-offset="3859">
-          <caret line="66" column="13" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Incidence.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.576923" vertical-offset="4" max-vertical-offset="527">
           <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Gameboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="61.115383" vertical-offset="1589" max-vertical-offset="6426">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Status.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -939,14 +1022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6948229" vertical-offset="357" max-vertical-offset="3145">
           <caret line="46" column="147" selection-start-line="46" selection-start-column="147" selection-end-line="46" selection-end-column="147" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46321526" vertical-offset="204" max-vertical-offset="4012">
-          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,14 +1120,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.807693" vertical-offset="255" max-vertical-offset="1717">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Jobs/AdsEngine.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
@@ -1141,16 +1208,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615" vertical-offset="714" max-vertical-offset="1717">
+          <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/GameView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.423077" vertical-offset="3141" max-vertical-offset="3859">
+          <caret line="219" column="33" selection-start-line="219" selection-start-column="33" selection-end-line="219" selection-end-column="33" />
+          <folding>
+            <marker date="1506162052692" expanded="true" signature="2758:2870" placeholder="SELECT COUNT..user_gameboards..." />
+            <marker date="1506162052692" expanded="true" signature="3861:4017" placeholder="SELECT user_..user_gameboards..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.692307" vertical-offset="267" max-vertical-offset="4012">
+          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Status.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Gameboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.018182" vertical-offset="1088" max-vertical-offset="6426">
+          <caret line="80" column="36" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41025642" vertical-offset="2754" max-vertical-offset="9588">
-          <caret line="178" column="64" selection-start-line="178" selection-start-column="64" selection-end-line="178" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.46153846" vertical-offset="2703" max-vertical-offset="9588">
+          <caret line="177" column="17" selection-start-line="177" selection-start-column="17" selection-end-line="177" selection-end-column="17" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1506266676158" expanded="true" signature="12637:13166" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506266676158" expanded="true" signature="13216:13499" placeholder="SELECT * fro..advertisements..." />
-            <marker date="1506266676158" expanded="true" signature="15650:16413" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506266676158" expanded="true" signature="16608:17210" placeholder="select users..user_gameboards..." />
+            <marker date="1506228653930" expanded="true" signature="12682:13211" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506228653930" expanded="true" signature="13261:13544" placeholder="SELECT * fro..advertisements..." />
+            <marker date="1506228653930" expanded="true" signature="15695:16458" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506228653930" expanded="true" signature="16653:17255" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>

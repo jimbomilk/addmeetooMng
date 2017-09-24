@@ -175,8 +175,8 @@ class ApiController extends Controller
             $gameboard = Gameboard::findOrFail($gameboard_id);
             if (!isset($gameboard))
                 return response()->json(['error' => "GAME CLOSED: $gameboard_id"], HttpResponse::HTTP_UNAUTHORIZED);
-            if ($gameboard->status >= Status::RUNNING)
-                return response()->json('Error, juego en marcha');
+            if (!$gameboard->participationStatus)
+                return response()->json(['error' => "GAME CLOSED: $gameboard_id"], HttpResponse::HTTP_UNAUTHORIZED);
         } catch (Exception $e) {
             return response()->json(['error' => "GAME NOT FOUND: $gameboard_id"], HttpResponse::HTTP_NOT_FOUND);
         }
