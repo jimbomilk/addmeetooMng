@@ -64,17 +64,17 @@ class SendScreen extends Command
 
         if (isset($location)) {
             // En 10 minutos hay que meter 30 anuncios y 30 pantallas
-            $delay = 15;
+            $delay = 60;
             while ( $delay < 600 ) {
 
                 if($this->screenAds($location->id,$delay))
-                    $delay += 15;
+                    $delay += 60;
 
                 if($this->screenAgenda($location->id,$delay))
-                    $delay += 15;
+                    $delay += 60;
 
                 $nScreens = $this->screenGame($location->id,$delay);
-                $delay = $delay + ($nScreens*15); // Las pantallas de actividad duran 30 segundos
+                $delay = $delay + ($nScreens*60); // Las pantallas de actividad duran 30 segundos
 
             }
         }
@@ -86,12 +86,18 @@ class SendScreen extends Command
     public function screenAds( $location_id,$delay)
     {
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
-        $adsPack = Adspack::where('bigpack','>=',0)->inRandomOrder()->first();
+        $adsPack = Adspack::where('bigpack','>=',0)
+            ->where('location_id', '=', $location_id)
+            ->inRandomOrder()->first();
 
-        // recogemos el ads
-        if (!isset($adsPack))
-            return false;
-        $ads = Advertisement::find($adsPack ->advertisement_id);
+        $ads = Advertisement::where ('advertisements.location_id','=',$location_id)
+            ->join('adspacks',function($join){
+                $join->on('advertisements.id', '=', 'adspacks.advertisement_id')
+                    ->where('adspacks.bigpack','>=',0);
+            })
+            ->inRandomOrder()->first();
+
+
         if (isset($ads)) {
             //2 se lo enviamos a la cola de procesado
 
@@ -140,7 +146,7 @@ class SendScreen extends Command
                         ->onQueue('bigpack');
                     $this->dispatch($job);
                     $nscreens ++;
-                    $d = $d + 15;
+                    $d = $d + $delay;
                 }
 
 
