@@ -57,7 +57,7 @@ class SendScreen extends Command
     {
         $location_id = $this->argument('location');
         $location = Location::findorfail($location_id);
-        $delay_inicial=30;
+        $delay_inicial=$location->screen_timer;
         //Log::info('Location:'.$location);
 
         //Recoger las categorias que admite el local y crear query para

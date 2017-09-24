@@ -68,6 +68,7 @@ return [
     'locations.website' => 'Página web',
     'locations.address' => 'Dirección del establecimiento',
     'locations.parent_id' => 'Zona donde está el establecimiento',
+    'locations.screen_timer' => 'Refresco de las pantallas (segundos)',
 
     /*ACTIVITIES*/
     'activities' => 'Actividad',
