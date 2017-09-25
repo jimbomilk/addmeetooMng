@@ -104,22 +104,25 @@ class SendMessage extends Command
             " inner join user_profiles on user_profiles.user_id=user_gameboards.user_id".
             " order by RAND() LIMIT 1";
 
-        $usergame = DB::select(DB::raw($query));
+        $usergames = DB::select(DB::raw($query));
 
-        if (!isset($usergame))
+        if (!isset($usergames))
             return false;
 
-        $msg = new Envelope();
-        $msg->stext = strtoupper($usergame->username);
-        $msg->ltext = $usergame->gamename;
-        $msg->image = $usergame->userimage;
-        $msg->type = 'message';
+        foreach($usergames as $usergame) {
+            $msg = new Envelope();
+            $msg->stext = strtoupper($usergame->username);
+            $msg->ltext = $usergame->gamename;
+            $msg->image = $usergame->userimage;
+            $msg->type = 'message';
 
-        $job = (new MsgEngine($msg, $location_id))
-            ->delay($delay)
-            ->onQueue('smallpack');
+            $job = (new MsgEngine($msg, $location_id))
+                ->delay($delay)
+                ->onQueue('smallpack');
 
-        $this->dispatch($job);
+            $this->dispatch($job);
+        }
+        return true;
     }
 
     public function screenAds($location_id,$delay)

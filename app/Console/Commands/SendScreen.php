@@ -103,23 +103,22 @@ class SendScreen extends Command
                     " where adspacks.bigpack >= 0 and advertisements.location_id=".$location_id.
                     " order by RAND() LIMIT 1";
 
-        $adsPack = DB::select(DB::raw($query));
+        $adsPacks = DB::select(DB::raw($query));
 
 /*        $adsPack = Adspack::where('bigpack','>=',0)
             ->inRandomOrder()->first();*/
 
         // recogemos el ads
-        if (!isset($adsPack))
+        if (!isset($adsPacks))
             return false;
 
 
-        if (isset($ads)) {
-            //2 se lo enviamos a la cola de procesado
-
+        //2 se lo enviamos a la cola de procesado
+        foreach($adsPacks as $adspack){
             $message = new Envelope();
-            $message->ltext    = $adsPack->textbig1;
-            $message->stext    = $adsPack->textbig2;
-            $message->image    = $adsPack->imagebig;
+            $message->ltext    = $adspack->textbig1;
+            $message->stext    = $adspack->textbig2;
+            $message->image    = $adspack->imagebig;
             $message->type     = 'bigpack';
             //Log::info('Delay ADS:'.$delay);
             $job = (new AdsEngine($message, $location_id))
@@ -127,15 +126,15 @@ class SendScreen extends Command
                 ->onQueue('bigpack');
 
             $this->dispatch($job);
-
-            // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
-            // pantalla.
-            /*$pack = Adspack::find($adsPack->packid);
-            $pack->bigdisplayed++;
-            $pack->save();*/
-            return true;
         }
-        return false;
+
+        // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
+        // pantalla.
+        /*$pack = Adspack::find($adsPack->packid);
+        $pack->bigdisplayed++;
+        $pack->save();*/
+        return true;
+
     }
 
 

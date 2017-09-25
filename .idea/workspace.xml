@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" afterPath="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" afterPath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -37,8 +38,8 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.76923" vertical-offset="8525" max-vertical-offset="9639">
-              <caret line="547" column="47" selection-start-line="544" selection-start-column="8" selection-end-line="547" selection-end-column="47" />
+            <state vertical-scroll-proportion="-153.34616" vertical-offset="5312" max-vertical-offset="9639">
+              <caret line="547" column="16" selection-start-line="547" selection-start-column="8" selection-end-line="547" selection-end-column="16" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
                 <marker date="1506324646265" expanded="true" signature="12983:13512" placeholder="SELECT ads.*..advertisements..." />
@@ -70,13 +71,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendMessage.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SendMessage.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendMessage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.038462" vertical-offset="1020" max-vertical-offset="2618">
-              <caret line="96" column="41" selection-start-line="96" selection-start-column="41" selection-end-line="96" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.86923075" vertical-offset="1096" max-vertical-offset="2669">
+              <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
               <folding>
-                <marker date="1506340189159" expanded="true" signature="2925:3370" placeholder="select textb..adspacks..." />
+                <marker date="1506342110265" expanded="true" signature="2925:3370" placeholder="select textb..adspacks..." />
               </folding>
             </state>
           </provider>
@@ -132,13 +133,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44835165" vertical-offset="1071" max-vertical-offset="3179">
-              <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+            <state vertical-scroll-proportion="-18.961538" vertical-offset="1173" max-vertical-offset="3162">
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding>
-                <marker date="1506340364841" expanded="true" signature="2856:3167" placeholder="select textb..adspacks..." />
+                <marker date="1506342110280" expanded="true" signature="2856:3167" placeholder="select textb..adspacks..." />
               </folding>
             </state>
           </provider>
@@ -244,8 +245,8 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" />
       </list>
     </option>
   </component>
@@ -527,12 +528,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00377" summary="ok">
-      <created>1506197099446</created>
-      <option name="number" value="00377" />
-      <option name="project" value="LOCAL" />
-      <updated>1506197099447</updated>
     </task>
     <task id="LOCAL-00378" summary="ok">
       <created>1506197242183</created>
@@ -822,7 +817,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506340198806</updated>
     </task>
-    <option name="localTasksCounter" value="426" />
+    <task id="LOCAL-00426" summary="ok">
+      <created>1506340370869</created>
+      <option name="number" value="00426" />
+      <option name="project" value="LOCAL" />
+      <updated>1506340370869</updated>
+    </task>
+    <option name="localTasksCounter" value="427" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1288,10 +1289,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Jobs/AdsEngine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.76923" vertical-offset="8525" max-vertical-offset="9639">
-          <caret line="547" column="47" selection-start-line="544" selection-start-column="8" selection-end-line="547" selection-end-column="47" />
+        <state vertical-scroll-proportion="-153.34616" vertical-offset="5312" max-vertical-offset="9639">
+          <caret line="547" column="16" selection-start-line="547" selection-start-column="8" selection-end-line="547" selection-end-column="16" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
             <marker date="1506324646265" expanded="true" signature="12983:13512" placeholder="SELECT ads.*..advertisements..." />
@@ -1302,30 +1311,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendMessage.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.038462" vertical-offset="1020" max-vertical-offset="2618">
-          <caret line="96" column="41" selection-start-line="96" selection-start-column="41" selection-end-line="96" selection-end-column="41" />
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="1173" max-vertical-offset="3162">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding>
-            <marker date="1506340189159" expanded="true" signature="2925:3370" placeholder="select textb..adspacks..." />
+            <marker date="1506342110280" expanded="true" signature="2856:3167" placeholder="select textb..adspacks..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Jobs/AdsEngine.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendMessage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44835165" vertical-offset="1071" max-vertical-offset="3179">
-          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.86923075" vertical-offset="1096" max-vertical-offset="2669">
+          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
-            <marker date="1506340364841" expanded="true" signature="2856:3167" placeholder="select textb..adspacks..." />
+            <marker date="1506342110265" expanded="true" signature="2925:3370" placeholder="select textb..adspacks..." />
           </folding>
         </state>
       </provider>
