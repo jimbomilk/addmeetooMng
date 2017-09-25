@@ -93,7 +93,7 @@ class SendScreen extends Command
         if (!isset($adsPack))
             return false;
 
-        $ads = Advertisement::find($adspack ->advertisement_id);
+        $ads = Advertisement::find($adsPack ->advertisement_id);
         if (isset($ads)) {
             //2 se lo enviamos a la cola de procesado
 
