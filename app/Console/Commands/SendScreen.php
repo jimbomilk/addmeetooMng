@@ -67,6 +67,7 @@ class SendScreen extends Command
             // En 10 minutos hay que meter 30 anuncios y 30 pantallas
             $delay = $delay_inicial;
             while ( $delay < 600 ) {
+                Log::info('Delay:'.$delay);
 
                 if($this->screenAds($location->id,$delay))
                     $delay += $delay_inicial;
