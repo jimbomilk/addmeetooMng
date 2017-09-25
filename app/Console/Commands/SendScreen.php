@@ -111,8 +111,8 @@ class SendScreen extends Command
 
             // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
             // pantalla.
-            $adspack->bigdisplayed++;
-            $adspack->save();
+            $adsPack->bigdisplayed++;
+            $adsPack->save();
             return true;
         }
         return false;
