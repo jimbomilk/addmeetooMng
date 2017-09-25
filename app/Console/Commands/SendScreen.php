@@ -100,7 +100,7 @@ class SendScreen extends Command
 
         $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
-                    " where adspacks.bigpack=>0 and advertisements.location_id=".$location_id.
+                    " where adspacks.bigpack >= 0 and advertisements.location_id=".$location_id.
                     " order by RAND() LIMIT 1";
 
         $adsPack = DB::select(DB::raw($query));
