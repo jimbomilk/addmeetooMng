@@ -87,7 +87,7 @@ class SendMessage extends Command
     public function screenMsg($location_id, $delay)
     {
         $usergame = DB::table('user_gameboards')
-            ->select('user_id,gameboard_id,gameboards.name as gamename,users.name as username,user_profiles.avatar as userimage')
+            ->select('user_id','gameboard_id','gameboards.name as gamename','users.name as username','user_profiles.avatar as userimage')
             ->join('users','users.id','=','user_gameboards.user_id')
             ->join('user_profiles','user_profiles.user_id','=','user_gameboards.user_id')
             ->join('gameboards',function($join) use($location_id) {
