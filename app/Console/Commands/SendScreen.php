@@ -131,7 +131,7 @@ class SendScreen extends Command
         {
             $gameview = $gameboard->getGameView($gameboard->status);
             if(isset($gameview)) {
-                //Log::info('Delay GAME:'.$d);
+                Log::info('Delay GAME:'.$d);
                 $job = (new GameEngine($gameview, $location_id))
                     ->delay($d)
                     ->onQueue('bigpack');
