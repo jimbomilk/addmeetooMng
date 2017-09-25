@@ -86,7 +86,7 @@ class SendScreen extends Command
 
     public function screenAds( $location_id,$delay)
     {
-        //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
+        Log::info('*** REQUEST ADS, LOCATION: ' . $location_id . ' DELAY:'.$delay );
         $adsPack = Adspack::where('bigpack','>=',0)->inRandomOrder()->first();
 
         // recogemos el ads
