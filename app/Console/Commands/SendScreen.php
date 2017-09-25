@@ -90,12 +90,20 @@ class SendScreen extends Command
     {
         //Log::info('*** REQUEST ADS, LOCATION: ' . $location_id . ' DELAY:'.$delay );
 
-        $adsPack = DB::table('adspacks')
+        /*$adsPack = DB::table('adspacks')
             ->select('textbig1', 'textbig2','imagebig','adspacks.id as packid')
             ->join('advertisements','adspacks.advertisement_id','=','advertisements.id')
             ->where('adspacks.bigpack','>=',0)
             ->where('advertisements.location_id',$location_id)
-            ->inRandomOrder()->first();
+            ->inRandomOrder()->first();*/
+
+
+        $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
+                    " inner join advertisements on adspacks.advertisement_id=advertisements.id".
+                    " where adspacks.bigpack=>0 and advertisements.location_id=".$location_id.
+                    " order by RAND() LIMIT 1";
+
+        $adsPack = DB::select(DB::raw($query));
 
 /*        $adsPack = Adspack::where('bigpack','>=',0)
             ->inRandomOrder()->first();*/

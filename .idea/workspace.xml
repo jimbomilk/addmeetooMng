@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
+    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="ok">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" afterPath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -37,8 +37,8 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.153846" vertical-offset="7556" max-vertical-offset="9639">
-              <caret line="460" column="32" selection-start-line="455" selection-start-column="8" selection-end-line="460" selection-end-column="32" />
+            <state vertical-scroll-proportion="-29.76923" vertical-offset="8525" max-vertical-offset="9639">
+              <caret line="547" column="47" selection-start-line="544" selection-start-column="8" selection-end-line="547" selection-end-column="47" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
                 <marker date="1506324646265" expanded="true" signature="12983:13512" placeholder="SELECT ads.*..advertisements..." />
@@ -63,9 +63,21 @@
       <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.94551647" vertical-offset="1071" max-vertical-offset="3043">
-              <caret line="127" column="24" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
-              <folding />
+            <state vertical-scroll-proportion="0.36662883" vertical-offset="1071" max-vertical-offset="3179">
+              <caret line="97" column="41" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="41" />
+              <folding>
+                <marker date="1506339643680" expanded="true" signature="2856:2916" placeholder="select textb..." />
+                <marker date="1506339643680" expanded="true" signature="2856:2917" placeholder="select textb..." />
+                <marker date="1506339643680" expanded="true" signature="2856:2925" placeholder="select textb..adspacks..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3022" placeholder="select textb..adspacksinner..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3023" placeholder="select textb..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3076" placeholder="select textb..adspacksinner..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3104" placeholder="select textb..adspacksinner..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3106" placeholder="select textb..adspacksinner..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3118" placeholder="select textb..adspacksinner..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3165" placeholder="select textb..adspacks..." />
+                <marker date="1506339643680" expanded="true" signature="2856:3166" placeholder="select textb..adspacksinner..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -524,12 +536,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00374" summary="ok">
-      <created>1506196811552</created>
-      <option name="number" value="00374" />
-      <option name="project" value="LOCAL" />
-      <updated>1506196811552</updated>
-    </task>
     <task id="LOCAL-00375" summary="ok">
       <created>1506196872434</created>
       <option name="number" value="00375" />
@@ -818,7 +824,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506336541996</updated>
     </task>
-    <option name="localTasksCounter" value="423" />
+    <task id="LOCAL-00423" summary="ok">
+      <created>1506337799521</created>
+      <option name="number" value="00423" />
+      <option name="project" value="LOCAL" />
+      <updated>1506337799521</updated>
+    </task>
+    <option name="localTasksCounter" value="424" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1268,18 +1280,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Jobs/AdsEngine.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="867">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1717">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.153846" vertical-offset="7556" max-vertical-offset="9639">
-          <caret line="460" column="32" selection-start-line="455" selection-start-column="8" selection-end-line="460" selection-end-column="32" />
+        <state vertical-scroll-proportion="-29.76923" vertical-offset="8525" max-vertical-offset="9639">
+          <caret line="547" column="47" selection-start-line="544" selection-start-column="8" selection-end-line="547" selection-end-column="47" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
             <marker date="1506324646265" expanded="true" signature="12983:13512" placeholder="SELECT ads.*..advertisements..." />
@@ -1298,27 +1318,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+    <entry file="file://$PROJECT_DIR$/app/Jobs/AdsEngine.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="867">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="1717">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94551647" vertical-offset="1071" max-vertical-offset="3043">
-          <caret line="127" column="24" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
-          <folding />
+        <state vertical-scroll-proportion="0.36662883" vertical-offset="1071" max-vertical-offset="3179">
+          <caret line="97" column="41" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="41" />
+          <folding>
+            <marker date="1506339643680" expanded="true" signature="2856:2916" placeholder="select textb..." />
+            <marker date="1506339643680" expanded="true" signature="2856:2917" placeholder="select textb..." />
+            <marker date="1506339643680" expanded="true" signature="2856:2925" placeholder="select textb..adspacks..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3022" placeholder="select textb..adspacksinner..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3023" placeholder="select textb..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3076" placeholder="select textb..adspacksinner..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3104" placeholder="select textb..adspacksinner..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3106" placeholder="select textb..adspacksinner..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3118" placeholder="select textb..adspacksinner..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3165" placeholder="select textb..adspacks..." />
+            <marker date="1506339643680" expanded="true" signature="2856:3166" placeholder="select textb..adspacksinner..." />
+          </folding>
         </state>
       </provider>
     </entry>
