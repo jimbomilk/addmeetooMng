@@ -87,6 +87,9 @@ class SendMessage extends Command
     public function screenMsg($location_id, $delay)
     {
         $usergame = DB::table('user_gameboards')
+            ->select('user_id,gameboard_id,gameboards.name as gamename,users.name as username,user_profiles.avatar as userimage')
+            ->join('users','users.id','=','user_gameboards.user_id')
+            ->join('user_profiles','user_profiles.user_id','=','user_gameboards.user_id')
             ->join('gameboards',function($join) use($location_id) {
                 $join->on('gameboards.id', '=', 'user_gameboards.gameboard_id')
                     ->where ('gameboards.location_id','=',$location_id);
@@ -97,11 +100,9 @@ class SendMessage extends Command
             return false;
 
         $msg = new Envelope();
-        $user = User::find($usergame->user_id);
-        $gameboard = Gameboard::find($usergame->gameboard_id);
-        $msg->stext = strtoupper($user->name);
-        $msg->ltext = $gameboard->name;
-        $msg->image = $user->avatar;
+        $msg->stext = strtoupper($usergame->username);
+        $msg->ltext = $usergame->gamename;
+        $msg->image = $usergame->userimage;
         $msg->type = 'message';
 
         $job = (new MsgEngine($msg, $location_id))
