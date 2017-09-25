@@ -53,8 +53,8 @@
       <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65384614" vertical-offset="765" max-vertical-offset="3026">
-              <caret line="94" column="36" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.4857143" vertical-offset="867" max-vertical-offset="3026">
+              <caret line="92" column="21" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -524,12 +524,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00367" summary="ok">
-      <created>1506196144925</created>
-      <option name="number" value="00367" />
-      <option name="project" value="LOCAL" />
-      <updated>1506196144925</updated>
-    </task>
     <task id="LOCAL-00368" summary="ok">
       <created>1506196225528</created>
       <option name="number" value="00368" />
@@ -818,7 +812,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506327588374</updated>
     </task>
-    <option name="localTasksCounter" value="416" />
+    <task id="LOCAL-00416" summary="ok">
+      <created>1506330348007</created>
+      <option name="number" value="00416" />
+      <option name="project" value="LOCAL" />
+      <updated>1506330348007</updated>
+    </task>
+    <option name="localTasksCounter" value="417" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1316,8 +1316,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65384614" vertical-offset="765" max-vertical-offset="3026">
-          <caret line="94" column="36" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.4857143" vertical-offset="867" max-vertical-offset="3026">
+          <caret line="92" column="21" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="21" />
           <folding />
         </state>
       </provider>
