@@ -67,7 +67,7 @@ class SendScreen extends Command
             // En 10 minutos hay que meter 30 anuncios y 30 pantallas
             $delay = $delay_inicial;
             while ( $delay < 600 ) {
-                Log::info('Delay:'.$delay);
+                //Log::info('Delay:'.$delay);
 
                 if($this->screenAds($location->id,$delay))
                     $delay += $delay_inicial;
@@ -87,7 +87,7 @@ class SendScreen extends Command
 
     public function screenAds( $location_id,$delay)
     {
-        Log::info('*** REQUEST ADS, LOCATION: ' . $location_id . ' DELAY:'.$delay );
+        //Log::info('*** REQUEST ADS, LOCATION: ' . $location_id . ' DELAY:'.$delay );
         $adsPack = Adspack::where('bigpack','>=',0)->inRandomOrder()->first();
 
         // recogemos el ads
@@ -103,6 +103,7 @@ class SendScreen extends Command
             $message->stext    = $ads->textbig2;
             $message->image    = $ads->imagebig;
             $message->type     = 'bigpack';
+            Log::info('Delay ADS:'.$delay);
             $job = (new AdsEngine($message, $location_id))
                 ->delay($delay)
                 ->onQueue('bigpack');
@@ -121,7 +122,6 @@ class SendScreen extends Command
 
     public function screenGame($location_id,$delay,$delay_inicial)
     {
-        $now = Carbon::now(Config::get('app.timezone'));
         $nscreens=0;
         $d = $delay;
         foreach (Gameboard::where('location_id', '=', $location_id)
@@ -163,6 +163,7 @@ class SendScreen extends Command
             $envelope->image = $message->image;
             $envelope->type = 'info';
             $envelope->logo1 = isset($message->location)?$message->location->logo:"";
+            Log::info('Delay AGENDA:'.$delay);
             $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');
