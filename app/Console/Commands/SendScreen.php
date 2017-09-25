@@ -91,6 +91,7 @@ class SendScreen extends Command
         //Log::info('*** REQUEST ADS, LOCATION: ' . $location_id . ' DELAY:'.$delay );
 
         $adsPack = DB::table('adspacks')
+            ->select('textbig1', 'textbig2','imagebig','adspacks.id as packid')
             ->join('advertisements','adspacks.advertisement_id','=','advertisements.id')
             ->where('adspacks.bigpack','>=',0)
             ->where('advertisements.location_id',$location_id)
@@ -104,14 +105,14 @@ class SendScreen extends Command
         if (!isset($adsPack))
             return false;
 
-        $ads = Advertisement::find($adsPack ->advertisement_id);
+
         if (isset($ads)) {
             //2 se lo enviamos a la cola de procesado
 
             $message = new Envelope();
-            $message->ltext    = $ads->textbig1;
-            $message->stext    = $ads->textbig2;
-            $message->image    = $ads->imagebig;
+            $message->ltext    = $adsPack->textbig1;
+            $message->stext    = $adsPack->textbig2;
+            $message->image    = $adsPack->imagebig;
             $message->type     = 'bigpack';
             Log::info('Delay ADS:'.$delay);
             $job = (new AdsEngine($message, $location_id))
@@ -122,8 +123,9 @@ class SendScreen extends Command
 
             // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
             // pantalla.
-            $adsPack->bigdisplayed++;
-            $adsPack->save();
+            $pack = Adspack::find($adsPack->packid);
+            $pack->bigdisplayed++;
+            $pack->save();
             return true;
         }
         return false;
