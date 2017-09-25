@@ -39,14 +39,9 @@ class Kernel extends ConsoleKernel
             $locations = Location::all();
             foreach ($locations as $location)
             {
-                $schedule->command('location_schedule '.$location->id)
-                    ->everyMinute();
-
-                $schedule->command('screen '.$location->id)
-                    ->everyMinute();
-
-                $schedule->command('message '.$location->id)
-                    ->everyMinute();
+                $schedule->command('location_schedule '.$location->id);
+                $schedule->command('screen '.$location->id);
+                $schedule->command('message '.$location->id);
             }
         }
 

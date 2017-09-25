@@ -59,7 +59,7 @@ class SendScreen extends Command
         $location_id = $this->argument('location');
         $location = Location::findorfail($location_id);
         $delay_inicial=$location->screen_timer;
-        Log::info('Location:'.$location);
+        //Log::info('Location:'.$location);
 
         //Recoger las categorias que admite el local y crear query para
         //filtra los ads : la query debe tener en cuanta las preferencias del local y su geolocalizacion
@@ -98,7 +98,6 @@ class SendScreen extends Command
             ->inRandomOrder()->first();
 
 /*        $adsPack = Adspack::where('bigpack','>=',0)
-            ->join
             ->inRandomOrder()->first();*/
 
         // recogemos el ads
@@ -114,7 +113,7 @@ class SendScreen extends Command
             $message->stext    = $adsPack->textbig2;
             $message->image    = $adsPack->imagebig;
             $message->type     = 'bigpack';
-            Log::info('Delay ADS:'.$delay);
+            //Log::info('Delay ADS:'.$delay);
             $job = (new AdsEngine($message, $location_id))
                 ->delay($delay)
                 ->onQueue('bigpack');
@@ -143,7 +142,7 @@ class SendScreen extends Command
         {
             $gameview = $gameboard->getGameView($gameboard->status);
             if(isset($gameview)) {
-                Log::info('Delay GAME:'.$d);
+                //Log::info('Delay GAME:'.$d);
                 $job = (new GameEngine($gameview, $location_id))
                     ->delay($d)
                     ->onQueue('bigpack');
@@ -175,7 +174,7 @@ class SendScreen extends Command
             $envelope->image = $message->image;
             $envelope->type = 'info';
             $envelope->logo1 = isset($message->location)?$message->location->logo:"";
-            Log::info('Delay AGENDA:'.$delay);
+            //Log::info('Delay AGENDA:'.$delay);
             $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');
