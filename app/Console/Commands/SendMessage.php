@@ -86,7 +86,7 @@ class SendMessage extends Command
 
     public function screenMsg($location_id, $delay)
     {
-        $usergame = DB::table('user_gameboards')
+        /*$usergame = DB::table('user_gameboards')
             ->select('user_gameboards.user_id','user_gameboards.gameboard_id','gameboards.name as gamename','users.name as username','user_profiles.avatar as userimage')
             ->join('users','users.id','=','user_gameboards.user_id')
             ->join('user_profiles','user_profiles.user_id','=','user_gameboards.user_id')
@@ -94,7 +94,17 @@ class SendMessage extends Command
                 $join->on('gameboards.id', '=', 'user_gameboards.gameboard_id')
                     ->where ('gameboards.location_id','=',$location_id);
             })
-            ->inRandomOrder()->first();
+            ->inRandomOrder()->first();*/
+
+
+        $query = "select gameboards.name as gamename,users.name as username,user_profiles.avatar as userimage".
+            " from user_gameboards".
+            " inner join gameboards on gameboards.id=user_gameboards.gameboard_id and gameboards.location_id=".$location_id.
+            " inner join users on users.id=user_gameboards.user_id".
+            " inner join user_profiles on user_profiles.user_id=user_gameboards.user_id".
+            " order by RAND() LIMIT 1";
+
+        $usergame = DB::select(DB::raw($query));
 
         if (!isset($usergame))
             return false;
