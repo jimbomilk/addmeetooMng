@@ -111,7 +111,7 @@ class ApiController extends Controller
 
     public function gameinfo($gameboard_id)
     {
-
+        Log::info('ENTRANDO gameinfo');
         try {
             $gameboard = Gameboard::findOrFail($gameboard_id);
             if (!isset($gameboard))
@@ -138,6 +138,7 @@ class ApiController extends Controller
 
     public function gameboard($gameboard_id, Request $request)
     {
+        Log::info('ENTRANDO gameboard');
         $input = $request->all();
         try {
             JWTAuth::toUser($input['token']);
@@ -170,6 +171,7 @@ class ApiController extends Controller
 
     public function useroptions($gameboard_id, Request $request)
     {
+        Log::info('ENTRANDO useroptions');
         $input = $request->all();
         try {
             $gameboard = Gameboard::findOrFail($gameboard_id);
@@ -227,6 +229,7 @@ class ApiController extends Controller
     // Devuelve todos los gameboards activos para el día de hoy
     public function gameboards(Request $request)
     {
+        Log::info('ENTRANDO gameboards');
         $location_id = $request->get('location');
 
 
@@ -259,6 +262,7 @@ class ApiController extends Controller
 
     public function authenticate(Request $request)
     {
+        Log::info('ENTRANDO authenticate');
         $credentials = $request->only('email', 'password');
 
         if (!$token = JWTAuth::attempt($credentials)) {
@@ -315,6 +319,7 @@ class ApiController extends Controller
 
     public function newAccount(Request $request)
     {
+        Log::info('ENTRANDO newaccount');
         // Recogemos las credenciales
         $credentials = $request->only('email', 'password');
 
@@ -342,7 +347,7 @@ class ApiController extends Controller
     public function newIncidence(Request $request)
     {
         $incidence = new Incidence();
-        //Log::info('New incidence');
+        Log::info('New incidence');
         if (isset($incidence)) {
             $incidence->status = false;
             $incidence->location_id=$request->get('location');
@@ -369,7 +374,7 @@ class ApiController extends Controller
 
     public function fileUpload(Request $request)
     {
-        //Log::info('entrando fileupload');
+        Log::info('entrando fileupload');
         try {
             $user = JWTAuth::toUser($request->input('token'));
             //Log::info('user:'.$user);
@@ -390,6 +395,7 @@ class ApiController extends Controller
 
     public function userUpdate(Request $request)
     {
+        Log::info('ENTRANDO userUpdate');
         try {
             $user = JWTAuth::toUser($request->input('token'));
             $user->profile->phone = $request->input('phone');
@@ -406,6 +412,7 @@ class ApiController extends Controller
 
     public function lastOffers(Request $request)
     {
+        Log::info('ENTRANDO lastOffers');
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
@@ -428,15 +435,6 @@ class ApiController extends Controller
         }
 
         $offers = DB::select($query);
-/*
-        foreach ($offers as $offer) {
-            $pack = Adspack::findOrFail($offer->packid);
-            if (isset($pack)) {
-                $pack->smalldisplayed++;
-                $pack->save();
-            }
-        }
-*/
         return response()->json($offers);
 
     }
@@ -444,6 +442,7 @@ class ApiController extends Controller
 
     public function messages(Request $request)
     {
+        Log::info('ENTRANDO messages');
         $input = $request->all();
         $location = $input['location'];
        /* try {
@@ -468,6 +467,7 @@ class ApiController extends Controller
 
     public function globalRanking(Request $request)
     {
+        Log::info('ENTRANDO globalRanking');
         $input = $request->all();
         $location = $input['location'];
         try {
@@ -489,6 +489,7 @@ class ApiController extends Controller
 
     public function userGameboards(Request $request)
     {
+        Log::info('ENTRANDO userGameboards');
         $input = $request->all();
         $location = $input['location'];
         try {
@@ -513,6 +514,7 @@ class ApiController extends Controller
     }
 
     private function monthlyQuery($location,$startcurrentmonth,$endcurrentmonth){
+        Log::info('ENTRANDO monthlyQuery');
         return "select users.id, users.name as name , sum(a.points) as points from
                                         user_gameboards a
                                         inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
@@ -527,6 +529,7 @@ class ApiController extends Controller
 
     public function monthlyRanking(Request $request)
     {
+        Log::info('ENTRANDO monthlyRanking');
         $input = $request->all();
         $location = $input['location'];
         setlocale(LC_TIME, 'es_ES');
