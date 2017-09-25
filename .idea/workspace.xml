@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" afterPath="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" afterPath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -51,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-29.153847" vertical-offset="24" max-vertical-offset="2924">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.42197803" vertical-offset="891" max-vertical-offset="2839">
+              <caret line="89" column="78" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -131,10 +130,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LocationSchedule.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4665203" vertical-offset="102" max-vertical-offset="1717">
+            <state vertical-scroll-proportion="-6.5384617" vertical-offset="357" max-vertical-offset="1717">
               <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
               <folding />
             </state>
@@ -241,8 +240,8 @@
         <option value="$PROJECT_DIR$/resources/lang/en/label.php" />
         <option value="$PROJECT_DIR$/app/Gameboard.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
       </list>
     </option>
   </component>
@@ -524,12 +523,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00356" summary="ok">
-      <created>1506187460074</created>
-      <option name="number" value="00356" />
-      <option name="project" value="LOCAL" />
-      <updated>1506187460074</updated>
     </task>
     <task id="LOCAL-00357" summary="ok">
       <created>1506187739548</created>
@@ -819,7 +812,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506287995057</updated>
     </task>
-    <option name="localTasksCounter" value="405" />
+    <task id="LOCAL-00405" summary="ok">
+      <created>1506320139051</created>
+      <option name="number" value="00405" />
+      <option name="project" value="LOCAL" />
+      <updated>1506320139051</updated>
+    </task>
+    <option name="localTasksCounter" value="406" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -846,6 +845,7 @@
     <frame x="-1928" y="-112" width="1936" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27682737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15490797" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -863,7 +863,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.469917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1307,18 +1306,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-29.153847" vertical-offset="24" max-vertical-offset="2924">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        <state vertical-scroll-proportion="-6.5384617" vertical-offset="357" max-vertical-offset="1717">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4665203" vertical-offset="102" max-vertical-offset="1717">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.42197803" vertical-offset="891" max-vertical-offset="2839">
+          <caret line="89" column="78" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
           <folding />
         </state>
       </provider>
