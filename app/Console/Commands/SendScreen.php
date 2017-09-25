@@ -58,7 +58,7 @@ class SendScreen extends Command
         $location_id = $this->argument('location');
         $location = Location::findorfail($location_id);
         $delay_inicial=$location->screen_timer;
-        //Log::info('Location:'.$location);
+        Log::info('Location:'.$location);
 
         //Recoger las categorias que admite el local y crear query para
         //filtra los ads : la query debe tener en cuanta las preferencias del local y su geolocalizacion

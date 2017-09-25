@@ -34,7 +34,7 @@ class LocationSchedule extends Command
     {
         $now = Carbon::now(Config::get('app.timezone'));
         $location_id = $this->argument('location');
-        //Log::info('--- Starting location'.$location_id .' time:'. $now . ' ---');
+        Log::info('--- Starting location'.$location_id .' time:'. $now . ' ---');
         //sleep(10);
 
         $location = Location::findorfail($location_id);
