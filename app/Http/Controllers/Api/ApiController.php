@@ -20,7 +20,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use Spatie\Newsletter\NewsletterFacade as Newsletter;
+use NZTim\Mailchimp\Mailchimp;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Log;
 
@@ -344,8 +344,10 @@ class ApiController extends Controller
 
             // Suscripción a la lista de correo
             $location = Location::findOrFail($profile->location_id);
-            /*if (isset($location) && isset($location->maillist))
-                Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $location->maillist);*/
+
+            if (isset($location) && isset($location->maillist))
+                $this->mailchimp->subscribe($location->maillist, $user->email);
+                //Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $location->maillist);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
     }

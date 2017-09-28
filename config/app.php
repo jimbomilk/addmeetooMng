@@ -150,6 +150,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
 
+
         /*
          * Application Service Providers...
          */
@@ -163,7 +164,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Webpatser\Countries\CountriesServiceProvider::class,
         GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
-        Spatie\Newsletter\NewsletterServiceProvider::class
+        NZTim\Mailchimp\MailchimpServiceProvider::class,
     ),
 
     /*
@@ -214,8 +215,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'Countries' => Webpatser\Countries\CountriesFacade::class,
-        'Newsletter' => Spatie\Newsletter\NewsletterFacade::class,
-
+        'Mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
 
     ],
 
