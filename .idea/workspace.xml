@@ -37,14 +37,14 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73189825" vertical-offset="5559" max-vertical-offset="10183">
-              <caret line="349" column="12" selection-start-line="349" selection-start-column="12" selection-end-line="349" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.3753943" vertical-offset="5814" max-vertical-offset="10183">
+              <caret line="349" column="14" selection-start-line="349" selection-start-column="14" selection-end-line="349" selection-end-column="14" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1506607136487" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506607136487" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506607136487" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
-                <marker date="1506607136487" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
+                <marker date="1506607583137" expanded="true" signature="13799:14328" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506607583137" expanded="true" signature="14378:14661" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506607583137" expanded="true" signature="16718:17481" placeholder="select a.use..user_gameboards..." />
+                <marker date="1506607583137" expanded="true" signature="17720:18322" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -646,12 +646,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00387" summary="ok">
-      <created>1506244977580</created>
-      <option name="number" value="00387" />
-      <option name="project" value="LOCAL" />
-      <updated>1506244977580</updated>
-    </task>
     <task id="LOCAL-00388" summary="ok">
       <created>1506245232615</created>
       <option name="number" value="00388" />
@@ -940,7 +934,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506591308536</updated>
     </task>
-    <option name="localTasksCounter" value="437" />
+    <task id="LOCAL-00437" summary="ok">
+      <created>1506607145041</created>
+      <option name="number" value="00437" />
+      <option name="project" value="LOCAL" />
+      <updated>1506607145042</updated>
+    </task>
+    <option name="localTasksCounter" value="438" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -967,8 +967,9 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.114854515" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15456432" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.115030676" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41104296" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -984,7 +985,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.469917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1424,14 +1424,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73189825" vertical-offset="5559" max-vertical-offset="10183">
-          <caret line="349" column="12" selection-start-line="349" selection-start-column="12" selection-end-line="349" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.3753943" vertical-offset="5814" max-vertical-offset="10183">
+          <caret line="349" column="14" selection-start-line="349" selection-start-column="14" selection-end-line="349" selection-end-column="14" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1506607136487" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506607136487" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506607136487" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506607136487" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
+            <marker date="1506607583137" expanded="true" signature="13799:14328" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506607583137" expanded="true" signature="14378:14661" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506607583137" expanded="true" signature="16718:17481" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506607583137" expanded="true" signature="17720:18322" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
