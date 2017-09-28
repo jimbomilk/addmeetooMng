@@ -38,6 +38,7 @@ class Location extends Migration {
             $table->string('phone',    16);
             $table->string('email',    60);
             $table->string('website', 100);
+            $table->string('maillist', 100);// id de la lista mailchimp
             $table->string('timezone')->default('Europe/Madrid');
             $table->enum('category',array('restaurant','bar','cinema','shopping','sports','karaoke','museum','party'));
 

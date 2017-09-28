@@ -91,6 +91,10 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::post('incidences/fastUpdate/{id}', ['as' => 'admin.incidence_fast', 'uses' => 'IncidencesController@fastUpdate']);
 
 
+    // MAILCHIMP
+    Route::get('manageMailChimp', 'MailChimpController@manageMailChimp');
+    Route::post('subscribe',['as'=>'subscribe','uses'=>'MailChimpController@subscribe']);
+    //Route::post('sendCompaign',['as'=>'sendCompaign','uses'=>'MailChimpController@sendCompaign']);
 
 });
 

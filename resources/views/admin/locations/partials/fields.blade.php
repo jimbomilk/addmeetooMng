@@ -9,7 +9,7 @@
 @include("admin.common.input_select",array('var'=>'countries_id','col'=>$countries))
 @include("admin.common.input_text",array('var'=>'timezone'))
 @include("admin.common.input_text",array('var'=>'website'))
-
+@include("admin.common.input_text",array('var'=>'maillist'))
 @include("admin.common.input_text",array('var'=>'address'))
 @include("admin.common.input_number",array('var'=>'screen_timer'))
 

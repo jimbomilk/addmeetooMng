@@ -162,7 +162,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Webpatser\Countries\CountriesServiceProvider::class,
-        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class
+        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
+        Skovmand\Mailchimp\MailchimpServiceProvider::class,
     ),
 
     /*

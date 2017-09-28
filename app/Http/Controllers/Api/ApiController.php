@@ -22,17 +22,27 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Mailchimp;
+use Mailchimp_Error;
+use Mailchimp_List_AlreadySubscribed;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Log;
 
 
 class ApiController extends Controller
 {
+    public $mailchimp;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(Mailchimp $mailchimp)
+    {
+        $this->mailchimp = $mailchimp;
+    }
+
     public function index()
     {
         //
@@ -340,8 +350,32 @@ class ApiController extends Controller
             $profile->user_id = $user->id;
             $profile->location_id = $request->get('location');
             $profile->save();
+
+            // Suscripción a la lista de correo
+            $this->mailsuscribe($user);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
+    }
+
+
+    public function mailsubscribe($user)
+    {
+        $location = $user->profile()->location();
+        if (isset($location) && isset($location->maillist)) {
+            try {
+                $this->mailchimp
+                    ->lists
+                    ->subscribe(
+                        $location->maillist,
+                        ['email' => $user->email]
+                    );
+                return true;
+            } catch (Mailchimp_List_AlreadySubscribed $e) {
+                return false;
+            } catch (Mailchimp_Error $e) {
+                return false;
+            }
+        }
     }
 
     public function newIncidence(Request $request)
