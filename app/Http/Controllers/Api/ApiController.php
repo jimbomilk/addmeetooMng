@@ -31,17 +31,12 @@ use Illuminate\Support\Facades\Log;
 
 class ApiController extends Controller
 {
-    public $mailchimp;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct(Mailchimp $mailchimp)
-    {
-        $this->mailchimp = $mailchimp;
-    }
 
     public function index()
     {
@@ -358,8 +353,10 @@ class ApiController extends Controller
     }
 
 
+
     public function mailsubscribe($user)
     {
+
         $location = $user->profile()->location();
         if (isset($location) && isset($location->maillist)) {
             try {
