@@ -20,6 +20,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use NZTim\Mailchimp\MailchimpException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Log;
 use NZTim\Mailchimp\MailchimpFacade;
@@ -349,7 +350,7 @@ class ApiController extends Controller
             {
                 try {
                     MailchimpFacade::subscribe($location->maillist, $user->email,['FNAME' => $user->name, 'LNAME' => ''],false);
-                } catch (Throwable $e) {
+                } catch (MailchimpException $e) {
                     // API call failed - user was not subscribed
                     // Log the error information for debugging
                     Log::error('Mailchimp error:'.$e->getMessage());
