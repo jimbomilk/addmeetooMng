@@ -37,14 +37,14 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="5840" max-vertical-offset="9809">
-              <caret line="349" column="16" selection-start-line="349" selection-start-column="16" selection-end-line="349" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.1721698" vertical-offset="5724" max-vertical-offset="9792">
+              <caret line="341" column="18" selection-start-line="341" selection-start-column="18" selection-end-line="341" selection-end-column="18" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1506628301854" expanded="true" signature="13348:13877" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506628301854" expanded="true" signature="13927:14210" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506628301854" expanded="true" signature="16267:17030" placeholder="select a.use..user_gameboards..." />
-                <marker date="1506628301854" expanded="true" signature="17269:17871" placeholder="select users..user_gameboards..." />
+                <marker date="1506628838847" expanded="true" signature="13323:13852" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506628838847" expanded="true" signature="13902:14185" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506628838847" expanded="true" signature="16242:17005" placeholder="select a.use..user_gameboards..." />
+                <marker date="1506628838847" expanded="true" signature="17244:17846" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -65,8 +65,8 @@
       <file leaf-file-name="MailchimpFacade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/nztim/mailchimp/src/MailchimpFacade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="289">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="289">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -500,12 +500,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00399" summary="ok">
-      <created>1506270169641</created>
-      <option name="number" value="00399" />
-      <option name="project" value="LOCAL" />
-      <updated>1506270169641</updated>
-    </task>
     <task id="LOCAL-00400" summary="ok">
       <created>1506270243635</created>
       <option name="number" value="00400" />
@@ -794,7 +788,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506628165425</updated>
     </task>
-    <option name="localTasksCounter" value="448" />
+    <task id="LOCAL-00448" summary="ok">
+      <created>1506628307817</created>
+      <option name="number" value="00448" />
+      <option name="project" value="LOCAL" />
+      <updated>1506628307817</updated>
+    </task>
+    <option name="localTasksCounter" value="449" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -822,8 +822,8 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.115030676" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24693252" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46932516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24693252" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46932516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271605" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1254,14 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/nztim/mailchimp/src/MailchimpFacade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="318">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.0384617" vertical-offset="3584" max-vertical-offset="3876">
@@ -1280,16 +1272,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/nztim/mailchimp/src/MailchimpFacade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="289">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="5840" max-vertical-offset="9809">
-          <caret line="349" column="16" selection-start-line="349" selection-start-column="16" selection-end-line="349" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.1721698" vertical-offset="5724" max-vertical-offset="9792">
+          <caret line="341" column="18" selection-start-line="341" selection-start-column="18" selection-end-line="341" selection-end-column="18" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1506628301854" expanded="true" signature="13348:13877" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506628301854" expanded="true" signature="13927:14210" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506628301854" expanded="true" signature="16267:17030" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506628301854" expanded="true" signature="17269:17871" placeholder="select users..user_gameboards..." />
+            <marker date="1506628838847" expanded="true" signature="13323:13852" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506628838847" expanded="true" signature="13902:14185" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506628838847" expanded="true" signature="16242:17005" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506628838847" expanded="true" signature="17244:17846" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
