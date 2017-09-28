@@ -16,7 +16,7 @@
         "genealabs/phpgmaps": "~0.3.0",
         "webpatser/laravel-countries": "dev-master",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "skovmand/mailchimp-laravel": "^1.0"
+        "spatie/laravel-newsletter": "^3.7"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

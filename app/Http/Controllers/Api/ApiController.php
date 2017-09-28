@@ -16,15 +16,11 @@ use App\UserPush;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
-use App\Http\Requests\UserProfileRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use Mailchimp;
-use Mailchimp_Error;
-use Mailchimp_List_AlreadySubscribed;
+use Spatie\Newsletter\NewsletterFacade as Newsletter;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Log;
 
@@ -347,34 +343,13 @@ class ApiController extends Controller
             $profile->save();
 
             // Suscripción a la lista de correo
-            //$this->mailsubscribe($user);
+            $location = $user->profile()->location();
+            if (isset($location) && isset($location->maillist))
+                Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $user->profile()->location()->maillist);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
     }
 
-
-
-    public function mailsubscribe($user)
-    {
-
-        $mailchimp = app('Mailchimp');
-        $location = $user->profile()->location();
-        if (isset($location) && isset($location->maillist)) {
-            try {
-                $mailchimp
-                    ->lists
-                    ->subscribe(
-                        $location->maillist,
-                        ['email' => $user->email]
-                    );
-                return true;
-            } catch (Mailchimp_List_AlreadySubscribed $e) {
-                return false;
-            } catch (Mailchimp_Error $e) {
-                return false;
-            }
-        }
-    }
 
     public function newIncidence(Request $request)
     {
