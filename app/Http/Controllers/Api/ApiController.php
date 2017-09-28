@@ -343,9 +343,9 @@ class ApiController extends Controller
             $profile->save();
 
             // Suscripción a la lista de correo
-            $location = $user->profile()->location();
+            $location = Location::findOrFail($profile->location_id);
             if (isset($location) && isset($location->maillist))
-                Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $user->profile()->location()->maillist);
+                Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $location->maillist);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
     }
