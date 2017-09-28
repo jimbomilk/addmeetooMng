@@ -357,10 +357,11 @@ class ApiController extends Controller
     public function mailsubscribe($user)
     {
 
+        $mailchimp = app('Mailchimp');
         $location = $user->profile()->location();
         if (isset($location) && isset($location->maillist)) {
             try {
-                $this->mailchimp
+                $mailchimp
                     ->lists
                     ->subscribe(
                         $location->maillist,

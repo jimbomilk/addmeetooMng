@@ -19,10 +19,9 @@ class Controller extends BaseController
     public $login_user = null;
     public $mailchimp;
 
-    public function __construct(\Mailchimp $mailchimp)
+    public function __construct()
     {
         $login_user = Request::user();
-        $this->mailchimp = $mailchimp;
 
         View::share('login_user', $login_user);
 
