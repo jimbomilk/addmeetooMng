@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -39,14 +37,14 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="5823" max-vertical-offset="9792">
-              <caret line="348" column="0" selection-start-line="348" selection-start-column="0" selection-end-line="348" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33333334" vertical-offset="5840" max-vertical-offset="9809">
+              <caret line="349" column="16" selection-start-line="349" selection-start-column="16" selection-end-line="349" selection-end-column="25" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1506628122306" expanded="true" signature="13323:13852" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506628122306" expanded="true" signature="13902:14185" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506628122306" expanded="true" signature="16242:17005" placeholder="select a.use..user_gameboards..." />
-                <marker date="1506628122306" expanded="true" signature="17244:17846" placeholder="select users..user_gameboards..." />
+                <marker date="1506628301854" expanded="true" signature="13348:13877" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506628301854" expanded="true" signature="13927:14210" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506628301854" expanded="true" signature="16267:17030" placeholder="select a.use..user_gameboards..." />
+                <marker date="1506628301854" expanded="true" signature="17269:17871" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -502,12 +500,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00398" summary="ok">
-      <created>1506270076932</created>
-      <option name="number" value="00398" />
-      <option name="project" value="LOCAL" />
-      <updated>1506270076932</updated>
-    </task>
     <task id="LOCAL-00399" summary="ok">
       <created>1506270169641</created>
       <option name="number" value="00399" />
@@ -796,7 +788,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506627695688</updated>
     </task>
-    <option name="localTasksCounter" value="447" />
+    <task id="LOCAL-00447" summary="ok">
+      <created>1506628165425</created>
+      <option name="number" value="00447" />
+      <option name="project" value="LOCAL" />
+      <updated>1506628165425</updated>
+    </task>
+    <option name="localTasksCounter" value="448" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1284,14 +1282,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="5823" max-vertical-offset="9792">
-          <caret line="348" column="0" selection-start-line="348" selection-start-column="0" selection-end-line="348" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="5840" max-vertical-offset="9809">
+          <caret line="349" column="16" selection-start-line="349" selection-start-column="16" selection-end-line="349" selection-end-column="25" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1506628122306" expanded="true" signature="13323:13852" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506628122306" expanded="true" signature="13902:14185" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506628122306" expanded="true" signature="16242:17005" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506628122306" expanded="true" signature="17244:17846" placeholder="select users..user_gameboards..." />
+            <marker date="1506628301854" expanded="true" signature="13348:13877" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506628301854" expanded="true" signature="13927:14210" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506628301854" expanded="true" signature="16267:17030" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506628301854" expanded="true" signature="17269:17871" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
