@@ -347,7 +347,7 @@ class ApiController extends Controller
             $profile->save();
 
             // Suscripción a la lista de correo
-            $this->mailsuscribe($user);
+            $this->mailsubscribe($user);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
     }
