@@ -346,7 +346,7 @@ class ApiController extends Controller
             $location = Location::findOrFail($profile->location_id);
 
             if (isset($location) && isset($location->maillist))
-                MailchimpFacade::subscribe($location->maillist, $user->email);
+                MailchimpFacade::subscribe($location->maillist, $user->email,['FNAME' => $user->name, 'LNAME' => '']);
                 //Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $location->maillist);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
