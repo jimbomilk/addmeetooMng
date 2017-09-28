@@ -38,14 +38,34 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.21303259" vertical-offset="5763" max-vertical-offset="10183">
-              <caret line="349" column="32" selection-start-line="349" selection-start-column="32" selection-end-line="349" selection-end-column="32" />
+              <caret line="349" column="40" selection-start-line="349" selection-start-column="40" selection-end-line="349" selection-end-column="40" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1506590574780" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506590574780" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506590574780" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
-                <marker date="1506590574780" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
+                <marker date="1506590983241" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506590983241" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506590983241" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
+                <marker date="1506590983241" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+              <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.730769" vertical-offset="2448" max-vertical-offset="3859">
+              <caret line="165" column="59" selection-start-line="165" selection-start-column="59" selection-end-line="165" selection-end-column="59" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,32 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserProfile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="884">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1504510203717" expanded="true" signature="579:973" placeholder="select users..user_profiles..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="714">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_03_15_095756_user_profile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_03_15_095756_user_profile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="935">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -236,7 +234,6 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/SendMessage.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/mail/mailchimp.blade.php" />
@@ -245,6 +242,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/locations/partials/fields.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/label.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       </list>
     </option>
@@ -325,152 +323,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="en" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="addmeetooMng" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -794,12 +646,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00384" summary="ok">
-      <created>1506242999880</created>
-      <option name="number" value="00384" />
-      <option name="project" value="LOCAL" />
-      <updated>1506242999880</updated>
-    </task>
     <task id="LOCAL-00385" summary="ok">
       <created>1506243682764</created>
       <option name="number" value="00385" />
@@ -1088,7 +934,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506590246383</updated>
     </task>
-    <option name="localTasksCounter" value="434" />
+    <task id="LOCAL-00434" summary="ok">
+      <created>1506590581062</created>
+      <option name="number" value="00434" />
+      <option name="project" value="LOCAL" />
+      <updated>1506590581062</updated>
+    </task>
+    <option name="localTasksCounter" value="435" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1465,22 +1317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
-          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307" vertical-offset="2397" max-vertical-offset="3859">
-          <caret line="165" column="59" selection-start-line="165" selection-start-column="59" selection-end-line="165" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/mail/mailchimp.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.8846154" vertical-offset="204" max-vertical-offset="1632">
@@ -1526,7 +1362,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1504510203717" expanded="true" signature="579:973" placeholder="select users..user_profiles..." />
+            <marker date="1504510203717" expanded="true" signature="-1:-1" placeholder="select users..user_profiles..." />
           </folding>
         </state>
       </provider>
@@ -1589,16 +1425,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769" vertical-offset="2448" max-vertical-offset="3859">
+          <caret line="165" column="59" selection-start-line="165" selection-start-column="59" selection-end-line="165" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21303259" vertical-offset="5763" max-vertical-offset="10183">
-          <caret line="349" column="32" selection-start-line="349" selection-start-column="32" selection-end-line="349" selection-end-column="32" />
+          <caret line="349" column="40" selection-start-line="349" selection-start-column="40" selection-end-line="349" selection-end-column="40" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1506590574780" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506590574780" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506590574780" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506590574780" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
+            <marker date="1506590983241" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506590983241" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506590983241" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506590983241" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
