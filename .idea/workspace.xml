@@ -37,14 +37,14 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21303259" vertical-offset="5763" max-vertical-offset="10183">
-              <caret line="349" column="40" selection-start-line="349" selection-start-column="40" selection-end-line="349" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.46867168" vertical-offset="5559" max-vertical-offset="10183">
+              <caret line="349" column="14" selection-start-line="349" selection-start-column="14" selection-end-line="349" selection-end-column="14" />
               <folding>
                 <element signature="e#44#60#0#PHP" expanded="true" />
-                <marker date="1506590983241" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506590983241" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1506590983241" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
-                <marker date="1506590983241" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
+                <marker date="1506591302738" expanded="true" signature="13799:14328" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506591302738" expanded="true" signature="14378:14661" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1506591302738" expanded="true" signature="16718:17481" placeholder="select a.use..user_gameboards..." />
+                <marker date="1506591302738" expanded="true" signature="17720:18322" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -646,12 +646,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00385" summary="ok">
-      <created>1506243682764</created>
-      <option name="number" value="00385" />
-      <option name="project" value="LOCAL" />
-      <updated>1506243682764</updated>
-    </task>
     <task id="LOCAL-00386" summary="ok">
       <created>1506244614258</created>
       <option name="number" value="00386" />
@@ -940,7 +934,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506590581062</updated>
     </task>
-    <option name="localTasksCounter" value="435" />
+    <task id="LOCAL-00435" summary="ok">
+      <created>1506590985632</created>
+      <option name="number" value="00435" />
+      <option name="project" value="LOCAL" />
+      <updated>1506590985632</updated>
+    </task>
+    <option name="localTasksCounter" value="436" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1443,14 +1443,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21303259" vertical-offset="5763" max-vertical-offset="10183">
-          <caret line="349" column="40" selection-start-line="349" selection-start-column="40" selection-end-line="349" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.46867168" vertical-offset="5559" max-vertical-offset="10183">
+          <caret line="349" column="14" selection-start-line="349" selection-start-column="14" selection-end-line="349" selection-end-column="14" />
           <folding>
             <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1506590983241" expanded="true" signature="13797:14326" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506590983241" expanded="true" signature="14376:14659" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506590983241" expanded="true" signature="16716:17479" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506590983241" expanded="true" signature="17718:18320" placeholder="select users..user_gameboards..." />
+            <marker date="1506591302738" expanded="true" signature="13799:14328" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506591302738" expanded="true" signature="14378:14661" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506591302738" expanded="true" signature="16718:17481" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506591302738" expanded="true" signature="17720:18322" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
