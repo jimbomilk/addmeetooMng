@@ -93,8 +93,8 @@
       <file leaf-file-name="Controller.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40753424" vertical-offset="306" max-vertical-offset="714">
-              <caret line="25" column="38" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.5068493" vertical-offset="260" max-vertical-offset="697">
+              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
               <folding>
                 <element signature="e#40#85#0#PHP" expanded="true" />
               </folding>
@@ -610,12 +610,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00396" summary="ok">
-      <created>1506269326015</created>
-      <option name="number" value="00396" />
-      <option name="project" value="LOCAL" />
-      <updated>1506269326015</updated>
-    </task>
     <task id="LOCAL-00397" summary="ok">
       <created>1506269898059</created>
       <option name="number" value="00397" />
@@ -904,7 +898,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506627129230</updated>
     </task>
-    <option name="localTasksCounter" value="445" />
+    <task id="LOCAL-00445" summary="ok">
+      <created>1506627520134</created>
+      <option name="number" value="00445" />
+      <option name="project" value="LOCAL" />
+      <updated>1506627520134</updated>
+    </task>
+    <option name="localTasksCounter" value="446" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1393,8 +1393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40753424" vertical-offset="306" max-vertical-offset="714">
-          <caret line="25" column="38" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.5068493" vertical-offset="260" max-vertical-offset="697">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
             <element signature="e#40#85#0#PHP" expanded="true" />
           </folding>
