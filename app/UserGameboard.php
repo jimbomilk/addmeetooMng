@@ -36,7 +36,7 @@ class UserGameboard extends Model
                     group by date(created_at)
                     order by date(created_at)"), array('location' => $location_id) );
 
-        Log::info('participation json:'.json_encode($participationByDate));
+        //Log::info('participation json:'.json_encode($participationByDate));
 
         return $participationByDate;
     }
