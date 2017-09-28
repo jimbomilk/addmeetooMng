@@ -69,6 +69,7 @@ return [
     'locations.address' => 'Dirección del establecimiento',
     'locations.parent_id' => 'Zona donde está el establecimiento',
     'locations.screen_timer' => 'Refresco de las pantallas (segundos)',
+    'locations.maillist' => 'ID de la lista de correo mailchimp',
 
     /*ACTIVITIES*/
     'activities' => 'Actividad',
