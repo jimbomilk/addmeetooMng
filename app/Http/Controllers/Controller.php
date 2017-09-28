@@ -10,19 +10,16 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
-use NZTim\Mailchimp\Mailchimp;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
     
     public $login_user = null;
-    public $mailchimp;
 
     public function __construct()
     {
         $login_user = Request::user();
-        $this->mailchimp = new Mailchimp(env('MAILCHIMP_APIKEY'));
 
         View::share('login_user', $login_user);
 

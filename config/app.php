@@ -215,7 +215,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'Countries' => Webpatser\Countries\CountriesFacade::class,
-        'Mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
+        'mailchimp' => NZTim\Mailchimp\MailchimpFacade::class
 
     ],
 

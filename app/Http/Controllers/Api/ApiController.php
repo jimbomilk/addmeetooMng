@@ -20,7 +20,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use NZTim\Mailchimp\Mailchimp;
+use NZTim\Mailchimp\MailchimpFacade;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Log;
 
@@ -346,7 +346,7 @@ class ApiController extends Controller
             $location = Location::findOrFail($profile->location_id);
 
             if (isset($location) && isset($location->maillist))
-                $this->mailchimp->subscribe($location->maillist, $user->email);
+                MailchimpFacade::subscribe($location->maillist, $user->email);
                 //Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $location->maillist);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
