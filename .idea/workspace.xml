@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -54,9 +53,11 @@
       <file leaf-file-name="Controller.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27694234" vertical-offset="0" max-vertical-offset="798">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="41" />
-              <folding />
+            <state vertical-scroll-proportion="0.4473684" vertical-offset="0" max-vertical-offset="798">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+              <folding>
+                <element signature="e#40#85#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -243,8 +244,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/MailChimpController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/locations/partials/fields.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/label.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
       </list>
     </option>
   </component>
@@ -793,12 +794,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00381" summary="ok">
-      <created>1506197815359</created>
-      <option name="number" value="00381" />
-      <option name="project" value="LOCAL" />
-      <updated>1506197815359</updated>
-    </task>
     <task id="LOCAL-00382" summary="ok">
       <created>1506198535651</created>
       <option name="number" value="00382" />
@@ -1087,7 +1082,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506589307456</updated>
     </task>
-    <option name="localTasksCounter" value="430" />
+    <task id="LOCAL-00430" summary="ok">
+      <created>1506589809746</created>
+      <option name="number" value="00430" />
+      <option name="project" value="LOCAL" />
+      <updated>1506589809746</updated>
+    </task>
+    <option name="localTasksCounter" value="431" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1196,7 +1197,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="24" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1594,9 +1595,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27694234" vertical-offset="0" max-vertical-offset="798">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="41" />
-          <folding />
+        <state vertical-scroll-proportion="0.4473684" vertical-offset="0" max-vertical-offset="798">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding>
+            <element signature="e#40#85#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

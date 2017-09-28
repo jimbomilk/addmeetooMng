@@ -19,7 +19,7 @@ class Controller extends BaseController
     public $login_user = null;
     public $mailchimp;
 
-    public function __construct(Mailchimp $mailchimp)
+    public function __construct(\Mailchimp $mailchimp)
     {
         $login_user = Request::user();
         $this->mailchimp = $mailchimp;
