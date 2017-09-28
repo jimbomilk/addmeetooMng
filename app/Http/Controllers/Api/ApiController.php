@@ -346,7 +346,16 @@ class ApiController extends Controller
             $location = Location::findOrFail($profile->location_id);
 
             if (isset($location) && isset($location->maillist))
-                MailchimpFacade::subscribe($location->maillist, $user->email,['FNAME' => $user->name, 'LNAME' => '']);
+            {
+                try {
+                    MailchimpFacade::subscribe($location->maillist, $user->email,['FNAME' => $user->name, 'LNAME' => ''],false);
+                } catch (Throwable $e) {
+                    // API call failed - user was not subscribed
+                    // Log the error information for debugging
+                    Log::error('Mailchimp error:'.$e->getMessage());
+                    // Then return error message to user
+                }
+            }
                 //Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $location->maillist);
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
