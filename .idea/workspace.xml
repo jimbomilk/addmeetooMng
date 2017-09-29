@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Advertisement.php" afterPath="$PROJECT_DIR$/app/Advertisement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
+    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="ok">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/anuGraph.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -139,7 +138,7 @@
       <file leaf-file-name="advertisements.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41444868" vertical-offset="163" max-vertical-offset="595">
+            <state vertical-scroll-proportion="0.8022814" vertical-offset="61" max-vertical-offset="595">
               <caret line="16" column="35" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="35" />
               <folding />
             </state>
@@ -662,12 +661,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00412" summary="ok">
-      <created>1506326015041</created>
-      <option name="number" value="00412" />
-      <option name="project" value="LOCAL" />
-      <updated>1506326015041</updated>
-    </task>
     <task id="LOCAL-00413" summary="ok">
       <created>1506326213449</created>
       <option name="number" value="00413" />
@@ -956,7 +949,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506678797582</updated>
     </task>
-    <option name="localTasksCounter" value="461" />
+    <task id="LOCAL-00461" summary="ok">
+      <created>1506683742718</created>
+      <option name="number" value="00461" />
+      <option name="project" value="LOCAL" />
+      <updated>1506683742718</updated>
+    </task>
+    <option name="localTasksCounter" value="462" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1484,7 +1483,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41444868" vertical-offset="163" max-vertical-offset="595">
+        <state vertical-scroll-proportion="0.8022814" vertical-offset="61" max-vertical-offset="595">
           <caret line="16" column="35" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="35" />
           <folding />
         </state>
