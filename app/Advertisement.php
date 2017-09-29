@@ -20,7 +20,7 @@ class Advertisement extends Model
 
     public function adspacks()
     {
-        return $this->hasMany('App\AdsPack');
+        return $this->hasMany('App\AdsPack')->get();
     }
 
     public function user()
@@ -32,5 +32,6 @@ class Advertisement extends Model
     {
         return 'anu/'.$this->path.$this->id;
     }
+
 
 }

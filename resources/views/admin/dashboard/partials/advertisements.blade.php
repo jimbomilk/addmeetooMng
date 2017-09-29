@@ -13,11 +13,11 @@
                 <!-- todo text -->
                 <span class="text">{{$a->name}}</span>
                 <!-- Emphasis label -->
-                <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                <!-- General tools such as edit or delete-->
-                <div class="tools">
-                    <i class="fa fa-edit"></i>
-                </div>
+                @foreach($a->adspacks() as $pack)
+                <small class="label label-danger"><i class="fa fa-television"></i> Campaña {{$pack->id}}: {{$pack->bigdisplayed}} impactos TV </small>
+                <small class="label label-primary"><i class="fa fa-mobile"></i> {{$pack->smalldisplayed}} impactos Móvil </small>
+                @endforeach
+
             </li>
             @endforeach
             <span class="box-tools pull-right inline">
