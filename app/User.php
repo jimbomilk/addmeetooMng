@@ -57,6 +57,7 @@ class User extends Authenticatable
     }
 
 
+
     public function gameboards()
     {
         if ($this->type == 'admin')
