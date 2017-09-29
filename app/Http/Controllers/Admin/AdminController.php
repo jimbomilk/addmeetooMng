@@ -31,15 +31,10 @@ class AdminController extends Controller
     {
         $incidences = Auth::user()->incidences();
         $activityNumber = Auth::user()->activeGameboards()->count();
+        $participantNumber = Auth::user()->locationUsergames()->count();
         $ads = Auth::user()->advertisements();
-        if (Auth::user()->is('admin')) {
-            $participantNumber = UserGameboard::All()->count();
-            $users = User::All()->count();
-            $participationChart = UserGameboard::getParticipationByDate('1');
-        }
-        else {
-            $participationChart = UserGameboard::getParticipationByDate('1');
-        }
+        $users = Auth::user()->locationUsers()->count();
+        $participationChart = Auth::user()->getParticipationByDate();
 
 
 		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences,'ads'=>$ads]);

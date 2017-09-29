@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -78,6 +79,24 @@ class User extends Authenticatable
             ->where('status','=',Status::RUNNING)->get();
     }
 
+    public function locationUsergames()
+    {
+        if ($this->type == 'admin')
+            return UserGameboard::all();
+        return $this->hasManyThrough('App\Gameboard', 'App\Location','owner_id','location_id','id')
+            ->leftJoin('user_gameboards', 'gameboards.id', '=', 'user_gameboards.gameboard_id')
+            ->select('user_gameboards.*');
+    }
+
+    public function locationUsers()
+    {
+       if ($this->type == 'admin')
+            return User::all();
+       return $this->hasManyThrough('App\UserProfile', 'App\Location','owner_id','location_id','id')
+            ->leftJoin('users', 'user_profiles.user_id', '=', 'users.id')
+            ->select('users.*');
+    }
+
     public function incidences()
     {
         if ($this->type == 'admin')
@@ -109,5 +128,20 @@ class User extends Authenticatable
     {
         $this->activationCode = str_random(60);
         $this->save();
+    }
+
+    public function getParticipationByDate()
+    {
+        $locations = $this->locations();
+        $participationByDate =  DB::select( DB::raw("select IFNULL(date(a.created_at),'Sin fecha') as participation_date,count(a.id) as participations
+                    from user_gameboards a
+                    left join gameboards b on b.id = a.gameboard_id
+                    where b.location_id = '1'
+                    group by date(participation_date)
+                    order by date(participation_date)"), array('locations' => serialize($locations)) );
+
+        //Log::info('participation json:'.json_encode($participationByDate));
+
+        return $participationByDate;
     }
 }
