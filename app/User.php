@@ -130,9 +130,9 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function getParticipationByDate()
+    public static function getParticipationByDate()
     {
-        $locations = $this->locations();
+        //$locations = $this->locations();
         $participationByDate =  DB::select( DB::raw("select IFNULL(date(a.created_at),'Sin fecha') as participation_date,count(a.id) as participations
                     from user_gameboards a
                     left join gameboards b on b.id = a.gameboard_id
