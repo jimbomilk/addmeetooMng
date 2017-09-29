@@ -34,15 +34,16 @@ class UserGameboard extends Model
             $locArray .= $location->id;
             $locArray .= ",";
         }
+        //Log::info('locations:'.$locArray);
 
-        $participationByDate =  DB::select( DB::raw("select IFNULL(date(a.created_at),'Sin Fecha') as participation_date,count(a.id) as participations
+        $participationByDate =  DB::select( DB::raw("select IFNULL(date(a.created_at),'2017-01-01') as participation_date,count(a.id) as participations
                     from user_gameboards a
                     left join gameboards b on b.id = a.gameboard_id
                     where b.location_id in (:locations)
                     group by date(participation_date)
                     order by date(participation_date)"), array('locations' => trim($locArray, ',')) );
 
-        Log::info('participation:'.json_encode($participationByDate));
+        //::info('participation:'.json_encode($participationByDate));
 
         return $participationByDate;
     }

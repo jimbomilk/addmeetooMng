@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function activities()
     {
-        return $this->hasMany('App\Activity');
+        return $this->hasMany('App\Activity')->get();
     }
 
     public function locations()
@@ -53,7 +53,7 @@ class User extends Authenticatable
         if ($this->type == 'admin')
             return Location::all();
 
-        return $this->hasMany('App\Location','owner_id','id');
+        return $this->hasMany('App\Location','owner_id','id')->get();
     }
 
 
