@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/UserGameboard.php" afterPath="$PROJECT_DIR$/app/UserGameboard.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -518,12 +515,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00409" summary="ok">
-      <created>1506324900705</created>
-      <option name="number" value="00409" />
-      <option name="project" value="LOCAL" />
-      <updated>1506324900706</updated>
-    </task>
     <task id="LOCAL-00410" summary="ok">
       <created>1506324958662</created>
       <option name="number" value="00410" />
@@ -812,7 +803,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506675164124</updated>
     </task>
-    <option name="localTasksCounter" value="458" />
+    <task id="LOCAL-00458" summary="ok">
+      <created>1506676336802</created>
+      <option name="number" value="00458" />
+      <option name="project" value="LOCAL" />
+      <updated>1506676336802</updated>
+    </task>
+    <option name="localTasksCounter" value="459" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
