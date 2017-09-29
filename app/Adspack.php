@@ -29,7 +29,7 @@ class Adspack extends Model
         return $this->smallpack*100;
     }
     
-    public function tot alAds()
+    public function totalAds()
     {
         return $this->bigpack*100 + $this->smallpack*100;
     }
