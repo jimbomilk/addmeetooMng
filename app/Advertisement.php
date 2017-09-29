@@ -20,7 +20,7 @@ class Advertisement extends Model
 
     public function adspacks()
     {
-        return $this->hasMany('App\AdsPack')->get();
+        return $this->hasMany('App\Adspack')->get();
     }
 
     public function user()
