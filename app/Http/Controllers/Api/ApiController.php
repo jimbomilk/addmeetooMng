@@ -338,26 +338,28 @@ class ApiController extends Controller
             $user->type = 'user';
             $user->save();
             $token = JWTAuth::fromUser($user);
-            $profile = new UserProfile();
-            $profile->user_id = $user->id;
-            $profile->location_id = $request->get('location');
-            $profile->save();
 
             // Suscripción a la lista de correo
-            $location = Location::findOrFail($profile->location_id);
-
+            $location = Location::findOrFail($request->get('location'));
+            $mail_registered = false;
             if (isset($location) && isset($location->maillist))
             {
                 try {
                     MailchimpFacade::subscribe($location->maillist, $user->email,['FNAME' => $user->name, 'LNAME' => ''],false);
+                    $mail_registered = true;
                 } catch (MailchimpException $e) {
-                    // API call failed - user was not subscribed
                     // Log the error information for debugging
                     Log::error('Mailchimp error:'.$e->getMessage());
-                    // Then return error message to user
+                    $mail_registered = false;
                 }
             }
-                //Newsletter::subscribe($user->email,['firstName'=>$user->name, 'lastName'=>''], $location->maillist);
+
+            // Y ahora su profile
+            $profile = new UserProfile();
+            $profile->user_id = $user->id;
+            $profile->location_id = $request->get('location');
+            $profile->mailregistered = $mail_registered;
+            $profile->save();
         }
         return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
     }

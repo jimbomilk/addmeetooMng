@@ -33,6 +33,9 @@ class UserProfile extends Migration {
             //Preferred location
             $table->integer('location_id')->unsigned();
 
+            // Lista de correo
+            $table->boolean('mailregistered')->default(false);
+
 			$table->timestamps();
 		});
 	}
