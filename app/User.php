@@ -15,6 +15,7 @@ class User extends Authenticatable
     protected $fillable = ['name', 'email', 'password','type'];
     static $searchable = ['name','email'];
 
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -69,7 +70,18 @@ class User extends Authenticatable
     {
         if ($this->type == 'admin')
             return Advertisement::paginate(10);
-        return $this->hasManyThrough('App\Advertisement', 'App\Location','owner_id','location_id','id');
+        return $this->hasManyThrough('App\Advertisement', 'App\Location','owner_id','location_id','id')->paginate(10);
+    }
+
+
+    public function messages($where)
+    {
+
+        if ($this->type == 'admin')
+            return Message::whereRaw($where)->paginate(10);
+        return $this->hasManyThrough('App\Message', 'App\Location','owner_id','location_id','id')
+            ->whereRaw($where)
+            ->paginate(10);
     }
 
     public function activeGameboards()

@@ -31,10 +31,7 @@ class AdvertisementsController extends Controller {
 	 */
 	public function index()
 	{
-        if (Auth::user()->is('admin'))
-            $advertisements = Advertisement::paginate();
-        else
-            $advertisements = Auth::user()->advertisements()->paginate();
+        $advertisements = Auth::user()->advertisements();
         return view ('admin.common.index',['name'=>'advertisements','set'=>$advertisements]);
 	}
 

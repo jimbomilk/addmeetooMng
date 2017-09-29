@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Storage;
 
 class MessagesController extends Controller {
 
+    public $search="";
 
     public function __construct()
     {
@@ -35,9 +36,9 @@ class MessagesController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-        $search = $request->get('search');
-        $where = General::getRawWhere(Message::$searchable,$search);
-        if(!Auth::user()->is('admin') ) {
+        $this->search = $request->get('search');
+        $where = General::getRawWhere(Message::$searchable,$this->search);
+        /*if(!Auth::user()->is('admin') ) {
             $where .= ' and location_id in ( -1';
             if(Auth::user()->locations()->count()>0)
                 $where .= ',';
@@ -48,8 +49,8 @@ class MessagesController extends Controller {
         //Log::info('Msg where:' . $where);
 
         $messages = Message::whereRaw($where)
-                ->paginate();
-
+                ->paginate();*/
+        $messages = Auth::user()->messages($where);
 
         return view ('admin.common.index',['searchable'=>'1','name'=>'messages','set'=>$messages]);
 	}

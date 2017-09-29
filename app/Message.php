@@ -9,7 +9,7 @@ class Message extends Model {
 
     protected $table = 'messages';
     protected $guarded = ['id'];
-    static $searchable = ['stext','ltext'];
+    static $searchable = ['type','stext','ltext'];
     protected $path = 'message';
 
     /**
