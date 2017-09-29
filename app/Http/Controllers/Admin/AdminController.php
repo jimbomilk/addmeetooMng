@@ -34,7 +34,8 @@ class AdminController extends Controller
         $participantNumber = Auth::user()->locationUsergames()->count();
         $ads = Auth::user()->advertisements();
         $users = Auth::user()->locationUsers()->count();
-        $participationChart = UserGameboard::getParticipationByDate(1);
+        $locations = Auth::user()->locations();
+        $participationChart = UserGameboard::getParticipationByDate($locations);
 
 
 		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences,'ads'=>$ads]);

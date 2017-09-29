@@ -27,14 +27,14 @@ class UserGameboard extends Model
         return $this->gameboard->location_id;
     }
 
-    public static function getParticipationByDate($location_id)
+    public static function getParticipationByDate($locations)
     {
         $participationByDate =  DB::select( DB::raw("select date(a.created_at) as participation_date,count(a.id) as participations
                     from user_gameboards a
                     left join gameboards b on b.id = a.gameboard_id
-                    where b.location_id = :location
+                    where b.location_id in (:locations)
                     group by date(created_at)
-                    order by date(created_at)"), array('location' => $location_id) );
+                    order by date(created_at)"), array('locations' => serialize($locations)) );
 
         //Log::info('participation json:'.json_encode($participationByDate));
 

@@ -129,19 +129,4 @@ class User extends Authenticatable
         $this->activationCode = str_random(60);
         $this->save();
     }
-
-    public static function getParticipationByDate()
-    {
-        //$locations = $this->locations();
-        $participationByDate =  DB::select( DB::raw("select IFNULL(date(a.created_at),'Sin fecha') as participation_date,count(a.id) as participations
-                    from user_gameboards a
-                    left join gameboards b on b.id = a.gameboard_id
-                    where b.location_id = '1'
-                    group by date(participation_date)
-                    order by date(participation_date)"), array('locations' => serialize($locations)) );
-
-        //Log::info('participation json:'.json_encode($participationByDate));
-
-        return $participationByDate;
-    }
 }
