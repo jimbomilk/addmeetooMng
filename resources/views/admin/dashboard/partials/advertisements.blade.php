@@ -14,7 +14,8 @@
                 <span class="text">{{$a->name}}</span>
                 <!-- Emphasis label -->
                 @foreach($a->adspacks() as $pack)
-                <small class="label label-danger"><i class="fa fa-television"></i> Campaña {{$pack->id}}: {{$pack->bigdisplayed}} impactos TV </small>
+                <p>Campaña {{$pack->id}}: </p>
+                <small class="label label-danger"><i class="fa fa-television"></i> {{$pack->bigdisplayed}} impactos TV </small>
                 <small class="label label-primary"><i class="fa fa-mobile"></i> {{$pack->smalldisplayed}} impactos Móvil </small>
                 @endforeach
 

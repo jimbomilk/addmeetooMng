@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Advertisement.php" afterPath="$PROJECT_DIR$/app/Advertisement.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -56,10 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Advertisement.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Advertisement.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Advertisement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47908744" vertical-offset="248" max-vertical-offset="731">
+            <state vertical-scroll-proportion="-4.8461537" vertical-offset="248" max-vertical-offset="731">
               <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
               <folding>
                 <marker date="1506684062338" expanded="true" signature="568:653" placeholder="select IFNUL..user_gameboards..." />
@@ -135,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="advertisements.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="advertisements.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.115385" vertical-offset="61" max-vertical-offset="595">
-              <caret line="16" column="35" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.15969582" vertical-offset="230" max-vertical-offset="612">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -244,9 +244,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/UserGameboard.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
         <option value="$PROJECT_DIR$/app/Adspack.php" />
         <option value="$PROJECT_DIR$/app/Advertisement.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
       </list>
     </option>
   </component>
@@ -661,12 +661,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00416" summary="ok">
-      <created>1506330348007</created>
-      <option name="number" value="00416" />
-      <option name="project" value="LOCAL" />
-      <updated>1506330348007</updated>
-    </task>
     <task id="LOCAL-00417" summary="ok">
       <created>1506330943581</created>
       <option name="number" value="00417" />
@@ -955,7 +949,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506684052326</updated>
     </task>
-    <option name="localTasksCounter" value="465" />
+    <task id="LOCAL-00465" summary="ok">
+      <created>1506684075246</created>
+      <option name="number" value="00465" />
+      <option name="project" value="LOCAL" />
+      <updated>1506684075246</updated>
+    </task>
+    <option name="localTasksCounter" value="466" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1464,14 +1464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.115385" vertical-offset="61" max-vertical-offset="595">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Adspack.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9615384" vertical-offset="102" max-vertical-offset="816">
@@ -1482,11 +1474,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Advertisement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47908744" vertical-offset="248" max-vertical-offset="731">
+        <state vertical-scroll-proportion="-4.8461537" vertical-offset="248" max-vertical-offset="731">
           <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding>
             <marker date="1506684062338" expanded="true" signature="568:653" placeholder="select IFNUL..user_gameboards..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15969582" vertical-offset="230" max-vertical-offset="612">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
