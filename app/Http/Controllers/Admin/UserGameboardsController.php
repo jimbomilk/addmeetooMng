@@ -36,8 +36,9 @@ class UserGameBoardsController extends Controller {
         $locations = Auth::user()->locations()->lists('name','id');
 
         $this->sel_location = $request->get('location_id');
-        if (!isset($sel_location) && count($locations)>0)
+        if (!isset($this->sel_location) && count($locations)>0)
             $this->sel_location = $locations->keys()->first();
+
 
         $usergameboards = UserProfile::globalRanking($this->sel_location,true);
 /*

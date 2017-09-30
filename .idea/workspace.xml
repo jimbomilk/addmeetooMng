@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="ok">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Status.php" afterPath="$PROJECT_DIR$/app/Status.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
+    <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/UserProfile.php" afterPath="$PROJECT_DIR$/app/UserProfile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/gameboards/partials/fields.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/gameboards/partials/fields.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/common/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/common/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/label.php" afterPath="$PROJECT_DIR$/resources/lang/en/label.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/labels.php" afterPath="$PROJECT_DIR$/resources/lang/en/labels.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/activities/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/activities/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/activity_options/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/activity_options/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/adspacks/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/adspacks/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/advertisements/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/advertisements/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/gameboard_options/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/gameboard_options/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/gameboards/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/gameboards/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/messages/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/messages/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/usergameboards/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/usergameboards/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/users/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/users/partials/table.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -65,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8154982" vertical-offset="8024" max-vertical-offset="9673">
+            <state vertical-scroll-proportion="-8.5" vertical-offset="8024" max-vertical-offset="9673">
               <caret line="506" column="70" selection-start-line="506" selection-start-column="70" selection-end-line="506" selection-end-column="70" />
               <folding>
                 <marker date="1506774899388" expanded="true" signature="13792:14321" placeholder="SELECT ads.*..advertisements..." />
@@ -76,6 +57,29 @@
                 <marker date="1506774899388" expanded="true" signature="16801:17564" placeholder="select a.use..user_gameboards..." />
                 <marker date="1506774899388" expanded="true" signature="17805:18407" placeholder="select users..user_gameboards..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserGameboardsController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6273063" vertical-offset="340" max-vertical-offset="2601">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="laravel-2017-09-30.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2017-09-30.log">
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="194.53334" vertical-offset="18025" max-vertical-offset="18292">
+              <caret line="717" column="0" selection-start-line="717" selection-start-column="0" selection-end-line="717" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -197,7 +201,6 @@
         <option value="$PROJECT_DIR$/app/UserGameboard.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/common/index.blade.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel-2017-09-30.log" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/activities/partials/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/activity_options/partials/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/adspacks/partials/table.blade.php" />
@@ -212,6 +215,7 @@
         <option value="$PROJECT_DIR$/resources/lang/en/label.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/labels.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php" />
       </list>
     </option>
   </component>
@@ -291,6 +295,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -438,6 +460,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -547,12 +595,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00422" summary="ok">
-      <created>1506336541996</created>
-      <option name="number" value="00422" />
-      <option name="project" value="LOCAL" />
-      <updated>1506336541996</updated>
     </task>
     <task id="LOCAL-00423" summary="ok">
       <created>1506337799521</created>
@@ -842,7 +884,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506705034725</updated>
     </task>
-    <option name="localTasksCounter" value="471" />
+    <task id="LOCAL-00471" summary="ok">
+      <created>1506774907774</created>
+      <option name="number" value="00471" />
+      <option name="project" value="LOCAL" />
+      <updated>1506774907775</updated>
+    </task>
+    <option name="localTasksCounter" value="472" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -869,6 +917,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.115030676" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24693252" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -886,7 +935,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1183,14 +1231,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2017-09-30.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11960" max-vertical-offset="12257">
-          <caret line="714" column="0" selection-start-line="714" selection-start-column="0" selection-end-line="714" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05904059" vertical-offset="86" max-vertical-offset="918">
@@ -1214,16 +1254,6 @@
         <state vertical-scroll-proportion="-27.461538" vertical-offset="0" max-vertical-offset="1292">
           <caret line="42" column="108" selection-start-line="42" selection-start-column="108" selection-end-line="42" selection-end-column="108" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769" vertical-offset="102" max-vertical-offset="2771">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#63#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1339,6 +1369,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="8024" max-vertical-offset="9673">
+          <caret line="506" column="70" selection-start-line="506" selection-start-column="70" selection-end-line="506" selection-end-column="70" />
+          <folding>
+            <marker date="1506774899388" expanded="true" signature="13792:14321" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506774899388" expanded="true" signature="14371:14654" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1506774899388" expanded="true" signature="16801:17564" placeholder="select a.use..user_gameboards..." />
+            <marker date="1506774899388" expanded="true" signature="17805:18407" placeholder="select users..user_gameboards..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0769231" vertical-offset="694" max-vertical-offset="1105">
@@ -1349,16 +1392,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2017-09-30.log">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8154982" vertical-offset="8024" max-vertical-offset="9673">
-          <caret line="506" column="70" selection-start-line="506" selection-start-column="70" selection-end-line="506" selection-end-column="70" />
-          <folding>
-            <marker date="1506774899388" expanded="true" signature="13792:14321" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506774899388" expanded="true" signature="14371:14654" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1506774899388" expanded="true" signature="16801:17564" placeholder="select a.use..user_gameboards..." />
-            <marker date="1506774899388" expanded="true" signature="17805:18407" placeholder="select users..user_gameboards..." />
-          </folding>
+        <state vertical-scroll-proportion="194.53334" vertical-offset="18025" max-vertical-offset="18292">
+          <caret line="717" column="0" selection-start-line="717" selection-start-column="0" selection-end-line="717" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserGameboardsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6273063" vertical-offset="340" max-vertical-offset="2601">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
