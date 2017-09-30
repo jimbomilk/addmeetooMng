@@ -491,11 +491,6 @@ class ApiController extends Controller
         //Log::info('ENTRANDO globalRanking');
         $input = $request->all();
         $location = $input['location'];
-        try {
-            JWTAuth::toUser($input['token']);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }
 
         /*
         $user_profiles =  UserProfile::where('location_id','=',$location)
@@ -515,12 +510,6 @@ class ApiController extends Controller
         //Log::info('ENTRANDO userGameboards');
         $input = $request->all();
         $location = $input['location'];
-        try {
-            JWTAuth::toUser($input['token']);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }
-
 
         $usergameboards = DB::select( DB::raw("select a.user_id as id,gameboards.name as gb_name,users.name as us_name, a.points,a.gameboard_id, count(b.gameboard_id)+1 as ranking
                     from user_gameboards a
@@ -559,11 +548,6 @@ class ApiController extends Controller
         $startcurrentmonth = Carbon::now()->startofMonth();
         $endcurrentmonth = Carbon::now()->endofMonth();
 
-        try {
-            JWTAuth::toUser($input['token']);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }
 
         $query = $this->monthlyQuery($location,$startcurrentmonth,$endcurrentmonth);
         //Log::info('Monthly query:'.$query);
