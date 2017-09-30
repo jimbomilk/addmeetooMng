@@ -122,6 +122,9 @@ return [
     'gameboard_options.result' =>'Resultado (no rellenar al inicio)',
     'gameboard_options.results' => 'Resultados',
 
+    /*USERGAMEBOARDS*/
+    'usergameboards.location_id'=> 'Elige un lugar',
+
     /*ADVERTISEMENTS*/
     'advertisements' => 'Anuncio',
     'advertisements.imagebig' => 'Imagen gran formato(1800x600)',

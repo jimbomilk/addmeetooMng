@@ -37,25 +37,26 @@ class GameboardsController extends Controller {
         $activities = Activity::all()->pluck('name','id');
         $progression = General::getEnumValues('gameboards','progression_type') ;
 
+        $statuses = Auth::user()->statuses();
         if (isset($element)) {
             $element->startgame = $element->localStartgame;
             $element->endgame = $element->localEndgame;
             $element->deadline = $element->localDeadline;
-            return view('admin.common.edit', ['name' => 'gameboards', 'element' => $element, 'statuses' => Status::$desc, 'locations' => $locations, 'activities' => $activities, 'progression' => $progression]);
+            return view('admin.common.edit', ['name' => 'gameboards', 'element' => $element, 'statuses' => $statuses, 'locations' => $locations, 'activities' => $activities, 'progression' => $progression]);
         }
         else
-            return view('admin.common.create',['name'=>'gameboards','statuses'=>Status::$desc,'locations'=>$locations,'activities'=>$activities,'progression'=>$progression]);
+            return view('admin.common.create',['name'=>'gameboards','statuses'=>$statuses,'locations'=>$locations,'activities'=>$activities,'progression'=>$progression]);
     }
 
     public function index()
 	{
-
+        $statuses = Auth::user()->statuses();
         if (Auth::user()->is('admin'))
             $gameboards = Gameboard::where('status','<',Status::HIDDEN)->orderby('deadline')->paginate();
         else
             $gameboards = Auth::user()->gameboards()->where('status','<',Status::HIDDEN)->orderby('deadline')->paginate();
 
-        return view ('admin.common.index',['name'=>'gameboards','set'=>$gameboards,'statuses'=>Status::$desc,'colours'=>Status::$colors]);
+        return view ('admin.common.index',['name'=>'gameboards','set'=>$gameboards,'statuses'=>$statuses,'colours'=>Status::$colors]);
 	}
 
 	/**

@@ -29,11 +29,18 @@
                     <div class="panel-body">
 
                         @if (isset($searchable))
-                        {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.index", 'method'=>'GET', 'class' => 'navbar-form navbar-left pull-right', 'role'=>'search']) !!}
+                            {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.index", 'method'=>'GET', 'class' => 'navbar-form navbar-left pull-right', 'role'=>'search']) !!}
                             <div class="form-group">
                                 {!! Form::text('search', null, ['class' => 'form-control', 'placeholder'=>'Search']) !!}
                             </div>
                             <button type="submit" class="btn btn-default">{{trans('labels.search')}}</button>
+                            {!! Form::close() !!}
+                        @endif
+
+                        @if (isset($withlocations))
+                        {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.index", 'method'=>'GET', 'class' => 'navbar-form navbar-left pull-right', 'role'=>'location']) !!}
+                                @include("admin.common.input_select",array('var'=>'location_id','col'=>$locations))
+                                <button type="submit" class="btn btn-default">{{trans('labels.changelocation')}}</button>
                         {!! Form::close() !!}
                         @endif
 

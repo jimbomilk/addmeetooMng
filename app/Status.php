@@ -22,15 +22,18 @@ class Status {
 
     public static $desc = array(0   =>'no iniciado' ,
                                 10  =>'configurado',
-                                //20  =>'listo',
                                 30  =>'en marcha',
                                 50  =>'finalizado',
                                 100 =>'oficial',
                                 110 => 'oculto');
 
+
+    public static $descOwner = array(0   =>'no iniciado' ,
+                                    10  =>'configurado',
+                                    30  =>'en marcha');
+
     public static $colors = array(  0   =>'default' ,
                                     10  =>'primary',
-                                    //20  =>'success',
                                     30  =>'info',
                                     50  =>'warning',
                                     100 =>'danger',

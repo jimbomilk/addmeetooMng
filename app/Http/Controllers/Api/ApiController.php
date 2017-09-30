@@ -497,12 +497,14 @@ class ApiController extends Controller
             return response()->json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
         }
 
+        /*
         $user_profiles =  UserProfile::where('location_id','=',$location)
             ->select('users.id','users.name as us_name','user_profiles.*')
             ->join('users','user_profiles.user_id','=','users.id')
             ->orderBy('points', 'desc')
             ->orderBy('name', 'asc')
-            ->take(10)->get();
+            ->take(10)->get();*/
+        $user_profiles =  UserProfile::globalRanking($location,false);
 
         return response()->json($user_profiles);
     }

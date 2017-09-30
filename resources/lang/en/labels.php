@@ -52,6 +52,7 @@ return [
     'activitiesRunning' => 'Actividades en ejecución',
     'participants' => 'Participaciones',
     'moreInfo'=> 'Más información',
+    'changelocation' => 'Selecciona',
 
 
 ];

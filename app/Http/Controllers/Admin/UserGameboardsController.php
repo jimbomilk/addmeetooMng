@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 
+
 class UserGameBoardsController extends Controller {
 
 	/**
@@ -21,6 +22,7 @@ class UserGameBoardsController extends Controller {
 	 *
 	 * @return Response
 	 */
+    public $sel_location=null;
 
     public function __construct()
     {
@@ -28,8 +30,17 @@ class UserGameBoardsController extends Controller {
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
 	{
+
+        $locations = Auth::user()->locations()->lists('name','id');
+
+        $this->sel_location = $request->get('location_id');
+        if (!isset($sel_location) && count($locations)>0)
+            $this->sel_location = $locations->keys()->first();
+
+        $usergameboards = UserProfile::globalRanking($this->sel_location,true);
+/*
         if (Auth::user()->is('admin'))
             $usergameboards = UserGameboard::where('users.type','=','user')
                 ->join('users', 'user_gameboards.user_id', '=' , 'users.id')
@@ -43,10 +54,10 @@ class UserGameBoardsController extends Controller {
 
                 ->orderby('points','desc')
                 ->paginate();
+*/
 
 
-
-        return view('admin.common.index',['name'=>'usergameboards','set'=>$usergameboards,'hide_new'=>1,'hide_delete'=>1]);
+        return view('admin.common.index',['locations'=>$locations,'withlocations'=>1,'name'=>'usergameboards','set'=>$usergameboards,'hide_new'=>1,'hide_delete'=>1]);
 	}
 
 
@@ -138,6 +149,7 @@ class UserGameBoardsController extends Controller {
         Session::flash('message',$message);
         return redirect()->route($this->indexPage("usergameboards"));
     }
+
 
 
 

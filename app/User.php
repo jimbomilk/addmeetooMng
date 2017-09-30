@@ -73,6 +73,12 @@ class User extends Authenticatable
         return $this->hasManyThrough('App\Advertisement', 'App\Location','owner_id','location_id','id')->paginate(10);
     }
 
+    public function statuses()
+    {
+        if ($this->type == 'admin')
+            return Status::$desc;
+        return Status::$descOwner;
+    }
 
     public function messages($where)
     {

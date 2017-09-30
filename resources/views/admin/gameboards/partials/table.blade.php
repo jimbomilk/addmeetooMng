@@ -75,7 +75,7 @@
     @endforeach
 
     <tr style="background-color: #bbffbb"><th colspan="11"> Recuerda que para editar un juego , el juego no puede haber comenzado </th></tr>
-    <div class="pagination"> {{ $set->links() }} </div>
+    <div class="pagination"> {{ $set->appends(request()->input())->links() }} </div>
 </table>
 
 @section('scripts')

@@ -43,5 +43,18 @@ class UserProfile extends Model {
         }
     }
 
+    public static function globalRanking($location,$paginated)
+    {
+        $user_profiles =  UserProfile::where('location_id','=',$location)
+            ->select('users.id','users.name as us_name','user_profiles.*')
+            ->join('users','user_profiles.user_id','=','users.id')
+            ->orderBy('points', 'desc')
+            ->orderBy('name', 'asc');
+        if($paginated)
+            return $user_profiles->paginate();
+
+        return $user_profiles->take(10)->get();
+    }
+
 
 }

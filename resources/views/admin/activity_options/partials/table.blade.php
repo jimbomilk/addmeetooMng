@@ -28,7 +28,7 @@
 
         </tr>
     @endforeach
-    <div class="pagination"> {{ $set->links() }} </div>
+    <div class="pagination"> {{ $set->appends(request()->input())->links() }} </div>
 </table>
 
 @section('scripts')
