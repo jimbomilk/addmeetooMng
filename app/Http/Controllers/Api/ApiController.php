@@ -173,7 +173,7 @@ class ApiController extends Controller
 
     public function useroptions($gameboard_id, Request $request)
     {
-        //Log::info('ENTRANDO useroptions');
+        Log::info('ENTRANDO useroptions');
         $input = $request->all();
         try {
             $gameboard = Gameboard::findOrFail($gameboard_id);
