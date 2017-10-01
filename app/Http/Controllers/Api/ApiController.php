@@ -185,6 +185,7 @@ class ApiController extends Controller
             return response()->json(['error' => "JUEGO NO ENCONTRADO"], HttpResponse::HTTP_NOT_FOUND);
         }
 
+        Log::info('useroptions2');
         try {
             $user = JWTAuth::toUser($input['token']);
         } catch (Exception $e) {
@@ -198,7 +199,7 @@ class ApiController extends Controller
         $result = UserGameboard::firstOrNew(['gameboard_id' => $gameboard_id, 'user_id' => $user->id]);
 
         $second = $result->values != "";
-
+        Log::info('useroptions3');
 
         // GUARDAMOS PUNTOS y RECALCULAMOS TOP RANK
         if (!$second) {
@@ -209,7 +210,7 @@ class ApiController extends Controller
 
         }
         $result->values = json_encode($values);
-
+        Log::info('useroptions4');
         $result->save();
 
         // A pantalla
@@ -219,7 +220,7 @@ class ApiController extends Controller
         $message->type = 'message';
         $message->image = $user->profile->avatar;
         event(new MessageEvent($message, 'location'.$gameboard->location_id));
-
+        Log::info('useroptions5');
         // A movil
         $message->ltext = $gameboard->name . ":";
         $message->setText($user->name, $values);
