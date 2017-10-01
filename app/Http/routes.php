@@ -14,26 +14,6 @@
 */
 
 
-
-// CORS
-//header('Access-Control-Allow-Origin: http://localhost:4200');
-//header('Access-Control-Allow-Credentials: true');
-/*
-function imageFile($path, $file)
-{
-    $path = storage_path('/app/public/').$path.'/'. $file;
-
-    if(!File::exists($path)) abort(404);
-
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
-}
-*/
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
