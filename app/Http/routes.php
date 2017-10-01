@@ -25,7 +25,7 @@ $s = 'social.';
 Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\AuthController@getSocialRedirect']);
 Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\AuthController@getSocialHandle']);
 
-Route::get('logout', function () {return redirect('auth/logout');});
+//Route::get('logout', function () {return redirect('auth/logout');});
 
 // PARA ADMIN
 Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=>'Admin'],function(){

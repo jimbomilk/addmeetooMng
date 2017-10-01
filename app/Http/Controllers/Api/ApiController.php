@@ -224,6 +224,8 @@ class ApiController extends Controller
         $message->ltext = $gameboard->name . ":";
         $message->setText($user->name, $values);
         $message->reward = $second? 0 : $gameboard->activity->reward_participation;
+
+        Log::info('SALIENDO:'.$message->ltext);
         return json_encode($message);
     }
 
