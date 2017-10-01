@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/UserProfile.php" afterPath="$PROJECT_DIR$/app/UserProfile.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -65,10 +64,10 @@
       <file leaf-file-name="UserProfile.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36038962" vertical-offset="467" max-vertical-offset="1156">
-              <caret line="36" column="55" selection-start-line="30" selection-start-column="45" selection-end-line="36" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.85714287" vertical-offset="467" max-vertical-offset="1173">
+              <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
               <folding>
-                <marker date="1506867584348" expanded="true" signature="654:1048" placeholder="select users..user_profiles..." />
+                <marker date="1506868419765" expanded="true" signature="654:1048" placeholder="select users..user_profiles..." />
               </folding>
             </state>
           </provider>
@@ -566,12 +565,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00433" summary="ok">
-      <created>1506590246383</created>
-      <option name="number" value="00433" />
-      <option name="project" value="LOCAL" />
-      <updated>1506590246383</updated>
-    </task>
     <task id="LOCAL-00434" summary="ok">
       <created>1506590581062</created>
       <option name="number" value="00434" />
@@ -860,7 +853,13 @@
       <option name="project" value="LOCAL" />
       <updated>1506866526512</updated>
     </task>
-    <option name="localTasksCounter" value="482" />
+    <task id="LOCAL-00482" summary="ok">
+      <created>1506868027226</created>
+      <option name="number" value="00482" />
+      <option name="project" value="LOCAL" />
+      <updated>1506868027226</updated>
+    </task>
+    <option name="localTasksCounter" value="483" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1361,10 +1360,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/UserProfile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36038962" vertical-offset="467" max-vertical-offset="1156">
-          <caret line="36" column="55" selection-start-line="30" selection-start-column="45" selection-end-line="36" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.85714287" vertical-offset="467" max-vertical-offset="1173">
+          <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
           <folding>
-            <marker date="1506867584348" expanded="true" signature="654:1048" placeholder="select users..user_profiles..." />
+            <marker date="1506868419765" expanded="true" signature="654:1048" placeholder="select users..user_profiles..." />
           </folding>
         </state>
       </provider>

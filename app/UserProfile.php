@@ -38,11 +38,12 @@ class UserProfile extends Model {
         Log::info('useroptions3.1.5');
         foreach ($userprofiles as $userrank)
         {
+
             $profile = UserProfile::findOrFail($userrank->user_id);
             if (isset($profile)) {
                 $profile->rank = $userrank->ranking;
                 $profile->save();
-                Log::info('useroptions3.1.6');
+                Log::info('useroptions3.1.6:'.$profile->id);
             }
         }
     }
