@@ -176,7 +176,9 @@ class ApiController extends Controller
         Log::info('ENTRANDO useroptions');
         $input = $request->all();
         try {
+            Log::info('ENTRANDO useroptions0');
             $gameboard = Gameboard::findOrFail($gameboard_id);
+            Log::info('ENTRANDO useroptions00');
             if (!isset($gameboard))
                 return response()->json(['error' => "JUEGO NO ENCONTRADO"], HttpResponse::HTTP_UNAUTHORIZED);
             if (!$gameboard->participationStatus)
