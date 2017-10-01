@@ -39,7 +39,7 @@ class UserProfile extends Model {
         foreach ($userprofiles as $userrank)
         {
 
-            $profile = UserProfile::findOrFail($userrank->user_id);
+            $profile = UserProfile::find($userrank->user_id);
             if (isset($profile)) {
                 $profile->rank = $userrank->ranking;
                 $profile->save();

@@ -212,7 +212,7 @@ class ApiController extends Controller
             Log::info('useroptions3.1.2');
             $user->profile->save();
             Log::info('useroptions3.1.3');
-            $user->profile->recalculateTopRank($gameboard->location_id);
+            //$user->profile->recalculateTopRank($gameboard->location_id);
             Log::info('useroptions3.2');
         }
         Log::info('useroptions3.3');
