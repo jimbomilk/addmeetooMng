@@ -207,8 +207,11 @@ class ApiController extends Controller
         if (!$second) {
             Log::info('useroptions3.1');
             $result->points = $result->points + $gameboard->activity->reward_participation;
+            Log::info('useroptions3.1.1');
             $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
+            Log::info('useroptions3.1.2');
             $user->profile->save();
+            Log::info('useroptions3.1.3');
             $user->profile->recalculateTopRank($gameboard->location_id);
             Log::info('useroptions3.2');
         }

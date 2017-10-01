@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class UserProfile extends Model {
 
@@ -26,6 +27,7 @@ class UserProfile extends Model {
 
     public function recalculateTopRank($location)
     {
+        Log::info('useroptions3.1.4');
         $userprofiles = DB::select( DB::raw("select users.name as us_name,a.user_id, a.points, count(b.id)+1 as ranking
                     from user_profiles a
                     left join user_profiles b on a.points < b.points
@@ -33,13 +35,15 @@ class UserProfile extends Model {
                     where a.location_id=".$location."
                     group by a.user_id
                     order by a.points desc, us_name asc") );
-
+        Log::info('useroptions3.1.5');
         foreach ($userprofiles as $userrank)
         {
             $profile = UserProfile::findOrFail($userrank->user_id);
-            if (isset($profile))
+            if (isset($profile)) {
                 $profile->rank = $userrank->ranking;
-            $profile->save();
+                $profile->save();
+                Log::info('useroptions3.1.6');
+            }
         }
     }
 
