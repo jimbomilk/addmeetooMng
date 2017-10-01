@@ -53,6 +53,7 @@ return [
     'participants' => 'Participaciones',
     'moreInfo'=> 'Más información',
     'changelocation' => 'Selecciona',
+    'saveall' => 'Guardar resultados',
 
 
 ];

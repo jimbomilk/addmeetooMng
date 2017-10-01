@@ -4,6 +4,7 @@ use App\Gameboard;
 use App\Http\Requests\GameboardOptionsRequest;
 use App\Http\Controllers\Controller;
 use App\GameboardOption;
+use App\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -33,11 +34,12 @@ class GameboardOptionsController extends Controller {
         $id = $request->session()->get('gameboard_id');
 
         $gameboard = Gameboard::findOrFail($id);
+        $saveall = !$gameboard->auto && $gameboard->status>=Status::FINISHED;
 
         if (isset($gameboard)) {
             $gameboard_options = GameboardOption::where('gameboard_id', '=', $id)->orderBy('order')->paginate();
-            $hide_new = $gameboard->auto || $gameboard_options->count()>10;
-            return view('admin.common.index', ['name' => 'gameboard_options','game' => $gameboard, 'set' => $gameboard_options, 'hide_new' => $hide_new]);
+            $hide_new = $gameboard->auto || $gameboard_options->count()>7 || $gameboard->status>Status::DISABLED;
+            return view('admin.common.index', ['name' => 'gameboard_options','game' => $gameboard, 'set' => $gameboard_options, 'hide_new' => $hide_new,'saveall' =>$saveall]);
         }
 	}
 
@@ -170,4 +172,19 @@ class GameboardOptionsController extends Controller {
         Session::flash('message',$message);
         return redirect()->route($this->indexPage("gameboard_options"));
 	}
+
+    public function saveAll(Request $request){
+        // Primero recogemos el juego
+        $game = Gameboard::find($request->get('gameid'));
+        if (isset($game)){
+
+            foreach($game->gameboardOptions as $gameboardoption)
+            {
+                $gameboardoption->result = $request->get($gameboardoption->id);
+                $gameboardoption->save();
+            }
+        }
+        return redirect()->route($this->indexPage("gameboards"));
+
+    }
 }

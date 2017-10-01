@@ -52,10 +52,14 @@
                         </p>
                         @endif
 
+                        @if (isset($saveall)&&$saveall)
+                            {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.saveall", 'method'=>'POST', 'role'=>'saveall']) !!}
+                        @endif
                         @include("admin.$name.partials.table")
-
-
-
+                        @if (isset($saveall)&&$saveall)
+                            <button type="submit" class="btn btn-info pull-right" style="margin-right: 10px">{{trans('labels.saveall')}}</button>
+                            {!! Form::close() !!}
+                        @endif
 
                     </div>
                 </div>

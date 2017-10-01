@@ -79,6 +79,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('usergameboards','UserGameboardsController');
 
     Route::post('gameboards/preview/{id}',['as'=>'gameboards_preview', 'uses' => 'GameboardsController@preview']);
+    Route::post('gameboard_options/saveall',['as'=>'admin.gameboard_options.saveall','uses'=>'GameboardOptionsController@saveAll']);
 
 
     // ** AUCTIONS **
