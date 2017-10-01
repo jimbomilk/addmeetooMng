@@ -205,12 +205,14 @@ class ApiController extends Controller
 
         // GUARDAMOS PUNTOS y RECALCULAMOS TOP RANK
         if (!$second) {
+            Log::info('useroptions3.1');
             $result->points = $result->points + $gameboard->activity->reward_participation;
             $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
             $user->profile->save();
             $user->profile->recalculateTopRank($gameboard->location_id);
-
+            Log::info('useroptions3.2');
         }
+        Log::info('useroptions3.3');
         $result->values = json_encode($values);
         Log::info('useroptions4');
         $result->save();
