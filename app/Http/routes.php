@@ -32,19 +32,15 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
 
     Route::resource('/', 'AdminController');
 
-
     // ** ADMIN  **
     Route::resource('users', 'UsersController');
     Route::resource('userprofiles', 'UserProfilesController');
     Route::resource('locations', 'LocationsController');
     Route::resource('messages', 'MessagesController');
 
-
-
     // ** ADS **
     Route::resource('advertisements', 'AdvertisementsController');
     Route::resource('adspacks', 'AdsPacksController');
-
 
     // ** GAMES  **
     Route::resource('activities', 'ActivitiesController');
@@ -55,9 +51,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::resource('gameboard_options', 'GameboardOptionsController');
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'admin.gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
     Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
-
     Route::resource('usergameboards','UserGameboardsController');
-
     Route::post('gameboards/preview/{id}',['as'=>'gameboards_preview', 'uses' => 'GameboardsController@preview']);
     Route::post('gameboard_options/saveall',['as'=>'admin.gameboard_options.saveall','uses'=>'GameboardOptionsController@saveAll']);
 
@@ -87,6 +81,7 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
     // ** GESTION**
     Route::resource('locations', 'LocationsController');
     Route::resource('messages', 'MessagesController');
+    Route::resource('userprofiles', 'UserProfilesController');
 
     // ** GAMES  **
     Route::resource('gameboards', 'GameboardsController');

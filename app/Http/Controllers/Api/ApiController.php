@@ -173,12 +173,10 @@ class ApiController extends Controller
 
     public function useroptions($gameboard_id, Request $request)
     {
-        Log::info('ENTRANDO useroptions');
         $input = $request->all();
         try {
-            Log::info('ENTRANDO useroptions0');
             $gameboard = Gameboard::findOrFail($gameboard_id);
-            Log::info('ENTRANDO useroptions00');
+
             if (!isset($gameboard))
                 return response()->json(['error' => "JUEGO NO ENCONTRADO"], HttpResponse::HTTP_UNAUTHORIZED);
             if (!$gameboard->participationStatus)
@@ -187,7 +185,6 @@ class ApiController extends Controller
             return response()->json(['error' => "JUEGO NO ENCONTRADO"], HttpResponse::HTTP_NOT_FOUND);
         }
 
-        Log::info('useroptions2');
         try {
             $user = JWTAuth::toUser($input['token']);
         } catch (Exception $e) {
@@ -197,27 +194,20 @@ class ApiController extends Controller
         $values = $input['values'];
         // Guardar las opciones, generar un mensaje para la pantalla y responder OK
 
-
         $result = UserGameboard::firstOrNew(['gameboard_id' => $gameboard_id, 'user_id' => $user->id]);
-
         $second = $result->values != "";
-        Log::info('useroptions3');
 
         // GUARDAMOS PUNTOS y RECALCULAMOS TOP RANK
         if (!$second) {
-            Log::info('useroptions3.1');
             $result->points = $result->points + $gameboard->activity->reward_participation;
-            Log::info('useroptions3.1.1');
             $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
-            Log::info('useroptions3.1.2');
             $user->profile->save();
-            Log::info('useroptions3.1.3');
+
             //$user->profile->recalculateTopRank($gameboard->location_id);
-            Log::info('useroptions3.2');
+
         }
-        Log::info('useroptions3.3');
+
         $result->values = json_encode($values);
-        Log::info('useroptions4');
         $result->save();
 
         // A pantalla
@@ -227,13 +217,13 @@ class ApiController extends Controller
         $message->type = 'message';
         $message->image = $user->profile->avatar;
         event(new MessageEvent($message, 'location'.$gameboard->location_id));
-        Log::info('useroptions5');
+
         // A movil
         $message->ltext = $gameboard->name . ":";
         $message->setText($user->name, $values);
         $message->reward = $second? 0 : $gameboard->activity->reward_participation;
 
-        Log::info('SALIENDO:'.$message->ltext);
+
         return json_encode($message);
     }
 
@@ -241,7 +231,6 @@ class ApiController extends Controller
     // Devuelve todos los gameboards activos para el día de hoy
     public function gameboards(Request $request)
     {
-        //Log::info('ENTRANDO gameboards');
         $location_id = $request->get('location');
 
 
