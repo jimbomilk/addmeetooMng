@@ -128,7 +128,14 @@ class SendMessage extends Command
     public function screenAds($location_id,$delay)
     {
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
-        $adsPack = Adspack::where('smallpack','>=',0)->inRandomOrder()->first();
+
+        $query = "select textsmall1,textsmall2,imagesmall,adspacks.id as packid from adspacks".
+            " inner join advertisements on adspacks.advertisement_id=advertisements.id".
+            " where adspacks.smallpack >= 0 and advertisements.location_id=".$location_id.
+            " order by RAND() LIMIT 1";
+
+        $adsPack = DB::select(DB::raw($query));
+
 
         //Log::info('screenADS entrando');
         // recogemos el ads
@@ -138,9 +145,9 @@ class SendMessage extends Command
 
         //2 se lo enviamos a la cola de procesado
         $message = new Envelope();
-        $message->ltext    = $adsPack->advertisement->textsmall1;
-        $message->stext    = $adsPack->advertisement->textsmall2;
-        $message->image    = $adsPack->advertisement->imagesmall;
+        $message->ltext    = $adsPack->textsmall1;
+        $message->stext    = $adsPack->textsmall2;
+        $message->image    = $adsPack->imagesmall;
         $message->type     = 'smallpack';
 
         $job = (new AdsEngine($message, $location_id))
@@ -151,9 +158,10 @@ class SendMessage extends Command
 
         // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
         // pantalla.
-        $adsPack->smalldisplayed++;
+        $pack = Adspack::find($adsPack->packid);
+        $pack->smalldisplayed++;
+        $pack->save();
 
-        $adsPack->save();
         return true;
 
 
