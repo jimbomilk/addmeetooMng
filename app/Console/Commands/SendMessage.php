@@ -134,33 +134,35 @@ class SendMessage extends Command
             " where adspacks.smallpack >= 0 and advertisements.location_id=".$location_id.
             " order by RAND() LIMIT 1";
 
-        $adsPack = DB::select(DB::raw($query));
+        $adsPacks = DB::select(DB::raw($query));
 
 
         //Log::info('screenADS entrando');
         // recogemos el ads
-        if (!isset($adsPack))
+        if (!isset($adsPacks))
             return false;
 
 
         //2 se lo enviamos a la cola de procesado
-        $message = new Envelope();
-        $message->ltext    = $adsPack->textsmall1;
-        $message->stext    = $adsPack->textsmall2;
-        $message->image    = $adsPack->imagesmall;
-        $message->type     = 'smallpack';
+        foreach($adsPacks as $adspack) {
+            $message = new Envelope();
+            $message->ltext = $adspack->textsmall1;
+            $message->stext = $adspack->textsmall2;
+            $message->image = $adspack->imagesmall;
+            $message->type = 'smallpack';
 
-        $job = (new AdsEngine($message, $location_id))
-            ->delay($delay)
-            ->onQueue('smallpack');
+            $job = (new AdsEngine($message, $location_id))
+                ->delay($delay)
+                ->onQueue('smallpack');
 
-        $this->dispatch($job);
+            $this->dispatch($job);
 
-        // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
-        // pantalla.
-        $pack = Adspack::find($adsPack->packid);
-        $pack->smalldisplayed++;
-        $pack->save();
+            $pack = Adspack::find($adspack->packid);
+            $pack->bigdisplayed++;
+            $pack->save();
+        }
+
+
 
         return true;
 

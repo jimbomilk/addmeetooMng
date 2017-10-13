@@ -126,13 +126,15 @@ class SendScreen extends Command
                 ->onQueue('bigpack');
 
             $this->dispatch($job);
+
+            // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
+            // pantalla.
+            $pack = Adspack::find($adspack->packid);
+            $pack->bigdisplayed++;
+            $pack->save();
         }
 
-        // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
-        // pantalla.
-        $pack = Adspack::find($adsPacks->packid);
-        $pack->bigdisplayed++;
-        $pack->save();
+
         return true;
 
     }
