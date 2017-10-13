@@ -57,6 +57,7 @@ return [
     'locations' => 'Lugar',
     'loc_name' => 'Nombre',
     'loc_desc_name' => 'Please enter the name of the Place',
+    'locations.id' => 'Código',
     'locations.logo' => 'Logo del establecimiento',
     'locations.category' => 'Tipo de establecimiento',
     'locations.owner_id' => 'Nombre del responsable',
@@ -112,7 +113,8 @@ return [
     'gameboards.progression_type' =>'Tipo de progresión',
     'gameboards.multiscreen' =>'Multipantalla? Dejalo desmarcado.',
     'gameboards.edit' =>'Editar',
-    'gameboards.image' =>'Cabecera de la actividad(sólo para móviles)',
+    'gameboards.image' =>'Cabecera de la actividad(300x200 para móviles)',
+    'gameboards.imagebig' =>'Fondo de la actividad(1800x600 para pantallas)',
 
     /*GAMEBOARD OPTIONS*/
     'gameboard_options' => 'opcion de juego',
@@ -155,8 +157,9 @@ return [
     'messages.type'=> 'Tipo de Aviso',
     'messages.stext' => 'Titulo',
     'messages.ltext' => 'Descripción',
-    'messages.image' => 'Imagen',
+    'messages.image' => 'Imagen del mensaje',
     'messages.location_id' => 'Lugar de publicación',
+    'messages.imagebig' => 'Fondo de pantalla(opcional, sólo para TV)',
 
     /* ITEMS */
     'items' => 'Item',

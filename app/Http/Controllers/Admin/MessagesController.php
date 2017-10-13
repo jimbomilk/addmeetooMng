@@ -97,6 +97,12 @@ class MessagesController extends Controller {
             $message->save();
         }
 
+        $filename2 = $request->saveFile('imagebig',$message->path);
+        if (isset($filename2) && $filename2 != $message->imagebig) {
+            $message->imagebig = $filename2;
+            $message->save();
+        }
+
         return redirect()->route($this->indexPage("messages"));
 	}
 
@@ -169,9 +175,13 @@ class MessagesController extends Controller {
         $message->save();
 
 
-        $filename = $request->saveFile('image','message'.$message->id);
+        $filename = $request->saveFile('image',$message->path);
         if(isset($filename))
             $message->image = $filename;
+
+        $filename2 = $request->saveFile('imagebig',$message->path);
+        if(isset($filename2))
+            $message->imagebig = $filename2;
 
         $message->save();
 

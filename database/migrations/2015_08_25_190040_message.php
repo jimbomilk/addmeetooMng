@@ -19,6 +19,7 @@ class Message extends Migration {
             $table->text('stext')->nullable();
             $table->text('ltext')->nullable();
             $table->text('image');
+            $table->text('imagebig');
             $table->dateTime('start');
             $table->dateTime('end');
 

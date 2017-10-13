@@ -133,7 +133,6 @@ class ApiController extends Controller
         $data['activity'] = $activity;
         $data['options'] = $options;
 
-
         return json_encode($data);
     }
 
@@ -255,8 +254,6 @@ class ApiController extends Controller
             }
         }
         return json_encode($gameviews);
-
-
 
     }
 

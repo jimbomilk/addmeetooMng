@@ -84,6 +84,11 @@ class GameboardsController extends Controller {
             $gameboard->image = $filename;
         }
 
+        $filename2 = $request->saveFile('imagebig',$gameboard->path);
+        if ($filename2 != $gameboard->imagebig) {
+            $gameboard->imagebig = $filename2;
+        }
+
         $gameboard->createGame();
 
         return redirect()->route($this->indexPage("gameboards"));
@@ -180,6 +185,11 @@ class GameboardsController extends Controller {
         $filename = $request->saveFile('image',$gameboard->path);
         if(isset($filename))
             $gameboard->image = $filename;
+
+        $filename2 = $request->saveFile('imagebig',$gameboard->path);
+        if(isset($filename2))
+            $gameboard->imagebig = $filename2;
+
         $gameboard->save();
 
         return redirect()->route($this->indexPage("gameboards"));

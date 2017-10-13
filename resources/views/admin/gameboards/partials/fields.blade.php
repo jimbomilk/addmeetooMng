@@ -22,6 +22,7 @@
     <h3>Imagen(opcional)</h3>
     <hr class="separator">
     @include("admin.common.input_file",array('var'=>'image','width'=>300,'height'=>200))
+    @include("admin.common.input_file",array('var'=>'imagebig','width'=>600,'height'=>200))
 
 </div>
 

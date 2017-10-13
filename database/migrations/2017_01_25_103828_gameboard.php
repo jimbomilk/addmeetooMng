@@ -46,6 +46,7 @@ class Gameboard extends Migration
                 ->onDelete('cascade');
 
             $table->string('image')->nullable();
+            $table->string('imagebig')->nullable();
 
             $table->timestamps();
         });
