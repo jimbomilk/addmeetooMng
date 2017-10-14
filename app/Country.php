@@ -16,13 +16,15 @@ class Country extends Model {
 
 
 
-    public function calculateRankings()
+    public function calculateRankings($location)
     {
        //Ordenamos los Users por points
         $prev = 0;
         $rank = 0;
         $rankpo = 0;
-        $sorted = UserProfile::all()->sortByDesc('points');
+        $sorted = UserProfile::where('location_id',$location)
+            ->sortByDesc('points');
+
         foreach ($sorted as $user_profile) {
             $rankpo++;
             if ($prev != $user_profile->points)

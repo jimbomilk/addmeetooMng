@@ -78,7 +78,7 @@ class LocationSchedule extends Command
 
                     if ($gameboard->activity->type != 'vote' && $newstatus == Status::OFFICIAL) {
                         $gameboard->calculateRankings();
-                        $location->country->calculateRankings();
+                        $location->country->calculateRankings($location);
                     }
                     $gameboard->save();
                     $gameboard->updateGameView();
