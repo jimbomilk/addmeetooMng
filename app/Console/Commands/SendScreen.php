@@ -181,6 +181,7 @@ class SendScreen extends Command
             $envelope->stext = $message->stext;
             $envelope->ltext = $message->ltext;
             $envelope->image = $message->image;
+            $envelope->background = $message->imagebig;
             $envelope->type = 'info';
             $envelope->logo1 = isset($message->location)?$message->location->logo:"";
             //Log::info('Delay AGENDA:'.$delay);

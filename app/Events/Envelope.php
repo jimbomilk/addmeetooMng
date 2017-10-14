@@ -7,6 +7,7 @@ class Envelope
     public $stext;
     public $ltext;
     public $image;
+    public $background;
     public $type;
     public $reward;
     public $logo1;

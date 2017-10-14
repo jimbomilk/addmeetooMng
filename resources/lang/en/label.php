@@ -58,7 +58,7 @@ return [
     'loc_name' => 'Nombre',
     'loc_desc_name' => 'Please enter the name of the Place',
     'locations.id' => 'Código',
-    'locations.logo' => 'Logo del establecimiento',
+    'locations.logo' => 'Logo del establecimiento(300x80)',
     'locations.category' => 'Tipo de establecimiento',
     'locations.owner_id' => 'Nombre del responsable',
     'locations.name' => 'Nombre lugar',

@@ -1,4 +1,4 @@
-@include("admin.common.input_file",array('var'=>'logo','width'=>300,'height'=>150))
+@include("admin.common.input_file",array('var'=>'logo','width'=>300,'height'=>80))
 @include("admin.common.input_select",array('var'=>'category','col'=>$categories))
 @include("admin.common.input_select",array('var'=>'owner_id','col'=>$owners))
 @include("admin.common.input_select",array('var'=>'parent_id','col'=>$locations))
@@ -13,12 +13,3 @@
 @include("admin.common.input_text",array('var'=>'address'))
 @include("admin.common.input_number",array('var'=>'screen_timer'))
 
-
-<div style="height:100%;width: 100%">
-    {!!  $map['html'] !!}
-</div>
-
-
-@section('scripts')
-    {!! $map['js'] !!}
-@endsection

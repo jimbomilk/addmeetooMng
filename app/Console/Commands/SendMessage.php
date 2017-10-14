@@ -162,11 +162,7 @@ class SendMessage extends Command
             $pack->save();
         }
 
-
-
         return true;
-
-
     }
 
 

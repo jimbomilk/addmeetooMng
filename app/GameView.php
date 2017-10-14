@@ -25,7 +25,8 @@ class GameView extends Model
         $this->gameboard_id = $gameboard->id;
         $this->code = $gameboard->getGameCode();
         $this->logo1 = $gameboard->location->logo;
-        $this->logo2 = $gameboard->activity->category;
+        $this->category = $gameboard->activity->category;
+        $this->background = $gameboard->imagebig;
         $this->image = $gameboard->image;
         $this->headerMain = $gameboard->name;
         $this->status = $status;
