@@ -38,6 +38,7 @@ class AdminController extends Controller
         $locations = Auth::user()->locations();
         $participationChart = UserGameboard::getParticipationByDate($locations);
 
+
 		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences,'ads'=>$ads]);
     }
 

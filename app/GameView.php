@@ -187,25 +187,6 @@ class GameView extends Model
         return json_encode($chart);
     }
 
-    private function officialBody($gameboard){
-        $this->type='ranking';
-        $body = array();
-        // Recoger los datos de participación de los hombres
-        $gameusers = UserGameboard::where('gameboard_id',$gameboard->id)
-                    ->orderBy('rankpo', 'asc')
-                    ->take(10)
-                    ->get();
-
-        $body = array();
-        foreach ($gameusers as $gameuser) {
-            $body[] = [ 'order'=>$gameuser->rank,
-                        'description'=>$gameuser->user->name,
-                        'image'=>$gameuser->user->profile->avatar,
-                        'result'=>'Puntos:'.$gameuser->points];
-        }
-        return json_encode($body);
-    }
-
     public function getStartgameAttribute()
     {
         return $this->gameboard->startgame;

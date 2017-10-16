@@ -38,11 +38,26 @@ class User extends Authenticatable
         }
     }
 
-	public function profile()
+	/*public function profile()
 	{
-		return  $this->hasOne('App\UserProfile','user_id','id');
-	}
 
+		//return  $this->hasOne('App\UserProfile','user_id','id');
+        return  $this->profiles()->first();
+	}*/
+
+    public function profiles()
+    {
+        return  $this->hasMany('App\UserProfile','user_id','id');
+    }
+
+    public function locationProfile($location)
+    {
+        // Se añade para adaptarlo a las versiones antiguas de la app
+        if (!isset($location) || $location == null || $location == "")
+            $location=1;
+
+        return  $this->profiles()->where('location_id',$location)->first();
+    }
 
     public function activities()
     {

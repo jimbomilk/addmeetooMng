@@ -20,8 +20,10 @@ class Controller extends BaseController
     public function __construct()
     {
         $login_user = Request::user();
+        //
 
         View::share('login_user', $login_user);
+        //View::share('profile', $profile);
 
     }
 

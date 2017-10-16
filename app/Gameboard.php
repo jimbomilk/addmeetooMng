@@ -281,24 +281,24 @@ class Gameboard extends Model
     {
         //Si es un recalculo de rankings tenemos que reiniciar los user_profiles para evitar doble puntuación
         foreach($this->gameboardUsers as $user_game) {
-            $user_profile = $user_game->user->profile;
+            $user_profile = $user_game->user->locationProfile($this->location_id);
             if ($user_game->points == $this->activity->reward_participation + $this->activity->reward_first ){
                 $user_game->points = $this->activity->reward_participation;
-                $user_game->user->profile->points = $user_game->user->profile->points - $this->activity->reward_first;
+                $user_profile->points = $user_profile->points - $this->activity->reward_first;
                 $user_profile->save();
                 $user_game->save();
             }
 
             if ($user_game->points == $this->activity->reward_participation + $this->activity->reward_second ){
                 $user_game->points = $this->activity->reward_participation;
-                $user_game->user->profile->points = $user_game->user->profile->points - $this->activity->reward_second;
+                $user_profile->points = $user_profile->points - $this->activity->reward_second;
                 $user_profile->save();
                 $user_game->save();
             }
 
             if ($user_game->points == $this->activity->reward_participation + $this->activity->reward_third ){
                 $user_game->points = $this->activity->reward_participation;
-                $user_game->user->profile->points = $user_game->user->profile->points - $this->activity->reward_third;
+                $user_profile->points = $user_profile->points - $this->activity->reward_third;
                 $user_profile->save();
                 $user_game->save();
             }
@@ -340,7 +340,7 @@ class Gameboard extends Model
             $user_game->points = $this->activity->reward_participation;
             //Asignación de recompensas
             if ($user_game->temp_points>0) {
-                $user_profile = $user_game->user->profile;
+                $user_profile = $user_game->user->locationProfile($this->location_id);
                 if ($user_game->rank == 1) {
                     $user_game->points = $this->activity->reward_participation + $this->activity->reward_first;
                     $user_profile->points += $this->activity->reward_first;

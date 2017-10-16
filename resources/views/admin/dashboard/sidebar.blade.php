@@ -5,7 +5,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ $login_user->profile->avatar }}" class="img-circle" alt="User Image" />
+                <img src="{{ $profile->avatar }}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
                 <p>{{$login_user->name}}</p>

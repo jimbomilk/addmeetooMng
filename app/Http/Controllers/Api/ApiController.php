@@ -28,89 +28,6 @@ use NZTim\Mailchimp\MailchimpFacade;
 
 class ApiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function persons()
-    {
-
-    }
-
     public function gameinfo($gameboard_id)
     {
         //Log::info('ENTRANDO gameinfo');
@@ -196,14 +113,18 @@ class ApiController extends Controller
         $result = UserGameboard::firstOrNew(['gameboard_id' => $gameboard_id, 'user_id' => $user->id]);
         $second = $result->values != "";
 
+        //Profile
+        $profile = $user->locationProfile($gameboard->location_id);
+        if (!isset($profile))
+            return response()->json(['Error: perfil de usuario no definido'], HttpResponse::HTTP_NOT_FOUND);
+
         // GUARDAMOS PUNTOS y RECALCULAMOS TOP RANK
         if (!$second) {
             $result->points = $result->points + $gameboard->activity->reward_participation;
-            $user->profile->points = $user->profile->points + $gameboard->activity->reward_participation;
-            $user->profile->save();
+            $profile->points = $profile->points + $gameboard->activity->reward_participation;
+            $profile->save();
 
             //$user->profile->recalculateTopRank($gameboard->location_id);
-
         }
 
         $result->values = json_encode($values);
@@ -214,7 +135,7 @@ class ApiController extends Controller
         $message->stext = strtoupper($user->name);
         $message->ltext = $gameboard->name;
         $message->type = 'message';
-        $message->image = $user->profile->avatar;
+        $message->image = $profile->avatar;
         event(new MessageEvent($message, 'location'.$gameboard->location_id));
 
         // A movil
@@ -257,18 +178,30 @@ class ApiController extends Controller
 
     }
 
+    public function location(Request $request)
+    {
+        $location_id = $request->get('location');
+        return json_encode(Location::find($location_id));
+    }
+
 
     public function authenticate(Request $request)
     {
         //Log::info('ENTRANDO authenticate');
         $credentials = $request->only('email', 'password');
+        $location = $request->get('location');
 
         if (!$token = JWTAuth::attempt($credentials)) {
             return response()->json(['result' => 'wrong email or password.']);
         }
         $user = JWTAuth::toUser($token);
 
-        return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
+        // Si llega un usuario sin profile , se lo creamos.
+        $profile = $user->locationProfile($location);
+        if (!isset($profile))
+            $profile = $this->createProfile($user,$location);
+
+        return response()->json(['token' => $token, 'user' => $user, 'profile' => $profile]);
 
     }
 
@@ -320,44 +253,69 @@ class ApiController extends Controller
         //Log::info('ENTRANDO newaccount');
         // Recogemos las credenciales
         $credentials = $request->only('email', 'password');
+        $locationId = $request->get('location');
+        $profile=null;
+        $token=null;
 
 
         // Vemos si existe en la base de datos. Si existe , damos error
-        if ($token = JWTAuth::attempt($credentials) ||  User::where('email',$credentials['email'])->first()!= null) {
-            return response()->json(['result' => 'El usuario ya existe.']);
-        }
+        $user = User::where('email',$credentials['email'])->first();
 
-        // Si no existe, creamos el usuario, lo guardamos en la base de datos y devolvemos el usuario creado, el token y el profile
-        $user = new User($request->all());
+        if ($user!= null) {
 
-        if (isset($user)) {
-            $user->type = 'user';
-            $user->save();
-            $token = JWTAuth::fromUser($user);
-
-            // Suscripción a la lista de correo
-            $location = Location::findOrFail($request->get('location'));
-            $mail_registered = false;
-            if (isset($location) && isset($location->maillist))
-            {
-                try {
-                    MailchimpFacade::subscribe($location->maillist, $user->email,['FNAME' => $user->name, 'LNAME' => ''],false);
-                    $mail_registered = true;
-                } catch (MailchimpException $e) {
-                    // Log the error information for debugging
-                    Log::error('Mailchimp error:'.$e->getMessage());
-                    $mail_registered = false;
-                }
+            // Si existe el profile con esa location error, sino la creamos
+            if ($user->locationProfile($locationId) != null)
+                return response()->json(['result' => 'El usuario ya existe.']);
+            else {
+                $token = JWTAuth::attempt($credentials);
+                $profile = $this->createProfile($user, $locationId);
             }
-
-            // Y ahora su profile
-            $profile = new UserProfile();
-            $profile->user_id = $user->id;
-            $profile->location_id = $request->get('location');
-            $profile->mailregistered = $mail_registered;
-            $profile->save();
         }
-        return response()->json(['token' => $token, 'user' => $user, 'profile' => $user->profile]);
+        else {
+
+            // Si no existe, creamos el usuario, lo guardamos en la base de datos y devolvemos el usuario creado, el token y el profile
+            $user = new User($request->all());
+            if (isset($user)) {
+                $user->type = 'user';
+                $user->save();
+                $token = JWTAuth::fromUser($user);
+
+                // Creamos su profile
+                $profile = $this->createProfile($user, $locationId);
+
+            }
+        }
+        return response()->json(['token' => $token, 'user' => $user, 'profile' => $profile]);
+    }
+
+    public function createProfile($user,$locationId)
+    {
+        // Y ahora su profile
+        $profile = new UserProfile();
+        $profile->user_id = $user->id;
+        $profile->location_id = $locationId;
+        $profile->mailregistered = $this->suscribeMail($locationId,$user);
+        $profile->save();
+        return $profile;
+    }
+
+    public function suscribeMail($location_id, $user)
+    {
+        $location = Location::findOrFail($location_id);
+        $mail_registered = false;
+        if (isset($location) && isset($location->maillist))
+        {
+            try {
+                MailchimpFacade::subscribe($location->maillist, $user->email,['FNAME' => $user->name, 'LNAME' => ''],false);
+                $mail_registered = true;
+            } catch (MailchimpException $e) {
+                // Log the error information for debugging
+                Log::error('Mailchimp error:'.$e->getMessage());
+                $mail_registered = false;
+            }
+        }
+        return $mail_registered;
+
     }
 
 
@@ -394,18 +352,19 @@ class ApiController extends Controller
         //Log::info('entrando fileupload');
         try {
             $user = JWTAuth::toUser($request->input('token'));
+            $profile = $user->locationProfile($request->get('location'));
             //Log::info('user:'.$user);
             $filename = $this->saveFile($request->file('file'),'profile', $user->path);
             //Log::info('$filename:'.$filename);
-            if ($filename != $user->profile->avatar) {
-                $user->profile->avatar = $filename;
-                $user->profile->save();
+            if ($filename != $profile->avatar) {
+                $profile->avatar = $filename;
+                $profile->save();
             }
         } catch (Exception $e) {
                 return response()->json($e->getMessage());
         }
 
-        return response()->json($user->profile->avatar);
+        return response()->json($profile->avatar);
     }
 
 
@@ -415,16 +374,16 @@ class ApiController extends Controller
         //Log::info('ENTRANDO userUpdate');
         try {
             $user = JWTAuth::toUser($request->input('token'));
-            $user->profile->phone = $request->input('phone');
-            $user->profile->birth_date = $request->input('birthdate');
-            //Log::info('Birth:'.$user->profile->birth_date);
-            $user->profile->save();
+            $profile = $user->locationProfile($request->get('location'));
+            $profile->phone = $request->input('phone');
+            $profile->birth_date = $request->input('birthdate');
+            $profile->save();
 
         } catch (Exception $e) {
             return response()->json($e->getMessage());
         }
 
-        return response()->json($user->profile);
+        return response()->json($profile);
     }
 
     public function lastOffers(Request $request)
@@ -525,12 +484,13 @@ class ApiController extends Controller
         //Log::info('ENTRANDO monthlyQuery');
         return "select users.id, users.name as name , sum(a.points) as points from
                                         user_gameboards a
-                                        inner join gameboards on a.gameboard_id = gameboards.id and gameboards.location_id = ". $location
+                                        inner join gameboards on a.gameboard_id = gameboards.id "
             . " inner join users on a.user_id = users.id
                                         where a.points>0 and gameboards.status <> " .Status::DISABLED.
 
             " and a.updated_at >= '". $startcurrentmonth . "' and a.updated_at <= '" . $endcurrentmonth .
-            "' group by users.id order by points desc, name asc LIMIT 10";
+        "' and  gameboards.location_id = ". $location.
+            " group by users.id order by points desc, name asc LIMIT 10";
 
 
     }

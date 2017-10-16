@@ -35,7 +35,7 @@ class UserProfile extends Model {
                     where a.location_id=".$location."
                     group by a.user_id
                     order by a.points desc, us_name asc") );
-        Log::info('useroptions3.1.5');
+        //Log::info('useroptions3.1.5');
         foreach ($userprofiles as $userrank)
         {
 
@@ -43,7 +43,7 @@ class UserProfile extends Model {
             if (isset($profile)) {
                 $profile->rank = $userrank->ranking;
                 $profile->save();
-                Log::info('useroptions3.1.6:'.$profile->id);
+                //Log::info('useroptions3.1.6:'.$profile->id);
             }
         }
     }

@@ -24,9 +24,18 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(GateContract $gate)
     {
+        //$view->with('count', $this->users->count());
+
+
         $this->registerPolicies($gate);
         view()->composer('*', function($view){
-            $view->with('login_user', Auth()->user());
+            $user = Auth()->user();
+            if (isset($user)){
+                $profile = $user->profiles()->first();
+                $view->with('profile',$profile);
+            }
+            $view->with('login_user', $user);
+
         });
         //
     }

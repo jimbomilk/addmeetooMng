@@ -36,7 +36,7 @@ return [
     'users.name'=>'Nombre',
     'users.email'=>'Email',
     'users.edit'=>'Editar',
-    'users.profile'=>'Detalles',
+    'users.profile'=>'Perfil',
     'users.password'=>'Password',
     'users.password2'=>'Reintroduce la password',
     'users.type'=>'Tipo de usuario',

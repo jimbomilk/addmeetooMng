@@ -32,7 +32,9 @@ class GlobalComposer {
     public function compose(View $view)
     {
         //$view->with('count', $this->users->count());
+        $profile = Auth::user()->profiles()->first();
         $view->with('login_user', Auth::user());
+        $view->with('profile',$profile);
     }
 
 }
