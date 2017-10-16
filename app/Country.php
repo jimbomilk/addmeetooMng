@@ -23,7 +23,7 @@ class Country extends Model {
         $rank = 0;
         $rankpo = 0;
         $sorted = UserProfile::where('location_id',$location)
-            ->sortByDesc('points');
+            ->orderBy('points','desc');
 
         foreach ($sorted as $user_profile) {
             $rankpo++;
