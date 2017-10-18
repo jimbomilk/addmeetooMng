@@ -392,9 +392,9 @@ class ApiController extends Controller
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
-        $location = $input['location'];
-        if(!isset($location))
-            $location = 1;
+        $location = 1;
+        if(isset($input['location']))
+            $location = $input['location'];
 
         if ($latitude != -1 && $longitude != -1) {
              $query = 'SELECT ads.*,packs.id as packid  from advertisements ads
