@@ -392,6 +392,9 @@ class ApiController extends Controller
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
+        $location = $input['location'];
+        if(!isset($location))
+            $location = 1;
 
         if ($latitude != -1 && $longitude != -1) {
              $query = 'SELECT ads.*,packs.id as packid  from advertisements ads
@@ -400,6 +403,7 @@ class ApiController extends Controller
                 packs.smallpack >0 AND
                 packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
                 packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
+                WHERE ads.location = '. $location .'
                 ORDER BY CASE ads.id WHEN 16 THEN -1 ELSE RAND() END LIMIT 20';
         }
         else{
@@ -407,6 +411,7 @@ class ApiController extends Controller
                       JOIN adspacks packs ON
                       packs.advertisement_id = ads.id AND
                       packs.smallpack >0
+                      WHERE ads.location = '. $location. '
                       ORDER BY CASE ads.id WHEN 16 THEN -1 ELSE RAND() END LIMIT 20';
         }
 
