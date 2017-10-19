@@ -37,21 +37,21 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23948811" vertical-offset="5479" max-vertical-offset="8755">
-              <caret line="351" column="8" selection-start-line="351" selection-start-column="8" selection-end-line="351" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.64351004" vertical-offset="5734" max-vertical-offset="8823">
+              <caret line="379" column="30" selection-start-line="379" selection-start-column="30" selection-end-line="379" selection-end-column="30" />
               <folding>
-                <marker date="1508403782519" expanded="true" signature="13667:14158" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1508403782519" expanded="true" signature="13667:14159" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1508403782519" expanded="true" signature="13667:14252" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1508403782519" expanded="true" signature="14302:14547" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1508403782519" expanded="true" signature="14302:14548" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1508403782519" expanded="true" signature="14302:14647" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1508403782519" expanded="true" signature="16385:17148" placeholder="select a.use..user_gameboards..." />
-                <marker date="1508403782519" expanded="true" signature="17389:17609" placeholder="select users..user_gameboards..." />
-                <marker date="1508403782519" expanded="true" signature="17389:17625" placeholder="select users..user_gameboards..." />
-                <marker date="1508403782519" expanded="true" signature="17389:17894" placeholder="select users..user_gameboards..." />
-                <marker date="1508403782519" expanded="true" signature="17389:17920" placeholder="select users..user_gameboards..." />
-                <marker date="1508403782519" expanded="true" signature="17389:18005" placeholder="select users..user_gameboards..." />
+                <marker date="1508406998433" expanded="true" signature="13801:14292" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1508406998433" expanded="true" signature="13801:14293" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1508406998433" expanded="true" signature="13801:14386" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1508406998433" expanded="true" signature="14436:14681" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1508406998433" expanded="true" signature="14436:14682" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1508406998433" expanded="true" signature="14436:14781" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1508406998433" expanded="true" signature="16519:17282" placeholder="select a.use..user_gameboards..." />
+                <marker date="1508406998433" expanded="true" signature="17523:17743" placeholder="select users..user_gameboards..." />
+                <marker date="1508406998433" expanded="true" signature="17523:17759" placeholder="select users..user_gameboards..." />
+                <marker date="1508406998433" expanded="true" signature="17523:18028" placeholder="select users..user_gameboards..." />
+                <marker date="1508406998433" expanded="true" signature="17523:18054" placeholder="select users..user_gameboards..." />
+                <marker date="1508406998433" expanded="true" signature="17523:18139" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -626,12 +626,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00449" summary="ok">
-      <created>1506628881671</created>
-      <option name="number" value="00449" />
-      <option name="project" value="LOCAL" />
-      <updated>1506628881671</updated>
-    </task>
     <task id="LOCAL-00450" summary="ok">
       <created>1506629217389</created>
       <option name="number" value="00450" />
@@ -920,7 +914,13 @@
       <option name="project" value="LOCAL" />
       <updated>1508403519164</updated>
     </task>
-    <option name="localTasksCounter" value="498" />
+    <task id="LOCAL-00498" summary="ok">
+      <created>1508403789781</created>
+      <option name="number" value="00498" />
+      <option name="project" value="LOCAL" />
+      <updated>1508403789781</updated>
+    </task>
+    <option name="localTasksCounter" value="499" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1405,21 +1405,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23948811" vertical-offset="5479" max-vertical-offset="8755">
-          <caret line="351" column="8" selection-start-line="351" selection-start-column="8" selection-end-line="351" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.64351004" vertical-offset="5734" max-vertical-offset="8823">
+          <caret line="379" column="30" selection-start-line="379" selection-start-column="30" selection-end-line="379" selection-end-column="30" />
           <folding>
-            <marker date="1508403782519" expanded="true" signature="13667:14158" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1508403782519" expanded="true" signature="13667:14159" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1508403782519" expanded="true" signature="13667:14252" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1508403782519" expanded="true" signature="14302:14547" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1508403782519" expanded="true" signature="14302:14548" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1508403782519" expanded="true" signature="14302:14647" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1508403782519" expanded="true" signature="16385:17148" placeholder="select a.use..user_gameboards..." />
-            <marker date="1508403782519" expanded="true" signature="17389:17609" placeholder="select users..user_gameboards..." />
-            <marker date="1508403782519" expanded="true" signature="17389:17625" placeholder="select users..user_gameboards..." />
-            <marker date="1508403782519" expanded="true" signature="17389:17894" placeholder="select users..user_gameboards..." />
-            <marker date="1508403782519" expanded="true" signature="17389:17920" placeholder="select users..user_gameboards..." />
-            <marker date="1508403782519" expanded="true" signature="17389:18005" placeholder="select users..user_gameboards..." />
+            <marker date="1508406998433" expanded="true" signature="13801:14292" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1508406998433" expanded="true" signature="13801:14293" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1508406998433" expanded="true" signature="13801:14386" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1508406998433" expanded="true" signature="14436:14681" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1508406998433" expanded="true" signature="14436:14682" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1508406998433" expanded="true" signature="14436:14781" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1508406998433" expanded="true" signature="16519:17282" placeholder="select a.use..user_gameboards..." />
+            <marker date="1508406998433" expanded="true" signature="17523:17743" placeholder="select users..user_gameboards..." />
+            <marker date="1508406998433" expanded="true" signature="17523:17759" placeholder="select users..user_gameboards..." />
+            <marker date="1508406998433" expanded="true" signature="17523:18028" placeholder="select users..user_gameboards..." />
+            <marker date="1508406998433" expanded="true" signature="17523:18054" placeholder="select users..user_gameboards..." />
+            <marker date="1508406998433" expanded="true" signature="17523:18139" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>

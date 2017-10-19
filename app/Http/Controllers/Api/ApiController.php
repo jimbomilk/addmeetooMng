@@ -353,7 +353,6 @@ class ApiController extends Controller
         try {
             $user = JWTAuth::toUser($request->input('token'));
             $profile = $user->locationProfile($request->input('location'));
-            //Log::info('user:'.$user);
             $filename = $this->saveFile($request->file('file'),'profile', $user->path);
             Log::info('$filename:'.$filename);
             Log::info('profile:'.$profile->id);
@@ -375,6 +374,11 @@ class ApiController extends Controller
         //Log::info('ENTRANDO userUpdate');
         try {
             $user = JWTAuth::toUser($request->input('token'));
+            $name = $request->input('name');
+            if (isset($name) && $name != '' ){
+                $user->name = $name;
+                $user->save();
+            }
             $profile = $user->locationProfile($request->input('location'));
             $profile->phone = $request->input('phone');
             $profile->birth_date = $request->input('birthdate');
