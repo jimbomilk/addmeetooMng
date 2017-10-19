@@ -22,7 +22,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.0
         </div>
-        <strong>Copyright &copy; 2015-2016<a href="http://addmeetoo.com">Addmeetoo Develpments</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017-2018.<a href="http://addmeetoo.es">Addmeetoo Developments</a>.</strong> All rights reserved.
     </footer>
 </div><!-- ./wrapper -->
 @endsection

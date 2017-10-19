@@ -148,9 +148,11 @@ class AuthController extends Controller
      */
     public function getLogout()
     {
+        $usertype = auth()->user()->type;
         auth()->logout();
         \Session::flush();
-        return redirect('/');
+        return redirect('/'.$usertype);
+
     }
 
     public function forgot(Request $request)

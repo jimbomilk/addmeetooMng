@@ -12,8 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
-
-
+use Illuminate\Support\Facades\Storage;
 
 
 class LocationsController extends Controller {
