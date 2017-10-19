@@ -349,7 +349,7 @@ class ApiController extends Controller
 
     public function fileUpload(Request $request)
     {
-        //Log::info('entrando fileupload');
+        Log::info('entrando fileupload');
         try {
             $user = JWTAuth::toUser($request->input('token'));
             $profile = $user->locationProfile($request->input('location'));
