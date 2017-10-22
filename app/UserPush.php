@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserPush extends Model
 {
     protected $table = 'push_users';
-    protected $guarded = ['id'];
-
+    protected $casts = [ 'id' => 'string' ];
 
     public function location()
     {

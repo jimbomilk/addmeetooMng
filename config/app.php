@@ -151,6 +151,7 @@ return [
 
 
 
+
         /*
          * Application Service Providers...
          */
@@ -165,6 +166,7 @@ return [
         Webpatser\Countries\CountriesServiceProvider::class,
         GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
         NZTim\Mailchimp\MailchimpServiceProvider::class,
+        Moathdev\OneSignal\ServiceProvider::class,
     ),
 
     /*
@@ -215,7 +217,8 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'Countries' => Webpatser\Countries\CountriesFacade::class,
-        'mailchimp' => NZTim\Mailchimp\MailchimpFacade::class
+        'mailchimp' => NZTim\Mailchimp\MailchimpFacade::class,
+        'OneSignal' => \Moathdev\OneSignal\Facade\OneSignal::class
 
     ],
 

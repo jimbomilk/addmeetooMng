@@ -34,6 +34,7 @@ return [
     /*USER*/
     'users' => ' Usuario',
     'users.name'=>'Nombre',
+    'users.show'=>'Perfil',
     'users.email'=>'Email',
     'users.edit'=>'Editar',
     'users.profile'=>'Perfil',
@@ -77,6 +78,7 @@ return [
     'activities.name' => 'Nombre de la actividad',
     'activities.description' => 'Descripción',
     'activities.type' => 'Tipo de actividad',
+    'activities.show' =>'Opciones',
     'activities.category' => 'Categoría',
     'activities.head2head' => 'Enfrentamiento entre 2',
     'activities.selection' => 'Cuantas opciones puedo elegir?',
@@ -101,6 +103,7 @@ return [
     'gameboards.location_id' => 'Lugar',
     'gameboards.dates' =>'Fechas de juego',
     'gameboards.name' =>'Nombre',
+    'gameboards.show' =>'Opciones',
     'gameboards.description' =>'Descripción',
     'gameboards.auto' =>'Gestión diferida?. Si es una actividad propia debes desmarcarlo(porque tú decides cuando termina)',
     'gameboards.startgame' =>'Inicio Juego',
@@ -133,6 +136,7 @@ return [
     'advertisements.imagesmall' => 'Imagen pequeño formato',
     'advertisements.adscategory_id' => 'Categoria',
     'advertisements.name' => 'Nombre',
+    'advertisements.show' =>'Impactos',
     'advertisements.textbig' => 'Texto gran formato',
     'advertisements.textsmall' => 'Texto pequeño formato',
     'advertisements.textsmall1' => 'Cabecera de anuncio',
@@ -163,6 +167,15 @@ return [
 
     /* ITEMS */
     'items' => 'Item',
+
+    /* NOTIFICATIONS */
+    'notifications' => 'notificación',
+    'notifications.location_id' => 'Lugar de publicación',
+    'notifications.title' => 'Titulo',
+    'notifications.text' => 'Texto',
+    'notifications.who' => 'A quién se envía',
+    'notifications.participantes' => 'A los participantes de ',
+    'notifications.show' => 'Enviar',
 
     /* GENERAL */
     'male' => 'masculino',

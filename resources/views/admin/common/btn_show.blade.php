@@ -1,1 +1,4 @@
-<a href="{{ route($login_user->type. ".". $name.".show", $var) }}" class="btn-edit"><i class="btn btn-warning">{{trans('labels.show')}}</i></a>
+<a href="{{ route($login_user->type. ".". $name.".show", $var) }}" class="btn-edit">
+    <i class="btn btn-warning">{{trans('label.'.$name.'.show')}}
+    </i>
+</a>

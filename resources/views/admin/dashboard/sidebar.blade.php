@@ -57,6 +57,7 @@
                         <li><a href="/admin/activities"><i class="fa fa-universal-access"></i>{{trans('labels.activities')}}</a></li>
                     @endif
                     <li><a href="/{{$login_user->type}}/gameboards"><i class="fa fa-delicious"></i>{{trans('labels.gameboards')}}</a></li>
+                    <li><a href="/{{$login_user->type}}/notifications"><i class="fa fa-bell-o"></i>{{trans('labels.notifications')}}</a></li>
                 </ul>
             </li>
             @endif

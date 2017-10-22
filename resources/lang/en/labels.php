@@ -54,6 +54,7 @@ return [
     'moreInfo'=> 'Más información',
     'changelocation' => 'Selecciona',
     'saveall' => 'Guardar resultados',
+    'notifications' => 'Notificaciones'
 
 
 ];

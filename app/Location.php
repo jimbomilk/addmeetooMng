@@ -49,4 +49,9 @@ class location extends Model {
         return $this->hasOne('App\Location','id','parent_id');
     }
 
+    public function pushUsers()
+    {
+        return $this->hasmany('App\UserPush');
+    }
+
 }

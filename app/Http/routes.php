@@ -55,6 +55,10 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::post('gameboards/preview/{id}',['as'=>'gameboards_preview', 'uses' => 'GameboardsController@preview']);
     Route::post('gameboard_options/saveall',['as'=>'admin.gameboard_options.saveall','uses'=>'GameboardOptionsController@saveAll']);
 
+    // ** NOTIFICATIONS **
+    Route::resource('notifications', 'NotificationController');
+    Route::post('notifications/fastUpdate/{id}', ['as' => 'admin.who_fast', 'uses' => 'NotificationController@fastUpdate']);
+
 
     // ** AUCTIONS **
     Route::resource('items', 'ItemsController');
@@ -88,6 +92,8 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
     Route::post('gameboards/fastUpdate/{id}', ['as' => 'owner.gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
     Route::resource('gameboard_options', 'GameboardOptionsController');
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'owner.gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
+
+    Route::resource('notifications', 'NotificationController');
 
     // ** RANKING **
     Route::resource('usergameboards','UserGameboardsController');

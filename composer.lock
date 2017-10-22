@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb235933ff80cd575fc9728b5c95635a",
+    "content-hash": "77289f45c31e929de785b1a5efeaef6f",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -396,6 +396,7 @@
                 "laravel",
                 "phpgmaps"
             ],
+            "abandoned": "GeneaLabs/laravel-maps",
             "time": "2016-08-07T20:39:00+00:00"
         },
         {
@@ -1154,6 +1155,44 @@
                 "twitter"
             ],
             "time": "2016-08-17T00:36:58+00:00"
+        },
+        {
+            "name": "moathdev/laravel-onesignal",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moathdev/laravel-onesignal.git",
+                "reference": "dc7af0ce4d017684f848e271319bb4f3fe90a0ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moathdev/laravel-onesignal/zipball/dc7af0ce4d017684f848e271319bb4f3fe90a0ce",
+                "reference": "dc7af0ce4d017684f848e271319bb4f3fe90a0ce",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5.3|~6.0",
+                "illuminate/support": "~5.1",
+                "php": ">=5.5.0"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Moathdev\\OneSignal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "moathdev",
+                    "email": "Moath@moath.co"
+                }
+            ],
+            "description": "A Onesignal package for Laravel 5.2 or higher",
+            "time": "2017-02-20T21:32:31+00:00"
         },
         {
             "name": "monolog/monolog",

@@ -218,8 +218,8 @@ class GameboardsController extends Controller {
             ]);
         }
 
-        Session::flash('message',$message);
-        return redirect()->route($this->indexPage("gameboards"));
+            Session::flash('message',$message);
+            return redirect()->route($this->indexPage("gameboards"));
     }
 
 
