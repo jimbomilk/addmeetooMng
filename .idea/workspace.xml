@@ -109,10 +109,10 @@
       <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0865874" vertical-offset="159" max-vertical-offset="3349">
-              <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.13412564" vertical-offset="1026" max-vertical-offset="3740">
+              <caret line="80" column="74" selection-start-line="80" selection-start-column="74" selection-end-line="80" selection-end-column="74" />
               <folding>
-                <marker date="1508920500295" expanded="true" signature="2235:2553" placeholder="select textb..adspacks..." />
+                <marker date="1508922206696" expanded="true" signature="2980:3298" placeholder="select textb..adspacks..." />
               </folding>
             </state>
           </provider>
@@ -763,12 +763,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00458" summary="ok">
-      <created>1506676336802</created>
-      <option name="number" value="00458" />
-      <option name="project" value="LOCAL" />
-      <updated>1506676336802</updated>
-    </task>
     <task id="LOCAL-00459" summary="ok">
       <created>1506676373606</created>
       <option name="number" value="00459" />
@@ -1057,7 +1051,13 @@
       <option name="project" value="LOCAL" />
       <updated>1508660287011</updated>
     </task>
-    <option name="localTasksCounter" value="507" />
+    <task id="LOCAL-00507" summary="ok">
+      <created>1508920568568</created>
+      <option name="number" value="00507" />
+      <option name="project" value="LOCAL" />
+      <updated>1508920568569</updated>
+    </task>
+    <option name="localTasksCounter" value="508" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1084,6 +1084,7 @@
     <frame x="-7" y="0" width="1378" height="775" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.115030676" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.281493" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32659408" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1101,7 +1102,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39968896" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32511556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1554,10 +1554,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0865874" vertical-offset="159" max-vertical-offset="3349">
-          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.13412564" vertical-offset="1026" max-vertical-offset="3740">
+          <caret line="80" column="74" selection-start-line="80" selection-start-column="74" selection-end-line="80" selection-end-column="74" />
           <folding>
-            <marker date="1508920500295" expanded="true" signature="2235:2553" placeholder="select textb..adspacks..." />
+            <marker date="1508922206696" expanded="true" signature="2980:3298" placeholder="select textb..adspacks..." />
           </folding>
         </state>
       </provider>

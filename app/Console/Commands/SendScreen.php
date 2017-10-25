@@ -63,12 +63,29 @@ class SendScreen extends Command
         //Log::info('Location:'.$location);
 
         if (isset($location)) {
-            $delay=$location->screen_timer;
+            $delay_screen=$location->screen_timer;
              // Tiempo que tiene cada sección (anuncios, info y actividades)
-            $nScreens = round($total_time/$delay);
-            $anuncios = $this->screenAds($location->id,$nScreens,$delay);
-            $agenda = $this->screenAgenda($location->id,$nScreens,$delay);
-            $games = $this->screenGame($location->id,$nScreens,$delay);
+            $nScreens = round($total_time/$delay_screen);
+            $delay_inicial = 0;
+            $agenda = $this->screenAgenda($location->id,$nScreens,$delay_inicial,$delay_screen);
+            $nAgenda = count($agenda);
+            // Si no hay agenda los slots se reparten entre las otras dos opciones
+            if ($nAgenda< $nScreens)
+            {
+                $nScreens = round(($nScreens + ($nScreens-$nAgenda))/2);
+            }
+            $delay_inicial = $delay_inicial + ($nAgenda*$delay_screen);
+
+            $games = $this->screenGame($location->id,$nScreens,$delay_inicial,$delay_screen);
+            $nGames = count($games);
+            // Si no hay games los slots se dejan unicamente para anuncios
+            if ($nGames< $nScreens)
+            {
+                $nScreens = $nScreens + ($nScreens-$nGames);
+            }
+
+            $anuncios = $this->screenAds($location->id,$nScreens,$delay_inicial,$delay_screen);
+
             $jobs = array_merge($anuncios,$agenda,$games);
             shuffle($jobs);
 
@@ -81,10 +98,10 @@ class SendScreen extends Command
 
 
 
-    public function screenAds( $location_id,$nScreens,$delay)
+    public function screenAds( $location_id,$nScreens,$delay_inicial , $delay_screen)
     {
         $a = array();
-
+        $delay_acum = $delay_inicial;
         $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
                     " where adspacks.bigpack >= 0 and advertisements.location_id=".$location_id.
@@ -112,10 +129,12 @@ class SendScreen extends Command
                 }
 
                 // creamos el job
+
                 $job = (new AdsEngine($message, $location_id))
-                    ->delay($delay)
+                    ->delay($delay_acum)
                     ->onQueue('bigpack');
 
+                $delay_acum = $delay_acum + $delay_screen;
                 $i++;
                 $a[] = $job;
                 if ($i == $nScreens) // si ya hemos cumplido salimos.
@@ -132,10 +151,11 @@ class SendScreen extends Command
     }
 
 
-    public function screenGame($location_id,$nscreens,$delay)
+    public function screenGame($location_id,$nscreens,$delay_inicial , $delay_screen)
     {
         $i=0;
         $a = array();
+        $delay_acum = $delay_inicial;
         while ($i<$nscreens) {
             $previ = $i;
             foreach (Gameboard::where('location_id', '=', $location_id)
@@ -147,8 +167,9 @@ class SendScreen extends Command
                 if (isset($gameview)) {
                     //Log::info('Delay GAME:'.$d);
                     $job = (new GameEngine($gameview, $location_id))
-                        ->delay($delay)
+                        ->delay($delay_acum)
                         ->onQueue('bigpack');
+                    $delay_acum = $delay_acum + $delay_screen;
 
                     $a[] = $job;
                     if ($i == $nscreens)
@@ -165,10 +186,11 @@ class SendScreen extends Command
 
     }
 
-    public function screenAgenda($location_id,$nscreens,$delay)
+    public function screenAgenda($location_id,$nscreens,$delay_inicial,$delay_screen)
     {
         $i=0;
         $a = array();
+        $delay_acum = $delay_inicial;
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
         $messages = Message::where('location_id', '=', $location_id)
@@ -190,8 +212,9 @@ class SendScreen extends Command
                 $envelope->logo1 = isset($message->location)?$message->location->logo:"";
                 //Log::info('Delay AGENDA:'.$delay);
                 $job = (new AdsEngine($envelope, $location_id))
-                    ->delay($delay)
+                    ->delay($delay_acum)
                     ->onQueue('bigpack');
+                $delay_acum = $delay_acum + $delay_screen;
                 $a[] = $job;
                 if ($i == $nscreens)
                     return $a;
