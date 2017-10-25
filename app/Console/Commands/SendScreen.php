@@ -107,36 +107,43 @@ class SendScreen extends Command
         $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
                     " where adspacks.bigpack > 0 and advertisements.location_id=".$location_id.
-                    " order by adspacks.bigdisplayed limit ".$nScreens;
+                    " order by adspacks.bigdisplayed";
 
         $adsPacks = DB::select(DB::raw($query));
         if (!isset($adsPacks))
             return false;
 
         $i=0;
+        while ($i<$nScreens){
+            $previ = $i; // para romper bucles infinitos
+            foreach($adsPacks as $adspack) {
+                $message = new Envelope();
+                $message->ltext = $adspack->textbig1;
+                $message->stext = $adspack->textbig2;
+                $message->image = $adspack->imagebig;
+                $message->type = 'bigpack';
 
-        foreach($adsPacks as $adspack) {
-            $message = new Envelope();
-            $message->ltext = $adspack->textbig1;
-            $message->stext = $adspack->textbig2;
-            $message->image = $adspack->imagebig;
-            $message->type = 'bigpack';
+                // actualizar sus visualizaciones
+                $pack = Adspack::find($adspack->packid);
+                if (isset($pack)) {
+                    $pack->bigdisplayed++;
+                    $pack->save();
+                }
 
-            // actualizar sus visualizaciones
-            $pack = Adspack::find($adspack->packid);
-            if (isset($pack)) {
-                $pack->bigdisplayed++;
-                $pack->save();
+                // creamos el job
+
+                $job = (new AdsEngine($message, $location_id));
+
+                $i++;
+                $a[] = $job;
+                if ($i == $nScreens) // si ya hemos cumplido salimos.
+                    return $a;
             }
-
-            // creamos el job
-
-            $job = (new AdsEngine($message, $location_id));
-
-            $i++;
-            $a[] = $job;
+            if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
+                return $a;
 
         }
+
 
         return $a;
 
