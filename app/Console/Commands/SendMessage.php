@@ -10,6 +10,7 @@ use App\Jobs\AdsEngine;
 use App\Jobs\MsgEngine;
 use App\location;
 use App\Message;
+use App\Status;
 use App\User;
 use App\UserGameboard;
 use Illuminate\Console\Command;
@@ -102,6 +103,7 @@ class SendMessage extends Command
             " inner join gameboards on gameboards.id=user_gameboards.gameboard_id and gameboards.location_id=".$location_id.
             " inner join users on users.id=user_gameboards.user_id".
             " inner join user_profiles on user_profiles.user_id=user_gameboards.user_id".
+            " where gameboards.status > ".Status::SCHEDULED. " and gameboards.status<= ".Status::OFFICIAL.
             " order by RAND() LIMIT 1";
 
         $usergames = DB::select(DB::raw($query));
