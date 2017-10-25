@@ -57,28 +57,23 @@ class SendScreen extends Command
     public function handle()
     {
         $location_id = $this->argument('location');
-        $location = Location::findorfail($location_id);
-        $delay_inicial=$location->screen_timer;
+        $location = Location::find($location_id);
+        $total_time = 200;
+
         //Log::info('Location:'.$location);
 
-        //Recoger las categorias que admite el local y crear query para
-        //filtra los ads : la query debe tener en cuanta las preferencias del local y su geolocalizacion
-
         if (isset($location)) {
-            // En 10 minutos hay que meter 30 anuncios y 30 pantallas
-            $delay = $delay_inicial;
-            while ( $delay < 600 ) {
-                //Log::info('Delay:'.$delay);
+            $delay=$location->screen_timer;
+             // Tiempo que tiene cada sección (anuncios, info y actividades)
+            $nScreens = round($total_time/$delay);
+            $anuncios = $this->screenAds($location->id,$nScreens,$delay);
+            $agenda = $this->screenAgenda($location->id,$nScreens,$delay);
+            $games = $this->screenGame($location->id,$nScreens,$delay);
+            $jobs = array_merge($anuncios,$agenda,$games);
+            shuffle($jobs);
 
-                if($this->screenAds($location->id,$delay))
-                    $delay += $delay_inicial;
-
-                if($this->screenAgenda($location->id,$delay))
-                    $delay += $delay_inicial;
-
-                $nScreens = $this->screenGame($location->id,$delay,$delay_inicial);
-                $delay = $delay + ($nScreens*$delay_inicial);
-
+            foreach($jobs as $job) {
+                $this->dispatch($job);
             }
         }
 
@@ -86,112 +81,125 @@ class SendScreen extends Command
 
 
 
-    public function screenAds( $location_id,$delay)
+    public function screenAds( $location_id,$nScreens,$delay)
     {
-        //Log::info('*** REQUEST ADS, LOCATION: ' . $location_id . ' DELAY:'.$delay );
-
-        /*$adsPack = DB::table('adspacks')
-            ->select('textbig1', 'textbig2','imagebig','adspacks.id as packid')
-            ->join('advertisements','adspacks.advertisement_id','=','advertisements.id')
-            ->where('adspacks.bigpack','>=',0)
-            ->where('advertisements.location_id',$location_id)
-            ->inRandomOrder()->first();*/
-
+        $a = array();
 
         $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
                     " where adspacks.bigpack >= 0 and advertisements.location_id=".$location_id.
-                    " order by RAND() LIMIT 1";
+                    " order by adspacks.bigdisplayed";
 
         $adsPacks = DB::select(DB::raw($query));
-
-/*        $adsPack = Adspack::where('bigpack','>=',0)
-            ->inRandomOrder()->first();*/
-
-        // recogemos el ads
         if (!isset($adsPacks))
             return false;
 
+        $i=0;
+        while ($i<$nScreens){
+            $previ = $i; // para romper bucles infinitos
+            foreach($adsPacks as $adspack) {
+                $message = new Envelope();
+                $message->ltext = $adspack->textbig1;
+                $message->stext = $adspack->textbig2;
+                $message->image = $adspack->imagebig;
+                $message->type = 'bigpack';
 
-        //2 se lo enviamos a la cola de procesado
-        foreach($adsPacks as $adspack){
-            $message = new Envelope();
-            $message->ltext    = $adspack->textbig1;
-            $message->stext    = $adspack->textbig2;
-            $message->image    = $adspack->imagebig;
-            $message->type     = 'bigpack';
-            //Log::info('Delay ADS:'.$delay);
-            $job = (new AdsEngine($message, $location_id))
-                ->delay($delay)
-                ->onQueue('bigpack');
+                // actualizar sus visualizaciones
+                $pack = Adspack::find($adspack->packid);
+                if (isset($pack)) {
+                    $pack->bigdisplayed++;
+                    $pack->save();
+                }
 
-            $this->dispatch($job);
-
-            // REVISAR : De momento lo dejamos AQUI pero debería ser descontado al recibir la confirmación de la
-            // pantalla.
-            $pack = Adspack::find($adspack->packid);
-            $pack->bigdisplayed++;
-            $pack->save();
-        }
-
-
-        return true;
-
-    }
-
-
-    public function screenGame($location_id,$delay,$delay_inicial)
-    {
-        $nscreens=0;
-        $d = $delay;
-        foreach (Gameboard::where('location_id', '=', $location_id)
-                     ->where('status', '>', Status::SCHEDULED)
-                     ->where('status' , '<=', Status::OFFICIAL)
-                     ->cursor() as $gameboard)
-        {
-            $gameview = $gameboard->getGameView($gameboard->status);
-            if(isset($gameview)) {
-                //Log::info('Delay GAME:'.$d);
-                $job = (new GameEngine($gameview, $location_id))
-                    ->delay($d)
+                // creamos el job
+                $job = (new AdsEngine($message, $location_id))
+                    ->delay($delay)
                     ->onQueue('bigpack');
-                $this->dispatch($job);
-                $nscreens ++;
-                $d = $d + $delay_inicial;
+
+                $i++;
+                $a[] = $job;
+                if ($i == $nScreens) // si ya hemos cumplido salimos.
+                    return $a;
             }
+            if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
+                return $a;
+
         }
 
-        return $nscreens;
+
+        return $a;
+
+    }
+
+
+    public function screenGame($location_id,$nscreens,$delay)
+    {
+        $i=0;
+        $a = array();
+        while ($i<$nscreens) {
+            $previ = $i;
+            foreach (Gameboard::where('location_id', '=', $location_id)
+                         ->where('status', '>', Status::SCHEDULED)
+                         ->where('status', '<=', Status::OFFICIAL)
+                         ->cursor() as $gameboard) {
+                $i++;
+                $gameview = $gameboard->getGameView($gameboard->status);
+                if (isset($gameview)) {
+                    //Log::info('Delay GAME:'.$d);
+                    $job = (new GameEngine($gameview, $location_id))
+                        ->delay($delay)
+                        ->onQueue('bigpack');
+
+                    $a[] = $job;
+                    if ($i == $nscreens)
+                        return $a;
+                }
+            }
+            if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
+                return $a;
+
+        }
+
+        return $a;
 
 
     }
 
-    public function screenAgenda($location_id,$delay)
+    public function screenAgenda($location_id,$nscreens,$delay)
     {
+        $i=0;
+        $a = array();
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
-        $message = Message::where('location_id', '=', $location_id)
+        $messages = Message::where('location_id', '=', $location_id)
             ->where('type','<>','util')
             ->where('start','<=',$now)
             ->where('end'  ,'>', $now)
-            ->inRandomOrder()->first();
+            ->inRandomOrder()->get();
 
-        if(isset($message)){
-            $envelope = new Envelope();
-            $envelope->stext = $message->stext;
-            $envelope->ltext = $message->ltext;
-            $envelope->image = $message->image;
-            $envelope->background = $message->imagebig;
-            $envelope->type = 'info';
-            $envelope->logo1 = isset($message->location)?$message->location->logo:"";
-            //Log::info('Delay AGENDA:'.$delay);
-            $job = (new AdsEngine($envelope, $location_id))
+        while ($i<$nscreens) {
+            $previ = $i; // para romper bucles infinitos
+            foreach ($messages as $message){
+
+                $envelope = new Envelope();
+                $envelope->stext = $message->stext;
+                $envelope->ltext = $message->ltext;
+                $envelope->image = $message->image;
+                $envelope->background = $message->imagebig;
+                $envelope->type = 'info';
+                $envelope->logo1 = isset($message->location)?$message->location->logo:"";
+                //Log::info('Delay AGENDA:'.$delay);
+                $job = (new AdsEngine($envelope, $location_id))
                     ->delay($delay)
                     ->onQueue('bigpack');
-            $this->dispatch($job);
-            return true;
+                $a[] = $job;
+                if ($i == $nscreens)
+                    return $a;
+            }
+            if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
+                return $a;
         }
-        return false;
+        return $a;
     }
 
 
