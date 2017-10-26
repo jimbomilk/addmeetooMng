@@ -107,7 +107,7 @@ class SendScreen extends Command
         $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
                     " where adspacks.bigpack > 0 and advertisements.location_id=".$location_id.
-                    " order by adspacks.bigdisplayed";
+                    " order by adspacks.bigdisplayed"   ;
 
         $adsPacks = DB::select(DB::raw($query));
         if (!isset($adsPacks))
@@ -176,8 +176,6 @@ class SendScreen extends Command
         }
 
         return $a;
-
-
     }
 
     public function screenAgenda($location_id,$nscreens)
@@ -195,7 +193,6 @@ class SendScreen extends Command
         while ($i<$nscreens) {
             $previ = $i; // para romper bucles infinitos
             foreach ($messages as $message){
-
                 $envelope = new Envelope();
                 $envelope->stext = $message->stext;
                 $envelope->ltext = $message->ltext;
@@ -205,6 +202,7 @@ class SendScreen extends Command
                 $envelope->logo1 = isset($message->location)?$message->location->logo:"";
                 //Log::info('Delay AGENDA:'.$delay);
                 $job = (new AdsEngine($envelope, $location_id));
+                $i++;
                 $a[] = $job;
                 if ($i == $nscreens)
                     return $a;
@@ -214,6 +212,4 @@ class SendScreen extends Command
         }
         return $a;
     }
-
-
 }
