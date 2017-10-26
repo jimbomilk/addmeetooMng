@@ -78,7 +78,7 @@ class SendMessage extends Command
 
                 $alternate = !$alternate;
 
-                $delay = $delay + 10; // Los mensajes duran 5 segundos
+                $delay = $delay + 10; // Los mensajes duran 10 segundos
 
             }
         }
