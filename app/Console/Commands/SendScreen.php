@@ -201,7 +201,7 @@ class SendScreen extends Command
                 $envelope->type = 'info';
                 $envelope->logo1 = isset($message->location)?$message->location->logo:"";
                 //Log::info('Delay AGENDA:'.$delay);
-                $job = (new AdsEngine($envelope, $location_id));
+                $job = new AdsEngine($envelope, $location_id);
                 $i++;
                 $a[] = $job;
                 if ($i == $nscreens)

@@ -28,6 +28,11 @@ class Advertisement extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function location()
+    {
+        return $this->belongsTo('App\Location','location_id');
+    }
+
     public function getPathAttribute()
     {
         return 'anu/'.$this->path.$this->id;

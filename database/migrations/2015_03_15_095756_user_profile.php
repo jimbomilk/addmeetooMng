@@ -36,6 +36,8 @@ class UserProfile extends Migration {
             // Lista de correo
             $table->boolean('mailregistered')->default(false);
 
+
+
 			$table->timestamps();
 		});
 	}

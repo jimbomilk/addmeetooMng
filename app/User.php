@@ -12,7 +12,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password','type'];
+    protected $fillable = ['name', 'email', 'password','type','gamemanager','incidencemanager'];
     static $searchable = ['name','email'];
 
 

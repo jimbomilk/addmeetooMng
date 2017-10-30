@@ -19,6 +19,9 @@ class Adspack extends Migration
             $table->integer('bigdisplayed')->unsigned()->default(0);
             $table->integer('smalldisplayed')->unsigned()->default(0);
 
+            $table->dateTime('startdate')->nullable();
+            $table->dateTime('enddate')->nullable();
+
             $table->integer('advertisement_id')->unsigned();
             $table->foreign('advertisement_id')
                 ->references('id')

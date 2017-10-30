@@ -27,7 +27,9 @@
 
             @include('admin.dashboard.partials.participationGraph')
 
+            @if ($login_user->is('admin') || ($login_user->is('owner')&&$login_user->incidencemanager) )
             @include('admin.dashboard.partials.chat')
+            @endif
 
             @include('admin.dashboard.partials.advertisements')
 

@@ -7,5 +7,6 @@
 
     @include("admin.common.input_text",array('var'=>'bio'))
     @include("admin.common.input_number",array('var'=>'phone'))
+
 </div>
 

@@ -37,8 +37,11 @@ class AdsPacksController extends Controller {
         $map = General::createMap($element,true);
 
 
-        if (isset($element))
-            return view('admin.common.edit',['name'=>'adspacks','element' => $element,'map'=>$map]);
+        if (isset($element)) {
+            $element->startdate = $element->localStartdate;
+            $element->enddate = $element->localEnddate;
+            return view('admin.common.edit', ['name' => 'adspacks', 'element' => $element, 'map' => $map]);
+        }
         else
             return view('admin.common.create',['name'=>'adspacks','map'=>$map]);
 
@@ -62,9 +65,10 @@ class AdsPacksController extends Controller {
 	public function store(AdsPackRequest $request)
 	{
         $ads = new Adspack($request->all());
-
         $id = $request->session()->get('advertisement_id');
         $ads->advertisement_id = $id;
+        $ads->startdate = $ads->getUTCStartdate();
+        $ads->enddate = $ads->getUTCEnddate();
         $ads->save();
 
         return redirect()->route($this->indexPage("adspacks"));
@@ -109,6 +113,8 @@ class AdsPacksController extends Controller {
 	{
         $ads = Adspack::findOrFail($id);
         $ads->fill($request->all());
+        $ads->startdate = $ads->getUTCStartdate();
+        $ads->enddate = $ads->getUTCEnddate();
         $ads->save();
 
         return redirect()->route($this->indexPage("adspacks"));

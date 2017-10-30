@@ -41,7 +41,8 @@ return [
     'users.password'=>'Password',
     'users.password2'=>'Reintroduce la password',
     'users.type'=>'Tipo de usuario',
-
+    'users.gamemanager' => 'Permiso para crear/modificar juegos',
+    'users.incidencemanager' => 'Permiso para gestión de incidencias',
 
     'userprofiles' => ' Perfil',
     'userprofiles.avatar' => 'Foto',

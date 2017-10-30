@@ -46,7 +46,7 @@
             </li>
 
 
-            @if ($login_user->is('admin') || $login_user->is('owner')  )
+            @if ($login_user->is('admin') || ($login_user->is('owner')&&$login_user->gamemanager) )
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-delicious"></i> <span>{{trans('labels.games')}}</span> <i class="fa fa-angle-left pull-right"></i>
@@ -62,7 +62,7 @@
             </li>
             @endif
 
-            @if ($login_user->is('admin') || $login_user->is('owner')  )
+            @if ($login_user->is('admin') || ($login_user->is('owner')&& $login_user->gamemanager) )
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-line-chart"></i> <span>{{trans('labels.rankings')}}</span> <i class="fa fa-angle-left pull-right"></i>

@@ -1,10 +1,8 @@
 <table class="table table-striped">
     <tr>
         <th>{{trans('labels.packid')}}</th>
-        <th>{{trans('labels.bigpacks')}}</th>
-        <th>{{trans('labels.smallpacks')}}</th>
-        <th>{{trans('labels.totalads')}}</th>
-        <th>{{trans('labels.totalcost')}}</th>
+        <th>{{trans('labels.startdate')}}</th>
+        <th>{{trans('labels.enddate')}}</th>
         <th>{{trans('labels.bigdisplayed')}}</th>
         <th>{{trans('labels.smalldisplayed')}}</th>
         <th></th>
@@ -14,13 +12,11 @@
     @foreach($set as $adspack)
         <tr data-id="{{$adspack->id}}">
             <td>{{$adspack->advertisement->name}}</td>
-            <td>{{$adspack->bigpack}}</td>
-            <td>{{$adspack->smallpack}}</td>
-            <td>{{$adspack->totalAds()}}</td>
-            <td>{{$adspack->totalCost()}}&euro;</td>
+            <td>{{$adspack->visibleStartdate}}</td>
+            <td>{{$adspack->visibleEnddate}}</td>
+
             <td>{{$adspack->bigdisplayed}}</td>
             <td>{{$adspack->smalldisplayed}}</td>
-
 
             <td>
                 @include("admin.common.btn_edit",array('var'=>$adspack))

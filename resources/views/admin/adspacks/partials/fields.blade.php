@@ -1,6 +1,6 @@
 <div class="form-group">
-    @include("admin.common.input_number",array('var'=>'bigpack'))
-    @include("admin.common.input_number",array('var'=>'smallpack'))
+    @include("admin.common.input_datetime",array('var'=>'startdate'))
+    @include("admin.common.input_datetime",array('var'=>'enddate'))
     @include("admin.common.input_hidden",array('var'=>'latitude'))
     @include("admin.common.input_hidden",array('var'=>'longitude'))
 </div>

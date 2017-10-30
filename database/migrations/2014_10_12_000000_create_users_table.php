@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
 			$table->enum('type',['admin','owner','user']);
             $table->string('activationCode')->nullable();
             $table->rememberToken();
+            $table->boolean('gamemanager')->default(false); // true si tienen permiso para crear juegos
+            $table->boolean('incidencemanager')->default(false); // true si es del tipo ayuntamiento
             $table->timestamps();
         });
     }
