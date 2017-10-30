@@ -112,16 +112,16 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.891258" vertical-offset="6331" max-vertical-offset="8840">
-              <caret line="418" column="22" selection-start-line="418" selection-start-column="22" selection-end-line="418" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.52878463" vertical-offset="6110" max-vertical-offset="8840">
+              <caret line="396" column="30" selection-start-line="396" selection-start-column="30" selection-end-line="396" selection-end-column="30" />
               <folding>
-                <marker date="1509365388434" expanded="true" signature="13835:14017" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1509365388434" expanded="true" signature="13835:14048" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1509365388434" expanded="true" signature="13835:14048" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1509365388434" expanded="true" signature="13835:14462" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1509365388434" expanded="true" signature="14512:14903" placeholder="SELECT ads.*..advertisements..." />
-                <marker date="1509365388434" expanded="true" signature="16641:17404" placeholder="select a.use..user_gameboards..." />
-                <marker date="1509365388434" expanded="true" signature="17645:18261" placeholder="select users..user_gameboards..." />
+                <marker date="1509366047351" expanded="true" signature="13874:14056" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1509366047351" expanded="true" signature="13874:14087" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1509366047351" expanded="true" signature="13874:14087" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1509366047351" expanded="true" signature="13874:14501" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1509366047351" expanded="true" signature="14551:14942" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1509366047351" expanded="true" signature="16680:17443" placeholder="select a.use..user_gameboards..." />
+                <marker date="1509366047351" expanded="true" signature="17684:18300" placeholder="select users..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -603,12 +603,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00467" summary="ok">
-      <created>1506684232802</created>
-      <option name="number" value="00467" />
-      <option name="project" value="LOCAL" />
-      <updated>1506684232802</updated>
-    </task>
     <task id="LOCAL-00468" summary="ok">
       <created>1506684301074</created>
       <option name="number" value="00468" />
@@ -897,7 +891,13 @@
       <option name="project" value="LOCAL" />
       <updated>1509364484996</updated>
     </task>
-    <option name="localTasksCounter" value="516" />
+    <task id="LOCAL-00516" summary="ok">
+      <created>1509365415257</created>
+      <option name="number" value="00516" />
+      <option name="project" value="LOCAL" />
+      <updated>1509365415257</updated>
+    </task>
+    <option name="localTasksCounter" value="517" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -933,7 +933,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24583964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24583964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3353566" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271605" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32515338" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1411,16 +1411,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.891258" vertical-offset="6331" max-vertical-offset="8840">
-          <caret line="418" column="22" selection-start-line="418" selection-start-column="22" selection-end-line="418" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.52878463" vertical-offset="6110" max-vertical-offset="8840">
+          <caret line="396" column="30" selection-start-line="396" selection-start-column="30" selection-end-line="396" selection-end-column="30" />
           <folding>
-            <marker date="1509365388434" expanded="true" signature="13835:14017" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1509365388434" expanded="true" signature="13835:14048" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1509365388434" expanded="true" signature="13835:14048" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1509365388434" expanded="true" signature="13835:14462" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1509365388434" expanded="true" signature="14512:14903" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1509365388434" expanded="true" signature="16641:17404" placeholder="select a.use..user_gameboards..." />
-            <marker date="1509365388434" expanded="true" signature="17645:18261" placeholder="select users..user_gameboards..." />
+            <marker date="1509366047351" expanded="true" signature="13874:14056" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1509366047351" expanded="true" signature="13874:14087" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1509366047351" expanded="true" signature="13874:14087" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1509366047351" expanded="true" signature="13874:14501" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1509366047351" expanded="true" signature="14551:14942" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1509366047351" expanded="true" signature="16680:17443" placeholder="select a.use..user_gameboards..." />
+            <marker date="1509366047351" expanded="true" signature="17684:18300" placeholder="select users..user_gameboards..." />
           </folding>
         </state>
       </provider>
