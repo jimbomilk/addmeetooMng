@@ -393,7 +393,8 @@ class ApiController extends Controller
 
     public function lastOffers(Request $request)
     {
-        //Log::info('ENTRANDO lastOffers');
+        $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
+
         $input = $request->all();
         $latitude = $input['latitude'];
         $longitude = $input['longitude'];
@@ -405,7 +406,7 @@ class ApiController extends Controller
              $query = 'SELECT ads.*,packs.id as packid  from advertisements ads
                 JOIN adspacks packs ON
                 packs.advertisement_id = ads.id AND
-                packs.smallpack >0 AND
+                packs.startdate <='. $now . ' AND packs.enddate >'. $now . ' AND
                 packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
                 packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
                 WHERE ads.location_id = '. $location .'
@@ -415,7 +416,7 @@ class ApiController extends Controller
              $query = 'SELECT ads.*,packs.id as packid from advertisements ads
                       JOIN adspacks packs ON
                       packs.advertisement_id = ads.id AND
-                      packs.smallpack >0
+                      packs.startdate <='. $now . ' AND packs.enddate >'. $now . ' AND
                       WHERE ads.location_id = '. $location. '
                       ORDER BY CASE ads.id WHEN 16 THEN -1 ELSE RAND() END LIMIT 20';
         }
