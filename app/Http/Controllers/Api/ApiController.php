@@ -408,9 +408,9 @@ class ApiController extends Controller
                 JOIN adspacks packs ON
                 packs.advertisement_id = ads.id AND
                 packs.startdate <='". $now . "' AND packs.enddate >'". $now . "' AND
-                packs.latitude BETWEEN (' . $latitude . ' - (packs.radio*0.0117)) AND (' . $latitude . ' + (packs.radio*0.0117)) AND
-                packs.longitude BETWEEN (' . $longitude . ' - (packs.radio*0.0117)) AND (' . $longitude . ' + (packs.radio*0.0117))
-                WHERE ads.location_id = '. $location .'
+                packs.latitude BETWEEN (" . $latitude . " - (packs.radio*0.0117)) AND (" . $latitude . " + (packs.radio*0.0117)) AND
+                packs.longitude BETWEEN (" . $longitude . " - (packs.radio*0.0117)) AND (" . $longitude . " + (packs.radio*0.0117))
+                WHERE ads.location_id = ". $location ."
                 ORDER BY CASE ads.id WHEN 16 THEN -1 ELSE RAND() END LIMIT 20";
         }
         else{
@@ -418,7 +418,7 @@ class ApiController extends Controller
                       JOIN adspacks packs ON
                       packs.advertisement_id = ads.id AND
                       packs.startdate <='". $now . "' AND packs.enddate >'". $now . "' AND
-                      WHERE ads.location_id = '. $location. '
+                      WHERE ads.location_id = ". $location. "
                       ORDER BY CASE ads.id WHEN 16 THEN -1 ELSE RAND() END LIMIT 20";
         }
 
