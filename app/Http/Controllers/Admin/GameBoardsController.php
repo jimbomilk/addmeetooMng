@@ -116,6 +116,18 @@ class GameboardsController extends Controller {
         }
 	}
 
+
+    public  function participants($id)
+    {
+        $game = Gameboard::find($id);
+        $options = null;
+        if (isset ($game)) {
+
+            return view ('admin.gameboards.participants',['name'=>'participants','set'=>$participants,'options'=>$options]);
+
+        }
+    }
+
     public  function preview($id)
     {
         $game = Gameboard::findOrFail($id);
@@ -134,7 +146,7 @@ class GameboardsController extends Controller {
             if (isset($gameview)) {
 
                 $job = (new GameEngine($gameview, $game->location_id))
-                    ->onQueue('SCREENS');
+                    ->onQueue('bigpack');
                 $this->dispatch($job);
 
                 $message = $game->name . ' sent preview';

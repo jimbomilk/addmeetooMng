@@ -54,7 +54,9 @@ return [
     'moreInfo'=> 'Más información',
     'changelocation' => 'Selecciona',
     'saveall' => 'Guardar resultados',
-    'notifications' => 'Notificaciones'
+    'notifications' => 'Notificaciones',
+    'startdate' => 'Fecha inicial',
+    'enddate'=> 'Fecha final',
 
 
 ];

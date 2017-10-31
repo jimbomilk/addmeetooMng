@@ -1,22 +1,27 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Adspack;
+use App\Advertisement;
 use App\General;
 use App\Http\Requests\AdsPackRequest;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
 
 class AdsPacksController extends Controller {
-
+    public $now = null;
+    public $next = null;
+    public $address = null;
 
     public function __construct()
     {
 
         parent::__construct();
         $this->middleware('auth');
+
     }
 
 	/**
@@ -42,9 +47,10 @@ class AdsPacksController extends Controller {
             $element->enddate = $element->localEnddate;
             return view('admin.common.edit', ['name' => 'adspacks', 'element' => $element, 'map' => $map]);
         }
-        else
-            return view('admin.common.create',['name'=>'adspacks','map'=>$map]);
-
+        else{
+            //$now = Carbon::now()->format('Y-m-d\TH:i');
+            return view('admin.common.create', ['name' => 'adspacks', 'map' => $map, 'now'=>$this->now,'next'=>$this->next, 'dir'=>$this->address]);
+        }
     }
 
 	/**
@@ -52,8 +58,18 @@ class AdsPacksController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
     {
+        $ad = Advertisement::find($request->session()->get('advertisement_id'));
+        if (isset($ad))
+        {
+            $l = $ad->location;
+            if (isset($l)) {
+                $this->now = Carbon::now($l->timezone)->format('Y-m-d\TH:i');
+                $this->next = Carbon::now($l->timezone)->addMonth()->format('Y-m-d\TH:i');
+                $this->address = $l->address;
+            }
+        }
         return $this->sendView();
     }
 

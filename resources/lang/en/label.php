@@ -153,6 +153,10 @@ return [
     'adspacks.smallpack'=>'Repeticiones de anuncio pequeño formato',
     'adspacks.address'=> 'Dirección de la zona',
     'adspacks.radio'=> 'Kilómetros a la redonda',
+    'adspacks.toscreen'=> ' Mostrar en pantallas interactivas',
+    'adspacks.tomobile' => 'Mostrar en dispositivos móviles',
+    'adspacks.startdate' => 'Fecha de inicio del anuncio',
+    'adspacks.enddate' => 'Fecha de fin del anuncio',
 
     /* MESSAGES */
     'messages'=> 'Mensaje',

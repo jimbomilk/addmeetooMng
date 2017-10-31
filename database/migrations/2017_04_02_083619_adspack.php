@@ -33,6 +33,8 @@ class Adspack extends Migration
             $table->string('longitude')->nullable();
             $table->string('address')->nullable();
             $table->integer('radio')->unsigned()->default(25);
+            $table->boolean('toscreen')->default(true);
+            $table->boolean('tomobile')->default(true);
             
             $table->timestamps();
         });

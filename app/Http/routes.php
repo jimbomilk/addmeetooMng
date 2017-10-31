@@ -53,6 +53,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
     Route::resource('usergameboards','UserGameboardsController');
     Route::post('gameboards/preview/{id}',['as'=>'gameboards_preview', 'uses' => 'GameboardsController@preview']);
+    Route::post('gameboards/participants/{id}',['as'=>'gameboards_participants', 'uses' => 'GameboardsController@participants']);
     Route::post('gameboard_options/saveall',['as'=>'admin.gameboard_options.saveall','uses'=>'GameboardOptionsController@saveAll']);
 
     // ** NOTIFICATIONS **

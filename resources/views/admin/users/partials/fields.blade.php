@@ -3,5 +3,5 @@
 @include("admin.common.input_password",array('var'=>'password'))
 @include("admin.common.input_password",array('var'=>'password2'))
 @include("admin.common.input_select",array('var'=>'type','col'=>$types))
-@include("admin.common.input_check",array('var'=>'gamemanager'))
-@include("admin.common.input_check",array('var'=>'incidencemanager'))
+@include("admin.common.input_check",array('var'=>'gamemanager','default'=>1))
+@include("admin.common.input_check",array('var'=>'incidencemanager','default'=>1))

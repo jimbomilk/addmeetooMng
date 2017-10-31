@@ -67,6 +67,10 @@
             </td>
 
             <td>
+                @include("admin.common.btn_other",array('route'=> 'gameboards_participants','var'=>$game,'label'=>'participants'))
+            </td>
+
+            <td>
                 @include("admin.common.btn_delete",array('var'=>$game))
             </td>
 

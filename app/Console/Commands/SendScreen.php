@@ -99,14 +99,15 @@ class SendScreen extends Command
 
     }
 
-
-
     public function screenAds( $location_id,$nScreens)
     {
+        $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
+
         $a = array();
         $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
                     " where adspacks.bigpack > 0 and advertisements.location_id=".$location_id.
+                    " and adspacks.toscreen = 1 and adspacks.startdate <='". $now ."' and adspacks.enddate >'". $now ."'".
                     " order by adspacks.bigdisplayed"   ;
 
         $adsPacks = DB::select(DB::raw($query));
@@ -141,12 +142,8 @@ class SendScreen extends Command
             }
             if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
                 return $a;
-
         }
-
-
         return $a;
-
     }
 
 
@@ -172,9 +169,7 @@ class SendScreen extends Command
             }
             if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
                 return $a;
-
         }
-
         return $a;
     }
 
