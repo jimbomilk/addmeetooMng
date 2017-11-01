@@ -88,6 +88,13 @@ class User extends Authenticatable
         return $this->hasManyThrough('App\Advertisement', 'App\Location','owner_id','location_id','id')->paginate(10);
     }
 
+    public function messages()
+    {
+        if ($this->type == 'admin')
+            return Message::paginate(10);
+        return $this->hasManyThrough('App\Message', 'App\Location','owner_id','location_id','id')->paginate(10);
+    }
+
     public function statuses()
     {
         if ($this->type == 'admin')
@@ -95,7 +102,7 @@ class User extends Authenticatable
         return Status::$descOwner;
     }
 
-    public function messages($where)
+    public function messageswhere($where)
     {
 
         if ($this->type == 'admin')

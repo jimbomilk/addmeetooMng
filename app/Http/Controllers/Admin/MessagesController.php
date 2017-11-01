@@ -50,7 +50,7 @@ class MessagesController extends Controller {
 
         $messages = Message::whereRaw($where)
                 ->paginate();*/
-        $messages = Auth::user()->messages($where);
+        $messages = Auth::user()->messageswhere($where);
 
         return view ('admin.common.index',['searchable'=>'1','name'=>'messages','set'=>$messages]);
 	}
