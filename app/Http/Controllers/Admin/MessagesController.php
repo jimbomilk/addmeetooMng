@@ -17,7 +17,7 @@ use App\Events\MessageEvent;
 use Illuminate\Support\Facades\Storage;
 
 class MessagesController extends Controller {
-
+    public $now = null;
     public $search="";
 
     public function __construct()
@@ -67,7 +67,7 @@ class MessagesController extends Controller {
             return view('admin.common.edit', ['name' => 'messages','types'=>$types,'locations'=>$locations, 'element' => $element]);
         }
         else
-            return view('admin.common.create',['name'=>'messages','types'=>$types,'locations'=>$locations]);
+            return view('admin.common.create',['name'=>'messages','types'=>$types,'now'=>$this->now,'locations'=>$locations]);
     }
 	/**
 	 * Show the form for creating a new resource.
@@ -76,6 +76,7 @@ class MessagesController extends Controller {
 	 */
 	public function create()
 	{
+        $this->now = Carbon::now(Config::get('app.timezone'))->format('Y-m-d\TH:i');
         return $this->sendView();
 	}
 
@@ -114,31 +115,28 @@ class MessagesController extends Controller {
 	 */
 	public function show($id)
 	{
-        //$message = Message::findOrFail($id);
-        $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
-        $message = Message::where('location_id', '=', '1')
-            ->select('locations.logo','messages.*')
-            ->join('locations', 'locations.id','=','location_id')
-            ->where('type','<>','util')
-            ->where('start','<=',$now)
-            ->where('end' , '>' , $now)
-            ->inRandomOrder()->first();
+        $message = Message::find($id);
 
-        $env = new Envelope();
-        $env->stext = $message->stext;
-        $env->ltext = $message->ltext;
-        $env->image = $message->image;
-        $env->type = 'info';
-        $env->location_img = $message->logo;
+        if (isset($message)) {
+            $env = new Envelope();
+            $env->stext = $message->stext;
+            $env->ltext = $message->ltext;
+            $env->image = $message->image;
+            $env->type = 'info';
+            $env->location_img = $message->logo;
 
 
-        //SendScreen ss = new SendScreen();
+            //SendScreen ss = new SendScreen();
 
-        //Publicamos
-        event(new MessageEvent($env, 'location1'));
+            //Publicamos
+            event(new MessageEvent($env, 'location'.$message->location_id));
 
-        Session::flash('message','Mensaje enviado:'.$message);
+            Session::flash('message', 'Mensaje enviado:' . $message->stext);
+        }
+        else{
+            Session::flash('message', 'Error envio');
+        }
         return redirect()->route($this->indexPage("messages"));
 	}
 
