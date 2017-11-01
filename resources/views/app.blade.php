@@ -89,7 +89,7 @@
             font_formats: tm_fonts,
             media_live_embeds: true,
             fontsize_formats: "36pt 46pt 56pt 66pt 76pt 86pt 96pt 106pt",
-            height:500
+            height:600
 
         });
     </script>
