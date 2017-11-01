@@ -35,6 +35,7 @@
             @endif
 
             @include('admin.dashboard.partials.advertisements')
+            @include('admin.dashboard.partials.messages')
 
         </section><!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->

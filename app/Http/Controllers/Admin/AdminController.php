@@ -34,12 +34,13 @@ class AdminController extends Controller
         $activityNumber = Auth::user()->activeGameboards()->count();
         $participantNumber = Auth::user()->locationUsergames()->count();
         $ads = Auth::user()->advertisements();
+        $messages = Auth::user()->messages();
         $users = Auth::user()->locationUsers()->count();
         $locations = Auth::user()->locations();
         $participationChart = UserGameboard::getParticipationByDate($locations);
 
 
-		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences,'ads'=>$ads]);
+		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences,'ads'=>$ads,'messages'=>$messages]);
     }
 
     /**
