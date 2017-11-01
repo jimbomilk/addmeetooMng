@@ -3,6 +3,7 @@
 use App\General;
 use App\Http\Controllers\Controller;
 use App\Jobs\GameEngine;
+use App\UserGameboard;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
@@ -119,8 +120,10 @@ class GameboardsController extends Controller {
 
     public  function participants($id)
     {
-        $game = Gameboard::find($id);
         $options = null;
+
+
+        $participants = UserGameboard::getParticipation($id,$serie,$values);
         if (isset ($game)) {
 
             return view ('admin.gameboards.participants',['name'=>'participants','set'=>$participants,'options'=>$options]);

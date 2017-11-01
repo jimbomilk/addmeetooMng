@@ -106,7 +106,7 @@ class SendScreen extends Command
         $a = array();
         $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
-                    " where adspacks.bigpack > 0 and advertisements.location_id=".$location_id.
+                    " where advertisements.location_id=".$location_id.
                     " and adspacks.toscreen = 1 and adspacks.startdate <='". $now ."' and adspacks.enddate >'". $now ."'".
                     " order by adspacks.bigdisplayed"   ;
 

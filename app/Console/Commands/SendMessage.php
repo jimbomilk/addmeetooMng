@@ -13,8 +13,10 @@ use App\Message;
 use App\Status;
 use App\User;
 use App\UserGameboard;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -64,7 +66,6 @@ class SendMessage extends Command
 
         if (isset($location)) {
             // En 10 minutos hay que meter n anuncios
-            $nScreens = 0;
             $delay = 0;
             $alternate = true;
             while ( $delay < 600 ) {
@@ -130,10 +131,12 @@ class SendMessage extends Command
     public function screenAds($location_id,$delay)
     {
         //Log::info('*** REQUEST ADS: ' . $advertisement_id . ' DELAY:'.$delay );
+        $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
         $query = "select textsmall1,textsmall2,imagesmall,adspacks.id as packid from adspacks".
             " inner join advertisements on adspacks.advertisement_id=advertisements.id".
-            " where adspacks.smallpack >= 0 and advertisements.location_id=".$location_id.
+            " where advertisements.location_id=".$location_id.
+            " and adspacks.toscreen = 1 and adspacks.startdate <='". $now ."' and adspacks.enddate >'". $now ."'".
             " order by RAND() LIMIT 1";
 
         $adsPacks = DB::select(DB::raw($query));
