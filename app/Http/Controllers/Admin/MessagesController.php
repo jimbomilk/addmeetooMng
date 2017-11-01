@@ -137,7 +137,7 @@ class MessagesController extends Controller {
         else{
             Session::flash('message', 'Error envio');
         }
-        return redirect()->route($this->indexPage("messages"));
+        return ;
 	}
 
 	/**
