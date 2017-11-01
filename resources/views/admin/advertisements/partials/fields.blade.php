@@ -5,6 +5,7 @@
 
     <h3>Gran formato<small>(Recomendado: 1800x600, jpg o png)</small></h3>
     <hr class="separator">
+    <h4>Si quieres puedes diseñar tu anuncio <a href="https://desygner.com/" target="_blank">aquí</a></h4>
     <div class="form-group">
     @include("admin.common.input_file",array('var'=>'imagebig','width'=>400,'height'=>200))
     </div>

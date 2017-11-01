@@ -104,8 +104,9 @@ class SendScreen extends Command
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
         $a = array();
-        $query = "select textbig1,textbig2,imagebig,adspacks.id as packid from adspacks".
+        $query = "select textbig1,textbig2,imagebig,locations.logo as logo, adspacks.id as packid from adspacks".
                     " inner join advertisements on adspacks.advertisement_id=advertisements.id".
+                    " left outer join locations on locations.id = advertisements.location_id".
                     " where advertisements.location_id=".$location_id.
                     " and adspacks.toscreen = 1 and adspacks.startdate <='". $now ."' and adspacks.enddate >'". $now ."'".
                     " order by adspacks.bigdisplayed"   ;
@@ -123,6 +124,7 @@ class SendScreen extends Command
                 $message->stext = $adspack->textbig2;
                 $message->image = $adspack->imagebig;
                 $message->type = 'bigpack';
+                $message->logo1 = $adspack->logo;
 
                 // actualizar sus visualizaciones
                 $pack = Adspack::find($adspack->packid);
