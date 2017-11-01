@@ -16,7 +16,7 @@
             <td>
                 @include("admin.common.btn_edit",array('var'=>$message))
                 @include("admin.common.btn_delete",array('var'=>$message))
-                <a href="{{ route('admin.messages.show', $message->id) }}" class="btn-edit"><i class="btn btn-primary">{{trans('labels.send')}}</i></a>
+                <a href="{{ route($login_user->type.'.messages.show', $message->id) }}" class="btn-edit"><i class="btn btn-primary">{{trans('labels.send')}}</i></a>
             </td>
 
         </tr>

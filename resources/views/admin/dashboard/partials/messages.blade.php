@@ -11,8 +11,7 @@
             <li>
                 <img src="{{$msg->image}}" width="75" height="50" alt="add image" class="online"/>
                 <!-- todo text -->
-                <span class="text">{{$msg->stext}}</span>
-                <span class="text">{{$msg->ltext}}</span>
+                <span class="text">{!! $msg->ltext !!}</span>
 
             </li>
             @endforeach
