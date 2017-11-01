@@ -76,7 +76,7 @@
                 "Samman=sammanregular;";
         tinymce.init({
             selector: '#mytextarea',
-            menubar: 'insert',
+            menubar: '',
             language: 'es',
             branding: false,
             statusbar: false,
@@ -88,7 +88,8 @@
             'bold italic underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | preview',
             font_formats: tm_fonts,
             media_live_embeds: true,
-            fontsize_formats: "36pt 46pt 56pt 66pt 76pt 86pt 96pt 106pt"
+            fontsize_formats: "36pt 46pt 56pt 66pt 76pt 86pt 96pt 106pt",
+            height:500
 
         });
     </script>
