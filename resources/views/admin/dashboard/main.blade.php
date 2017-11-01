@@ -18,16 +18,19 @@
 @section('dashboard_content')
     <!-- Small boxes (Stat box) -->
     <div class="row">
+        @if ($login_user->is('admin') || ($login_user->is('owner')&&$login_user->incidencemanager) )
         @include ('admin.dashboard.partials.boxes')
+        @endif
     </div><!-- /.row -->
     <!-- Main row -->
     <div class="row">
         <!-- Left col -->
         <section class="col-lg-12 connectedSortable">
 
+            @if ($login_user->is('admin') || ($login_user->is('owner')&&$login_user->incidencemanager) )
             @include('admin.dashboard.partials.participationGraph')
 
-            @if ($login_user->is('admin') || ($login_user->is('owner')&&$login_user->incidencemanager) )
+
             @include('admin.dashboard.partials.chat')
             @endif
 
