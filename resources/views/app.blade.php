@@ -84,7 +84,7 @@
             relative_urls: true,
             remove_script_host: true,
             protocol: 'https',
-            toolbar: 'undo redo | fontselect fontsizeselect | forecolor backcolor | emoticons | ' +
+            toolbar: 'fontselect fontsizeselect | forecolor backcolor | emoticons | ' +
             'bold italic underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | preview',
             font_formats: tm_fonts,
             media_live_embeds: true,
