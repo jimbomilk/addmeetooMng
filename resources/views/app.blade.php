@@ -80,11 +80,11 @@
             language: 'es',
             branding: false,
             statusbar: false,
-            plugins: 'lists,link,image,preview,media,visualchars,table,textcolor,emoticons',
+            plugins: 'lists,link,image,preview,media,visualchars,table,textcolor',
             relative_urls: true,
             remove_script_host: true,
             protocol: 'https',
-            toolbar: 'fontselect fontsizeselect | forecolor backcolor | emoticons | ' +
+            toolbar: 'fontselect fontsizeselect | forecolor backcolor |' +
             'bold italic underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | preview',
             font_formats: tm_fonts,
             media_live_embeds: true,
