@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Console\Commands\SendScreen;
+use App\Events\AdsEvent;
 use App\Events\Envelope;
 use App\General;
 use App\Http\Requests\MessageRequest;
@@ -130,7 +131,7 @@ class MessagesController extends Controller {
             //SendScreen ss = new SendScreen();
 
             //Publicamos
-            event(new MessageEvent($env, 'location'.$message->location_id));
+            event(new AdsEvent($env, 'location'.$message->location_id));
 
             Session::flash('message', 'Mensaje enviado:' . $message->stext);
         }
