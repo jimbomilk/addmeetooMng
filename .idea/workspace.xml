@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/label.php" afterPath="$PROJECT_DIR$/resources/lang/en/label.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" afterPath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -34,12 +34,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="label.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="label.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/lang/en/label.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10493827" vertical-offset="2873" max-vertical-offset="3740">
+            <state vertical-scroll-proportion="-1.3076923" vertical-offset="2873" max-vertical-offset="3740">
               <caret line="171" column="45" selection-start-line="171" selection-start-column="45" selection-end-line="171" selection-end-column="45" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendMessage.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendMessage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385" vertical-offset="1768" max-vertical-offset="2805">
+              <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
+              <folding>
+                <marker date="1509532027355" expanded="true" signature="4344:4726" placeholder="select texts..adspacks..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43026707" vertical-offset="1062" max-vertical-offset="3111">
+              <caret line="86" column="61" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+              <folding>
+                <marker date="1509611525438" expanded="true" signature="3058:3599" placeholder="select textb..adspacks..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,11 +185,11 @@
         <option value="$PROJECT_DIR$/app/Jobs/AdsEngine.php" />
         <option value="$PROJECT_DIR$/app/Jobs/GameEngine.php" />
         <option value="$PROJECT_DIR$/app/Jobs/MsgEngine.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/advertisements.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/common/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/common/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/label.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
       </list>
     </option>
   </component>
@@ -596,12 +620,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00500" summary="ok">
-      <created>1508411060195</created>
-      <option name="number" value="00500" />
-      <option name="project" value="LOCAL" />
-      <updated>1508411060195</updated>
-    </task>
     <task id="LOCAL-00501" summary="ok">
       <created>1508659726552</created>
       <option name="number" value="00501" />
@@ -890,7 +908,13 @@
       <option name="project" value="LOCAL" />
       <updated>1509611073255</updated>
     </task>
-    <option name="localTasksCounter" value="549" />
+    <task id="LOCAL-00549" summary="ok">
+      <created>1509611096528</created>
+      <option name="number" value="00549" />
+      <option name="project" value="LOCAL" />
+      <updated>1509611096528</updated>
+    </task>
+    <option name="localTasksCounter" value="550" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1109,16 +1133,6 @@
           <folding>
             <marker date="1509450746286" expanded="true" signature="-1:-1" placeholder="select IFNUL..user_gameboards..." />
             <marker date="1509450746286" expanded="true" signature="-1:-1" placeholder="SELECT user_..user_gameboards..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendMessage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385" vertical-offset="1768" max-vertical-offset="2805">
-          <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
-          <folding>
-            <marker date="1509532027355" expanded="true" signature="-1:-1" placeholder="select texts..adspacks..." />
           </folding>
         </state>
       </provider>
@@ -1371,17 +1385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7833828" vertical-offset="841" max-vertical-offset="3111">
-          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
-          <folding>
-            <marker date="1509608686613" expanded="true" signature="-1:-1" placeholder="select textb..adspacks..." />
-            <marker date="1509608686613" expanded="true" signature="-1:-1" placeholder="select textb..adspacks..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9814815" vertical-offset="6873" max-vertical-offset="8823">
@@ -1423,9 +1426,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/en/label.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10493827" vertical-offset="2873" max-vertical-offset="3740">
+        <state vertical-scroll-proportion="-1.3076923" vertical-offset="2873" max-vertical-offset="3740">
           <caret line="171" column="45" selection-start-line="171" selection-start-column="45" selection-end-line="171" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="1768" max-vertical-offset="2805">
+          <caret line="137" column="19" selection-start-line="137" selection-start-column="19" selection-end-line="137" selection-end-column="19" />
+          <folding>
+            <marker date="1509532027355" expanded="true" signature="4344:4726" placeholder="select texts..adspacks..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43026707" vertical-offset="1062" max-vertical-offset="3111">
+          <caret line="86" column="61" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+          <folding>
+            <marker date="1509611525438" expanded="true" signature="3058:3599" placeholder="select textb..adspacks..." />
+          </folding>
         </state>
       </provider>
     </entry>
