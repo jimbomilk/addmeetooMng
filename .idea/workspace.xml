@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/AdvertisementRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/AdvertisementRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/MessageRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/MessageRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MessagesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MessagesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/Request.php" afterPath="$PROJECT_DIR$/app/Http/Requests/Request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/global.js" afterPath="$PROJECT_DIR$/public/dist/js/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/common/input_file.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/common/input_file.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -667,12 +661,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00502" summary="ok">
-      <created>1508660039320</created>
-      <option name="number" value="00502" />
-      <option name="project" value="LOCAL" />
-      <updated>1508660039320</updated>
-    </task>
     <task id="LOCAL-00503" summary="ok">
       <created>1508660149342</created>
       <option name="number" value="00503" />
@@ -961,7 +949,13 @@
       <option name="project" value="LOCAL" />
       <updated>1509611548411</updated>
     </task>
-    <option name="localTasksCounter" value="551" />
+    <task id="LOCAL-00551" summary="ok">
+      <created>1509633826241</created>
+      <option name="number" value="00551" />
+      <option name="project" value="LOCAL" />
+      <updated>1509633826241</updated>
+    </task>
+    <option name="localTasksCounter" value="552" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
