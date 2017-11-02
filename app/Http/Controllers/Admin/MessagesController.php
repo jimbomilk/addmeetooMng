@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-use App\Events\MessageEvent;
+use App\Events\AdsEvent;
 use Illuminate\Support\Facades\Storage;
 
 class MessagesController extends Controller {
@@ -130,7 +130,7 @@ class MessagesController extends Controller {
             //SendScreen ss = new SendScreen();
 
             //Publicamos
-            event(new MessageEvent($env, 'location'.$message->location_id));
+            event(new AdsEvent($env, 'location'.$message->location_id));
 
             Session::flash('message', 'Mensaje enviado:' . $message->stext);
         }
