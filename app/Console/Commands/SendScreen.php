@@ -58,42 +58,43 @@ class SendScreen extends Command
     {
         $location_id = $this->argument('location');
         $location = Location::find($location_id);
-        $total_time = 200;
+        $total_time_by_type = 200;
+        $total_time = 600;
 
         //Log::info('Location:'.$location);
 
         if (isset($location)) {
             $delay_screen=$location->screen_timer;
              // Tiempo que tiene cada sección (anuncios, info y actividades)
-            $nScreens = round($total_time/$delay_screen);
+            $nScreens = round($total_time_by_type/$delay_screen);
 
             $agenda = $this->screenAgenda($location->id,$nScreens);
-            $nAgenda = count($agenda);
-            // Si no hay agenda los slots se reparten entre las otras dos opciones
-            if ($nAgenda< $nScreens)
-            {
-                $nScreens = round(($nScreens + ($nScreens-$nAgenda))/2);
-            }
-
             $games = $this->screenGame($location->id,$nScreens);
-            $nGames = count($games);
-            // Si no hay games los slots se dejan unicamente para anuncios
-            if ($nGames< $nScreens)
-            {
-                $nScreens = $nScreens + ($nScreens-$nGames);
-            }
-
             $anuncios = $this->screenAds($location->id,$nScreens);
 
             $jobs = array_merge($anuncios,$agenda,$games);
             shuffle($jobs);
 
             $delay = 0;
-            foreach($jobs as $job) {
-                $job->delay($delay);
-                $job->onQueue('bigpack');
-                $delay = $delay + $delay_screen;
-                $this->dispatch($job);
+            $original = $jobs;
+            while ($delay < $total_time)
+                $job = array_shift($jobs);
+                if (isset($job)) {
+                    $job->delay($delay);
+                    $job->onQueue('bigpack');
+                    if ($job->duration != 0)
+                        $delay = $delay + $job->duration;
+                    else
+                        $delay = $delay + $delay_screen;
+                    $this->dispatch($job);
+                }
+                else {
+                    $delay = $delay + $delay_screen; // evitamos bucles infinitos
+                }
+
+                //Si nos quedamos sin elementos volvemos a empezar
+                if (count($jobs)==0)
+                    $jobs = $original;
             }
         }
 
@@ -109,41 +110,29 @@ class SendScreen extends Command
                     " left outer join locations on locations.id = advertisements.location_id".
                     " where advertisements.location_id=".$location_id.
                     " and adspacks.toscreen = 1 and adspacks.startdate <='". $now ."' and adspacks.enddate >'". $now ."'".
-                    " order by adspacks.bigdisplayed"   ;
+                    " order by adspacks.bigdisplayed limit ".$nScreens  ;
 
         $adsPacks = DB::select(DB::raw($query));
         if (!isset($adsPacks))
-            return false;
+            return $a;
 
-        $i=0;
-        while ($i<$nScreens){
-            $previ = $i; // para romper bucles infinitos
-            foreach($adsPacks as $adspack) {
-                $message = new Envelope();
-                $message->ltext = $adspack->textbig1;
-                $message->stext = $adspack->textbig2;
-                $message->image = $adspack->imagebig;
-                $message->type = 'bigpack';
-                $message->logo1 = $adspack->logo;
+        foreach($adsPacks as $adspack) {
+            $message = new Envelope();
+            $message->ltext = $adspack->textbig1;
+            $message->stext = $adspack->textbig2;
+            $message->image = $adspack->imagebig;
+            $message->type = 'bigpack';
+            $message->logo1 = $adspack->logo;
 
-                // actualizar sus visualizaciones
-                $pack = Adspack::find($adspack->packid);
-                if (isset($pack)) {
-                    $pack->bigdisplayed++;
-                    $pack->save();
-                }
-
-                // creamos el job
-
-                $job = (new AdsEngine($message, $location_id));
-
-                $i++;
-                $a[] = $job;
-                if ($i == $nScreens) // si ya hemos cumplido salimos.
-                    return $a;
+            // actualizar sus visualizaciones
+            $pack = Adspack::find($adspack->packid);
+            if (isset($pack)) {
+                $pack->bigdisplayed++;
+                $pack->save();
             }
-            if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
-                return $a;
+            // creamos el job
+            $job = (new AdsEngine($message, $location_id));
+            $a[] = $job;
         }
         return $a;
     }
@@ -151,33 +140,27 @@ class SendScreen extends Command
 
     public function screenGame($location_id,$nscreens)
     {
-        $i=0;
         $a = array();
-        while ($i<$nscreens) {
-            $previ = $i;
-            foreach (Gameboard::where('location_id', '=', $location_id)
-                         ->where('status', '>', Status::SCHEDULED)
-                         ->where('status', '<=', Status::OFFICIAL)
-                         ->cursor() as $gameboard) {
-                $i++;
-                $gameview = $gameboard->getGameView($gameboard->status);
-                if (isset($gameview)) {
-                    //Log::info('Delay GAME:'.$d);
-                    $job = (new GameEngine($gameview, $location_id));
-                    $a[] = $job;
-                    if ($i == $nscreens)
-                        return $a;
-                }
+
+        foreach (Gameboard::where('location_id', '=', $location_id)
+                     ->where('status', '>', Status::SCHEDULED)
+                     ->where('status', '<=', Status::OFFICIAL)
+                     ->limit($nscreens)
+                     ->cursor() as $gameboard) {
+            $gameview = $gameboard->getGameView($gameboard->status);
+            if (isset($gameview)) {
+                //Log::info('Delay GAME:'.$d);
+                $job = (new GameEngine($gameview, $location_id));
+                $a[] = $job;
+
             }
-            if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
-                return $a;
         }
+
         return $a;
     }
 
     public function screenAgenda($location_id,$nscreens)
     {
-        $i=0;
         $a = array();
         $now = Carbon::now(Config::get('app.timezone'))->toDateTimeString();
 
@@ -185,27 +168,23 @@ class SendScreen extends Command
             ->where('type','<>','util')
             ->where('start','<=',$now)
             ->where('end'  ,'>', $now)
+            ->where('toscreen',true)
+            ->limit($nscreens)
             ->inRandomOrder()->get();
 
-        while ($i<$nscreens) {
-            $previ = $i; // para romper bucles infinitos
-            foreach ($messages as $message){
-                $envelope = new Envelope();
-                $envelope->stext = $message->stext;
-                $envelope->ltext = $message->ltext;
-                $envelope->image = $message->image;
-                $envelope->background = $message->imagebig;
-                $envelope->type = 'info';
-                $envelope->logo1 = isset($message->location)?$message->location->logo:"";
-                //Log::info('Delay AGENDA:'.$delay);
-                $job = new AdsEngine($envelope, $location_id);
-                $i++;
-                $a[] = $job;
-                if ($i == $nscreens)
-                    return $a;
-            }
-            if ($previ == $i)// si en una iteración el valor de i es igual al inicial rompemos el bucle.
-                return $a;
+        foreach ($messages as $message){
+            $envelope = new Envelope();
+            $envelope->stext = $message->stext;
+            $envelope->ltext = $message->ltext;
+            $envelope->image = $message->image;
+            $envelope->background = $message->imagebig;
+            $envelope->type = 'info';
+            $envelope->logo1 = isset($message->location)?$message->location->logo:"";
+            //Log::info('Delay AGENDA:'.$delay);
+            $job = new AdsEngine($envelope, $location_id);
+            if (isset($message->duration) && $message->duration !=0)
+                $job->duration = $message->duration;
+            $a[] = $job;
         }
         return $a;
     }

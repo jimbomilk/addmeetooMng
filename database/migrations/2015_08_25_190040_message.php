@@ -32,6 +32,10 @@ class Message extends Migration {
                 ->on('locations')
                 ->onDelete('cascade');
 
+            $table->boolean('toscreen')->default(true);
+            $table->boolean('tomobile')->default(true);
+            $table->smallInteger('duration')->default(null);
+
             $table->timestamps();
         });
 	}

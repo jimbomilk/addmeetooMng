@@ -15,6 +15,7 @@ class GameEngine extends Job implements ShouldQueue
     use InteractsWithQueue, SerializesModels;
 
     protected $gameview;
+    public $duration;
 
     /**
      * Create a new job instance.
@@ -23,6 +24,7 @@ class GameEngine extends Job implements ShouldQueue
      */
     public function __construct(GameView $gameview)
     {
+        $this->duration = 0;
         $this->gameview = $gameview;
     }
 

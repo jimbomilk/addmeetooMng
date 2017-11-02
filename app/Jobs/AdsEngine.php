@@ -14,6 +14,7 @@ class AdsEngine extends Job implements ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
+    public $duration;
     protected $msg;
     protected $location;
 
@@ -24,6 +25,7 @@ class AdsEngine extends Job implements ShouldQueue
      */
     public function __construct(Envelope $msg,$location)
     {
+        $this->duration = 0;
         $this->msg = $msg;
         $this->location = $location;
     }

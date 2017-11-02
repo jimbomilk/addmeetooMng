@@ -7,12 +7,16 @@
 @endif
 
 @include("admin.common.input_datetime",array('var'=>'end'))
+
+@include("admin.common.input_number",array('var'=>'duration'))
 <h3>Categoría</h3>
 <hr class="separator">
 @include("admin.common.input_select",array('var'=>'type','col'=>$types,'val'=>'ocio','nolabel'=>1))
 <h3>Lugar de publicación</h3>
 <hr class="separator">
 @include("admin.common.input_select",array('var'=>'location_id','col'=>$locations,'nolabel'=>1))
+@include("admin.common.input_check",array('var'=>'toscreen','default'=>1))
+@include("admin.common.input_check",array('var'=>'tomobile','default'=>1))
 <h3>Título y descripción</h3>
 <hr class="separator">
 @include("admin.common.input_text",array('var'=>'stext'))

@@ -11,9 +11,10 @@
             <li>
                 <img src="{{$msg->image}}" width="75" height="50" alt="add image" class="online"/>
                 <!-- todo text -->
-                <span class="text">{!! $msg->ltext !!}</span>
-
+                <span class="text">{{ $msg->stext }}</span>
+                <span class="text">Del {{ $msg->visibleStart }} al {{ $msg->visibleEnd }}</span>
             </li>
+
             @endforeach
             <span class="box-tools pull-right inline">
             {{ $messages->links() }}

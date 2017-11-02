@@ -16,6 +16,7 @@ class MsgEngine extends Job implements ShouldQueue
 
     protected $msg;
     protected $location;
+    public $duration;
 
     /**
      * Create a new job instance.
@@ -24,6 +25,7 @@ class MsgEngine extends Job implements ShouldQueue
      */
     public function __construct(Envelope $msg,$location)
     {
+        $this->duration = 0;
         $this->msg = $msg;
         $this->location = $location;
     }

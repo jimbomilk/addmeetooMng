@@ -443,6 +443,7 @@ class ApiController extends Controller
                         ->where('start','<',$now)
                         ->where('end','>',$now)
                         ->where('location_id',$location)
+                        ->where('tomobile',true)
                         ->orderBy('end','asc')
                         ->get();
 
