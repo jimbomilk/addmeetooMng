@@ -17,7 +17,7 @@
 @section('dashboard_content')
     <div class="container" >
         <div class="row">
-            <div class="col-md-11" >
+            <div class="col-md-12" style="padding-right: 60px">
                 <div class="panel panel-default">
                     <div class="panel-heading">Total {{ trans('labels.'.$name)}}: <span class="panel-heading-total">{{ $set->total() }}</span> </div>
 
