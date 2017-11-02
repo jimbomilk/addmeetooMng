@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php" afterPath="$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Jobs/AdsEngine.php" afterPath="$PROJECT_DIR$/app/Jobs/AdsEngine.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Jobs/GameEngine.php" afterPath="$PROJECT_DIR$/app/Jobs/GameEngine.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Jobs/MsgEngine.php" afterPath="$PROJECT_DIR$/app/Jobs/MsgEngine.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" afterPath="$PROJECT_DIR$/app/Console/Commands/SendScreen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/messages/partials/fields.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/messages/partials/fields.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/messages.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/partials/messages.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -79,11 +72,11 @@
       <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8333334" vertical-offset="2183" max-vertical-offset="3094">
-              <caret line="91" column="81" selection-start-line="91" selection-start-column="81" selection-end-line="91" selection-end-column="81" />
+            <state vertical-scroll-proportion="0.54320985" vertical-offset="841" max-vertical-offset="3111">
+              <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
               <folding>
-                <marker date="1509608523660" expanded="true" signature="3039:3579" placeholder="select textb..adspacks..." />
-                <marker date="1509608523660" expanded="true" signature="3039:3580" placeholder="select textb..adspacks..." />
+                <marker date="1509608686613" expanded="true" signature="3053:3593" placeholder="select textb..adspacks..." />
+                <marker date="1509608686613" expanded="true" signature="3053:3594" placeholder="select textb..adspacks..." />
               </folding>
             </state>
           </provider>
@@ -749,12 +742,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00496" summary="ok">
-      <created>1508343519174</created>
-      <option name="number" value="00496" />
-      <option name="project" value="LOCAL" />
-      <updated>1508343519174</updated>
-    </task>
     <task id="LOCAL-00497" summary="ok">
       <created>1508403519164</created>
       <option name="number" value="00497" />
@@ -1043,7 +1030,13 @@
       <option name="project" value="LOCAL" />
       <updated>1509557890022</updated>
     </task>
-    <option name="localTasksCounter" value="545" />
+    <task id="LOCAL-00545" summary="ok">
+      <created>1509608652442</created>
+      <option name="number" value="00545" />
+      <option name="project" value="LOCAL" />
+      <updated>1509608652442</updated>
+    </task>
+    <option name="localTasksCounter" value="546" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1561,11 +1554,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8333334" vertical-offset="2183" max-vertical-offset="3094">
-          <caret line="91" column="81" selection-start-line="91" selection-start-column="81" selection-end-line="91" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.54320985" vertical-offset="841" max-vertical-offset="3111">
+          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
           <folding>
-            <marker date="1509608523660" expanded="true" signature="3039:3579" placeholder="select textb..adspacks..." />
-            <marker date="1509608523660" expanded="true" signature="3039:3580" placeholder="select textb..adspacks..." />
+            <marker date="1509608686613" expanded="true" signature="3053:3593" placeholder="select textb..adspacks..." />
+            <marker date="1509608686613" expanded="true" signature="3053:3594" placeholder="select textb..adspacks..." />
           </folding>
         </state>
       </provider>

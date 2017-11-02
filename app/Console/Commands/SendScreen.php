@@ -78,6 +78,7 @@ class SendScreen extends Command
             $delay = 0;
             $original = $jobs;
             while ($delay < $total_time)
+            {
                 $job = array_shift($jobs);
                 if (isset($job)) {
                     $job->delay($delay);
