@@ -169,7 +169,7 @@ return [
     'messages.image' => 'Imagen del mensaje',
     'messages.location_id' => 'Lugar de publicación',
     'messages.imagebig' => 'Fondo de pantalla(opcional, sólo para TV)',
-    'messages.duration' => 'Duración del mensaje en pantalla (opcional)',
+    'messages.duration' => 'Duración en min. del mensaje en pantalla (opcional)',
     'messages.toscreen' => 'Envio a pantalla',
     'messages.tomobile' => 'Envio a móviles (desactivar si el mensaje contiene un video)',
 
