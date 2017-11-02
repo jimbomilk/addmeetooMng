@@ -125,6 +125,7 @@ class MessagesController extends Controller {
             $env->image = $message->image;
             $env->type = 'info';
             $env->location_img = $message->logo;
+            $env->background = $message->imagebig;
 
 
             //SendScreen ss = new SendScreen();
