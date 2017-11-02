@@ -25,9 +25,8 @@ class AdvertisementRequest extends Request {
 
         if ($this->method() == 'PUT')
         {
-            // Update operation, exclude the required
-            $imgBig = 'mimes:jpeg,jpg,png|max:1000';
-            $imgSml = 'mimes:jpeg,jpg,png|max:1000';
+            $imgBig = '';
+            $imgSml = '';
         }
         else
         {

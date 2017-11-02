@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Console\Commands\SendScreen;
-use App\Events\AdsEvent;
 use App\Events\Envelope;
 use App\General;
 use App\Http\Requests\MessageRequest;
@@ -51,7 +50,7 @@ class MessagesController extends Controller {
 
         $messages = Message::whereRaw($where)
                 ->paginate();*/
-        $messages = Auth::user()->messageswhere($where);
+        $messages = Auth::user()->messages($where);
 
         return view ('admin.common.index',['searchable'=>'1','name'=>'messages','set'=>$messages]);
 	}
@@ -131,7 +130,7 @@ class MessagesController extends Controller {
             //SendScreen ss = new SendScreen();
 
             //Publicamos
-            event(new AdsEvent($env, 'location'.$message->location_id));
+            event(new MessageEvent($env, 'location'.$message->location_id));
 
             Session::flash('message', 'Mensaje enviado:' . $message->stext);
         }
@@ -139,6 +138,7 @@ class MessagesController extends Controller {
             Session::flash('message', 'Error envio');
         }
         return redirect()->route($this->indexPage("messages"));
+        return view ('admin.common.index',['name'=>'messages','set'=>$advertisements]);
 	}
 
 	/**
@@ -171,12 +171,12 @@ class MessagesController extends Controller {
         $message->fill($request->all());
         $message->start = $message->getUTCStart();
         $message->end = $message->getUTCEnd();
-        $message->save();
+        $message->save();// no está duplicado es que necesitamos ponerle la hora para que el fichero se guarde con la hora correcta
 
-
-        $filename = $request->saveFile('image',$message->path);
-        if(isset($filename))
+        $filename = $request->saveFile('image', $message->path);
+        if (isset($filename))
             $message->image = $filename;
+
 
         $filename2 = $request->saveFile('imagebig',$message->path);
         if(isset($filename2))

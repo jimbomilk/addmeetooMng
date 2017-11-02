@@ -10,16 +10,13 @@ use Illuminate\Support\Facades\Storage;
 
 class Request extends FormRequest
 {
-
     public function saveFile($field,$folder)
     {
-
         if (!isset($field) || $field == '')
             return null;
         $file = $this->file($field);
         $filename = null;
         if (isset($file)) {
-
             $filename = $folder . '/' . $field .Carbon::now(). '.' . $file->getClientOriginalExtension();
             //Log::info('Filename:'.$filename);
             if (Storage::disk('s3')->put($filename, File::get($file),'public'))
@@ -27,6 +24,8 @@ class Request extends FormRequest
 
         }
 
+        if ($this->input($field) == "")
+            return "";
         return null;
     }
 

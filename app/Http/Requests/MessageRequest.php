@@ -25,7 +25,7 @@ class MessageRequest extends Request {
 		return [
             'start'  => 'required',
             'end'  => 'required|after:start',
-            'image' => 'mimes:jpeg,bmp,png'
+            'file.image' => 'mimes:jpeg,bmp,png'
 
 		];
 	}

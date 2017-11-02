@@ -11,7 +11,6 @@ $("form").keypress(function(e) {
 function readURL(input,tag) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function (e) {
             $(tag).attr('src', e.target.result);
         }
