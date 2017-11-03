@@ -121,7 +121,8 @@ class GameboardsController extends Controller {
     public  function participants($id)
     {
         $options = null;
-
+        $serie = null;
+        $values = null;
 
         $participants = UserGameboard::getParticipation($id,$serie,$values);
         if (isset ($game)) {

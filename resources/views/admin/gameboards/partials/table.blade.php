@@ -16,6 +16,7 @@
         <th></th>
         <th></th>
         <th></th>
+        <th></th>
     </tr>
 
     @foreach($set as $key=>$game)
@@ -62,12 +63,12 @@
 
             <td>
                 @if ($login_user->is('admin'))
-                @include("admin.common.btn_other",array('route'=> 'gameboards_preview','var'=>$game,'label'=>'preview'))
+                @include("admin.common.btn_other",array('route'=> 'gameboards_preview','var'=>$game,'label'=>'vista previa','style'=>'btn-danger'))
                 @endif
             </td>
 
             <td>
-                @include("admin.common.btn_other",array('route'=> 'gameboards_participants','var'=>$game,'label'=>'participants'))
+                @include("admin.common.btn_other",array('route'=> 'gameboards_participants','var'=>$game,'label'=>'resultado','style'=>'btn-info'))
             </td>
 
             <td>
