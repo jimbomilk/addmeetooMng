@@ -11,7 +11,7 @@
             <td>{{$indexKey+1}}</td>
             <td>{{$userrank->name}}</td>
             <td>{{$userrank->email}}</td>
-            <td>{{$usergameboard->points}}</td>
+            <td>{{$userrank->points}}</td>
 
         </tr>
     @endforeach
