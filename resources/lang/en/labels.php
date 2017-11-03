@@ -57,6 +57,8 @@ return [
     'notifications' => 'Notificaciones',
     'startdate' => 'Fecha inicial',
     'enddate'=> 'Fecha final',
+    'monthlyranking' => 'Ranking mensual',
+    'premonthlyranking' => 'Ranking del mes anterior'
 
 
 ];

@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-12" style="padding-right: 60px">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Total {{ trans('labels.'.$name)}}: <span class="panel-heading-total">{{ $set->total() }}</span> </div>
+                    <div class="panel-heading">Total {{ trans('labels.'.$name)}}: <span class="panel-heading-total">{{ is_array($set)? count($set): $set->total() }}</span> </div>
 
                     @if (Session::has('message'))
                         <p class="alert alert-success">
@@ -38,9 +38,12 @@
                         @endif
 
                         @if (isset($withlocations))
+
                         {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.index", 'method'=>'GET', 'class' => 'navbar-form navbar-left pull-right', 'role'=>'location']) !!}
                                 @include("admin.common.input_select",array('var'=>'location_id','col'=>$locations))
+                                @include("admin.common.input_hidden",array('var'=>'monthly','val'=>isset($monthly)?$monthly:0))
                                 <button type="submit" class="btn btn-default">{{trans('labels.changelocation')}}</button>
+
                         {!! Form::close() !!}
                         @endif
 

@@ -7,6 +7,7 @@ use App\Location;
 use App\Http\Requests\UserGameboardRequest;
 use App\UserGameboard;
 use App\UserProfile;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,33 +33,32 @@ class UserGameBoardsController extends Controller {
 
     public function index(Request $request)
 	{
-
+        $monthly = $request->get('monthly');
         $locations = Auth::user()->locations()->lists('name','id');
 
         $this->sel_location = $request->get('location_id');
         if (!isset($this->sel_location) && count($locations)>0)
             $this->sel_location = $locations->keys()->first();
 
+        if (isset($monthly)&&$monthly>0) {
+            setlocale(LC_TIME, 'es_ES');
+            if ($monthly == 1) {
+                $startcurrentmonth = Carbon::now()->startofMonth();
+                $endcurrentmonth = Carbon::now()->endofMonth();
+            }else{
+                $startcurrentmonth = Carbon::now()->subMonth()->startofMonth();
+                $endcurrentmonth = Carbon::now()->subMonth()->endofMonth();
+            }
 
-        $usergameboards = UserProfile::globalRanking($this->sel_location,true);
-/*
-        if (Auth::user()->is('admin'))
-            $usergameboards = UserGameboard::where('users.type','=','user')
-                ->join('users', 'user_gameboards.user_id', '=' , 'users.id')
-                ->orderby('points','desc')->paginate();
+            $query = $this->monthlyRanking($this->sel_location, $startcurrentmonth, $endcurrentmonth);
+            //Log::info('Monthly query:'.$query);
+
+            $usergameboards = DB::select(DB::raw($query));
+        }
         else
-            $usergameboards = UserGameboard::where('locations.owner_id','=',Auth::user()->id)
-                ->where('users.type','=','user')
-                ->join ('user_profiles','user_gameboards.user_id','=','user_profiles.user_id')
-                ->join ('locations', 'user_profiles.location_id', '=' , 'locations.id')
-                ->join ('users', 'user_gameboards.user_id', '=' , 'users.id')
+            $usergameboards = UserProfile::globalRanking($this->sel_location,true);
 
-                ->orderby('points','desc')
-                ->paginate();
-*/
-
-
-        return view('admin.common.index',['locations'=>$locations,'withlocations'=>1,'name'=>'usergameboards','set'=>$usergameboards,'hide_new'=>1,'hide_delete'=>1]);
+        return view('admin.common.index',['locations'=>$locations,'withlocations'=>1,'name'=>'usergameboards','set'=>$usergameboards,'hide_new'=>1,'hide_delete'=>1,'monthly'=>$monthly]);
 	}
 
 
@@ -91,7 +91,6 @@ class UserGameBoardsController extends Controller {
 
         return redirect()->route($this->indexPage("usergameboards"));
     }
-
 
 
 	/**

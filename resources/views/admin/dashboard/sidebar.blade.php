@@ -70,6 +70,10 @@
 
                 <ul class="treeview-menu">
                     <li><a href="/{{$login_user->type}}/usergameboards"><i class="fa fa-line-chart"></i> {{trans('labels.ranking')}}</a></li>
+                    <li><a href="/{{$login_user->type}}/usergameboards?monthly=1"><i class="fa fa-line-chart"></i> {{trans('labels.monthlyranking')}}</a></li>
+                    <li><a href="/{{$login_user->type}}/usergameboards?monthly=2"><i class="fa fa-line-chart"></i> {{trans('labels.premonthlyranking')}}</a></li>
+
+
                 </ul>
             </li>
             @endif
