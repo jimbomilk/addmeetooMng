@@ -34,6 +34,7 @@ class UserGameBoardsController extends Controller {
     public function index(Request $request)
 	{
         $monthly = $request->get('monthly');
+        $title = "";
         $locations = Auth::user()->locations()->lists('name','id');
 
         $this->sel_location = $request->get('location_id');
@@ -45,20 +46,25 @@ class UserGameBoardsController extends Controller {
             if ($monthly == 1) {
                 $startcurrentmonth = Carbon::now()->startofMonth();
                 $endcurrentmonth = Carbon::now()->endofMonth();
+                $title = 'Ranking del mes actual';
             }else{
                 $startcurrentmonth = Carbon::now()->subMonth()->startofMonth();
                 $endcurrentmonth = Carbon::now()->subMonth()->endofMonth();
+                $title = 'Ranking del mes pasado';
             }
 
             $query = $this->monthlyRanking($this->sel_location, $startcurrentmonth, $endcurrentmonth);
             //Log::info('Monthly query:'.$query);
 
             $usergameboards = DB::select(DB::raw($query));
-        }
-        else
-            $usergameboards = UserProfile::globalRanking($this->sel_location,true);
 
-        return view('admin.common.index',['locations'=>$locations,'withlocations'=>1,'name'=>'usergameboards','set'=>$usergameboards,'hide_new'=>1,'hide_delete'=>1,'monthly'=>$monthly]);
+        }
+        else{
+            $title = 'Ranking global';
+            $usergameboards = UserProfile::globalRanking($this->sel_location,true);
+        }
+
+        return view('admin.common.index',['locations'=>$locations,'withlocations'=>1,'name'=>'usergameboards','set'=>$usergameboards,'hide_new'=>1,'hide_delete'=>1,'monthly'=>$monthly,'titlepage'=>$title]);
 	}
 
 
