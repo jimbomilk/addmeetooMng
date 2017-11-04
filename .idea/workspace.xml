@@ -127,12 +127,11 @@
       <file leaf-file-name="participants.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/gameboards/participants.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.13821138" vertical-offset="238" max-vertical-offset="969">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="26" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.27642277" vertical-offset="238" max-vertical-offset="952">
+              <caret line="20" column="131" selection-start-line="20" selection-start-column="131" selection-end-line="20" selection-end-column="131" />
               <folding>
                 <element signature="e#243#270#0#HTML" expanded="true" />
-                <element signature="e#932#999#0#HTML" expanded="true" />
-                <element signature="e#1663#1705#0#HTML" expanded="true" />
+                <element signature="e#1662#1704#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -734,12 +733,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00529" summary="ok">
-      <created>1509540425310</created>
-      <option name="number" value="00529" />
-      <option name="project" value="LOCAL" />
-      <updated>1509540425310</updated>
-    </task>
     <task id="LOCAL-00530" summary="ok">
       <created>1509540729394</created>
       <option name="number" value="00530" />
@@ -1028,7 +1021,13 @@
       <option name="project" value="LOCAL" />
       <updated>1509798494349</updated>
     </task>
-    <option name="localTasksCounter" value="578" />
+    <task id="LOCAL-00578" summary="ok">
+      <created>1509798631888</created>
+      <option name="number" value="00578" />
+      <option name="project" value="LOCAL" />
+      <updated>1509798631888</updated>
+    </task>
+    <option name="localTasksCounter" value="579" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1559,12 +1558,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/gameboards/participants.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.13821138" vertical-offset="238" max-vertical-offset="969">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="26" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.27642277" vertical-offset="238" max-vertical-offset="952">
+          <caret line="20" column="131" selection-start-line="20" selection-start-column="131" selection-end-line="20" selection-end-column="131" />
           <folding>
             <element signature="e#243#270#0#HTML" expanded="true" />
-            <element signature="e#932#999#0#HTML" expanded="true" />
-            <element signature="e#1663#1705#0#HTML" expanded="true" />
+            <element signature="e#1662#1704#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

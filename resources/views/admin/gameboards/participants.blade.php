@@ -8,7 +8,6 @@
         <div class="row">
             <div class="col-md-12" style="padding-right: 60px">
 
-
                 <!-- Custom tabs (Charts with tabs)-->
                 <div class="panel panel-default">
                     <!-- Custom tabs (Charts with tabs)-->
@@ -19,7 +18,7 @@
                         </ul>
                         <div class="tab-content no-padding">
                             <!-- Morris chart - Sales -->
-                            <div class="chart tab-pane active" id="results-chart" style="position: relative; height: 300px;width: 300px;margin: auto"></div>
+                            <div class="chart tab-pane active" id="results-chart" style="position: relative; height: 400px;width: 400px;margin: auto"></div>
 
                         </div>
                     </div><!-- /.nav-tabs-custom -->
