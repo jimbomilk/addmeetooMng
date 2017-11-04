@@ -2,20 +2,7 @@
 
 
 @section ('dashboard_header')
-    <section class="content-header">
-        <h1>
-            <i class="fa {{trans('design.'.$name)}}"></i>
-            @if (isset($titlepage))
-                <strong>{{ $titlepage }}</strong>
-            @else
-                <strong>{{ trans('labels.'.$name) }}</strong>
-            @endif
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="/{{$login_user->type}}"><i class="fa fa-dashboard"></i> {{trans('labels.home')}}</a></li>
-            <li class="active">{{  trans('labels.'.$name)}}</li>
-        </ol>
-    </section>
+    @include("admin.common.partials.header")
 @endsection
 
 @section('dashboard_content')
@@ -42,7 +29,6 @@
                         @endif
 
                         @if (isset($withlocations))
-
                         {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.index", 'method'=>'GET', 'class' => 'navbar-form navbar-left pull-right', 'role'=>'location']) !!}
                                 @include("admin.common.input_select",array('var'=>'location_id','col'=>$locations))
                                 @include("admin.common.input_hidden",array('var'=>'monthly','val'=>isset($monthly)?$monthly:0))
@@ -62,7 +48,9 @@
                         @if (isset($saveall)&&$saveall)
                             {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.saveall", 'method'=>'POST', 'role'=>'saveall']) !!}
                         @endif
+
                         @include("admin.$name.partials.table")
+
                         @if (isset($saveall)&&$saveall)
                             <button type="submit" class="btn btn-info pull-right" style="margin-right: 10px">{{trans('labels.saveall')}}</button>
                             {!! Form::close() !!}

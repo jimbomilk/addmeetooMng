@@ -48,6 +48,23 @@ class UserGameboard extends Model
         return $participationByDate;
     }
 
+    public static function getParticipationByGame($game_id)
+    {
+
+        //Log::info('locations:'.$locArray);
+
+        $participationByDate =  DB::select( DB::raw("select IFNULL(date(a.created_at),'2017-01-01') as participation_date,count(a.id) as participations
+                    from user_gameboards a
+                    left join gameboards b on b.id = a.gameboard_id
+                    where b.id = " .$game_id.
+                    " group by date(participation_date)
+                     order by date(participation_date)"));
+
+        //::info('participation:'.json_encode($participationByDate));
+
+        return $participationByDate;
+    }
+
 
     public static function getParticipation($game_id)
     {

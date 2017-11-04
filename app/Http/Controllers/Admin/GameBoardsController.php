@@ -118,18 +118,18 @@ class GameboardsController extends Controller {
 	}
 
 
-    public  function participants($id)
+    public function participants($id)
     {
         $options = null;
         $serie = null;
         $values = null;
 
-        $participants = UserGameboard::getParticipation($id,$serie,$values);
-        if (isset ($game)) {
+        //$participants = UserGameboard::getParticipation($id,$serie,$values);
 
-            return view ('admin.gameboards.participants',['name'=>'participants','set'=>$participants,'options'=>$options]);
-
-        }
+        $participationChart = UserGameboard::getParticipationByGame($id);
+        $results = UserGameboard::getParticipation($id);
+        dd($results);
+         return view ('admin.gameboards.participants',['name'=>'participants','participationChart'=>$participationChart,'options'=>$options]);
     }
 
     public  function preview($id)
