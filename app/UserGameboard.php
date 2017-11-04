@@ -108,9 +108,9 @@ class UserGameboard extends Model
                 elseif ($options[0]['value'] + 0 < $options[1]['value'] + 0)
                     $val2++;
             }
-            $values[] = array('value'=>$serie[0],'data'=>$val1);
-            $values[] = array('value'=>$serie[1],'data'=>$valx);
-            $values[] = array('value'=>$serie[2],'data'=>$val2);
+            $values[] = array('label'=>$serie[0],'value'=>$val1);
+            $values[] = array('label'=>$serie[1],'value'=>$valx);
+            $values[] = array('label'=>$serie[2],'value'=>$val2);
         } else {
             foreach ($results as $i => $result) {
                 $options = json_decode($result->values, true);

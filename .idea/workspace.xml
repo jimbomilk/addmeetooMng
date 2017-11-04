@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/gameboards/participants.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/gameboards/participants.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/UserGameboard.php" afterPath="$PROJECT_DIR$/app/UserGameboard.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -67,14 +67,14 @@
       <file leaf-file-name="UserGameboard.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.846154" vertical-offset="1714" max-vertical-offset="2227">
-              <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
+            <state vertical-scroll-proportion="-6.0" vertical-offset="1714" max-vertical-offset="2227">
+              <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
               <folding>
-                <marker date="1509794842629" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794842629" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794842629" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794842629" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794842629" expanded="true" signature="2172:2328" placeholder="SELECT user_..user_gameboards..." />
+                <marker date="1509795787981" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509795787981" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509795787981" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509795787981" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509795787981" expanded="true" signature="2172:2328" placeholder="SELECT user_..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -124,10 +124,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="participants.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="participants.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/gameboards/participants.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21263158" vertical-offset="460" max-vertical-offset="935">
+            <state vertical-scroll-proportion="-3.8846154" vertical-offset="460" max-vertical-offset="935">
               <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
               <folding>
                 <element signature="e#243#270#0#HTML" expanded="true" />
@@ -138,10 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/dist/js/pages/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2252" max-vertical-offset="3094">
+            <state vertical-scroll-proportion="0.7305389" vertical-offset="2252" max-vertical-offset="3094">
               <caret line="159" column="21" selection-start-line="159" selection-start-column="21" selection-end-line="159" selection-end-column="21" />
               <folding />
             </state>
@@ -246,10 +246,10 @@
         <option value="$PROJECT_DIR$/resources/views/admin/common/partials/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/common/btn_other.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/common/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/UserGameboard.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php" />
-        <option value="$PROJECT_DIR$/public/dist/js/pages/dashboard.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/gameboards/participants.blade.php" />
+        <option value="$PROJECT_DIR$/app/UserGameboard.php" />
+        <option value="$PROJECT_DIR$/public/dist/js/pages/dashboard.js" />
       </list>
     </option>
   </component>
@@ -760,12 +760,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00518" summary="ok">
-      <created>1509366351214</created>
-      <option name="number" value="00518" />
-      <option name="project" value="LOCAL" />
-      <updated>1509366351214</updated>
-    </task>
     <task id="LOCAL-00519" summary="ok">
       <created>1509366625171</created>
       <option name="number" value="00519" />
@@ -1054,7 +1048,13 @@
       <option name="project" value="LOCAL" />
       <updated>1509795145503</updated>
     </task>
-    <option name="localTasksCounter" value="567" />
+    <task id="LOCAL-00567" summary="ok">
+      <created>1509795635812</created>
+      <option name="number" value="00567" />
+      <option name="project" value="LOCAL" />
+      <updated>1509795635812</updated>
+    </task>
+    <option name="localTasksCounter" value="568" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1520,20 +1520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.846154" vertical-offset="1714" max-vertical-offset="2227">
-          <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
-          <folding>
-            <marker date="1509794842629" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794842629" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794842629" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794842629" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794842629" expanded="true" signature="2172:2328" placeholder="SELECT user_..user_gameboards..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/common/btn_edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="338">
@@ -1570,23 +1556,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dist/js/pages/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1810" max-vertical-offset="3094">
-          <caret line="159" column="21" selection-start-line="159" selection-start-column="21" selection-end-line="159" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/gameboards/participants.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21263158" vertical-offset="460" max-vertical-offset="935">
+        <state vertical-scroll-proportion="-3.8846154" vertical-offset="460" max-vertical-offset="935">
           <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
           <folding>
             <element signature="e#243#270#0#HTML" expanded="true" />
             <element signature="e#879#921#0#HTML" expanded="true" />
             <element signature="e#1640#1682#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0" vertical-offset="1714" max-vertical-offset="2227">
+          <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+          <folding>
+            <marker date="1509795787981" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509795787981" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509795787981" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509795787981" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509795787981" expanded="true" signature="2172:2328" placeholder="SELECT user_..user_gameboards..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dist/js/pages/dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7305389" vertical-offset="2252" max-vertical-offset="3094">
+          <caret line="159" column="21" selection-start-line="159" selection-start-column="21" selection-end-line="159" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
