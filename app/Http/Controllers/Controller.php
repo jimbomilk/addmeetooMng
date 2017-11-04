@@ -33,7 +33,7 @@ class Controller extends BaseController
         return Auth::user()->type.".".$name.".index";
     }
 
-    public function monthlyRanking($location,$startcurrentmonth,$endcurrentmonth){
+    public function monthlyRank($location,$startcurrentmonth,$endcurrentmonth){
         return "select users.id, users.name as name, users.email , sum(a.points) as points".
                 " from user_gameboards a".
                 " inner join gameboards on a.gameboard_id = gameboards.id".

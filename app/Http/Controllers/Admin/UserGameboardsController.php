@@ -53,7 +53,7 @@ class UserGameBoardsController extends Controller {
                 $title = 'Ranking del mes pasado';
             }
 
-            $query = $this->monthlyRanking($this->sel_location, $startcurrentmonth, $endcurrentmonth);
+            $query = $this->monthlyRank($this->sel_location, $startcurrentmonth, $endcurrentmonth);
             //Log::info('Monthly query:'.$query);
 
             $usergameboards = DB::select(DB::raw($query));
