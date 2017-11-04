@@ -66,7 +66,7 @@ class UserGameboard extends Model
     }
 
 
-    public static function getParticipation($game_id)
+    public static function getResults($game_id)
     {
         // Recoger los datos de participación de los hombres
         $query = "SELECT user_gameboards.values FROM user_gameboards"
@@ -108,7 +108,9 @@ class UserGameboard extends Model
                 elseif ($options[0]['value'] + 0 < $options[1]['value'] + 0)
                     $val2++;
             }
-            $values = array($serie[0]=>$val1,$serie[1]=>$valx,$serie[2]=>$val2);
+            $values[] = array('value'=>$serie[0],'data'=>$val1);
+            $values[] = array('value'=>$serie[1],'data'=>$valx);
+            $values[] = array('value'=>$serie[2],'data'=>$val2);
         } else {
             foreach ($results as $i => $result) {
                 $options = json_decode($result->values, true);

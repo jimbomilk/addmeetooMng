@@ -127,8 +127,8 @@ class GameboardsController extends Controller {
         //$participants = UserGameboard::getParticipation($id,$serie,$values);
 
         $participationChart = UserGameboard::getParticipationByGame($id);
-        $results = UserGameboard::getParticipation($id);
-        dd($participationChart);
+        $results = UserGameboard::getResults($id);
+        dd($results);
          return view ('admin.gameboards.participants',['name'=>'participants','participationChart'=>$participationChart,'options'=>$options]);
     }
 
