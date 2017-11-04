@@ -108,18 +108,24 @@ class UserGameboard extends Model
                 elseif ($options[0]['value'] + 0 < $options[1]['value'] + 0)
                     $val2++;
             }
-            $values[] = array('label'=>$serie[0],'value'=>$val1);
-            $values[] = array('label'=>$serie[1],'value'=>$valx);
-            $values[] = array('label'=>$serie[2],'value'=>$val2);
+            if (count($results)>0) {
+                $values[] = array('label' => $serie[0], 'value' => $val1);
+                $values[] = array('label' => $serie[1], 'value' => $valx);
+                $values[] = array('label' => $serie[2], 'value' => $val2);
+            }
         } else {
+            $aux = array();
             foreach ($results as $i => $result) {
                 $options = json_decode($result->values, true);
                 foreach ($options as $option) {
                     if ($i == 0) {
-                        $values[$option['option']] = 0;
+                        $aux[$option['option']] = 0;
                     }
-                    $values[$option['option']] = $values[$option['option']] + $option['value'];
+                    $aux[$option['option']] = $aux[$option['option']] + $option['value'];
                 }
+            }
+            foreach ($aux as $label=>$value){
+                $values[] = array('label'=>$label,'value'=>$value);
             }
         }
         return $values;
