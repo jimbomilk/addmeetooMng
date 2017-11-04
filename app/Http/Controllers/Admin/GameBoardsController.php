@@ -128,7 +128,7 @@ class GameboardsController extends Controller {
         //$participants = UserGameboard::getParticipation($id,$serie,$values);
         $gameboard = Gameboard::find($id);
         if (isset($gameboard))
-            $title = $title . 'del juego:'.$gameboard->name;
+            $title = $title . 'de:'.$gameboard->name;
         $participationChart = UserGameboard::getParticipationByGame($id);
         $results = UserGameboard::getResultChart($id);
 
