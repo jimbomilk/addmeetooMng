@@ -31,7 +31,7 @@
                         </ul>
                         <div class="tab-content no-padding">
                             <!-- Morris chart - Sales -->
-                            <div class="chart tab-pane active" id="results-chart" style="position: relative; height: 300px;width: 300px"></div>
+                            <div class="chart tab-pane active" id="results-chart" style="position: relative; height: 300px;width: 300px;text-align: center"></div>
 
                         </div>
                     </div><!-- /.nav-tabs-custom -->
