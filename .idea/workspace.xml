@@ -58,8 +58,8 @@
       <file leaf-file-name="GameBoardsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077" vertical-offset="1768" max-vertical-offset="4454">
-              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.65384614" vertical-offset="1989" max-vertical-offset="4454">
+              <caret line="130" column="19" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -68,14 +68,14 @@
       <file leaf-file-name="UserGameboard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8160173" vertical-offset="1493" max-vertical-offset="2227">
-              <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.77922076" vertical-offset="1714" max-vertical-offset="2227">
+              <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
               <folding>
-                <marker date="1509794746174" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794746174" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794746174" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794746174" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
-                <marker date="1509794746174" expanded="true" signature="2168:2324" placeholder="SELECT user_..user_gameboards..." />
+                <marker date="1509794842629" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509794842629" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509794842629" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509794842629" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
+                <marker date="1509794842629" expanded="true" signature="2172:2328" placeholder="SELECT user_..user_gameboards..." />
               </folding>
             </state>
           </provider>
@@ -761,12 +761,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00515" summary="ok">
-      <created>1509364484995</created>
-      <option name="number" value="00515" />
-      <option name="project" value="LOCAL" />
-      <updated>1509364484996</updated>
-    </task>
     <task id="LOCAL-00516" summary="ok">
       <created>1509365415257</created>
       <option name="number" value="00516" />
@@ -1055,7 +1049,13 @@
       <option name="project" value="LOCAL" />
       <updated>1509793901313</updated>
     </task>
-    <option name="localTasksCounter" value="564" />
+    <task id="LOCAL-00564" summary="ok">
+      <created>1509794753215</created>
+      <option name="number" value="00564" />
+      <option name="project" value="LOCAL" />
+      <updated>1509794753215</updated>
+    </task>
+    <option name="localTasksCounter" value="565" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1571,22 +1571,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GameBoardsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077" vertical-offset="1768" max-vertical-offset="4454">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.65384614" vertical-offset="1989" max-vertical-offset="4454">
+          <caret line="130" column="19" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/UserGameboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8160173" vertical-offset="1493" max-vertical-offset="2227">
-          <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.77922076" vertical-offset="1714" max-vertical-offset="2227">
+          <caret line="124" column="22" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="22" />
           <folding>
-            <marker date="1509794746174" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794746174" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794746174" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794746174" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
-            <marker date="1509794746174" expanded="true" signature="2168:2324" placeholder="SELECT user_..user_gameboards..." />
+            <marker date="1509794842629" expanded="true" signature="842:1215" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509794842629" expanded="true" signature="1547:1789" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509794842629" expanded="true" signature="1547:1790" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509794842629" expanded="true" signature="1547:1913" placeholder="select IFNUL..user_gameboards..." />
+            <marker date="1509794842629" expanded="true" signature="2172:2328" placeholder="SELECT user_..user_gameboards..." />
           </folding>
         </state>
       </provider>

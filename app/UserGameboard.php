@@ -66,7 +66,7 @@ class UserGameboard extends Model
     }
 
 
-    public static function getResults($game_id)
+    public static function getResultChart($game_id)
     {
         // Recoger los datos de participación de los hombres
         $query = "SELECT user_gameboards.values FROM user_gameboards"
@@ -122,6 +122,6 @@ class UserGameboard extends Model
                 }
             }
         }
-        return json_encode($values);
+        return $values;
     }
 }
