@@ -93,6 +93,7 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
     Route::post('gameboards/fastUpdate/{id}', ['as' => 'owner.gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
     Route::resource('gameboard_options', 'GameboardOptionsController');
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'owner.gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
+    Route::post('gameboards/participants/{id}',['as'=>'gameboards_participants', 'uses' => 'GameboardsController@participants']);
 
     // ** NOTIFICATIONS **
     Route::resource('notifications', 'NotificationController');
