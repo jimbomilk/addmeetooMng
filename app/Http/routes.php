@@ -96,7 +96,7 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
 
     // ** NOTIFICATIONS **
     Route::resource('notifications', 'NotificationController');
-    Route::post('notifications/fastUpdate/{id}', ['as' => 'admin.who_fast', 'uses' => 'NotificationController@fastUpdate']);
+    Route::post('notifications/fastUpdate/{id}', ['as' => 'owner.who_fast', 'uses' => 'NotificationController@fastUpdate']);
 
     // ** RANKING **
     Route::resource('usergameboards','UserGameboardsController');
