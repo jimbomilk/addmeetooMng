@@ -211,12 +211,6 @@ class ApiController extends Controller
     {
         //Log::info('ENTRANDO registerDevice');
         $input = $request->all();
-        /*Log::info('pushId:'.$input['userId']);
-        Log::info('pushToken:'.$input['pushToken']);
-        Log::info('gameboardId:'.$input['gameboardId']);
-        Log::info('token:'.$input['token']);
-        Log::info('location:'.$input['location']);*/
-
         $push_user = UserPush::firstOrNew(['id' => $input['userId']]);
         if (isset($push_user) )
         {
@@ -251,8 +245,6 @@ class ApiController extends Controller
 
     public function newAccount(Request $request)
     {
-        //Log::info('ENTRANDO newaccount');
-        // Recogemos las credenciales
         $credentials = $request->only('email', 'password');
         $locationId = $request->get('location');
         $profile=null;
