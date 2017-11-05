@@ -30,7 +30,10 @@ class Status {
 
     public static $descOwner = array(0   =>'no iniciado' ,
                                     10  =>'configurado',
-                                    30  =>'en marcha');
+                                    30  =>'en marcha',
+                                    50  =>'finalizado',
+                                    100 =>'oficial',
+                                    110 => 'oculto');
 
     public static $colors = array(  0   =>'default' ,
                                     10  =>'primary',
