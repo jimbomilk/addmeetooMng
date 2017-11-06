@@ -15,23 +15,25 @@
 
 @section('scripts')
     <script type="text/javascript">
-        $('#{{$var}}').change(function(){
-            readURL(this,'#{{$var}}-image-tag');
-            $('#{{$var}}-remove').show();
-        });
-
-        $('#{{$var}}-image-tag').load(function(){
+        $('#{{$var}}-image-tag').one('load', function() {
             s=$('#{{$var}}-image-tag').attr('src');
             if (s != "")
                 $('#{{$var}}-remove').show();
 
             $("#{{$var}}file").val(s);
+        }).each(function() {
+            if(this.complete) $(this).load();
         });
 
         $('#{{$var}}-remove').click(function(){
-            $('#{{$var}}-image-tag').attr('src', '');
+            $('#{{$var}}-image-tag').attr('src', "");
             $("#{{$var}}file").val("");
             $('#{{$var}}-remove').hide();
-        })
+        });
+
+        $('#{{$var}}').change(function(){
+            readURL(this,'#{{$var}}-image-tag');
+            $('#{{$var}}-remove').show();
+        });
     </script>
 @append
