@@ -18,10 +18,10 @@ class General {
         $type = DB::select(DB::raw("SHOW COLUMNS FROM $table WHERE Field = '{$column}'"))[0]->Type ;
         preg_match('/^enum\((.*)\)$/', $type, $matches);
         $enum = array();
-        foreach( explode(',', $matches[1]) as $value )
+        foreach( explode(',', $matches[1]) as $i=>$value )
         {
             $v = trim( $value, "'" );
-            $enum = array_add($enum, $v, trans('label.'.$v));
+            $enum = array_add($enum, $value, trans('label.'.$v));
         }
         return $enum;
     }

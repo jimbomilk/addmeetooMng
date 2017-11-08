@@ -37,6 +37,14 @@
                         {!! Form::close() !!}
                         @endif
 
+                        @if (isset($types))
+                            {!! Form::model(Request::all(), ['route' => "$login_user->type.$name.index", 'method'=>'GET', 'class' => 'navbar-form navbar-left pull-right', 'role'=>'location']) !!}
+                            @include("admin.common.input_select",array('var'=>'type','col'=>$types))
+                            <button type="submit" class="btn btn-default">{{trans('labels.selectcategory')}}</button>
+
+                            {!! Form::close() !!}
+                        @endif
+
                         @if(!isset($hide_new) || !$hide_new)
                         <p>
                             <a class="btn btn-info" href="{{ route("$login_user->type.$name.create") }}" role="button">

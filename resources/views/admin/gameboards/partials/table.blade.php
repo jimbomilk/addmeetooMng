@@ -62,13 +62,11 @@
             </td>
 
             <td>
-                @if ($login_user->is('admin'))
-                @include("admin.common.btn_other",array('route'=> 'gameboards_preview','var'=>$game,'label'=>'vista previa','style'=>'btn-danger'))
-                @endif
+                @include("admin.common.btn_other",array('route'=> $login_user->type.'.gameboards_preview','var'=>$game,'label'=>'vista previa','style'=>'btn-danger'))
             </td>
 
             <td>
-                @include("admin.common.btn_other",array('route'=> 'gameboards_participants','var'=>$game,'label'=>'resultado','style'=>'btn-info'))
+                @include("admin.common.btn_other",array('route'=> $login_user->type.'.gameboards_participants','var'=>$game,'label'=>'resultado','style'=>'btn-info'))
             </td>
 
             <td>

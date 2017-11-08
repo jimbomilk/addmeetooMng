@@ -37,22 +37,19 @@ class MessagesController extends Controller {
 	public function index(Request $request)
 	{
         $this->search = $request->get('search');
+        $type = $request->get('type');
+
         $where = General::getRawWhere(Message::$searchable,$this->search);
-        /*if(!Auth::user()->is('admin') ) {
-            $where .= ' and location_id in ( -1';
-            if(Auth::user()->locations()->count()>0)
-                $where .= ',';
-            $where .= Auth::user()->locations()->pluck('id')->implode(',');
-            $where .= ')';
-        }
+        if (isset($type) && $type!='')
+            $where .= ' and type='.$type;
 
-        //Log::info('Msg where:' . $where);
+        $types = General::getEnumValues('messages','type') ;
 
-        $messages = Message::whereRaw($where)
-                ->paginate();*/
-        $messages = Auth::user()->messages($where);
 
-        return view ('admin.common.index',['searchable'=>'1','name'=>'messages','set'=>$messages]);
+        $messages = Auth::user()->messageswhere($where);
+
+
+        return view ('admin.common.index',['searchable'=>'1','name'=>'messages','set'=>$messages,'types'=>$types]);
 	}
 
 

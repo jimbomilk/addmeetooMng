@@ -137,18 +137,21 @@ class GameboardsController extends Controller {
 
     public  function preview($id)
     {
-        $game = Gameboard::findOrFail($id);
-
+        $game = Gameboard::find($id);
         if (isset ($game))
         {
 
+
             if ($game->status < Status::SCHEDULED){
-                $message = 'ERROR: '.$game->name . ' no está configurado!';
+
+                $message = 'ERROR: el juego no está configurado!';
                 Session::flash('message', $message);
-                return false;
+                //dd($message);
+                return redirect()->route($this->indexPage("gameboards"));
             }
             //Reiniciamos sus vistas
             $gameview = $game->updateGameView();
+
 
             if (isset($gameview)) {
 
@@ -156,7 +159,7 @@ class GameboardsController extends Controller {
                     ->onQueue('bigpack');
                 $this->dispatch($job);
 
-                $message = $game->name . ' sent preview';
+                $message = $game->name . ' ,vista previa enviada';
                 Session::flash('message', $message);
             }
             else

@@ -58,7 +58,8 @@ return [
     'startdate' => 'Fecha inicial',
     'enddate'=> 'Fecha final',
     'monthlyranking' => 'Ranking mensual',
-    'premonthlyranking' => 'Ranking del mes anterior'
+    'premonthlyranking' => 'Ranking del mes anterior',
+    'selectcategory'=>'Buscar'
 
 
 ];

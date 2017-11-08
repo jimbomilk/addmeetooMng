@@ -52,8 +52,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','is_admin'],'namespace'=
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'admin.gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
     Route::post('locations/restart/{location}',['as' => 'location_restart', 'uses' => 'LocationsController@restart']);
     Route::resource('usergameboards','UserGameboardsController');
-    Route::post('gameboards/preview/{id}',['as'=>'gameboards_preview', 'uses' => 'GameboardsController@preview']);
-    Route::post('gameboards/participants/{id}',['as'=>'gameboards_participants', 'uses' => 'GameboardsController@participants']);
+    Route::post('gameboards/preview/{id}',['as'=>'admin.gameboards_preview', 'uses' => 'GameboardsController@preview']);
+    Route::post('gameboards/participants/{id}',['as'=>'admin.gameboards_participants', 'uses' => 'GameboardsController@participants']);
     Route::post('gameboard_options/saveall',['as'=>'admin.gameboard_options.saveall','uses'=>'GameboardOptionsController@saveAll']);
 
     // ** NOTIFICATIONS **
@@ -93,7 +93,8 @@ Route::group(['prefix'=>'owner','middleware' => ['auth','is_owner'],'namespace'=
     Route::post('gameboards/fastUpdate/{id}', ['as' => 'owner.gameboard_fast', 'uses' => 'GameboardsController@fastUpdate']);
     Route::resource('gameboard_options', 'GameboardOptionsController');
     Route::post('gameboard_options/fastUpdate/{id}', ['as' => 'owner.gameboard_option_fast', 'uses' => 'GameboardOptionsController@fastUpdate']);
-    Route::post('gameboards/participants/{id}',['as'=>'gameboards_participants', 'uses' => 'GameboardsController@participants']);
+    Route::post('gameboards/preview/{id}',['as'=>'owner.gameboards_preview', 'uses' => 'GameboardsController@preview']);
+    Route::post('gameboards/participants/{id}',['as'=>'owner.gameboards_participants', 'uses' => 'GameboardsController@participants']);
     Route::post('gameboard_options/saveall',['as'=>'owner.gameboard_options.saveall','uses'=>'GameboardOptionsController@saveAll']);
 
     // ** NOTIFICATIONS **

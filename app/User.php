@@ -104,9 +104,10 @@ class User extends Authenticatable
 
     public function messageswhere($where)
     {
-
-        if ($this->type == 'admin')
+        if ($this->type == 'admin') {
             return Message::whereRaw($where)->paginate(10);
+        }
+
         return $this->hasManyThrough('App\Message', 'App\Location','owner_id','location_id','id')
             ->whereRaw($where)
             ->paginate(10);
