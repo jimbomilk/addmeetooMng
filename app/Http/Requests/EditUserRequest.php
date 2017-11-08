@@ -31,8 +31,7 @@ class EditUserRequest extends Request {
 		return [
             'name'      => 'required',
             'email'     => 'required|unique:users,email,'. $this->route->getParameter('users'), //busca en la tabla users el campo email pero excluyendo el del propio usuario.
-            'password'  => '',
-            'type'      => 'required|in:user,owner,admin',
+            'password'  => ''
 		];
 	}
 
