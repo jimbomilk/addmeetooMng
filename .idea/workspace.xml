@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php" afterPath="$PROJECT_DIR$/database/migrations/2015_08_25_190040_message.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/MessageRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/MessageRequest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -106,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/MessageRequest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.71571904" vertical-offset="252" max-vertical-offset="867">
-              <caret line="40" column="97" selection-start-line="40" selection-start-column="97" selection-end-line="40" selection-end-column="97" />
+              <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -622,12 +621,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00541" summary="ok">
-      <created>1509555152623</created>
-      <option name="number" value="00541" />
-      <option name="project" value="LOCAL" />
-      <updated>1509555152623</updated>
-    </task>
     <task id="LOCAL-00542" summary="ok">
       <created>1509555177282</created>
       <option name="number" value="00542" />
@@ -916,7 +909,13 @@
       <option name="project" value="LOCAL" />
       <updated>1510321919992</updated>
     </task>
-    <option name="localTasksCounter" value="590" />
+    <task id="LOCAL-00590" summary="ok">
+      <created>1510322094775</created>
+      <option name="number" value="00590" />
+      <option name="project" value="LOCAL" />
+      <updated>1510322094775</updated>
+    </task>
+    <option name="localTasksCounter" value="591" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1408,7 +1407,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/MessageRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71571904" vertical-offset="252" max-vertical-offset="867">
-          <caret line="40" column="97" selection-start-line="40" selection-start-column="97" selection-end-line="40" selection-end-column="97" />
+          <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
           <folding />
         </state>
       </provider>
