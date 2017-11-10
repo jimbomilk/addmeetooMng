@@ -34,7 +34,7 @@ class Message extends Migration {
 
             $table->boolean('toscreen')->default(true);
             $table->boolean('tomobile')->default(true);
-            $table->smallInteger('duration')->default(null);
+            $table->smallInteger('duration')->unsigned()->default(null);
 
             $table->timestamps();
         });

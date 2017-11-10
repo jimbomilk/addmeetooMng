@@ -38,6 +38,7 @@ class MessageRequest extends Request {
             'end.required'  => 'La hora de inicio del mensaje es obligatoria',
             'start.date_format' => 'El formato de la fecha de inicio es incorrecto',
             'end.date_format' => 'El formato de la fecha de fin es incorrecto',
+            'duration.digits_between' => 'La duración debe estar comprendida entre 0 y 10 minutos'
         ];
     }
 
