@@ -83,11 +83,12 @@ class SendScreen extends Command
                 if (isset($job)) {
                     $job->delay($delay);
                     $job->onQueue('bigpack');
-                    if ($job->duration != 0)
+                    $this->dispatch($job);
+                    if ($job->duration > 0)
                         $delay = $delay + ($job->duration*60);
                     else
                         $delay = $delay + $delay_screen;
-                    $this->dispatch($job);
+
                 }
                 else {
                     $delay = $delay + $delay_screen; // evitamos bucles infinitos
@@ -133,6 +134,7 @@ class SendScreen extends Command
             }
             // creamos el job
             $job = (new AdsEngine($message, $location_id));
+            $job->duration = 0;
             $a[] = $job;
         }
         return $a;
@@ -152,6 +154,7 @@ class SendScreen extends Command
             if (isset($gameview)) {
                 //Log::info('Delay GAME:'.$d);
                 $job = (new GameEngine($gameview, $location_id));
+                $job->duration = 0;
                 $a[] = $job;
 
             }
@@ -183,8 +186,10 @@ class SendScreen extends Command
             $envelope->logo1 = isset($message->location)?$message->location->logo:"";
             //Log::info('Delay AGENDA:'.$delay);
             $job = new AdsEngine($envelope, $location_id);
-            if (isset($message->duration) && $message->duration !=0)
+            if (isset($message->duration) && $message->duration >0)
                 $job->duration = $message->duration;
+            else
+                $job->duration = 0;
             $a[] = $job;
         }
         return $a;
