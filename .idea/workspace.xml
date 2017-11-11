@@ -126,10 +126,10 @@
       <file leaf-file-name="SendScreen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28929767" vertical-offset="1017" max-vertical-offset="3196">
-              <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.5451505" vertical-offset="575" max-vertical-offset="3230">
+              <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
               <folding>
-                <marker date="1510384289377" expanded="true" signature="3058:3599" placeholder="select textb..adspacks..." />
+                <marker date="1510384540133" expanded="true" signature="3129:3670" placeholder="select textb..adspacks..." />
               </folding>
             </state>
           </provider>
@@ -683,12 +683,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00543" summary="ok">
-      <created>1509556015741</created>
-      <option name="number" value="00543" />
-      <option name="project" value="LOCAL" />
-      <updated>1509556015741</updated>
-    </task>
     <task id="LOCAL-00544" summary="ok">
       <created>1509557890022</created>
       <option name="number" value="00544" />
@@ -977,7 +971,13 @@
       <option name="project" value="LOCAL" />
       <updated>1510322190217</updated>
     </task>
-    <option name="localTasksCounter" value="592" />
+    <task id="LOCAL-00592" summary="ok">
+      <created>1510384411385</created>
+      <option name="number" value="00592" />
+      <option name="project" value="LOCAL" />
+      <updated>1510384411385</updated>
+    </task>
+    <option name="localTasksCounter" value="593" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1472,10 +1472,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/SendScreen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28929767" vertical-offset="1017" max-vertical-offset="3196">
-          <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.5451505" vertical-offset="575" max-vertical-offset="3230">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
           <folding>
-            <marker date="1510384289377" expanded="true" signature="3058:3599" placeholder="select textb..adspacks..." />
+            <marker date="1510384540133" expanded="true" signature="3129:3670" placeholder="select textb..adspacks..." />
           </folding>
         </state>
       </provider>

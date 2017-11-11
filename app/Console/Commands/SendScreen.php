@@ -65,6 +65,8 @@ class SendScreen extends Command
 
         if (isset($location)) {
             $delay_screen=$location->screen_timer;
+            if ($delay_screen <=0)
+                $delay_screen = 30;
              // Tiempo que tiene cada sección (anuncios, info y actividades)
             $nScreens = round($total_time_by_type/$delay_screen);
 
