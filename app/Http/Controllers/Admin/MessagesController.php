@@ -44,6 +44,7 @@ class MessagesController extends Controller {
             $where .= ' and type='.$type;
 
         $types = General::getEnumValues('messages','type') ;
+        //dd($types);
 
 
         $messages = Auth::user()->messageswhere($where);
@@ -166,6 +167,7 @@ class MessagesController extends Controller {
 	public function update(MessageRequest $request, $id)
 	{
         $message = Message::findOrFail($id);
+        //dd($message);
         $message->fill($request->all());
         $message->start = $message->getUTCStart();
         $message->end = $message->getUTCEnd();

@@ -27,7 +27,6 @@ class MessageRequest extends Request {
             'end'  => 'required|after:start',
             'file.image' => 'mimes:jpeg,bmp,png',
             'duration' => 'digits_between:0,1'
-
 		];
 	}
 
