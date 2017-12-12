@@ -84,8 +84,7 @@
             relative_urls: true,
             remove_script_host: true,
             protocol: 'https',
-            toolbar: 'fontselect fontsizeselect | forecolor backcolor |' +
-            'bold italic underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | youtube',
+            toolbar: 'fontselect fontsizeselect | forecolor backcolor | italic bold underline | link image | alignleft aligncenter alignright alignjustify | bullist numlist | youtube',
             font_formats: tm_fonts,
             media_live_embeds: true,
             fontsize_formats: "36pt 46pt 56pt 66pt 76pt 86pt 96pt 106pt",
