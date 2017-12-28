@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_05_01_170431_location.php" afterPath="$PROJECT_DIR$/database/migrations/2015_05_01_170431_location.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_06_21_170940_screen.php" afterPath="$PROJECT_DIR$/database/migrations/2015_06_21_170940_screen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Location.php" afterPath="$PROJECT_DIR$/app/Location.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/locations/partials/fields.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/locations/partials/fields.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Screen.php" afterPath="$PROJECT_DIR$/app/Screen.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -59,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5931624" vertical-offset="8425" max-vertical-offset="9010">
+            <state vertical-scroll-proportion="-13.346154" vertical-offset="8425" max-vertical-offset="9010">
               <caret line="539" column="12" selection-start-line="539" selection-start-column="12" selection-end-line="539" selection-end-column="12" />
               <folding>
                 <marker date="1514497983647" expanded="true" signature="13550:14188" placeholder="SELECT ads.*..advertisements..." />
@@ -84,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Screen.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Screen.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Screen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="357">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.19899665" vertical-offset="0" max-vertical-offset="598">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -195,7 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/dashboard/main.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/messages/partials/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/dashboard/partials/messages.blade.php" />
@@ -246,6 +240,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_05_01_170431_location.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_06_21_170940_screen.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
+        <option value="$PROJECT_DIR$/app/Screen.php" />
       </list>
     </option>
   </component>
@@ -712,12 +707,6 @@
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
     </task>
-    <task id="LOCAL-00548" summary="ok">
-      <created>1509611073255</created>
-      <option name="number" value="00548" />
-      <option name="project" value="LOCAL" />
-      <updated>1509611073255</updated>
-    </task>
     <task id="LOCAL-00549" summary="ok">
       <created>1509611096528</created>
       <option name="number" value="00549" />
@@ -1006,7 +995,13 @@
       <option name="project" value="LOCAL" />
       <updated>1514488168516</updated>
     </task>
-    <option name="localTasksCounter" value="597" />
+    <task id="LOCAL-00597" summary="ok">
+      <created>1514498037009</created>
+      <option name="number" value="00597" />
+      <option name="project" value="LOCAL" />
+      <updated>1514498037009</updated>
+    </task>
+    <option name="localTasksCounter" value="598" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1472,14 +1467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Screen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="624">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_21_170940_screen.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="714">
@@ -1490,7 +1477,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5931624" vertical-offset="8425" max-vertical-offset="9010">
+        <state vertical-scroll-proportion="-13.346154" vertical-offset="8425" max-vertical-offset="9010">
           <caret line="539" column="12" selection-start-line="539" selection-start-column="12" selection-end-line="539" selection-end-column="12" />
           <folding>
             <marker date="1514497983647" expanded="true" signature="13550:14188" placeholder="SELECT ads.*..advertisements..." />
@@ -1498,6 +1485,14 @@
             <marker date="1514497983647" expanded="true" signature="16417:17180" placeholder="select a.use..user_gameboards..." />
             <marker date="1514497983647" expanded="true" signature="17421:18037" placeholder="select users..user_gameboards..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Screen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19899665" vertical-offset="0" max-vertical-offset="598">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
