@@ -8,6 +8,7 @@ use App\Events\MessageEvent;
 use App\Gameboard;
 use App\Incidence;
 use App\location;
+use App\Screen;
 use App\Status;
 use App\User;
 use App\UserGameboard;
@@ -525,6 +526,20 @@ class ApiController extends Controller
     }
 
     public function keepAlive(Request $request){
+        $location = $request->get('location');
+        $ip = $request->get('ip');
+        $locationId=intval(str_replace("location","",$location));
+
+        if ($locationId>0)
+        {
+            $screen = Screen::find($ip);
+            if (!isset($screen)){
+                $screen = new Screen();
+                $screen->location_id = $locationId;
+                $screen->ip = $ip;
+            }
+            $screen->save();
+        }
         return response()->json(1);
 
     }

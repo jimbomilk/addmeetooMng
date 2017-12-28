@@ -8,7 +8,6 @@ class location extends Model {
     protected $guarded = ['id'];
     protected $path = 'location';
 
-
     public function getImagesPathAttribute()
     {
         return 'location'.$this->id;
@@ -52,6 +51,11 @@ class location extends Model {
     public function pushUsers()
     {
         return $this->hasmany('App\UserPush');
+    }
+
+    public function screens()
+    {
+        return $this->hasMany('App\Screen');
     }
 
 }

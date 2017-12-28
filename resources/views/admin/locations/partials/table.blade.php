@@ -8,6 +8,7 @@
 
         <th>{{trans('label.locations.address')}}</th>
         <th>{{trans('label.locations.parent')}}</th>
+        <th>{{trans('label.locations.screens')}}</th>
         <th></th>
 
     </tr>
@@ -27,6 +28,9 @@
 
                 @endif
 
+            </td>
+            <td>
+                {{$location->screens}}
             </td>
 
             <td>

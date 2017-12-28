@@ -14,12 +14,7 @@ class Screen extends Migration {
 	{
         Schema::create('screens', function(Blueprint $table)
         {
-            $table->increments('id');
-            $table->string('description');
-
-            $table->string('latitude');
-            $table->string('longitude');
-
+            $table->primary('ip');
             $table->integer('location_id')->unsigned()->nullable();
             $table->foreign('location_id')
                 ->references('id')
