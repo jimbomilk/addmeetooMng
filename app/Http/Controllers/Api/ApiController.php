@@ -524,4 +524,9 @@ class ApiController extends Controller
 
     }
 
+    public function keepAlive(Request $request){
+        return response()->json(1);
+
+    }
+
 }
