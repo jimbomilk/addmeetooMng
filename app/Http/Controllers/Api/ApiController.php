@@ -530,6 +530,8 @@ class ApiController extends Controller
         $ip = $request->get('ip');
         $locationId=intval(str_replace("location","",$location));
 
+        Log::info('ip:'.$ip);
+        Log::info('$locationId:'.$locationId);
         if ($locationId>0)
         {
             $screen = Screen::find($ip);
