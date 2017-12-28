@@ -19,6 +19,7 @@ class Screen extends Migration {
             $table->foreign('location_id')
                 ->references('id')
                 ->on('locations');
+            $table->timestamp('last')->nullable();
 
 			$table->timestamps();
         });

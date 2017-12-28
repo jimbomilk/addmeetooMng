@@ -12,5 +12,5 @@
 @include("admin.common.input_text",array('var'=>'maillist'))
 @include("admin.common.input_text",array('var'=>'address'))
 @include("admin.common.input_number",array('var'=>'screen_timer'))
-@include("admin.common.input_number",array('var'=>'screens'))
+@include("admin.common.input_number",array('var'=>'installed_screens'))
 

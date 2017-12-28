@@ -526,20 +526,21 @@ class ApiController extends Controller
     }
 
     public function keepAlive(Request $request){
-        $location = $request->get('location');
-        $ip = $request->get('ip');
+        $location = $request->get('locationId');
+        $ip = $request->get('screenId');
         $locationId=intval(str_replace("location","",$location));
 
         Log::info('ip:'.$ip);
         Log::info('$locationId:'.$locationId);
         if ($locationId>0)
         {
-            $screen = Screen::find($ip);
+            $screen = Screen::where('ip', $ip)->first();
             if (!isset($screen)){
                 $screen = new Screen();
                 $screen->location_id = $locationId;
                 $screen->ip = $ip;
             }
+            $screen->last = Carbon::now()->toDateTimeString();
             $screen->save();
         }
         return response()->json(1);
