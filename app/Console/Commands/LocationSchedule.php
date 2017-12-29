@@ -45,6 +45,14 @@ class LocationSchedule extends Command
             return;
         }
 
+        //Remove old screens
+        foreach($location->screens as $screen){
+            if (Carbon::parse($screen->last) < Carbon::now()->subMinutes(5)){
+                $screen->delete();
+            }
+
+        }
+
         foreach($location->gameboards as $gameboard)
         {
             if ($gameboard->status != Status::DISABLED && $gameboard->status != Status::HIDDEN)
