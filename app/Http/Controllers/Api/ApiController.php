@@ -530,8 +530,8 @@ class ApiController extends Controller
         $ip = $request->get('screenId');
         $locationId=intval(str_replace("location","",$location));
 
-        Log::info('ip:'.$ip);
-        Log::info('$locationId:'.$locationId);
+        //Log::info('ip:'.$ip);
+        //Log::info('$locationId:'.$locationId);
         if ($locationId>0)
         {
             $screen = Screen::where('ip', $ip)->first();
@@ -540,6 +540,7 @@ class ApiController extends Controller
                 $screen->location_id = $locationId;
                 $screen->ip = $ip;
             }
+            $screen->location_id = $locationId;
             $screen->last = Carbon::now()->toDateTimeString();
             $screen->save();
         }

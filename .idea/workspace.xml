@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83852fe6-96cd-40a1-87f8-cc9237801956" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/en/label.php" afterPath="$PROJECT_DIR$/resources/lang/en/label.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="addmeetooMng.iws" />
@@ -35,6 +34,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8985075" vertical-offset="8913" max-vertical-offset="9469">
+              <caret line="542" column="47" selection-start-line="542" selection-start-column="47" selection-end-line="542" selection-end-column="47" />
+              <folding>
+                <element signature="e#44#60#0#PHP" expanded="true" />
+                <marker date="1514818167064" expanded="true" signature="13550:14188" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1514818167064" expanded="true" signature="14238:14630" placeholder="SELECT ads.*..advertisements..." />
+                <marker date="1514818167064" expanded="true" signature="16417:17180" placeholder="select a.use..user_gameboards..." />
+                <marker date="1514818167064" expanded="true" signature="17421:18037" placeholder="select users..user_gameboards..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Location.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Location.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,21 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="table.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25287357" vertical-offset="456" max-vertical-offset="884">
-              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard/header.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.1923075" vertical-offset="1105" max-vertical-offset="1598">
-              <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+            <state vertical-scroll-proportion="-7.9615383" vertical-offset="456" max-vertical-offset="884">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -225,7 +230,6 @@
         <option value="$PROJECT_DIR$/storage/logs/laravel-2017-12-12.log" />
         <option value="$PROJECT_DIR$/database/migrations/2015_06_21_170940_screen.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel-2017-12-28.log" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_05_01_170431_location.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/locations/partials/fields.blade.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php" />
@@ -237,6 +241,7 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/label.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php" />
       </list>
     </option>
   </component>
@@ -580,6 +585,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addmeetooMng" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -690,12 +743,6 @@
       <created>1468394466671</created>
       <option name="number" value="Default" />
       <updated>1468394466671</updated>
-    </task>
-    <task id="LOCAL-00555" summary="ok">
-      <created>1509646039500</created>
-      <option name="number" value="00555" />
-      <option name="project" value="LOCAL" />
-      <updated>1509646039500</updated>
     </task>
     <task id="LOCAL-00556" summary="ok">
       <created>1509693131183</created>
@@ -985,7 +1032,13 @@
       <option name="project" value="LOCAL" />
       <updated>1514815212021</updated>
     </task>
-    <option name="localTasksCounter" value="604" />
+    <task id="LOCAL-00604" summary="ok">
+      <created>1514815531314</created>
+      <option name="number" value="00604" />
+      <option name="project" value="LOCAL" />
+      <updated>1514815531314</updated>
+    </task>
+    <option name="localTasksCounter" value="605" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1350,20 +1403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8959" max-vertical-offset="9452">
-          <caret line="542" column="61" selection-start-line="542" selection-start-column="41" selection-end-line="542" selection-end-column="61" />
-          <folding>
-            <element signature="e#44#60#0#PHP" expanded="true" />
-            <marker date="1514501525361" expanded="true" signature="-1:-1" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1514501525361" expanded="true" signature="-1:-1" placeholder="SELECT ads.*..advertisements..." />
-            <marker date="1514501525361" expanded="true" signature="-1:-1" placeholder="select a.use..user_gameboards..." />
-            <marker date="1514501525361" expanded="true" signature="-1:-1" placeholder="select users..user_gameboards..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/LocationSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2692308" vertical-offset="663" max-vertical-offset="1853">
@@ -1490,9 +1529,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/locations/partials/table.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25287357" vertical-offset="456" max-vertical-offset="884">
-          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+        <state vertical-scroll-proportion="-7.9615383" vertical-offset="456" max-vertical-offset="884">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8985075" vertical-offset="8913" max-vertical-offset="9469">
+          <caret line="542" column="47" selection-start-line="542" selection-start-column="47" selection-end-line="542" selection-end-column="47" />
+          <folding>
+            <element signature="e#44#60#0#PHP" expanded="true" />
+            <marker date="1514818167064" expanded="true" signature="13550:14188" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1514818167064" expanded="true" signature="14238:14630" placeholder="SELECT ads.*..advertisements..." />
+            <marker date="1514818167064" expanded="true" signature="16417:17180" placeholder="select a.use..user_gameboards..." />
+            <marker date="1514818167064" expanded="true" signature="17421:18037" placeholder="select users..user_gameboards..." />
+          </folding>
         </state>
       </provider>
     </entry>
