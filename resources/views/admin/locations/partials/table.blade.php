@@ -30,7 +30,7 @@
 
             </td>
             <td>
-                {{$location->installed_screens}}
+                {{$location->screens()->count()}}/{{$location->installed_screens}}
             </td>
 
             <td>
