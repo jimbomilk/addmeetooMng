@@ -87,7 +87,7 @@ class SendScreen extends Command
                     $job->onQueue('bigpack');
                     $this->dispatch($job);
                     if ($job->duration > 0)
-                        $delay = $delay + ($job->duration*60);
+                        $delay = $delay + $job->duration;
                     else
                         $delay = $delay + $delay_screen;
 

@@ -26,7 +26,7 @@ class MessageRequest extends Request {
             'start'  => 'required',
             'end'  => 'required|after:start',
             'file.image' => 'mimes:jpeg,bmp,png',
-            'duration' => 'digits_between:0,1'
+            'duration' => 'digits_between:0,3'
 		];
 	}
 
@@ -37,7 +37,7 @@ class MessageRequest extends Request {
             'end.required'  => 'La hora de inicio del mensaje es obligatoria',
             'start.date_format' => 'El formato de la fecha de inicio es incorrecto',
             'end.date_format' => 'El formato de la fecha de fin es incorrecto',
-            'duration.digits_between' => 'La duración debe estar comprendida entre 0 y 9 minutos'
+            'duration.digits_between' => 'La duración debe estar comprendida entre 0 y 999 segundos'
         ];
     }
 
