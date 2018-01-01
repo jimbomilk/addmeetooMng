@@ -38,9 +38,10 @@ class AdminController extends Controller
         $users = Auth::user()->locationUsers()->count();
         $locations = Auth::user()->locations();
         $participationChart = UserGameboard::getParticipationByDate($locations);
+        $installedScreens = Auth::user()->locationInstalledScreens();
+        $activeScreens = Auth::user()->locationActiveScreens();
 
-
-		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences,'ads'=>$ads,'messages'=>$messages]);
+		return view('admin.dashboard.main',['activityNumber'=>$activityNumber,'participantNumber'=>$participantNumber,'users'=>$users,'participationChart'=>$participationChart,'incidences'=>$incidences,'ads'=>$ads,'messages'=>$messages,'installedScreens'=>$installedScreens,'activeScreens'=>$activeScreens]);
     }
 
     /**

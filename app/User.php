@@ -73,6 +73,33 @@ class User extends Authenticatable
     }
 
 
+    public function locationInstalledScreens()
+    {
+        if ($this->type == 'admin')
+            $locations = Location::all();
+        else
+            $locations =  $this->hasMany('App\Location','owner_id','id')->get();
+
+        $nscreens = 0;
+        foreach ($locations as $location)
+            $nscreens += $location->installed_screens;
+
+        return $nscreens;
+    }
+
+    public function locationActiveScreens()
+    {
+        if ($this->type == 'admin')
+            $locations = Location::all();
+        else
+            $locations =  $this->hasMany('App\Location','owner_id','id')->get();
+
+        $nscreens = 0;
+        foreach ($locations as $location)
+            $nscreens += $location->screens()->count();
+
+        return $nscreens;
+    }
 
     public function gameboards()
     {
